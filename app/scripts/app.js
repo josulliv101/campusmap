@@ -27,7 +27,7 @@ define([
         // The settings eventually turn into the Truth (the definitive App state)
         this.theSettings = _.defaults(settings, defaults);
 
-        this.controller = new AppController();
+        this.controller = new AppController(Config, DomManager, 'router');
 
     }
     
@@ -44,15 +44,17 @@ define([
 
             .fail(Config.throwError.appInit);
 
+        return this;
+        
     };
 
     App.prototype.start = function(data) {
 
-        // The truth is born -- app config settings, passed-in settings, and settings from fetched data all are now combine.
-        var theTruth = _.defaults(this.theSettings, data);
+        // The truth is born (almost) -- app config settings, passed-in settings, and settings from fetched data all are now combined.
+        var almostTheTruth = _.defaults(this.theSettings, data);
 
         // Data may contain some attributes appropriate for settings (i.e. default map)
-        this.controller.startRouter(theTruth);
+        this.controller.startRouter(almostTheTruth);
 
     };
 

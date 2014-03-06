@@ -68,6 +68,8 @@ define([
 
             appInit: function() { throw new Error('Error initializing App.'); },
 
+            appControllerInit: function() { throw new Error('Error initializing AppController.'); },
+
             strategyCreation: function() { throw new Error('Strategy requires an id and type'); }
             
         }
