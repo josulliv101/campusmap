@@ -1,0 +1,12 @@
+.project
+*.sublime-project
+*.sublime-workspace
+_SpecRunner.html
+.metadata
+bin/
+tmp/
+*.tmp
+.sass-cache/*/main.scssc
+node_modules
+bower_components
+.grunt
