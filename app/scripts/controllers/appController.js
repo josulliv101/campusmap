@@ -6,16 +6,6 @@ define([
 
     , 'eventdispatcher'
 
-    //, 'scripts/domManager'
-
-/*    , 'scripts/router'
-
-    , 'datastore'
-
-    , 'scripts/controllers/appControllerEventHandlers'
-
-    , 'eventdispatcher'*/
-
 ], function(_, Backbone, EventDispatcher) {
 
     'use strict';
@@ -38,12 +28,12 @@ define([
 
         Router = router;
 
-        _.bindAll(this, 'handleTruthChange', 'setTheTruth'); // , 'dispatchVizTruth', 'dispatchTruth' , 
+        _.bindAll(this, 'handleTruthChange', 'setTheTruth',  'transformRawTruthChange'); // , 'dispatchVizTruth', 'dispatchTruth' , 
 
 
         //_.extend(this, options);
 
-        // An empty model -- no attributes yet
+        // An empty model -- no attri butes yet
         this.theTruth = new Backbone.Model(); //Datastore.Factory.model();
 
         //this.router = Router.init();
@@ -81,7 +71,7 @@ define([
         ));
 
         // Handling of Truth changes
-        EventDispatcher.listenTo(theTruth, 'change', this.handleTruthChange);
+        //EventDispatcher.listenTo(theTruth, 'change', this.handleTruthChange);
 
         return this;
 
