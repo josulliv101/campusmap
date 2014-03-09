@@ -15,20 +15,21 @@ define([
 
       spyOn(AppController.prototype, 'trigger').andCallThrough();
 
-      
+      spyOn(AppController.prototype, 'transformRawTruthChange').andCallThrough();
+
 
 /*
       spyOn(AppController.prototype, 'init');
 
       spyOn(AppController.prototype, 'getData');
 
-      
-
       spyOn(AppController.prototype, 'handleTruthChange');
 
       // Return a fake router with some fake settings 
       spyOn(AppController.prototype, 'startRouter').andReturn({ settings: { campusid: 'grafton', vizpath: 'googlemap' }});
+
 */
+
       controller = new AppController({}, {}, {});
       
     });
@@ -95,15 +96,28 @@ define([
 
       });
 
-      it('handles any changes to the Truth', function () {
+      it('handles any changes to the Truth by clearing, transforming and setting the Truth.', function () {
 
         controller.init();
 
-        //spyOn(controller, 'handleTruthChange').andCallThrough();
-
         controller.trigger('truthupdate', { fakeAttr: true });
 
-        //expect( controller.handleTruthChange ).toHaveBeenCalled();
+        expect( AppController.prototype.transformRawTruthChange ).toHaveBeenCalled();
+
+        expect( AppController.prototype.setTheTruth ).toHaveBeenCalled();
+
+      });
+
+      it('clears the Truth', function () {
+
+        controller.init();
+
+        // Set the Truth
+        controller.trigger('truthupdate', { fakeAttr: true });
+
+        controller.clearTruth();
+
+debugger;
 
       });
 
