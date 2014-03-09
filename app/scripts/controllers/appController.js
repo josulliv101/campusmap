@@ -10,30 +10,17 @@ define([
 
     'use strict';
 
-    //// Private ////
-    
-    var Config, Datastore, DomManager, Router;
-
     // using
-    _, Datastore;
+    _;
 
-    function AppController(config, domManager, router) {
-
-        // Config, DomManager & Router passed-in instead of injected dependencies for easier overriding of methods in testing.
-        if (!config || !domManager || !router) throw new Error('Error initializing AppController.');
-
-        Config = config;
-
-        DomManager = domManager;
-
-        Router = router;
+    function AppController() {
 
         _.bindAll(this, 'handleTruthChange', 'setTheTruth',  'transformRawTruthChange'); // , 'dispatchVizTruth', 'dispatchTruth' , 
 
 
         //_.extend(this, options);
 
-        // An empty model -- no attri butes yet
+        // An empty model -- no attributes yet
         this.theTruth = new Backbone.Model(); //Datastore.Factory.model();
 
         //this.router = Router.init();
@@ -50,80 +37,65 @@ define([
 
         //this.attrChangeDispatch  = _.dispatch.apply(this, handlers.getHandlers());
 
-        AppController.prototype.handleTruthChange = _.compose(
-
-                this.clearTruth
-
-            );
-
-
         //// Add App-level Event Listeners ////
 
         // Incoming Truth changes
-        theTruth.listenTo(EventDispatcher, 'truthupdate', _.compose(
+        theTruth.listenTo(EventDispatcher, 'truthupdate', this.setTheTruth);
 
-            this.setTheTruth,
-
-            this.transformRawTruthChange,
-
-            this.clearTruth
-
-        ));
-
-        // Handling of Truth changes
-        //EventDispatcher.listenTo(theTruth, 'change', this.handleTruthChange);
+        // Handling of Truth changes, then Truth delegation to Component-level controllers
+        EventDispatcher.listenTo(theTruth, 'change', this.handleTruthChange);
 
         return this;
 
     };
 
+    // Always use 'set' to update the model's truth. This ensures that the changedAttributes method is always accurate.
     AppController.prototype.setTheTruth = function(changedAttrs, options) {
-
-        var theTruth = this.theTruth;
 
         options || (options =  {});
 
-        if (arguments.length === 2) changedAttrs = _.toArray(changedAttrs);
-
         // Gets cleared when router handles route -- needed for Back Button integration.
-        //if (options.clear === true) theTruth.clear({ silent: true });
-
-        //this.validateTheTruth(changedAttrs);
+        if (options.clear === true) this.theTruth.clear({ silent: true });
         
-        //this.transformRawTruthChange(changedAttrs);
+        // Preprocess changed attributes -- acts as insertion point for attr tweaks
+        changedAttrs = this.transformRawTruthChange(changedAttrs);
 
         // Forward on params. Handy for { silent: true } option
-        theTruth.set.apply(theTruth, changedAttrs);
-
-        return changedAttrs;
+        this.theTruth.set(changedAttrs, options);
 
     };
 
-    // Always use 'set' to update the model's truth. This ensures that the changedAttributes method is always accurate.
-    AppController.prototype.handleTruthChange = function() {};
+    AppController.prototype.handleTruthChange = function(model) { 
 
-    AppController.prototype.clearTruth = function(changedAttrs, options) { 
+        var changed = model.changedAttributes(),
+        
+            previous = model.previousAttributes();
 
-        options || (options = {});
+        // Nothings changed, cancel
+        if (_.isEmpty(changed)) return;
 
-        if (options.clear === true) this.theTruth.clear({ silent: true }); 
+        // Handle each changed attribute in the most appropriate manner, determined by dispatch function
+        _.each(changed, function(val, key) { 
 
-        return [changedAttrs, options];
+            val; key; //this.attrChangeDispatch(model, val, key); 
+
+        }, this);
+
+        // The Truth changes get sent to Component-level controllers for further handling
+        EventDispatcher.trigger('delegateTruth', changed, previous);
+
+        // Have router listen and do query string updates
+
+    };
+
+    AppController.prototype.transformRawTruthChange = function(changedAttrs) {
+
+        return changedAttrs;
 
     };
 
     // Makes testing a bit easier to having AppController be able to dispatch events too
     AppController.prototype.trigger = _.bind(EventDispatcher.trigger, EventDispatcher);
-
-    AppController.prototype.transformRawTruthChange = function(changedAttrs, options) {
-
-        options || (options =  {});
-
-        if (arguments.length === 2) changedAttrs = _.toArray(changedAttrs);
-
-        return changedAttrs;
-
-    };
 
     return AppController;
 

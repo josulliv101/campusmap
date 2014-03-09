@@ -48,7 +48,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'dist/campusmaps.min.js'
+        dest: 'dist/campusmap.min.js'
       }
     },
     jasmine: {
@@ -131,7 +131,7 @@ module.exports = function (grunt) {
               // rewrite requirejs to the compiled version
               function (req, res, next) {
                 if (req.url === '/bower_components/requirejs/require.js') {
-                  req.url = '/dist/campusmaps.min.js';
+                  req.url = '/dist/campusmap.min.js';
                 }
                 next();
               },

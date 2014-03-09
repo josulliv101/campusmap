@@ -9,6 +9,8 @@ define([
 
     , 'scripts/controllers/appController'
 
+    //, 'datastore'
+
     , 'scripts/domManager'
 
 ], function($, _, Config, AppController, DomManager) {

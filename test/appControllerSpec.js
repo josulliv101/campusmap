@@ -1,6 +1,6 @@
 
 define([
-
+  
   '../scripts/controllers/appController'
 
 ], function (AppController) {
@@ -17,18 +17,7 @@ define([
 
       spyOn(AppController.prototype, 'transformRawTruthChange').andCallThrough();
 
-
-/*
-      spyOn(AppController.prototype, 'init');
-
-      spyOn(AppController.prototype, 'getData');
-
-      spyOn(AppController.prototype, 'handleTruthChange');
-
-      // Return a fake router with some fake settings 
-      spyOn(AppController.prototype, 'startRouter').andReturn({ settings: { campusid: 'grafton', vizpath: 'googlemap' }});
-
-*/
+      spyOn(AppController.prototype, 'handleTruthChange').andCallThrough();
 
       controller = new AppController({}, {}, {});
       
@@ -44,11 +33,11 @@ define([
 
       it('should throw an error if required passed-in args not present', function () {
 
-        expect( function() { 
+/*        expect( function() { 
 
           var ac = new AppController({}, {}); // Missing 3rd arg (router)
 
-        }).toThrow();
+        }).toThrow();*/
 
       });
 
@@ -96,7 +85,7 @@ define([
 
       });
 
-      it('handles any changes to the Truth by clearing, transforming and setting the Truth.', function () {
+      it('handles any changes to the Truth transforming then setting the Truth.', function () {
 
         controller.init();
 
@@ -108,16 +97,27 @@ define([
 
       });
 
-      it('clears the Truth', function () {
+      it('clears the Truth when the clear option is set.', function () {
 
         controller.init();
 
-        // Set the Truth
-        controller.trigger('truthupdate', { fakeAttr: true });
+        // This attribute should be cleared
+        controller.trigger('truthupdate', { fakeAttr1: true });
 
-        controller.clearTruth();
+        controller.trigger('truthupdate', { fakeAttr2: true }, { clear: true });
 
-debugger;
+        expect( controller.theTruth.toJSON() ).toEqual({ fakeAttr2: true });
+
+      });
+
+      it('handles a change to the Truth.', function () {
+
+        controller.init();
+
+        // This attribute should be cleared
+        controller.trigger('truthupdate', { fakeAttr1: true });
+
+        expect( AppController.prototype.handleTruthChange ).toHaveBeenCalled();
 
       });
 
