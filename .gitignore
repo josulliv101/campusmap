@@ -10,3 +10,7 @@ tmp/
 node_modules
 bower_components
 .grunt
+
+dist/campusmap.js
+
+dist/campusmaps.min.js
