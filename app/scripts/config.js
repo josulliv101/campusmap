@@ -20,6 +20,12 @@ define([
                     base: icon_base,
 
                     map: icon_base + 'map/'
+                },
+
+                data: {
+
+                    jsonp: './app/data/data.json'
+
                 }
 
             }

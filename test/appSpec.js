@@ -91,8 +91,8 @@ define([
 
 function FakeController() {}
 
-FakeController.prototype.init = function() {}
+FakeController.prototype.init = function() {};
 
-FakeController.prototype.getData = function() { return { campus: 'medford' }; }
+FakeController.prototype.getData = function() { return { campus: 'medford' }; };
 
-FakeController.prototype.startRouter = function(settings) { return settings; }
+FakeController.prototype.startRouter = function(settings) { return settings; };

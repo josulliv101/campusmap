@@ -9,11 +9,11 @@ define([
 
     , 'scripts/controllers/appController'
 
-    //, 'datastore'
+    , 'datastore'
 
     , 'scripts/domManager'
 
-], function($, _, Config, AppController, DomManager) {
+], function($, _, Config, AppController, Datastore, DomManager) {
 
 
     'use strict';
@@ -29,7 +29,7 @@ define([
         // The settings eventually turn into the Truth (the definitive App state)
         this.theSettings = _.defaults(settings, defaults);
 
-        this.controller = new AppController(Config, DomManager, 'router');
+        this.controller = new AppController(Datastore);
 
     }
     

@@ -68,9 +68,9 @@
 
             'parsecom': 'http://www.parsecdn.com/js/parse-1.2.9.min',
 
-            'datastore': './scripts/services/data/datastore-parse-com', // datastore-injected datastore-jsonp datastore-parse-com
+            'datastore': './scripts/datastore/datastore-jsonp', // datastore-injected datastore-jsonp datastore-parse-com
 
-            'datainterface': './scripts/services/data/interface',
+            'datainterface': './scripts/datastore/datastore-interface',
 
             'datamodel': './data/data-static',
 

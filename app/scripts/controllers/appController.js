@@ -13,10 +13,11 @@ define([
     // using
     _;
 
-    function AppController() {
+    function AppController(datastore) {
 
         _.bindAll(this, 'handleTruthChange', 'setTheTruth',  'transformRawTruthChange'); // , 'dispatchVizTruth', 'dispatchTruth' , 
 
+        this.datastore = datastore;
 
         //_.extend(this, options);
 
@@ -93,6 +94,27 @@ define([
         return changedAttrs;
 
     };
+
+    AppController.prototype.getData = function() {
+
+        return this.datastore.fetch();
+
+    }
+
+    AppController.prototype.startRouter = function(settings) {
+
+        // Ensure there's a campus & campusmap selected
+        Datastore.campus();
+
+        Datastore.map();
+
+        this.router.settings = settings;
+
+        Router.start();
+
+        return this.router;
+
+    }
 
     // Makes testing a bit easier to having AppController be able to dispatch events too
     AppController.prototype.trigger = _.bind(EventDispatcher.trigger, EventDispatcher);
