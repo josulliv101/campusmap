@@ -1,6 +1,6 @@
 {
   "curly": false,
-  "es5": true,
+  "es5": false,
   "expr": true,
   "eqeqeq": true,
   "immed": true,

@@ -18,24 +18,24 @@ define([
 
         initialize: function(campusList) {
 
-        	var campusList_ = campusList;
+            var campusList_ = campusList;
 
-        	// Return the functions that make up the interface
-        	return {
+            // Return the functions that make up the interface
+            return {
 
-        		// All campuses as a <Collection>
-        		getCampusList: function() { return campusList_; },
+                // All campuses as a <Collection>
+                getCampusList: function() { return campusList_; },
 
-        		// Get the first campus
-        		getCampus: _.bind(function() { return _.first(this); }, campusList.models),
+                // Get the first campus
+                getCampus: _.bind(function() { return _.first(this); }, campusList.models),
 
-        		// Expect implementing Object to override this function
-        		fetch: function() { return campusList; }
+                // Expect implementing Object to override this function
+                fetch: function() { return campusList; }
 
-        	}
+            };
 
         }
 
-    }
+    };
 
 });

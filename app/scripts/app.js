@@ -9,11 +9,13 @@ define([
 
     , 'scripts/controllers/appController'
 
+    , 'scripts/router'
+
     , 'datastore'
 
     , 'scripts/domManager'
 
-], function($, _, Config, AppController, Datastore, DomManager) {
+], function($, _, Config, AppController, Router, Datastore, DomManager) {
 
 
     'use strict';
@@ -53,10 +55,15 @@ define([
     App.prototype.start = function(data) {
 
         // The truth is born (almost) -- app config settings, passed-in settings, and settings from fetched data all are now combined.
-        var almostTheTruth = _.defaults(this.theSettings, data);
+        var settings = _.defaults(this.theSettings, data), 
+
+            router = new Router({ settings: settings });
+
+        // Parse route and add attributes to settings
+        router.start();
 
         // Data may contain some attributes appropriate for settings (i.e. default map)
-        this.controller.startRouter(almostTheTruth);
+        //this.controller.startRouter(almostTheTruth);
 
     };
 

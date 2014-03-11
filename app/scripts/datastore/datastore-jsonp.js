@@ -49,6 +49,9 @@ define([
 
                 //maps_.add(DataInterface.utils.createMapList(campuses_), { silent: true });
 
+                // Using
+                campuses; data;
+
                 dfd.resolve({ deferred: 'defaults go here' });
 
             },
@@ -61,7 +64,8 @@ define([
             
         });
 
-        return dfd.promise(); 
+        return dfd.promise();
+        
     }
 
     //// Public ////
