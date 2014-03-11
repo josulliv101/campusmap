@@ -31,7 +31,7 @@ define([
         // The settings eventually turn into the Truth
         this.settings = _.defaults(settings, defaults);
 
-        this.controller = new AppController(Datastore).init();
+        this.controller = new AppController().init();
 
     }
     

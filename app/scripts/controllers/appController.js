@@ -4,27 +4,23 @@ define([
 
     , 'backbone'
 
+    , 'datastore'
+
     , 'eventdispatcher'
 
-], function(_, Backbone, EventDispatcher) {
+], function(_, Backbone, Datastore, EventDispatcher) {
 
     'use strict';
 
     // using
     _;
 
-    function AppController(truth) {
+    function AppController() {
 
         _.bindAll(this, 'handleTruthChange', 'setTheTruth',  'transformRawTruthChange'); // , 'dispatchVizTruth', 'dispatchTruth' , 
 
-        //_.extend(this, options);
-
         // An empty model -- no attributes yet
-        this.theTruth = truth; //Datastore.Factory.model();
-
-        //this.router = Router.init();
-
-        //console.log('Datastore this', Datastore);
+        this.theTruth = Datastore.factory.model();
 
     }
 

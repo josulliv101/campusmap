@@ -68,8 +68,14 @@ define([
         
     }
 
+    function model_(options) {
+
+        return new Backbone.Model(options);
+
+    }
+
     //// Public ////
 
-    return _.extend(fns_, { fetch: fetch_ });
+    return _.extend(fns_, { fetch: fetch_, factory: { model: model_ } });
 
 });
