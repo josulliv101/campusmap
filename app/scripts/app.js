@@ -28,22 +28,19 @@ define([
         // A root DOM element is required
         el && el.nodeType ? DomManager.setAppRoot(el) : Config.throwError.appInit();
 
-        // The settings eventually turn into the Truth (the definitive App state)
-        this.theSettings = _.defaults(settings, defaults);
+        // The settings eventually turn into the Truth
+        this.settings = _.defaults(settings, defaults);
 
-        this.controller = new AppController(Datastore);
+        this.controller = new AppController(Datastore).init();
 
     }
     
     // A manual init call makes for nice insertion point for spies when testing
     App.prototype.init = function() {
 
-        this.controller.init();
+        // Grab the data, then begin.
+        $.when( this.fetch() )
 
-        // Controller has reference to a Data Service module that defines how to fetch data.
-        $.when( this.controller.getData() )
-
-            // Kick off the application
             .done(this.start)
 
             .fail(Config.throwError.appInit);
@@ -55,17 +52,14 @@ define([
     App.prototype.start = function(data) {
 
         // The truth is born (almost) -- app config settings, passed-in settings, and settings from fetched data all are now combined.
-        var settings = _.defaults(this.theSettings, data), 
-
-            router = new Router({ settings: settings });
+        var settings = _.defaults(this.settings, data);
 
         // Parse route and add attributes to settings
-        router.start();
-
-        // Data may contain some attributes appropriate for settings (i.e. default map)
-        //this.controller.startRouter(almostTheTruth);
+        new Router( { settings: settings } ).start();
 
     };
+
+    App.prototype.fetch = _.bind(Datastore.fetch, Datastore); // Nice to have when testing
 
     return App;
 

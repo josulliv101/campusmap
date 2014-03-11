@@ -13,16 +13,14 @@ define([
     // using
     _;
 
-    function AppController(datastore) {
+    function AppController(truth) {
 
         _.bindAll(this, 'handleTruthChange', 'setTheTruth',  'transformRawTruthChange'); // , 'dispatchVizTruth', 'dispatchTruth' , 
-
-        this.datastore = datastore;
 
         //_.extend(this, options);
 
         // An empty model -- no attributes yet
-        this.theTruth = new Backbone.Model(); //Datastore.Factory.model();
+        this.theTruth = truth; //Datastore.Factory.model();
 
         //this.router = Router.init();
 
@@ -95,14 +93,9 @@ define([
 
     };
 
-    AppController.prototype.getData = function() {
-
-        return this.datastore.fetch();
-
-    };
-
     // Makes testing a bit easier to having AppController be able to dispatch events too
     AppController.prototype.trigger = _.bind(EventDispatcher.trigger, EventDispatcher);
+
 
     return AppController;
 

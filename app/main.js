@@ -9,15 +9,21 @@
         shim: {
 
             jquery: {
+
                 exports: '$'
+
             },
 
             underscore: {
+
                 exports: '_'
+
             },
 
             _mixins: {
+
                 deps: ['underscore']
+                
             },
 
             backbone: {

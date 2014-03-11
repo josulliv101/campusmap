@@ -15,7 +15,7 @@ define([
 
       spyOn(App.prototype, 'start');
 
-      //spyOn(FakeController.prototype, 'startRouter');
+      spyOn(App.prototype, 'fetch').andReturn({ campus: 'medford' });
 
       app = new App(el, { fakeSettings: true }, { fakeConfigSettings: true });
 
@@ -75,16 +75,6 @@ define([
 
       });
 
-/*
-      it('should start the router with overridden settings', function () {
-
-        app.init();
-
-        expect( FakeController.prototype.startRouter ).toHaveBeenCalledWith({ fakeSettings : true, fakeConfigSettings : true, campus : 'medford' });
-
-      });
-*/
-
     });
 
   });
@@ -95,6 +85,3 @@ function FakeController() {}
 
 FakeController.prototype.init = function() {};
 
-FakeController.prototype.getData = function() { return { campus: 'medford' }; };
-
-FakeController.prototype.startRouter = function(settings) { return settings; };
