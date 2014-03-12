@@ -6,11 +6,11 @@ define([
 
     , 'datastore'
 
-    , 'strategies/appHandleTruth'
+    , 'strategies/handleTruthChange'
 
     , 'eventdispatcher'
 
-], function(_, Backbone, Datastore, AppHandleTruth, EventDispatcher) {
+], function(_, Backbone, Datastore, StrategyTruthChange, EventDispatcher) {
 
     'use strict';
 
@@ -25,7 +25,7 @@ define([
     }
 
     AppController.prototype.init = function() {
-debugger;
+
         var theTruth = this.theTruth;
 
         //var handlers = new AppControllerEventHandlers(AppController, this);
@@ -72,7 +72,7 @@ debugger;
         // Handle each changed attribute in the most appropriate manner, determined by dispatch function
         _.each(changed, function(val, key) { 
 
-            val; key; //this.attrChangeDispatch(model, val, key); 
+            //StrategyTruthChange.dispatch(model, val, key);
 
         }, this);
 
