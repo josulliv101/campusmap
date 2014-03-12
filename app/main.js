@@ -86,10 +86,6 @@
 
             'strategies': './scripts/strategies',
 
-            'map': './scripts/services/map/leaflet', // leaflet googlemap directory
-
-            'leaflet': './scripts/services/map/leaflet',
-
             'googlemap': './scripts/services/map/googlemap',
 
             'directory': './scripts/services/map/directory',
