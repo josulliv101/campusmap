@@ -56,7 +56,7 @@
             'underscore': '../bower_components/lodash/dist/lodash', 
             // lodash/dist/lodash || underscore/underscore
 
-            '_mixins': './scripts/_mixins',
+            '_mixins': './scripts/underscore.mixins',
 
             'app': './scripts/app',
 

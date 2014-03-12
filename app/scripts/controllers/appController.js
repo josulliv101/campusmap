@@ -6,14 +6,14 @@ define([
 
     , 'datastore'
 
+    , 'strategies/appHandleTruth'
+
     , 'eventdispatcher'
 
-], function(_, Backbone, Datastore, EventDispatcher) {
+], function(_, Backbone, Datastore, AppHandleTruth, EventDispatcher) {
 
     'use strict';
 
-    // using
-    _;
 
     function AppController() {
 
@@ -25,7 +25,7 @@ define([
     }
 
     AppController.prototype.init = function() {
-
+debugger;
         var theTruth = this.theTruth;
 
         //var handlers = new AppControllerEventHandlers(AppController, this);
