@@ -60,16 +60,6 @@ define([
 
         },
 
-        search: {
-
-            details: {
-
-                nav: [{ order: 1, id: 'details' }, { order: 2, id: 'photo' }, { order: 3, id: 'offices' }, { order: 4, id: 'directions' }]
-
-            }
-
-        },
-
         throwError: {
 
             appInit: function() { throw new Error('Error initializing App.'); },

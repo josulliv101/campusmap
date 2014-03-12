@@ -14,6 +14,7 @@ define([
 
     function Strategy() {}
 
+    // Add/remove a css flag set on the app root DOM element
     Strategy.prototype.addCssFlag = function(model, val, key, classname) {
 
         // Use the key as the classname if none is provided
@@ -25,6 +26,7 @@ define([
 
     Strategy.prototype.dispatch = _.dispatch.apply(null,  
 
+        // Map each attribute to a function which adds/removes the css flag
         _.map(cssFlags, function(classname) {
 
             return _.wrap(Strategy.prototype.addCssFlag, function(fn, model, val, key) { 

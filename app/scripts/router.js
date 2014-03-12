@@ -10,9 +10,7 @@ define([
 ], function(_, Backbone, EventDispatcher) {
 
     'use strict';
-
-    // Using
-    _; EventDispatcher;
+    
 
     var AppRouter = Backbone.Router.extend({
 

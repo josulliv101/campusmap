@@ -14,8 +14,6 @@ define([
 
 ], function ($, _) { 
 
-    // Using
-    $;
 
     //// Constructor ////
     
