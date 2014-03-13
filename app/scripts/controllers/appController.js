@@ -6,11 +6,13 @@ define([
 
     , 'datastore'
 
-    , 'strategies/handleTruthChange'
+    , 'strategies/CssFlagStrategy'
+
+    , 'strategies/DataTypeStrategy'
 
     , 'eventdispatcher'
 
-], function(_, Backbone, Datastore, StrategyTruthChange, EventDispatcher) {
+], function(_, Backbone, Datastore, CssFlagStrategy, DataTypeStrategy, EventDispatcher) {
 
     'use strict';
 
@@ -22,23 +24,20 @@ define([
         // An empty model -- no attributes yet
         this.theTruth = Datastore.factory.model();
 
+        this.cssFlagStrategy = new CssFlagStrategy();
+
+        this.dataTypeStrategy = new DataTypeStrategy();
+
     }
 
+    // Add App-level Event Listeners
     AppController.prototype.init = function() {
 
-        var theTruth = this.theTruth;
-
-        //var handlers = new AppControllerEventHandlers(AppController, this);
-
-        //this.attrChangeDispatch  = _.dispatch.apply(this, handlers.getHandlers());
-
-        //// Add App-level Event Listeners ////
-
         // Incoming Truth changes
-        theTruth.listenTo(EventDispatcher, 'truthupdate', this.setTheTruth);
+        this.theTruth.listenTo(EventDispatcher, 'truthupdate', this.setTheTruth);
 
         // Handling of Truth changes, then Truth delegation to Component-level controllers
-        EventDispatcher.listenTo(theTruth, 'change', this.handleTruthChange);
+        EventDispatcher.listenTo(this.theTruth, 'change', this.handleTruthChange);
 
         return this;
 
@@ -53,7 +52,12 @@ define([
         if (options.clear === true) this.theTruth.clear({ silent: true });
         
         // Preprocess changed attributes -- acts as insertion point for attr tweaks
-        changedAttrs = this.transformRawTruthChange(changedAttrs);
+        _.each(changedAttrs, function(val, key) { 
+
+            // Update DOM with appropriate css flags -- on root element of app
+            this.dataTypeStrategy.dispatch(this.theTruth, val, key);
+
+        }, this);
 
         // Forward on params. Handy for { silent: true } option
         this.theTruth.set(changedAttrs, options);
@@ -72,7 +76,8 @@ define([
         // Handle each changed attribute in the most appropriate manner, determined by dispatch function
         _.each(changed, function(val, key) { 
 
-            //StrategyTruthChange.dispatch(model, val, key);
+            // Update DOM with appropriate css flags -- on root element of app
+            this.cssFlagStrategy.dispatch(model, val, key);
 
         }, this);
 

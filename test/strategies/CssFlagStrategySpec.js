@@ -1,7 +1,7 @@
 
 define([
 
-  'strategies/handleTruthChange'
+  'strategies/CssFlagStrategy'
 
 ], function (Strategy) {
 
@@ -25,6 +25,14 @@ define([
     });
 
     describe('CSS Flags', function () {
+
+      it('ignores a change that does not match a white-listed attribute', function () {
+
+        strategy.dispatch({}, true, 'mychange');
+
+        expect( Strategy.prototype.cssFlag ).not.toHaveBeenCalled();
+
+      });
 
       it('handles a change in satellite mode', function () {
 

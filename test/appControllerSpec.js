@@ -15,7 +15,7 @@ define([
 
       spyOn(AppController.prototype, 'trigger').andCallThrough();
 
-      spyOn(AppController.prototype, 'transformRawTruthChange').andCallThrough();
+      //spyOn(AppController.prototype, 'transformRawTruthChange').andCallThrough();
 
       spyOn(AppController.prototype, 'handleTruthChange').andCallThrough();
 
@@ -91,7 +91,7 @@ define([
 
         controller.trigger('truthupdate', { fakeAttr: true });
 
-        expect( AppController.prototype.transformRawTruthChange ).toHaveBeenCalled();
+        //expect( AppController.prototype.transformRawTruthChange ).toHaveBeenCalled();
 
         expect( AppController.prototype.setTheTruth ).toHaveBeenCalled();
 
