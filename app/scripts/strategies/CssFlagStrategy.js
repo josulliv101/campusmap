@@ -10,7 +10,7 @@ define([
 
     'use strict';
 
-    var cssFlags = ['satellite', 'panel-animations', 'large-labels', 'high-contrast-labels'];
+    var cssFlags = ['satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted'];
 
     function CssFlagStrategy() {
 

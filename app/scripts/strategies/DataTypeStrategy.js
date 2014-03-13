@@ -15,7 +15,7 @@ define([
 
     }
 
-    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key) {
+    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore) {
 
         if (val !== 'true' && val !== 'false') return;
 
@@ -23,7 +23,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.stringToInteger = function(model, val, key) {
+    DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore) {
 
         // Includes negative integers
         if (!_.isString(val) || val.match(/^-?\d+$/) === null) return;
@@ -32,11 +32,53 @@ define([
 
     };
 
+    DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore) {
+
+        var match;
+
+        if (!_.isString(val)) return;
+
+        match = val.match(/^\s*(\-?\d+\.?(?:\d+)?),\s*(\-?\d+\.?(?:\d+)?)\s*$/);
+
+        if (match === null || match.length !== 3) return;
+
+        return  val = { lat: match[1], lng: match[2]};
+
+    };
+
+    // Incrementing/decrementing zoom level (+, -)
+    DataTypeStrategy.prototype.zoomToInteger = function(model, val, key, Datastore) {
+
+        var z;
+
+        if (key !== 'zoom' || (val !== '+' && val !== '-')) return;
+
+        z = model.zoom;
+
+        return  val = val === '+' ? ++z : --z;
+
+    };
+
+    // Convert location string ids to object references
+    DataTypeStrategy.prototype.idsToObjects = function(model, val, key, Datastore) {
+
+        if (key !== 'details' && !_.isString(val)) return;
+
+        return  val = Datastore.getLocationById(val);
+
+    };
+
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 
         DataTypeStrategy.prototype.stringToBoolean,
 
-        DataTypeStrategy.prototype.stringToInteger
+        DataTypeStrategy.prototype.stringToInteger,
+
+        DataTypeStrategy.prototype.stringToLatLng,
+
+        DataTypeStrategy.prototype.zoomToInteger,
+
+        DataTypeStrategy.prototype.idsToObjects
 
     );
 

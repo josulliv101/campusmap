@@ -55,7 +55,7 @@ define([
         _.each(changedAttrs, function(val, key) { 
 
             // Update DOM with appropriate css flags -- on root element of app
-            this.dataTypeStrategy.dispatch(this.theTruth, val, key);
+            this.dataTypeStrategy.dispatch(this.theTruth, val, key, Datastore);
 
         }, this);
 

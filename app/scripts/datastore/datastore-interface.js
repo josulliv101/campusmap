@@ -30,7 +30,9 @@ define([
                 getCampus: _.bind(function() { return _.first(this); }, campusList.models),
 
                 // Expect implementing Object to override this function
-                fetch: function() { return campusList; }
+                fetch: function() { return campusList; },
+
+                getLocationById: function() { return { id: 'myloc' }; }
 
             };
 
