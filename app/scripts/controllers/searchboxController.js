@@ -4,16 +4,18 @@ define([
 
     , 'underscore'
 
-    , 'scripts/panelManager'
-
     , 'eventdispatcher'
 
-], function($, _, PanelManager, EventDispatcher) {
+], function($, _, EventDispatcher) {
 
     'use strict';
 
 
-    function SearchboxController(searchboxview, AnimationConstructor) {
+    function SearchboxController(PanelManager) {
+
+        _.bindAll(this, 'handleTruthChange');
+
+        this.PM = PanelManager;
 
         EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
@@ -23,7 +25,8 @@ define([
 
         if (!changedAttributes.panels) return;
 
-
+        // First, close any open panels
+        $.when( this.PM.closePanels() ).done( this.PM.openPanels )
 
     };
 

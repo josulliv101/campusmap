@@ -36,6 +36,18 @@ define([
 
     };
 
+    PanelManager.prototype.closePanels = function() {
+
+        return '';
+
+    };
+
+    PanelManager.prototype.openPanels = function() {
+
+        return '';
+
+    };
+
     return new PanelManager();
 
 });

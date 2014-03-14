@@ -1,7 +1,7 @@
 
 define([
   
-  '../scripts/controllers/appController'
+  '../../scripts/controllers/appController'
 
 ], function (AppController) {
 

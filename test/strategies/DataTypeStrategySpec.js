@@ -9,7 +9,7 @@ define([
 
   describe('Strategy for Transforming Raw Truth Tests', function () {
 
-    var strategy, DS, PM, PM;
+    var strategy, DS, PM;
 
     beforeEach(function() {
 
@@ -214,7 +214,7 @@ define([
 
         var val;
 
-        val = strategy.dispatch({}, 'p', 'panels', DS, PM);
+        val = strategy.dispatch({}, 'p1,p2', 'panels', DS, PM);
 
         expect( val ).toEqual([{ id: 'p1' }, { id: 'p2' }]);
 
@@ -225,17 +225,3 @@ define([
   });
 
 });
-
-function FakeDatastore() {}
-
-FakeDatastore.prototype.getLocationById = function(id) { return { id: id }; };
-
-function FakePanelManager() {}
-
-FakePanelManager.prototype.getPanelsById = function(ids) { 
-debugger;
-  var ids = ids.split(',');
-
-  return _.map(ids, function(id) { return { id: id }; }); 
-
-};

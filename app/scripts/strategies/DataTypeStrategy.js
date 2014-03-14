@@ -62,7 +62,7 @@ define([
     // Convert location string ids to object references
     DataTypeStrategy.prototype.locationIdsToObjects = function(model, val, key, Datastore, PanelManager) {
 
-        if (key !== 'details' && !_.isString(val)) return;
+        if (key !== 'details' || !_.isString(val)) return;
 
         return  val = Datastore.getLocationById(val);
 
