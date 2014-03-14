@@ -4,24 +4,25 @@ define([
 
     , 'underscore'
 
-    , 'scripts/views/panels/base'
+    , 'datastore'
 
-], function ($, _, BaseView) { 
+    , 'scripts/views/panels/Base'
 
+], function ($, _, Datastore, BaseView) { 
+
+    var Transition = {};
 
     //// Constructor ////
     
     function PanelManager() {
 
-        this.panels = [
+        this.panels = [];
 
-            new BaseView({ id: 'panel1' }),
+        this.createPanel('panel1');
 
-            new BaseView({ id: 'panel2' }),
+        this.createPanel('panel2');
 
-            new BaseView({ id: 'panel3' })
-
-        ];
+        this.createPanel('panel3');
 
     }
 
@@ -32,19 +33,51 @@ define([
 
         var ids = ids.split(',');
 
-        return _.filter(this.panels, function(panel) { return ids.contains(panel.id); } );
+        return _.filter(this.panels, function(panel) { return _.contains(ids, panel.id); } );
 
     };
 
     PanelManager.prototype.closePanels = function() {
 
-        return '';
+        return _.map(this.panels, function(panel) { 
+
+            return panel.close(); 
+
+        });
 
     };
 
     PanelManager.prototype.openPanels = function() {
 
-        return '';
+        return _.map(this.panels, function(panel) { 
+
+            return panel.open(); 
+
+        });
+
+    };
+
+    PanelManager.prototype.createPanel = function(id) {
+
+        var panel = new BaseView({ id: id, model: new Datastore.Model() });
+
+        this.panels.push(panel);
+
+        return panel;
+
+    };
+
+    PanelManager.prototype.getPanel = function(id) {
+
+        var panel = _.chain(this.getPanelsById(id))
+
+                      .first()
+
+                      .value()
+
+                    || this.createPanel(id);
+
+        return panel;
 
     };
 

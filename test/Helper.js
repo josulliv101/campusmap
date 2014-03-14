@@ -1,4 +1,8 @@
-function FakePanelManager() {}
+function FakePanelManager() {
+
+	this.panels = [];
+
+}
 
 FakePanelManager.prototype.getPanelsById = function(ids) { 
 

@@ -77,6 +77,6 @@ define([
 
     //// Public ////
 
-    return _.extend(fns_, { fetch: fetch_, Collection: Backbone.Collection, View: Backbone.View, factory: { model: model_ } });
+    return _.extend(fns_, { fetch: fetch_, Model: Backbone.Model, Collection: Backbone.Collection, View: Backbone.View, factory: { model: model_ } });
 
 });

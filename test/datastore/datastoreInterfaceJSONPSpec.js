@@ -1,4 +1,4 @@
-define(['../scripts/datastore/datastore-jsonp'], function (DatastoreJSONP) {
+define(['../../scripts/datastore/datastore-jsonp'], function (DatastoreJSONP) {
 
   describe('DatastoreJSONP Tests', function () {
 
