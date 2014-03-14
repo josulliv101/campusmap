@@ -1,0 +1,41 @@
+define([
+
+    'jquery'
+
+    , 'underscore'
+
+    , 'scripts/views/panels/base'
+
+], function ($, _, BaseView) { 
+
+
+    //// Constructor ////
+    
+    function PanelManager() {
+
+        this.panels = [
+
+            new BaseView({ id: 'panel1' }),
+
+            new BaseView({ id: 'panel2' }),
+
+            new BaseView({ id: 'panel3' })
+
+        ];
+
+    }
+
+
+    //// Methods ////
+    
+    PanelManager.prototype.getPanelsById = function(ids) {
+
+        var ids = ids.split(',');
+
+        return _.filter(this.panels, function(panel) { return ids.contains(panel.id); } );
+
+    };
+
+    return new PanelManager();
+
+});

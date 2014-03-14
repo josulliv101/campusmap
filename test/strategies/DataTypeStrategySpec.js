@@ -1,13 +1,15 @@
 
 define([
 
-  'strategies/DataTypeStrategy'
+  'underscore'
 
-], function (Strategy) {
+  , 'strategies/DataTypeStrategy'
+
+], function (_, Strategy) {
 
   describe('Strategy for Transforming Raw Truth Tests', function () {
 
-    var strategy, DS;
+    var strategy, DS, PM, PM;
 
     beforeEach(function() {
 
@@ -21,11 +23,15 @@ define([
 
       spyOn(Strategy.prototype, 'zoomToInteger').andCallThrough();
 
-      spyOn(Strategy.prototype, 'idsToObjects').andCallThrough();
+      spyOn(Strategy.prototype, 'locationIdsToObjects').andCallThrough();
+
+      spyOn(Strategy.prototype, 'panelIdsToObjects').andCallThrough();
 
       strategy = new Strategy();
 
       DS = new FakeDatastore();
+
+      PM = new FakePanelManager();
 
     });
 
@@ -38,7 +44,7 @@ define([
 
       it('ignores a change that is not "true" or "false"', function () {
 
-        strategy.dispatch({}, true, 'mychange', DS);
+        strategy.dispatch({}, true, 'mychange', DS, PM);
 
         expect( Strategy.prototype.stringToBoolean ).not.toHaveBeenCalled();
 
@@ -46,9 +52,9 @@ define([
 
       it('converts a <string> value to the appropriate Boolean', function () {
 
-        var b1 = strategy.dispatch({}, 'true', 'mychange1', DS), 
+        var b1 = strategy.dispatch({}, 'true', 'mychange1', DS, PM), 
 
-          b2 = strategy.dispatch({}, 'false', 'mychange2', DS);
+            b2 = strategy.dispatch({}, 'false', 'mychange2', DS, PM);
 
         expect( b1 ).toBe(true);
 
@@ -58,9 +64,9 @@ define([
 
       it('does not convert types', function () {
 
-        var b1 = strategy.dispatch({}, 0, 'mychange1', DS), 
+        var b1 = strategy.dispatch({}, 0, 'mychange1', DS, PM), 
 
-          b2 = strategy.dispatch({}, null, 'mychange2', DS);
+          b2 = strategy.dispatch({}, null, 'mychange2', DS, PM);
 
         expect( b1 ).toBeUndefined();
 
@@ -74,11 +80,11 @@ define([
 
       it('ignores a change that is not match a string of digits', function () {
 
-        strategy.dispatch({}, '123xyz', 'mychange', DS);
+        strategy.dispatch({}, '123xyz', 'mychange', DS, PM);
 
-        strategy.dispatch({}, true, 'mychange', DS);
+        strategy.dispatch({}, true, 'mychange', DS, PM);
 
-        strategy.dispatch({}, '123.99', 'mychange', DS);
+        strategy.dispatch({}, '123.99', 'mychange', DS, PM);
 
         expect( Strategy.prototype.stringToInteger ).not.toHaveBeenCalled();
 
@@ -86,11 +92,11 @@ define([
 
       it('converts a string of digits to an integer', function () {
 
-        var val1 = strategy.dispatch({}, '123', 'mychange1', DS);
+        var val1 = strategy.dispatch({}, '123', 'mychange1', DS, PM);
 
-        var val2 = strategy.dispatch({}, '-123', 'mychange2', DS);
+        var val2 = strategy.dispatch({}, '-123', 'mychange2', DS, PM);
 
-        var val3 = strategy.dispatch({}, '0', 'mychange3', DS);
+        var val3 = strategy.dispatch({}, '0', 'mychange3', DS, PM);
 
         expect( val1 ).toBe(123);
 
@@ -106,9 +112,9 @@ define([
 
       it('ignores a change that is not match a lat/lng string', function () {
 
-        strategy.dispatch({}, '42.123123', 'mychange', DS);
+        strategy.dispatch({}, '42.123123', 'mychange', DS, PM);
 
-        strategy.dispatch({}, '-42.123123', 'mychange', DS);
+        strategy.dispatch({}, '-42.123123', 'mychange', DS, PM);
 
         expect( Strategy.prototype.stringToLatLng ).not.toHaveBeenCalled();
 
@@ -118,11 +124,11 @@ define([
 
         var val1, val2, val3;
 
-        val1 = strategy.dispatch({}, '42.123123,-71.123456', 'mychange1', DS);
+        val1 = strategy.dispatch({}, '42.123123,-71.123456', 'mychange1', DS, PM);
 
-        val2 = strategy.dispatch({}, '  -42.123123, -71.123456 ', 'mychange2', DS);
+        val2 = strategy.dispatch({}, '  -42.123123, -71.123456 ', 'mychange2', DS, PM);
 
-        val3 = strategy.dispatch({}, '42, -71', 'mychange3', DS);
+        val3 = strategy.dispatch({}, '42, -71', 'mychange3', DS, PM);
 
         expect( val1 ).toEqual({ lat : '42.123123', lng : '-71.123456' });
 
@@ -138,9 +144,9 @@ define([
 
       it('ignores a change that is incrementing/decrementing zoom level', function () {
 
-        strategy.dispatch({}, 12, 'zoom', DS);
+        strategy.dispatch({}, 12, 'zoom', DS, PM);
 
-        strategy.dispatch({}, '12', 'zoom', DS);
+        strategy.dispatch({}, '12', 'zoom', DS, PM);
 
         expect( Strategy.prototype.zoomToInteger ).not.toHaveBeenCalled();
 
@@ -150,7 +156,7 @@ define([
 
         var val1;
 
-        val1 = strategy.dispatch({}, '12', 'zoom', DS);
+        val1 = strategy.dispatch({}, '12', 'zoom', DS, PM);
 
         expect( val1 ).toBe(12);
 
@@ -160,9 +166,9 @@ define([
 
         var val2, val3;
 
-        val2 = strategy.dispatch({ zoom: 17 }, '+', 'zoom', DS);
+        val2 = strategy.dispatch({ zoom: 17 }, '+', 'zoom', DS, PM);
 
-        val3 = strategy.dispatch({ zoom: 17 }, '-', 'zoom', DS);
+        val3 = strategy.dispatch({ zoom: 17 }, '-', 'zoom', DS, PM);
 
         expect( val2 ).toBe(18);
 
@@ -176,9 +182,9 @@ define([
 
       it('ignores a change that is already an object', function () {
 
-        strategy.dispatch({}, {}, 'details', DS);
+        strategy.dispatch({}, {}, 'details', DS, PM);
 
-        expect( Strategy.prototype.idsToObjects ).not.toHaveBeenCalled();
+        expect( Strategy.prototype.locationIdsToObjects ).not.toHaveBeenCalled();
 
       });
 
@@ -186,9 +192,31 @@ define([
 
         var val1, val2, val3;
 
-        val1 = strategy.dispatch({}, 'myloc', 'details', DS);
+        val1 = strategy.dispatch({}, 'myloc', 'details', DS, PM);
 
         expect( val1 ).toEqual({ id : 'myloc' });
+
+      });
+
+    });
+
+    describe('Converting panel ids to an array of objects', function () {
+
+      it('ignores a change that is already an object', function () {
+
+        strategy.dispatch({}, {}, 'details', DS, PM);
+
+        expect( Strategy.prototype.panelIdsToObjects ).not.toHaveBeenCalled();
+
+      });
+
+      it('converts a panel string ids to object references', function () {
+
+        var val;
+
+        val = strategy.dispatch({}, 'p', 'panels', DS, PM);
+
+        expect( val ).toEqual([{ id: 'p1' }, { id: 'p2' }]);
 
       });
 
@@ -201,3 +229,13 @@ define([
 function FakeDatastore() {}
 
 FakeDatastore.prototype.getLocationById = function(id) { return { id: id }; };
+
+function FakePanelManager() {}
+
+FakePanelManager.prototype.getPanelsById = function(ids) { 
+debugger;
+  var ids = ids.split(',');
+
+  return _.map(ids, function(id) { return { id: id }; }); 
+
+};

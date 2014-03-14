@@ -15,8 +15,6 @@ define([
 
       spyOn(AppController.prototype, 'trigger').andCallThrough();
 
-      //spyOn(AppController.prototype, 'transformRawTruthChange').andCallThrough();
-
       spyOn(AppController.prototype, 'handleTruthChange').andCallThrough();
 
       controller = new AppController({}, {}, {});
@@ -91,8 +89,6 @@ define([
 
         controller.trigger('truthupdate', { fakeAttr: true });
 
-        //expect( AppController.prototype.transformRawTruthChange ).toHaveBeenCalled();
-
         expect( AppController.prototype.setTheTruth ).toHaveBeenCalled();
 
       });
@@ -121,19 +117,6 @@ define([
 
       });
 
-/*
-      it('should have a getData method', function () {
-
-        expect( AppController.prototype.getData ).toBeDefined();
-
-      });
-
-      it('should have a startRouter method', function () {
-
-        expect( AppController.prototype.startRouter ).toBeDefined();
-
-      });
-*/
     });
 
   });

@@ -6,20 +6,22 @@ define([
 
     , 'datastore'
 
+    , 'scripts/panelManager'
+
     , 'strategies/CssFlagStrategy'
 
     , 'strategies/DataTypeStrategy'
 
     , 'eventdispatcher'
 
-], function(_, Backbone, Datastore, CssFlagStrategy, DataTypeStrategy, EventDispatcher) {
+], function(_, Backbone, Datastore, PanelManager, CssFlagStrategy, DataTypeStrategy, EventDispatcher) {
 
     'use strict';
 
 
     function AppController() {
 
-        _.bindAll(this, 'handleTruthChange', 'setTheTruth',  'transformRawTruthChange'); // , 'dispatchVizTruth', 'dispatchTruth' , 
+        _.bindAll(this, 'handleTruthChange', 'setTheTruth'); 
 
         // An empty model -- no attributes yet
         this.theTruth = Datastore.factory.model();
@@ -55,7 +57,7 @@ define([
         _.each(changedAttrs, function(val, key) { 
 
             // Update DOM with appropriate css flags -- on root element of app
-            this.dataTypeStrategy.dispatch(this.theTruth, val, key, Datastore);
+            this.dataTypeStrategy.dispatch(this.theTruth, val, key, Datastore, PanelManager);
 
         }, this);
 
@@ -85,12 +87,6 @@ define([
         EventDispatcher.trigger('delegateTruth', changed, previous);
 
         // Have router listen and do query string updates
-
-    };
-
-    AppController.prototype.transformRawTruthChange = function(changedAttrs) {
-
-        return changedAttrs;
 
     };
 

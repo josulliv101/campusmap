@@ -15,7 +15,7 @@ define([
 
     }
 
-    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore) {
+    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore, PanelManager) {
 
         if (val !== 'true' && val !== 'false') return;
 
@@ -23,7 +23,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore) {
+    DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore, PanelManager) {
 
         // Includes negative integers
         if (!_.isString(val) || val.match(/^-?\d+$/) === null) return;
@@ -32,7 +32,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore) {
+    DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore, PanelManager) {
 
         var match;
 
@@ -47,7 +47,7 @@ define([
     };
 
     // Incrementing/decrementing zoom level (+, -)
-    DataTypeStrategy.prototype.zoomToInteger = function(model, val, key, Datastore) {
+    DataTypeStrategy.prototype.zoomToInteger = function(model, val, key, Datastore, PanelManager) {
 
         var z;
 
@@ -60,11 +60,20 @@ define([
     };
 
     // Convert location string ids to object references
-    DataTypeStrategy.prototype.idsToObjects = function(model, val, key, Datastore) {
+    DataTypeStrategy.prototype.locationIdsToObjects = function(model, val, key, Datastore, PanelManager) {
 
         if (key !== 'details' && !_.isString(val)) return;
 
         return  val = Datastore.getLocationById(val);
+
+    };
+
+    // Convert panel string ids to object references
+    DataTypeStrategy.prototype.panelIdsToObjects = function(model, val, key, Datastore, PanelManager) {
+
+        if (key !== 'panels' && !_.isString(val)) return;
+
+        return  val = PanelManager.getPanelsById( val );
 
     };
 
@@ -78,7 +87,9 @@ define([
 
         DataTypeStrategy.prototype.zoomToInteger,
 
-        DataTypeStrategy.prototype.idsToObjects
+        DataTypeStrategy.prototype.locationIdsToObjects,
+
+        DataTypeStrategy.prototype.panelIdsToObjects
 
     );
 
