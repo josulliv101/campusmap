@@ -24,6 +24,15 @@ FakePanelManager.prototype.openPanels = function() {
 
 };
 
+
+
 function FakeDatastore() {}
 
 FakeDatastore.prototype.getLocationById = function(id) { return { id: id }; };
+
+
+
+
+function FakeController() {}
+
+FakeController.prototype.init = function() {};

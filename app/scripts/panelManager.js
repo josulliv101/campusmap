@@ -69,15 +69,7 @@ define([
 
     PanelManager.prototype.getPanel = function(id) {
 
-        var panel = _.chain(this.getPanelsById(id))
-
-                      .first()
-
-                      .value()
-
-                    || this.createPanel(id);
-
-        return panel;
+        return _.chain( this.getPanelsById(id) ).first().value() || this.createPanel(id);
 
     };
 

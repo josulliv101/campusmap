@@ -81,7 +81,5 @@ define([
 
 });
 
-function FakeController() {}
 
-FakeController.prototype.init = function() {};
 

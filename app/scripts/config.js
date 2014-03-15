@@ -55,6 +55,8 @@ define([
                 //, largelabels: false
 
                 //, resize: null
+
+                , primarylabel: ''
                               
             }
 
