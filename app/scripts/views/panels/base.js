@@ -30,7 +30,7 @@ define([
 
             model.set({ state: 'close' }, { silent: true });
 
-            //EventDispatcher.on('delegateTruth', function(changedAttrs) { this.model });
+            // EventDispatcher.on('delegateTruth', function(changedAttrs) { this.model });
 
             this.handleStateChange = _.dispatch(this.handleOpenState, this.handleCloseState, this.handleOpenPreState, this.handleClosePreState);
 
