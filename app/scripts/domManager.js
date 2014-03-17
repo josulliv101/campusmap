@@ -19,8 +19,6 @@ define([
     
     function DomManager() {
 
-        console.info('DomManager');
-
         _.bindAll(this,  'getRootEl');
 
         this.$root = $('body');

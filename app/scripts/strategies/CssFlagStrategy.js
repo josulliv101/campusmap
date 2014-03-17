@@ -14,7 +14,8 @@ define([
 
     function CssFlagStrategy() {
 
-        this.type = 'truthhandler'
+        this.type = 'truthhandler';
+
     }
 
     // Add/remove a css flag set on the app root DOM element
@@ -36,7 +37,7 @@ define([
 
                 return key !== classname ? undefined : fn(model, val, key);
 
-            })
+            });
 
         })
 

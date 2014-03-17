@@ -50,7 +50,7 @@ module.exports = function (grunt) {
         src: '<%= concat.dist.dest %>',
         dest: 'dist/campusmap.min.js'
       }
-    },
+    }, 
     jasmine: {
       test: {
         src: ['app/**/*.js', '!app/main.js'],
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
     },
     jst: {
         options: {
-            amd: true
+            amd: true 
         },
         compile: {
             files: {
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
         }
     },
     jshint: {
-      app: {
+      app: { 
         options: {
           jshintrc: '.jshintrc'
         },

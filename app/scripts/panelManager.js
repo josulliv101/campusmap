@@ -31,7 +31,7 @@ define([
     
     PanelManager.prototype.getPanelsById = function(ids) {
 
-        var ids = ids.split(',');
+        ids = ids.split(',');
 
         return _.filter(this.panels, function(panel) { return _.contains(ids, panel.id); } );
 

@@ -107,7 +107,7 @@ define([
 
     });
 
-    BaseView.path = function(template) { return path + template + '.ejs' };
+    BaseView.path = function(template) { return path + template + '.ejs'; };
 
     return BaseView;
 
