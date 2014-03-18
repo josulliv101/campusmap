@@ -1,0 +1,95 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie lt-ie9"> <![endif]-->
+<!--[if IE ]>         <html class="no-js ie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Campus Map</title>
+    <meta name="description" content="">
+    <!-- <meta name="viewport" content="width=device-width"> google -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><!-- leaflet -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href=".tmp/styles/main.css">
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
+    <div id="app">
+        <ul class="list-menu primary">
+            <li><a href="#" data-campusmap='cmd:CampusMapList,searchboxlabel:Menu'>Menu</a></li>
+            <li><a href="#" data-campusmap='cmd:Results,searchboxlabel:'>Search</a></li>
+            <li><a href="#" data-campusmap='cmd:Settings,searchboxlabel:Settings'>Settings</a></li>
+        </ul>
+        <ul class="list-menu secondary">
+            
+            <li><a href="#" data-campusmap='cmd:AdminCampusList'>Admin</a></li>
+            <li><a href="#" data-campusmap='cmd:panelA'>About</a></li>
+        </ul>
+        <div id="campusmap" tabindex="0">
+            <div id="map-wrap">
+                <div id="controls-zoom" class="shadow">
+                    <button id="btn-zoomin" class="btn plus" data-campusmap='zoom:+'><span class="sr-only" for="btn-zoomin">Zoom In</span>+</button>
+                    <button id="btn-zoomout" class="btn minus" data-campusmap='zoom:-'><span class="sr-only" for="btn-zoomout">Zoom Out</span>-</button>
+                </div>
+                <div id="map-canvas" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- build:js scripts/main.js -->
+    <script data-main="app/main" src="bower_components/requirejs/require.js"></script>
+
+    <!-- endbuild -->
+    <script>
+
+if ( ! window.console ) console = { log: function(){} };
+
+requirejs.onError = function (err) {
+
+    console.log(err.requireType);
+
+    if (err.requireType === 'timeout') {
+
+        console.log('modules: ' + err.requireModules);
+
+    }
+
+    alert(err);
+
+    throw err;
+};
+
+        // data-main="app/main" is loaded async, make sure it's available
+        require(['main'], function() {
+
+            require(['domReady!', './scripts/widgets/widgets'], function (doc, Widgets) {
+
+                var el = document.getElementById('campusmap');
+
+                new Widgets.CampusMap(el, {
+                    
+                      campusid: 'medford'
+
+                    , campusmap: 'medford-main'
+
+                    , 'vizpath!': 'googlemap'
+
+                    , 'vizpath': 'googlemap'
+
+                    , zoom: 18
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
