@@ -116,7 +116,7 @@ define([
                             'stylers': [{
                                 'visibility': 'off'
                             }]
-                            
+
                         }, {
                             'featureType': 'road',
                             'stylers': [{
@@ -196,6 +196,30 @@ define([
                         }
 
                     ] // plain
+
+                },
+
+                sketch: {
+
+                    tiles: function(api) {
+
+                        return new api.maps.ImageMapType({
+
+                            getTileUrl: function(coord, zoom) {
+
+                                return "http://d.tiles.mapbox.com/v3/examples.a4c252ab/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
+                            
+                            },
+
+                            tileSize: new google.maps.Size(256, 256),
+
+                            name: "Sketch",
+
+                            maxZoom: 18
+
+                        });
+
+                    }
 
                 }
 

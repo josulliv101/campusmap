@@ -24,9 +24,23 @@ define([
 
         options || (options = {});
 
+        // Map DOM element required
         if (!options.el) Config.throwError.mapViewInit();
 
         this.map = new api.maps.Map(options.el, config);
+
+        // Create a matype for each maptype in config (either style-related or custom tiles)
+        _.each(Config.googlemap.maptypes, function(data, maptypeid) { 
+
+            // Styled tiles
+            if (_.isArray(data.styles)) this.map.mapTypes.set(maptypeid, new google.maps.StyledMapType(data.styles)); 
+
+            // Custom tile images
+            else if (_.isFunction(data.tiles)) this.map.mapTypes.set(maptypeid, data.tiles(api)); 
+
+        }, this);
+
+        this.map.setMapTypeId('sketch');
 
     }
 
