@@ -74,7 +74,6 @@ define([
 
                      .pick(this.whiteList)
 
-                     // Watch XSS/urlencode
                      .map(function(val, key) { return key + '=' + (_.isObject(val) && val.value ? encodeURIComponent(val.value) : encodeURIComponent(val)); })
 
                      .value().join('&');
@@ -87,7 +86,6 @@ define([
 
                      .pick(this.locWhiteList)
 
-                     // Watch XSS/urlencode
                      .map(function(val, key) { return key + '=' + (_.isObject(val) && val.value ? encodeURIComponent(val.value) : encodeURIComponent(val)); })
 
                      .value().join('&');

@@ -18,6 +18,7 @@ define([
 
         this.panels = [];
 
+        // To be deleted
         this.createPanel('panel1');
 
         this.createPanel('panel2');

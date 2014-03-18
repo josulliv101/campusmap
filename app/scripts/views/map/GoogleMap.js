@@ -21,7 +21,10 @@ define([
     function GoogleMapView(options) {
 
         // Lat/Lng objects can now be object literals (experimental version of api)!
-        var config = _.extend(Config.googlemap.attrs(api), { center: { lat: 42.406896, lng: -71.120526 }, zoom: 17 });
+        var config = _.extend(Config.googlemap.attrs(api), { center: { lat: 42.406896, lng: -71.120526 }, zoom: 17 }),
+
+            // Grab first maptype as default, or use google roadmap
+            defaultMapType = _.chain(Config.googlemap.maptypes).keys().first().value() || google.maps.MapTypeId.ROADMAP;
 
         options || (options = {});
 
@@ -40,8 +43,9 @@ define([
             else if (_.isFunction(data.tiles)) this.map.mapTypes.set(maptypeid, data.tiles(api)); 
 
         }, this);
+ 
 
-        this.map.setMapTypeId('pinterest');
+        this.map.setMapTypeId(defaultMapType);
 
     }
 

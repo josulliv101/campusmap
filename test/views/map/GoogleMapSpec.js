@@ -7,7 +7,7 @@ define([
 
   describe('Google Map View Tests', function () {
 
-    var mapView, el = document.getElementsByTagName('body')[0];
+    var mapView, el = document.getElementById('map-canvas');
 
     beforeEach(function() {
 

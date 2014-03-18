@@ -113,7 +113,7 @@ define([
 
       return { lat: lat, lng: lng };
 
-    }
+    };
 
     Utils.prototype.pixelCoordinateToWorldPoint = function(pxCoord, zoom) {
 
@@ -121,7 +121,7 @@ define([
 
       return { x: pxCoord.x / numTiles, y: pxCoord.y / numTiles };
 
-    }
+    };
 
     Utils.prototype.worldPointToPixelCoordinate = function(worldCoordinate, zoom) {
 
@@ -129,7 +129,7 @@ define([
 
       return { x: worldCoordinate.x * numTiles, y: worldCoordinate.y * numTiles };
 
-    }
+    };
 
     Utils.prototype.isWithinRadius = function(center, latlng, zoom, radius) {
 
@@ -147,7 +147,7 @@ define([
 
       return len < radius;
 
-    }
+    };
 
     Utils.prototype.getLength = function(p1, p2) {
 
@@ -157,7 +157,7 @@ define([
 
       return Math.sqrt( x + y );
 
-    }
+    };
 
     Utils.prototype.offsetLatLngByPixels = function(latLng, zoom, offset) {
 
@@ -180,13 +180,13 @@ define([
 
       return newLatLng;
 
-    }
+    };
 
     Utils.prototype.getTileCache = function() {
 
       return tileCache;
 
-    }
+    };
 
     // Done this way so it can reset easily when testing
     Utils.prototype.memoizeFunctions = function() {
@@ -195,7 +195,7 @@ define([
 
       this.addLocationToTileCache = this.addLocationToTileCache_; //_.memoize( this.addLocationToTileCache_, function(tileOffset, loc) { return _.getAttr(loc, 'locationid') + getTileZoomId(tileOffset.tile, tileOffset.zoom); });
 
-    }
+    };
 
     Utils.prototype.resetCache = function() {
 
@@ -204,7 +204,7 @@ define([
 
       return tileCache = {};
 
-    }
+    };
 
     Utils.prototype.getLocationsFromTileCache = function(tile, zoom, options) {
 
@@ -214,7 +214,7 @@ define([
 
       return tileCache[key] || [];
 
-    }
+    };
 
     Utils.prototype.getCloseByLocationsFromTileCache = function(tile, zoom) {
 
@@ -246,13 +246,13 @@ define([
 
         return locs;
 
-    }
+    };
 
     Utils.prototype.compareTiles = function(centerTile, otherTile) {
 
       return { x: otherTile.x - centerTile.x, y: otherTile.y - centerTile.y };
 
-    }
+    };
 
     Utils.prototype.getAdjustedOffset = function(offset, centerTile, otherTile) {
 
@@ -260,7 +260,7 @@ define([
 
       return { x: offset.x + (deltas.x * TILE_SIZE), y: offset.y + (deltas.y * TILE_SIZE) };
 
-    }
+    };
 
     Utils.prototype.addLocationToTileCache_ = function(tileOffset, loc) {
 
@@ -279,7 +279,7 @@ define([
 
       return loc;
 
-    }
+    };
 
 
     Utils.prototype.latLngToTileOffset_ = function(latLng, zoom) {
@@ -308,7 +308,7 @@ define([
 
       };
 
-    }
+    };
 
     Utils.prototype.getStreetviewStaticUrl = function(obj) {
 
@@ -316,7 +316,7 @@ define([
 
         return encodeURIComponent(url);
 
-    }
+    };
  
     return new Utils();
 
