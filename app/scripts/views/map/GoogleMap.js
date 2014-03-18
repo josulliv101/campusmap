@@ -20,7 +20,8 @@ define([
     
     function GoogleMapView(options) {
 
-        var config = _.extend(Config.googlemap.attrs(api), { center: new api.maps.LatLng(42.406896, -71.120526), zoom: 17 });
+        // Lat/Lng objects can now be object literals (experimental version of api)!
+        var config = _.extend(Config.googlemap.attrs(api), { center: { lat: 42.406896, lng: -71.120526 }, zoom: 17 });
 
         options || (options = {});
 
@@ -69,8 +70,6 @@ define([
     }
 
     function render_(el) {
-
-        //return this;
 
     }
 
