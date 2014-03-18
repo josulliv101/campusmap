@@ -1,22 +1,34 @@
 
 define([
 
-    'jquery',
+    'jquery'
 
-    '_mixins',
+    , '_mixins'
 
-    'eventdispatcher',
+    , 'scripts/config'
 
-    'async!http://maps.google.com/maps/api/js?sensor=false'
+    , 'eventdispatcher'
 
-], function($, _, EventDispatcher) {
+    , 'async!http://maps.google.com/maps/api/js?sensor=false'
+
+], function($, _, Config, EventDispatcher) {
 
     'use strict';
 
     // google object is now available
+    var api = google;
     
-    var gMap;
+    function GoogleMapView(options) {
 
+        var config = _.extend(Config.googlemap.attrs(api), { center: new api.maps.LatLng(42.406896, -71.120526), zoom: 17 });
+
+        options || (options = {});
+
+        if (!options.el) Config.throwError.mapViewInit();
+
+        this.map = new api.maps.Map(options.el, config);
+
+    }
 
     function setCenter_(latlng, offset, zoom) {    
 
@@ -48,22 +60,6 @@ define([
 
     }
 
-    return {
-
-        clear: clear_,
-
-        getCenter: getCenter_,
-
-        render: render_,
-
-        setCenter: setCenter_,
-
-        setCursor: setCursor_,
-
-        setMapType: setMapType_,
-
-        setZoom: setZoom_
-
-    };
+    return GoogleMapView;
 
 });

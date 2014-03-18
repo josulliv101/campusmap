@@ -1,19 +1,23 @@
 
 define([
 
-    'underscore',
+    'underscore'
 
-    'app'
+    , 'datastore'
 
-], function(_, App) {
+    , 'app'
+
+], function(_, Datastore, App) {
 
     'use strict';
 
     if (require === undefined) return;
 
-    function campusmap_(el, settings) {
+    function campusmap_(appDom, mapDom, settings) {
 
-        require([], function () {
+        require(['scripts/views/map/GoogleMap'], function (GoogleMapView) {
+
+            var mapView = new GoogleMapView({ el: mapDom, model: Datastore.factory.model() });
 
         });
 

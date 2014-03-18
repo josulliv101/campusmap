@@ -10,7 +10,7 @@
     <title>Campus Map</title>
     <meta name="description" content="">
     <!-- <meta name="viewport" content="width=device-width"> google -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><!-- leaflet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href=".tmp/styles/main.css">
 
@@ -19,25 +19,10 @@
     <!-- endbuild -->
 </head>
 <body>
+
     <div id="app">
-        <ul class="list-menu primary">
-            <li><a href="#" data-campusmap='cmd:CampusMapList,searchboxlabel:Menu'>Menu</a></li>
-            <li><a href="#" data-campusmap='cmd:Results,searchboxlabel:'>Search</a></li>
-            <li><a href="#" data-campusmap='cmd:Settings,searchboxlabel:Settings'>Settings</a></li>
-        </ul>
-        <ul class="list-menu secondary">
-            
-            <li><a href="#" data-campusmap='cmd:AdminCampusList'>Admin</a></li>
-            <li><a href="#" data-campusmap='cmd:panelA'>About</a></li>
-        </ul>
-        <div id="campusmap" tabindex="0">
-            <div id="map-wrap">
-                <div id="controls-zoom" class="shadow">
-                    <button id="btn-zoomin" class="btn plus" data-campusmap='zoom:+'><span class="sr-only" for="btn-zoomin">Zoom In</span>+</button>
-                    <button id="btn-zoomout" class="btn minus" data-campusmap='zoom:-'><span class="sr-only" for="btn-zoomout">Zoom Out</span>-</button>
-                </div>
-                <div id="map-canvas" aria-hidden="true"></div>
-            </div>
+        <div id="campusmap">
+            <div id="map-canvas"></div>
         </div>
     </div>
 
@@ -47,41 +32,38 @@
     <!-- endbuild -->
     <script>
 
-if ( ! window.console ) console = { log: function(){} };
+        if ( ! window.console ) console = { log: function() {} };
 
-requirejs.onError = function (err) {
+        requirejs.onError = function (err) {
 
-    console.log(err.requireType);
+            console.log(err.requireType);
 
-    if (err.requireType === 'timeout') {
+            if (err.requireType === 'timeout') {
 
-        console.log('modules: ' + err.requireModules);
+                console.log('modules: ' + err.requireModules);
 
-    }
+            }
 
-    alert(err);
+            alert(err);
 
-    throw err;
-};
+            throw err;
+
+        };
 
         // data-main="app/main" is loaded async, make sure it's available
         require(['main'], function() {
 
             require(['domReady!', './scripts/widgets/widgets'], function (doc, Widgets) {
 
-                var el = document.getElementById('campusmap');
+                var elApp = document.getElementById('app'), elMap = document.getElementById('map-canvas');
 
-                new Widgets.CampusMap(el, {
-                    
-                      campusid: 'medford'
+                new Widgets.Campusmap(elApp, elMap, {
+
+                    campusid: 'medford'
 
                     , campusmap: 'medford-main'
 
-                    , 'vizpath!': 'googlemap'
-
-                    , 'vizpath': 'googlemap'
-
-                    , zoom: 18
+                    , zoom: 17
 
                 });
 

@@ -68,8 +68,139 @@ define([
 
             appControllerInit: function() { throw new Error('Error initializing AppController.'); },
 
+            mapViewInit: function() { throw new Error('Error initializing Map View.'); },
+
             strategyCreation: function() { throw new Error('Strategy requires an id and type'); }
             
+        },
+
+        googlemap: {
+
+            attrs: function(api) {
+
+                return {
+
+                    navigationControl: true,
+
+                    navigationControlOptions: {
+
+                        style: api.maps.NavigationControlStyle.SMALL
+                        
+                    },
+
+                    panControl: false,
+
+                    zoomControl: false,
+
+                    mapTypeControl: false,
+
+                    streetViewControl: true,
+
+                    streetViewControlOptions: {
+
+                        position: api.maps.ControlPosition.RIGHT_BOTTOM
+
+                    }                
+
+                };
+
+            },
+
+            maptypes: {
+
+                plain: {
+
+                    styles: [{
+
+                            'elementType': 'labels',
+                            'stylers': [{
+                                'visibility': 'off'
+                            }]
+                            
+                        }, {
+                            'featureType': 'road',
+                            'stylers': [{
+                                'visibility': 'on'
+                            }]
+                        },
+
+                        {
+                            "featureType": "road.local",
+                            "elementType": "geometry.stroke",
+                            "stylers": [{
+                                "weight": 0.4
+                            }]
+                        },
+
+                        {
+                            "featureType": "road",
+                            "elementType": "labels.text",
+                            "stylers": [{
+                                "visibility": "on"
+                            }, {
+                                "lightness": 46
+                            }]
+                        },
+
+                        {
+                            "featureType": "road.local",
+                            "elementType": "labels.text",
+                            "stylers": [{
+                                "visibility": "on"
+                            }, {
+                                "lightness": 20
+                            }]
+                        },
+
+                        {
+                            "featureType": "administrative.land_parcel",
+                            "stylers": [{
+                                "visibility": "off"
+                            }]
+                        },
+
+                        {
+                            "stylers": [{
+                                "saturation": -33
+                            }, { "invert_lightness": false } ]
+                        },
+
+                        {
+                            "featureType": "poi.park",
+                            "elementType": "geometry",
+                            "stylers": [{
+                                "gamma": 0.80
+                            }]
+                        },
+
+                        {
+                            "stylers": [{
+                                "gamma": 0.94
+                            }]
+                        },
+
+                        {
+                            "featureType": "poi.school",
+                            "elementType": "geometry",
+                            "stylers": [{
+                                "gamma": 0.90
+                            }]
+                        },
+
+                        {
+                            "featureType": "road.local",
+                            "elementType": "labels.text.stroke",
+                            "stylers": [{
+                            "visibility": "off"
+                            }]
+                        }
+
+                    ] // plain
+
+                }
+
+            }
+
         }
 
     };
