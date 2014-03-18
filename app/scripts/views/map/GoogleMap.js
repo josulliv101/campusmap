@@ -41,7 +41,7 @@ define([
 
         }, this);
 
-        this.map.setMapTypeId('sketch');
+        this.map.setMapTypeId('pinterest');
 
     }
 

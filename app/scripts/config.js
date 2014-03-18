@@ -221,6 +221,30 @@ define([
 
                     }
 
+                },
+
+                pinterest: {
+
+                    tiles: function(api) {
+
+                        return new api.maps.ImageMapType({
+
+                            getTileUrl: function(coord, zoom) {
+
+                                return "https://a.tiles.mapbox.com/v3/pinterest.map-ho21rkos/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
+                            
+                            },
+
+                            tileSize: new google.maps.Size(256, 256),
+
+                            name: "Pinterest",
+
+                            maxZoom: 17
+
+                        });
+
+                    }
+
                 }
 
             }
