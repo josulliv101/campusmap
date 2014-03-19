@@ -52,7 +52,7 @@ define([
                 // Using
                 campuses; data;
 
-                dfd.resolve({ deferred: 'defaults go here' });
+                dfd.resolve({ some_default: 'some default text' });
 
             },
 

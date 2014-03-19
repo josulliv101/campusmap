@@ -15,9 +15,13 @@ define([
 
     function campusmap_(appDom, mapDom, settings) {
 
-        require(['scripts/views/map/GoogleMap'], function (GoogleMapView) {
+        require(['scripts/views/map/GoogleMap', 'scripts/config'], function (GoogleMapView, Config) {
 
-            var mapView = new GoogleMapView({ el: mapDom, model: Datastore.factory.model() });
+            var mapView = new GoogleMapView({ el: mapDom, model: Datastore.factory.model() }),
+
+                app = new App(appDom, settings, Config.defaults.theTruth, mapView);
+
+            app.init();
 
         });
 

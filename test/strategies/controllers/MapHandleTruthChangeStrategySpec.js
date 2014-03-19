@@ -42,7 +42,7 @@ define([
 
       it('handles lat/lng change by envoking viz setCenter method', function () {
 
-        strategy.dispatch({}, { lat: 42, lng: -71 }, 'latlng', viz);
+        strategy.dispatch({}, { lat: 42, lng: -71 }, 'center', viz);
 
         expect( FakeMapView.prototype.setCenter ).toHaveBeenCalledWith({ lat: 42, lng: -71 });
 
@@ -50,7 +50,7 @@ define([
 
       it('only handles lat/lng objects as values, no strings', function () {
 
-        strategy.dispatch({}, '42.123,-71.456', 'latlng', viz);
+        strategy.dispatch({}, '42.123,-71.456', 'center', viz);
 
         expect( FakeMapView.prototype.setCenter ).not.toHaveBeenCalled();
 

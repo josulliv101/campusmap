@@ -130,11 +130,11 @@ define([
 
         val3 = strategy.dispatch({}, '42, -71', 'mychange3', DS, PM);
 
-        expect( val1 ).toEqual({ lat : '42.123123', lng : '-71.123456' });
+        expect( val1 ).toEqual({ lat : 42.123123, lng : -71.123456 });
 
-        expect( val2 ).toEqual({ lat : '-42.123123', lng : '-71.123456' });
+        expect( val2 ).toEqual({ lat : -42.123123, lng : -71.123456 });
 
-        expect( val3 ).toEqual({ lat : '42', lng : '-71' });
+        expect( val3 ).toEqual({ lat : 42, lng : -71 });
 
       });
 

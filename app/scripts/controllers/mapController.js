@@ -29,7 +29,7 @@ define([
 
         if (!this.mapView) return;
 
-        // Pass each changed attribute through the Truth handler
+        // If there's any between-attr dependencies, they should already be process by appControl
         _.each(changedAttrs, function(val, key) {
 
             this.handleTruthStrategy.dispatch({}, val, key, this.mapView);

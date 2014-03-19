@@ -9,19 +9,21 @@ define([
 
     , 'scripts/controllers/appController'
 
+    , 'scripts/controllers/mapController'
+
     , 'scripts/router'
 
     , 'datastore'
 
     , 'scripts/domManager'
 
-], function($, _, Config, AppController, Router, Datastore, DomManager) {
+], function($, _, Config, AppController, MapController, Router, Datastore, DomManager) {
 
 
     'use strict';
 
 
-    function App(el, settings, defaults) {
+    function App(el, settings, defaults, mapView) {
 
         _.bindAll(this, 'start');
 
@@ -32,6 +34,8 @@ define([
         this.settings = _.defaults(settings, defaults);
 
         this.controller = new AppController().init();
+
+        this.mapController = new MapController(mapView);
 
     }
     

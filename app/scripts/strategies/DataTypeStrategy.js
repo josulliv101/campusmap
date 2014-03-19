@@ -34,7 +34,7 @@ define([
 
     DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore, PanelManager) {
 
-        var match;
+        var match, attr = {};
 
         if (!_.isString(val)) return;
 
@@ -42,7 +42,13 @@ define([
 
         if (match === null || match.length !== 3) return;
 
-        return  val = { lat: match[1], lng: match[2]};
+        val = { lat: parseFloat(match[1]), lng: parseFloat(match[2]) };
+
+        attr[key] = val;
+
+        _.extend(model, attr);
+
+        return  val;
 
     };
 
