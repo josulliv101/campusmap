@@ -32,10 +32,11 @@ FakeDatastore.prototype.getLocationById = function(id) { return { id: id }; };
 
 
 
-
 function FakeController() {}
 
 FakeController.prototype.init = function() {};
+
+
 
 function FakeMapView() {}
 
@@ -44,3 +45,11 @@ FakeMapView.prototype.setMapType = function(type) {};
 FakeMapView.prototype.setCenter = function(latlng) {};
 
 FakeMapView.prototype.setCursor = function(type) {};
+
+
+
+function FakeMapUtils() {}
+
+FakeMapUtils.prototype.getLocationsFromTileCache = function() { return [ { id: 'myloc1'}, { id: 'myloc2'} ]; };
+
+FakeMapUtils.prototype.getTileZoomId = function() { return 'fake-tile-id'; };

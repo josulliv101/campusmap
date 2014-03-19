@@ -10,9 +10,12 @@ define([
 
     //, 'eventdispatcher''
 
+    , 'templates'
+
     , '_mixins'
 
-], function ($, _) { 
+
+], function ($, _, JST) { 
 
 
     //// Constructor ////
@@ -24,6 +27,8 @@ define([
         this.$root = $('body');
 
         this.getElement = _.dispatch(this.getOptionsEl, this.getHtmlEl, this.getRootEl);
+
+        this.maplabelTemplate = JST['app/scripts/templates/map-label.ejs'];
 
     }
 
@@ -72,6 +77,40 @@ define([
     // Defined in init so this keyword behaves
     DomManager.prototype.getElement = function() {};
 
+
+    // Setting tile divs innerHTML seems best performance
+    DomManager.prototype.createLabelHtml = function(json) {
+
+        var html = this.template(json);
+
+        return html;
+
+    }
+
+    // Html for each label tile
+    DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {
+
+        var div = ownerDocument.createElement('div'), labels;
+
+        labels = [];//_.map(models, function(loc) { return DomManager.getInstance().createLabelHtml(loc); });
+
+        div.className = 'label-tile';
+
+        div.innerHTML = labels.join('');
+
+        div.style.position = 'relative';
+
+        div.style.width = '256px';
+
+        div.style.height = '256px';
+
+        div.style.border = '1px #ccc solid';
+
+        return div;
+
+    };
+
+    
     return new DomManager();
 
 });
