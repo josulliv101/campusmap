@@ -28,7 +28,7 @@ define([
 
         this.getElement = _.dispatch(this.getOptionsEl, this.getHtmlEl, this.getRootEl);
 
-        this.maplabelTemplate = JST['app/scripts/templates/map-label.ejs'];
+        this.labelTileTemplate = JST['app/scripts/templates/map-tile.ejs'];
 
     }
 
@@ -78,35 +78,14 @@ define([
     DomManager.prototype.getElement = function() {};
 
 
-    // Setting tile divs innerHTML seems best performance
-    DomManager.prototype.createLabelHtml = function(json) {
-
-        var html = this.template(json);
-
-        return html;
-
-    }
-
     // Html for each label tile
     DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {
 
-        var div = ownerDocument.createElement('div'), labels;
+        var html = this.labelTileTemplate({ locations: models }),
 
-        labels = [];//_.map(models, function(loc) { return DomManager.getInstance().createLabelHtml(loc); });
+            $div = $(html);
 
-        div.className = 'label-tile';
-
-        div.innerHTML = labels.join('');
-
-        div.style.position = 'relative';
-
-        div.style.width = '256px';
-
-        div.style.height = '256px';
-
-        div.style.border = '1px #ccc solid';
-
-        return div;
+        return $div[0];
 
     };
 

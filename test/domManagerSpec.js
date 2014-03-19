@@ -9,19 +9,19 @@ define([
 
     beforeEach(function() {
 
-
     });
 
     afterEach(function(){
 
-      
     });
 
     describe('Functions', function () {
 
-      it('creates a new Panel View', function () {
+      it('creates the html for a label tile', function () {
 
-        expect( 1 ).toBe(1);
+        var div = DomManager.getLabelTile('fake-tile-id', document, [{ name: 'my label' }]);
+
+        expect( div.className ).toBe('label-tile');
 
       });
 
