@@ -15,9 +15,7 @@ define([
     afterEach(function(){
 
       
-
     });
-
 
     describe('Functions', function () {
 
