@@ -7,11 +7,15 @@ define([
 
     , 'scripts/config'
 
+    , 'scripts/views/map/LabelMapType'
+
+    , 'scripts/utils/MapUtils'
+
     , 'eventdispatcher'
 
     , 'async!http://maps.google.com/maps/api/js?sensor=false'
 
-], function($, _, Config, EventDispatcher) {
+], function($, _, Config, LabelMapType, MapUtils, EventDispatcher) {
 
     'use strict';
 
@@ -45,25 +49,30 @@ define([
 
         this.map.setMapTypeId(defaultMapType);
 
+        // Add the Label map type overlay
+        this.labelMapType = new LabelMapType(new google.maps.Size(256, 256), MapUtils);
+
+        this.map.overlayMapTypes.insertAt(0, this.labelMapType);
+
     }
 
     GoogleMapView.prototype.setMapType = function(maptypeid) {
 
         this.map.setMapTypeId(maptypeid);
 
-    }
+    };
 
     GoogleMapView.prototype.setZoom = function(level) {
 
         this.map.setZoom(level);
 
-    }
+    };
 
     GoogleMapView.prototype.setCenter = function(latlng) {
 
         this.map.panTo(latlng);
 
-    }
+    };
 
     function getCenter_(zoom, offset, options) {    
 

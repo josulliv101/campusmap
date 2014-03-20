@@ -30,6 +30,8 @@ function FakeDatastore() {}
 
 FakeDatastore.prototype.getLocationById = function(id) { return { id: id }; };
 
+FakeDatastore.prototype.getCampus = function(id) { return { id: id }; };
+
 
 
 function FakeController() {}

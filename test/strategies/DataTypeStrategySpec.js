@@ -27,6 +27,8 @@ define([
 
       spyOn(Strategy.prototype, 'panelIdsToObjects').andCallThrough();
 
+      spyOn(Strategy.prototype, 'campusIdToObject').andCallThrough();
+
       strategy = new Strategy();
 
       DS = new FakeDatastore();
@@ -217,6 +219,26 @@ define([
         val = strategy.dispatch({}, 'p1,p2', 'panels', DS, PM);
 
         expect( val ).toEqual([{ id: 'p1' }, { id: 'p2' }]);
+
+      });
+
+    });
+
+    describe('Converting campus id to an campus model', function () {
+
+      it('ignores a change that is already an object', function () {
+
+        strategy.dispatch({}, {}, 'details', DS, PM);
+
+        expect( Strategy.prototype.campusIdToObject ).not.toHaveBeenCalled();
+
+      });
+
+      it('converts a campus string id to object reference', function () {
+
+        var val = strategy.dispatch({}, 'medford', 'campus', DS, PM);
+
+        expect( val ).toEqual({ id: 'medford' });
 
       });
 
