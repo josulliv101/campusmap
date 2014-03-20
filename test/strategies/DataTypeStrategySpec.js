@@ -29,6 +29,8 @@ define([
 
       spyOn(Strategy.prototype, 'campusIdToObject').andCallThrough();
 
+      spyOn(Strategy.prototype, 'locationsLatLngToObject').andCallThrough();
+
       strategy = new Strategy();
 
       DS = new FakeDatastore();
@@ -239,6 +241,22 @@ define([
         var val = strategy.dispatch({}, 'medford', 'campus', DS, PM);
 
         expect( val ).toEqual({ id: 'medford' });
+
+      });
+
+    });
+
+    describe('Converting locations lat/lng to objects', function () {
+
+      it('converts a string id to object for location', function () {
+
+        var loc1 = { latlng: '42,-71' }, loc2 = { latlng: '42.999,-71.999' };
+
+            strategy.dispatch({}, [ loc1, loc2 ], 'locations', DS, PM);
+
+        expect( loc1 ).toEqual({ latlng : { lat : 42, lng : -71 } });
+
+        expect( loc2 ).toEqual({ latlng : { lat : 42.999, lng : -71.999 } });
 
       });
 

@@ -48,6 +48,9 @@ FakeMapView.prototype.setCenter = function(latlng) {};
 
 FakeMapView.prototype.setCursor = function(type) {};
 
+FakeMapView.prototype.setZoom = function(level) {};
+
+FakeMapView.prototype.renderLabelOverlay = function(level) {};
 
 
 function FakeMapUtils() {}

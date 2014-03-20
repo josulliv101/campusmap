@@ -97,6 +97,20 @@ define([
 
     };
 
+    DataTypeStrategy.prototype.locationsLatLngToObject = function(model, val, key, Datastore, PanelManager) {
+
+        if (key !== 'locations' || !_.isArray(val)) return;
+
+        _.each(val, function(loc) {
+
+            if (loc.latlng) DataTypeStrategy.prototype.stringToLatLng.call(this, loc, loc.latlng, 'latlng', Datastore, PanelManager);
+
+        });
+
+        return  val;
+
+    };
+
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 
         DataTypeStrategy.prototype.stringToBoolean,
@@ -111,7 +125,9 @@ define([
 
         DataTypeStrategy.prototype.panelIdsToObjects,
 
-        DataTypeStrategy.prototype.campusIdToObject
+        DataTypeStrategy.prototype.campusIdToObject,
+
+        DataTypeStrategy.prototype.locationsLatLngToObject
 
     );
 

@@ -47,12 +47,21 @@ define([
 
             success: function(campuses, data) {
 
-                //maps_.add(DataInterface.utils.createMapList(campuses_), { silent: true });
+                var campus = campuses.at(2),
 
-                // Using
-                campuses; data;
+                    map = _.last(campus.get('maps')),
 
-                dfd.resolve({ some_default: 'some default text' });
+                    locations = map.locations;
+
+                dfd.resolve({ 
+
+                    campus: campus.toJSON(),
+
+                    campusmap: map,
+
+                    locations: locations
+
+                });
 
             },
 

@@ -55,17 +55,13 @@
         // data-main="app/main" is loaded async, make sure it's available
         require(['main'], function() {
 
-            require(['domReady!', './scripts/widgets/widgets'], function (doc, Widgets) {
+            require(['_mixins', 'domReady!', './scripts/widgets/widgets'], function (_, doc, Widgets) {
 
                 var elApp = document.getElementById('app'), elMap = document.getElementById('map-canvas');
 
                 new Widgets.Campusmap(elApp, elMap, {
 
-                    campus: 'medford'
-
-                    , campusmap: 'medford-main'
-
-                    , zoom: 17
+                    zoom: 17
 
                     , center: '42.406898, -71.120596'
 

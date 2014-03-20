@@ -50,9 +50,7 @@ define([
         this.map.setMapTypeId(defaultMapType);
 
         // Add the Label map type overlay
-        this.labelMapType = new LabelMapType(new google.maps.Size(256, 256), MapUtils);
-
-        this.map.overlayMapTypes.insertAt(0, this.labelMapType);
+        this.labelLayer = new LabelMapType(new google.maps.Size(256, 256), MapUtils);
 
     }
 
@@ -73,6 +71,18 @@ define([
         this.map.panTo(latlng);
 
     };
+
+    GoogleMapView.prototype.renderLabelOverlay = function(locations) {
+
+        this.labelLayer.locations = locations;
+
+        if (this.map.overlayMapTypes.length === 1) this.map.overlayMapTypes.removeAt(0);
+
+        // Re-renders Labels Tile Overlay
+        this.map.overlayMapTypes.insertAt(0, this.labelLayer);
+
+    };
+
 
     function getCenter_(zoom, offset, options) {    
 

@@ -49,6 +49,14 @@ define([
 
     };
 
+    MapHandleTruthChangeStrategy.prototype.handleLocations = function(model, val, key, viz) {
+
+        if (key !== 'locations' || !_.isArray(val)) return;
+
+        viz.renderLabelOverlay(val);
+
+    };
+
     MapHandleTruthChangeStrategy.prototype.dispatch = _.dispatch( 
 
         MapHandleTruthChangeStrategy.prototype.handleMapType,
@@ -57,7 +65,9 @@ define([
 
         MapHandleTruthChangeStrategy.prototype.handleCursor,
 
-        MapHandleTruthChangeStrategy.prototype.handleZoom
+        MapHandleTruthChangeStrategy.prototype.handleZoom,
+
+        MapHandleTruthChangeStrategy.prototype.handleLocations
 
     );
 
