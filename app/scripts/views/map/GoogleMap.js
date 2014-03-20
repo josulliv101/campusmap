@@ -52,6 +52,14 @@ define([
         // Add the Label map type overlay
         this.labelLayer = new LabelMapType(new google.maps.Size(256, 256), MapUtils);
 
+
+        // Make sure the Truth gets updated if zoom is changed through the map interface directly (scrollwheel, doubleclick)
+        google.maps.event.addListener(this.map, 'zoom_changed', function(ev) {
+
+            EventDispatcher.trigger('truthupdate', { zoom: this.getZoom() });
+
+        });
+
     }
 
     GoogleMapView.prototype.setMapType = function(maptypeid) {

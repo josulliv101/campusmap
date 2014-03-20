@@ -21,7 +21,7 @@ define([
 
         var div = DomManager.getLabelTile('fake-tile-id', document, [{ name: 'my label' }]);
 
-        expect( div.className ).toBe('label-tile');
+        expect( div.className ).toBe('label-tile-container');
 
       });
 

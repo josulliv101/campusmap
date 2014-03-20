@@ -97,15 +97,25 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.locationsLatLngToObject = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.locationsDataIntegrity = function(model, val, key, Datastore, PanelManager) {
+
+        var attr = {};
 
         if (key !== 'locations' || !_.isArray(val)) return;
 
-        _.each(val, function(loc) {
+        attr[key] = _.chain(val)
 
-            if (loc.latlng) DataTypeStrategy.prototype.stringToLatLng.call(this, loc, loc.latlng, 'latlng', Datastore, PanelManager);
+                     .reject(function(loc) { return loc.latlng === undefined; })
 
-        });
+                     .each(function(loc) {
+
+                        if (_.isString(loc.latlng)) DataTypeStrategy.prototype.stringToLatLng.call(this, loc, loc.latlng, 'latlng', Datastore, PanelManager);
+
+                     })
+
+                     .value();
+
+        _.extend(model, attr);
 
         return  val;
 
@@ -127,7 +137,7 @@ define([
 
         DataTypeStrategy.prototype.campusIdToObject,
 
-        DataTypeStrategy.prototype.locationsLatLngToObject
+        DataTypeStrategy.prototype.locationsDataIntegrity
 
     );
 

@@ -49,7 +49,7 @@ define([
 
                 var campus = campuses.at(2),
 
-                    map = _.last(campus.get('maps')),
+                    map = campus.get('maps')[0],
 
                     locations = map.locations;
 

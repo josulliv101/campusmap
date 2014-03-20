@@ -36,7 +36,7 @@ define([
         if (!this.mapView) return;
 
         // Change in locations or zoom level warrant a refresh of the tileCache
-        if (changedAttrs.zoom || changedAttrs.locations) this.refreshTileCache();
+        if (changedAttrs.zoom || changedAttrs.locations) this.refreshTileCache(this.theTruthJSON.locations, this.theTruthJSON.zoom);
 
         // If there's any between-attr dependencies, they should already be process by appControl
         _.each(changedAttrs, function(val, key) {
@@ -47,9 +47,7 @@ define([
 
     };
 
-    MapController.prototype.refreshTileCache = function(changedAttrs, previousAttrs) {
-
-        var locations = this.theTruthJSON.locations;
+    MapController.prototype.refreshTileCache = function(locations, zoom) {
 
         MapUtils.resetCache();
 
@@ -57,21 +55,15 @@ define([
 
             var tileOffset;
 
-            // Convert string lat/lng to objects if needed
-           // if (_.isString(loc.latlng))
-/*
             // Label may be a <String> -- force it into a boolean value
-            if (!!loc.label !== true) return;
+            //if (!!loc.label !== true) return;
 
             // The latLngToTileOffset function caches the return value for future use
-            tileOffset = MapUtils.latLngToTileOffset({ lat: loc.latlng[0], lng: loc.latlng[1] }, loc.zoom);
+            tileOffset = MapUtils.latLngToTileOffset(loc.latlng, this.theTruthJSON.zoom);
 
             MapUtils.addLocationToTileCache(tileOffset, loc);
-*/
 
-debugger;
-
-        });
+        }, this);
 
     };
 

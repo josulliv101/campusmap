@@ -40,7 +40,7 @@ define([
 
         var el = labelMapType.getTile({x: 3, y: 2}, 17, document);
 
-        expect( el.className ).toBe('label-tile');
+        expect( el.className ).toBe('label-tile-container');
 
       });
 

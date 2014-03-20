@@ -29,7 +29,7 @@ define([
 
       spyOn(Strategy.prototype, 'campusIdToObject').andCallThrough();
 
-      spyOn(Strategy.prototype, 'locationsLatLngToObject').andCallThrough();
+      spyOn(Strategy.prototype, 'locationsDataIntegrity').andCallThrough();
 
       strategy = new Strategy();
 
