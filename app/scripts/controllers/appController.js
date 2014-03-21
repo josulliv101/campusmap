@@ -52,12 +52,12 @@ define([
 
         // Gets cleared when router handles route -- needed for Back Button integration.
         if (options.clear === true) this.theTruth.clear({ silent: true });
-        
+
         // Preprocess changed attributes -- acts as insertion point for attr tweaks
         _.each(changedAttrs, function(val, key) { 
 
             // Update DOM with appropriate css flags -- on root element of app
-            this.dataTypeStrategy.dispatch(this.theTruth, val, key, Datastore, PanelManager);
+            this.dataTypeStrategy.dispatch(changedAttrs, val, key, Datastore, PanelManager);
 
         }, this);
 

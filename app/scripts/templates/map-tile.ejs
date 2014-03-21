@@ -1,0 +1,14 @@
+<div class="label-tile-container">
+	<div class="label-tile">
+		<% _.each(locations, function(loc) { %>
+			<div class='location' style='top: ${loc.offsetx}px; left: ${loc.offsety}px'>
+				<div class='icon' style=''></div>
+				<div class='bd'>
+					<div class='txt'>
+						${loc.name}<!--<span class='more'>more &gt;</span>-->
+					</div>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>

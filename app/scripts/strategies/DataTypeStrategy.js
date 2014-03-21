@@ -34,7 +34,7 @@ define([
 
     DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore, PanelManager) {
 
-        var match;
+        var match, attr = {};
 
         if (!_.isString(val)) return;
 
@@ -42,7 +42,13 @@ define([
 
         if (match === null || match.length !== 3) return;
 
-        return  val = { lat: match[1], lng: match[2]};
+        val = { lat: parseFloat(match[1]), lng: parseFloat(match[2]) };
+
+        attr[key] = val;
+
+        _.extend(model, attr);
+
+        return  val;
 
     };
 
@@ -71,9 +77,47 @@ define([
     // Convert panel string ids to object references
     DataTypeStrategy.prototype.panelIdsToObjects = function(model, val, key, Datastore, PanelManager) {
 
-        if (key !== 'panels' && !_.isString(val)) return;
+        if (key !== 'panels' || !_.isString(val)) return;
 
         return  val = PanelManager.getPanelsById( val );
+
+    };
+
+    DataTypeStrategy.prototype.campusIdToObject = function(model, val, key, Datastore, PanelManager) {
+
+        var attr = {};
+
+        if (key !== 'campus' || !_.isString(val)) return;
+
+        attr[key] = Datastore.getCampus( val );
+
+        _.extend(model, attr);
+
+        return  attr[key];
+
+    };
+
+    DataTypeStrategy.prototype.locationsDataIntegrity = function(model, val, key, Datastore, PanelManager) {
+
+        var attr = {};
+
+        if (key !== 'locations' || !_.isArray(val)) return;
+
+        attr[key] = _.chain(val)
+
+                     .reject(function(loc) { return loc.latlng === undefined; })
+
+                     .each(function(loc) {
+
+                        if (_.isString(loc.latlng)) DataTypeStrategy.prototype.stringToLatLng.call(this, loc, loc.latlng, 'latlng', Datastore, PanelManager);
+
+                     })
+
+                     .value();
+
+        _.extend(model, attr);
+
+        return  val;
 
     };
 
@@ -89,7 +133,11 @@ define([
 
         DataTypeStrategy.prototype.locationIdsToObjects,
 
-        DataTypeStrategy.prototype.panelIdsToObjects
+        DataTypeStrategy.prototype.panelIdsToObjects,
+
+        DataTypeStrategy.prototype.campusIdToObject,
+
+        DataTypeStrategy.prototype.locationsDataIntegrity
 
     );
 

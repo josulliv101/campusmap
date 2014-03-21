@@ -262,6 +262,7 @@ define([
 
     };
 
+    // !!! Make sure cached version of zoom gets used, not recalculated !!! 
     Utils.prototype.addLocationToTileCache_ = function(tileOffset, loc) {
 
       var key = getTileZoomId(tileOffset.tile, tileOffset.zoom);
@@ -276,6 +277,11 @@ define([
       loc.tileCache || (loc.tileCache = {});
 
       loc.tileCache[tileOffset.zoom] = tileOffset;
+
+      // Make offset a bit more accessible in templates
+      loc.offsety = tileOffset.offset.y;
+
+      loc.offsetx = tileOffset.offset.x;
 
       return loc;
 

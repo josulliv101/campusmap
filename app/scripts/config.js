@@ -239,7 +239,7 @@ define([
 
                             name: "Pinterest",
 
-                            maxZoom: 17
+                            maxZoom: 18
 
                         });
 

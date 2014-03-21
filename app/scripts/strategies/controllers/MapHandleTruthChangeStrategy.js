@@ -25,9 +25,9 @@ define([
     };
 
     // Lat/Lng should already be converted to object if it was initially a string
-    MapHandleTruthChangeStrategy.prototype.handleLatLng = function(model, val, key, viz) {
+    MapHandleTruthChangeStrategy.prototype.handleCenter = function(model, val, key, viz) {
 
-        if (key !== 'latlng' || !_.isObject(val)) return;
+        if (key !== 'center' || !_.isObject(val)) return;
 
         viz.setCenter(val);
 
@@ -41,14 +41,33 @@ define([
 
     };
 
+    MapHandleTruthChangeStrategy.prototype.handleZoom = function(model, val, key, viz) {
+
+        if (key !== 'zoom' || !_.isNumber(val)) return;
+
+        viz.setZoom(val);
+
+    };
+
+    MapHandleTruthChangeStrategy.prototype.handleLocations = function(model, val, key, viz) {
+
+        if (key !== 'locations' || !_.isArray(val)) return;
+
+        viz.renderLabelOverlay(val);
+
+    };
 
     MapHandleTruthChangeStrategy.prototype.dispatch = _.dispatch( 
 
         MapHandleTruthChangeStrategy.prototype.handleMapType,
 
-        MapHandleTruthChangeStrategy.prototype.handleLatLng,
+        MapHandleTruthChangeStrategy.prototype.handleCenter,
 
-        MapHandleTruthChangeStrategy.prototype.handleCursor
+        MapHandleTruthChangeStrategy.prototype.handleCursor,
+
+        MapHandleTruthChangeStrategy.prototype.handleZoom,
+
+        MapHandleTruthChangeStrategy.prototype.handleLocations
 
     );
 

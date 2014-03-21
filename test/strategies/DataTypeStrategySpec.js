@@ -27,6 +27,10 @@ define([
 
       spyOn(Strategy.prototype, 'panelIdsToObjects').andCallThrough();
 
+      spyOn(Strategy.prototype, 'campusIdToObject').andCallThrough();
+
+      spyOn(Strategy.prototype, 'locationsDataIntegrity').andCallThrough();
+
       strategy = new Strategy();
 
       DS = new FakeDatastore();
@@ -130,11 +134,11 @@ define([
 
         val3 = strategy.dispatch({}, '42, -71', 'mychange3', DS, PM);
 
-        expect( val1 ).toEqual({ lat : '42.123123', lng : '-71.123456' });
+        expect( val1 ).toEqual({ lat : 42.123123, lng : -71.123456 });
 
-        expect( val2 ).toEqual({ lat : '-42.123123', lng : '-71.123456' });
+        expect( val2 ).toEqual({ lat : -42.123123, lng : -71.123456 });
 
-        expect( val3 ).toEqual({ lat : '42', lng : '-71' });
+        expect( val3 ).toEqual({ lat : 42, lng : -71 });
 
       });
 
@@ -217,6 +221,42 @@ define([
         val = strategy.dispatch({}, 'p1,p2', 'panels', DS, PM);
 
         expect( val ).toEqual([{ id: 'p1' }, { id: 'p2' }]);
+
+      });
+
+    });
+
+    describe('Converting campus id to an campus model', function () {
+
+      it('ignores a change that is already an object', function () {
+
+        strategy.dispatch({}, {}, 'details', DS, PM);
+
+        expect( Strategy.prototype.campusIdToObject ).not.toHaveBeenCalled();
+
+      });
+
+      it('converts a campus string id to object reference', function () {
+
+        var val = strategy.dispatch({}, 'medford', 'campus', DS, PM);
+
+        expect( val ).toEqual({ id: 'medford' });
+
+      });
+
+    });
+
+    describe('Converting locations lat/lng to objects', function () {
+
+      it('converts a string id to object for location', function () {
+
+        var loc1 = { latlng: '42,-71' }, loc2 = { latlng: '42.999,-71.999' };
+
+            strategy.dispatch({}, [ loc1, loc2 ], 'locations', DS, PM);
+
+        expect( loc1 ).toEqual({ latlng : { lat : 42, lng : -71 } });
+
+        expect( loc2 ).toEqual({ latlng : { lat : 42.999, lng : -71.999 } });
 
       });
 

@@ -10,9 +10,12 @@ define([
 
     //, 'eventdispatcher''
 
+    , 'templates'
+
     , '_mixins'
 
-], function ($, _) { 
+
+], function ($, _, JST) { 
 
 
     //// Constructor ////
@@ -24,6 +27,8 @@ define([
         this.$root = $('body');
 
         this.getElement = _.dispatch(this.getOptionsEl, this.getHtmlEl, this.getRootEl);
+
+        this.labelTileTemplate = JST['app/scripts/templates/map-tile.ejs'];
 
     }
 
@@ -72,6 +77,19 @@ define([
     // Defined in init so this keyword behaves
     DomManager.prototype.getElement = function() {};
 
+
+    // Html for each label tile
+    DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {
+
+        var html = this.labelTileTemplate({ locations: models }),
+
+            $div = $(html);
+
+        return $div[0];
+
+    };
+
+    
     return new DomManager();
 
 });

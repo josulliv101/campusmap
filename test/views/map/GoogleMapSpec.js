@@ -30,6 +30,16 @@ define([
 
     });
 
+    describe('Centering', function () {
+
+      it('creates a google map object when instantiated', function () {
+
+        //expect( mapView.map ).toBeDefined();
+
+      });
+
+    });
+
   });
 
 });
