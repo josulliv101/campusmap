@@ -12,6 +12,4 @@ bower_components
 .grunt
 *.dmp
 *.scssc
-dist/campusmap.js
-
-dist/campusmap.min.js
+/dist/*

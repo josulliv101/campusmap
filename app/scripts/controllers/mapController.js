@@ -41,7 +41,7 @@ define([
         // If there's any between-attr dependencies, they should already be process by appControl
         _.each(changedAttrs, function(val, key) {
 
-            this.handleTruthStrategy.dispatch({}, val, key, this.mapView);
+            this.handleTruthStrategy.dispatch(this.theTruthJSON, val, key, this.mapView);
 
         }, this);
 
@@ -64,6 +64,8 @@ define([
             MapUtils.addLocationToTileCache(tileOffset, loc);
 
         }, this);
+
+        console.log('refreshTileCache', MapUtils.getTileCache());
 
     };
 
