@@ -15,7 +15,7 @@
 
 		height: 256px;
 
-		border: 1px #ccc solid;
+		border: 0px #ccc solid;
 
 		.location {
 
@@ -23,15 +23,25 @@
 
 			width: auto;
 
+			background: transparent;
+
+			color: #333;
+
+			margin: -8px 0 0 -8px; 
+
 			.bd {
 
 				position: relative;
 
-				top: -22px;
+				top: 0;
 
-				left: 12px;
+				left: 0;
 
 				z-index: 998;
+
+				padding-left: 16px; /* Adjust for icon's 16px width */
+
+				/* Text Area */
 
 				.txt {
 
@@ -43,9 +53,9 @@
 
 			        /*min-width: 80px;*/
 
-			        top: 3px;
+			        top: -1px;
 
-			        left: 0;
+			        left: 4px; /* Put a little space between icon and txt label*/
 
 			        white-space: nowrap;
 
@@ -55,17 +65,63 @@
 
 			        border-color: transparent;
 
-			        border-width: 2px;
+			        border-width: 0px;
 
 			        border-radius: 1px;
 
 			        vertical-align: top;
 
-			        padding: 0 2px 0 0; /*0 2px;4px 12px 0 0px;*/
+			        padding: 0; /*0 2px 0 0;*/
 
 			        letter-spacing: .05em;
 
+			        font-size: 16px;
+
 				}
+
+			}
+
+		    /* Icons */
+
+		    .icon {
+
+		      position: relative; /* For z-index */
+
+		      display: block;
+
+		      float: left;
+
+		      z-index: 999;
+
+		      top: 2px;
+
+		      left: 2px;
+
+		      width: 6px;
+
+		      height: 6px;
+
+		      border-radius: 6px;
+
+		      border: 3px #6699cc solid;
+
+		      line-height: 16px;
+
+		      background-size: 16px 16px;
+
+		      background-color: #fff;
+/*
+		      background-image: url("../../app/images/icons/map/circle@2x.png");  marker-icon-2x.png circle@2x.png circle_outline_center.png */
+
+		      background-repeat: no-repeat;
+
+		      vertical-align: text-top;
+
+		    }
+
+			&.closeby {
+
+				color: #999;
 
 			}
 

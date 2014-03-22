@@ -60,7 +60,28 @@ define([
 
         });
 
+        google.maps.event.addListener(this.map, 'mousemove', function (ev) { // _.throttle()
+          
+          var latlng = ev.latLng, 
+
+              loc, tileoffset, 
+
+              zoom = this.getZoom(); //, tileoffset, locs, id, closest;
+
+          tileoffset = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom);
+
+          // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
+          EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(tileoffset, 'offset') });
+
+        });
+
     }
+
+    GoogleMapView.prototype.handleLatLng_ = function(ev) {
+
+        console.log('handleLatLng', ev);
+
+    };
 
     GoogleMapView.prototype.setMapType = function(maptypeid) {
 
@@ -80,6 +101,28 @@ define([
 
     };
 
+    GoogleMapView.prototype.refreshLabelCss = function(all, closeby) {
+
+        _.each(all, function(loc) {
+
+            var $loc, classes = 'location ';
+
+            if (!loc.id) return;
+
+            $loc = $('#' + loc.id);
+
+            if (loc.isCloseBy === true) classes = classes + 'closeby ';
+
+            $loc.removeClass();
+
+            $loc.addClass(classes);
+
+        });
+
+        //debugger;
+
+    };
+
     GoogleMapView.prototype.renderLabelOverlay = function(locations) {
 
         this.labelLayer.locations = locations;
@@ -88,6 +131,23 @@ define([
 
         // Re-renders Labels Tile Overlay
         this.map.overlayMapTypes.insertAt(0, this.labelLayer);
+
+        // to be deleted - development only
+        /*
+        _.each(this.labelLayer.locations, function(loc) { 
+
+          var marker = new google.maps.Marker({
+
+              position: loc.latlng,
+
+              map: this.map,
+
+              title: loc.name
+
+          });
+
+        }, this);
+        */
 
     };
 

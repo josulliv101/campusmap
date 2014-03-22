@@ -8,13 +8,17 @@ define([
 
     , 'scripts/panelManager'
 
+    , 'scripts/utils/MapUtils'
+
     , 'strategies/CssFlagStrategy'
 
     , 'strategies/DataTypeStrategy'
 
+    , 'strategies/StateManagementStrategy'
+
     , 'eventdispatcher'
 
-], function(_, Backbone, Datastore, PanelManager, CssFlagStrategy, DataTypeStrategy, EventDispatcher) {
+], function(_, Backbone, Datastore, PanelManager, MapUtils, CssFlagStrategy, DataTypeStrategy, StateManagementStrategy, EventDispatcher) {
 
     'use strict';
 
@@ -29,6 +33,8 @@ define([
         this.cssFlagStrategy = new CssFlagStrategy();
 
         this.dataTypeStrategy = new DataTypeStrategy();
+
+        this.stateManagementStrategy = new StateManagementStrategy();
 
     }
 
@@ -78,8 +84,11 @@ define([
         // Handle each changed attribute in the most appropriate manner, determined by dispatch function
         _.each(changed, function(val, key) { 
 
+            // First, make sure any data model related changes happen
+            this.stateManagementStrategy.dispatch(model.toJSON(), val, key, MapUtils);
+
             // Update DOM with appropriate css flags -- on root element of app
-            this.cssFlagStrategy.dispatch(model, val, key);
+            this.cssFlagStrategy.dispatch(model.toJSON(), val, key);
 
         }, this);
 

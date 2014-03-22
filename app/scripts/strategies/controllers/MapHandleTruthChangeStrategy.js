@@ -57,6 +57,14 @@ define([
 
     };
 
+    MapHandleTruthChangeStrategy.prototype.handleCloseByLocations = function(model, val, key, viz) {
+
+        if (key !== 'locationscloseby' || !_.isArray(val)) return;
+debugger;
+        viz.refreshLabelCss(model.locations, val);
+
+    };
+
     MapHandleTruthChangeStrategy.prototype.dispatch = _.dispatch( 
 
         MapHandleTruthChangeStrategy.prototype.handleMapType,
@@ -67,7 +75,9 @@ define([
 
         MapHandleTruthChangeStrategy.prototype.handleZoom,
 
-        MapHandleTruthChangeStrategy.prototype.handleLocations
+        MapHandleTruthChangeStrategy.prototype.handleLocations,
+
+        MapHandleTruthChangeStrategy.prototype.handleCloseByLocations
 
     );
 

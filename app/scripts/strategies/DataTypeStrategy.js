@@ -121,6 +121,7 @@ define([
 
     };
 
+
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 
         DataTypeStrategy.prototype.stringToBoolean,
