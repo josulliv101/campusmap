@@ -11,7 +11,7 @@ module.exports = function (grunt) {
     '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
     '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
     ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-    // Task configuration.
+    // Task configuration
     clean: {
       files: ['dist']
     },
