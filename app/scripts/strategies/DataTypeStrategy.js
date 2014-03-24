@@ -120,7 +120,25 @@ define([
         return  val;
 
     };
+/*
+    DataTypeStrategy.prototype.hoveredLocation = function(model, val, key, Datastore, PanelManager) {
 
+        var attr = {};
+
+        if (key !== 'hover') return;
+
+        if (_.isEmpty(val)) {
+
+            attr[key] = { id: -1 };
+
+        }
+        
+        _.extend(model, attr);
+
+        return  attr[key];
+
+    };
+*/
 
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 

@@ -7,6 +7,7 @@
 	color: #333;
 
 	/**** Label Tile ****/
+
 	.label-tile {
 
 		position: relative;
@@ -15,7 +16,7 @@
 
 		height: 256px;
 
-		border: 0px #ccc solid;
+		border: 1px #ccc solid;
 
 		.location {
 
@@ -23,7 +24,7 @@
 
 			width: auto;
 
-			background: transparent;
+			background: rgba(0, 0, 0, .2);
 
 			color: #333;
 
@@ -121,7 +122,21 @@
 
 			&.closeby {
 
-				color: #999;
+				.icon {
+/*
+					background-color: #6699cc;
+*/
+				}
+
+			}
+
+			&.hover {
+
+				.icon {
+
+					background-color: red !important;
+
+				}
 
 			}
 

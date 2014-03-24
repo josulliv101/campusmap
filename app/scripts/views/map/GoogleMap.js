@@ -62,16 +62,42 @@ define([
 
         google.maps.event.addListener(this.map, 'mousemove', function (ev) { // _.throttle()
           
-          var latlng = ev.latLng, 
+            var  loc, mouse, closeby, locAtPoint, zoom = this.getZoom(), latlng = ev.latLng;
 
-              loc, tileoffset, 
+            mouse = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom);
 
-              zoom = this.getZoom(); //, tileoffset, locs, id, closest;
+            // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
+            //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
 
-          tileoffset = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom);
+            // getCloseByLocationsFromTileCache is memoized
+            closeby = MapUtils.getLocationsFromTileCache(mouse.tile, mouse.zoom);
 
-          // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
-          EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(tileoffset, 'offset') });
+            _.each(closeby, function(loc) {
+
+                GoogleMapView.prototype.setLocationDimensions.call(null, loc);
+
+            }, this);
+
+            locAtPoint = _.chain(closeby)
+
+                          .reject(function(loc) { return loc.dimensions === undefined; })
+
+                          .filter(function(loc) { 
+
+                                return mouse.offset.x > loc.offsetx - 10
+
+                                        && mouse.offset.x < (loc.offsetx + loc.dimensions.width - 6)
+
+                                        && mouse.offset.y > (loc.offsety  - 10)
+
+                                        && mouse.offset.y < (loc.offsety + loc.dimensions.height - 6);
+                           })
+
+                          .first()
+
+                          .value();
+
+            EventDispatcher.trigger('truthupdate', { hover: locAtPoint });
 
         });
 
@@ -101,25 +127,47 @@ define([
 
     };
 
+    GoogleMapView.prototype.setCursor = function(cursorid) {
+
+        this.map.setOptions({ draggableCursor: cursorid });
+
+    };
+
+    GoogleMapView.prototype.setLocationDimensions = function(location) {
+
+        var $el = $('#' + location.id);
+
+        if (!$el[0]) return;
+
+        location.dimensions = { width: $el.outerWidth(), height: $el.outerHeight() };
+
+    }
+
     GoogleMapView.prototype.refreshLabelCss = function(all, closeby) {
 
         _.each(all, function(loc) {
 
-            var $loc, classes = 'location ';
+            var $loc, classes = ['location'];
 
             if (!loc.id) return;
 
             $loc = $('#' + loc.id);
 
-            if (loc.isCloseBy === true) classes = classes + 'closeby ';
+            if (loc.isCloseBy === true) classes.push('closeby');
 
-            $loc.removeClass();
+            if (loc.isHovered === true) classes.push('hover');
 
-            $loc.addClass(classes);
+            $loc.removeClass().addClass(classes.join(" "));
 
-        });
+        }, this);
 
-        //debugger;
+        //_.each(closeby, function(loc) {
+
+            //this.setLocationDimensions(loc);
+
+        //}, this);
+
+        console.log('refreshLabelCss');
 
     };
 
@@ -132,6 +180,7 @@ define([
         // Re-renders Labels Tile Overlay
         this.map.overlayMapTypes.insertAt(0, this.labelLayer);
 
+        this.refreshLabelCss(locations);
         // to be deleted - development only
         /*
         _.each(this.labelLayer.locations, function(loc) { 
@@ -153,10 +202,6 @@ define([
 
 
     function getCenter_(zoom, offset, options) {    
-
-    }
-
-    function setCursor_(id) {
 
     }
 

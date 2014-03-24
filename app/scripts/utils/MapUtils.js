@@ -191,6 +191,8 @@ define([
     // Done this way so it can reset easily when testing
     Utils.prototype.memoizeFunctions = function() {
 
+      this.getCloseByLocationsFromTileCache = _.memoize( this.getCloseByLocationsFromTileCache_, function(tile, zoom) { return getTileZoomId(tile, zoom); });
+
       this.latLngToTileOffset = this.latLngToTileOffset_; //_.memoize( this.latLngToTileOffset_, function(latLng, zoom) { return getLatLngZoomId(latLng, zoom); });
 
       this.addLocationToTileCache = this.addLocationToTileCache_; //_.memoize( this.addLocationToTileCache_, function(tileOffset, loc) { return _.getAttr(loc, 'locationid') + getTileZoomId(tileOffset.tile, tileOffset.zoom); });
@@ -216,7 +218,7 @@ define([
 
     };
 
-    Utils.prototype.getCloseByLocationsFromTileCache = function(tile, zoom) {
+    Utils.prototype.getCloseByLocationsFromTileCache_ = function(tile, zoom) {
 
       var neighbors = [ 
 

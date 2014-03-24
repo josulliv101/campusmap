@@ -85,10 +85,10 @@ define([
         _.each(changed, function(val, key) { 
 
             // First, make sure any data model related changes happen
-            this.stateManagementStrategy.dispatch(model.toJSON(), val, key, MapUtils);
+            this.stateManagementStrategy.dispatch(model, val, key, MapUtils);
 
             // Update DOM with appropriate css flags -- on root element of app
-            this.cssFlagStrategy.dispatch(model.toJSON(), val, key);
+            this.cssFlagStrategy.dispatch(model, val, key);
 
         }, this);
 

@@ -60,7 +60,15 @@ define([
     MapHandleTruthChangeStrategy.prototype.handleCloseByLocations = function(model, val, key, viz) {
 
         if (key !== 'locationscloseby' || !_.isArray(val)) return;
-debugger;
+
+        viz.refreshLabelCss(model.locations, val);
+
+    };
+
+    MapHandleTruthChangeStrategy.prototype.handleHoveredLocation = function(model, val, key, viz) {
+
+        if (key !== 'hover') return;
+
         viz.refreshLabelCss(model.locations, val);
 
     };
@@ -77,7 +85,9 @@ debugger;
 
         MapHandleTruthChangeStrategy.prototype.handleLocations,
 
-        MapHandleTruthChangeStrategy.prototype.handleCloseByLocations
+        MapHandleTruthChangeStrategy.prototype.handleCloseByLocations,
+
+        MapHandleTruthChangeStrategy.prototype.handleHoveredLocation
 
     );
 

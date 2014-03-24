@@ -26,24 +26,41 @@ define([
 
     };
 
-    // This needs to be
+    
     StateManagementStrategy.prototype.mapTileHoverToCloseByLocations = function(model, val, key, MapUtils) {
 
-        var locations, closeby;
+        // Memoize this?
+
+        var closeby, all;
 
         if (key !== 'maptilehover') return;
 
-        // Reset
-        _.each(model.locations, function(model) { return model.isCloseBy = false; });
+        all = model.get('locations');
 
-        // Memoize this?
         closeby = MapUtils.getCloseByLocationsFromTileCache(val.tile, val.zoom);
 
-        _.each(closeby, function(loc) { return loc.isCloseBy = true; });
+        _.each(all, function(loc) { loc.isCloseBy = _.contains(closeby, loc); });
 
         console.log('closeby locs', closeby.length);
 
         EventDispatcher.trigger('truthupdate', { locationscloseby: closeby });
+
+        return  val;
+
+    };
+
+    StateManagementStrategy.prototype.hoveredLocation = function(model, val, key, MapUtils) {
+
+        var all;
+
+        if (key !== 'hover') return;
+
+        all = model.get('locations');
+
+        _.each(all, function(loc) { loc.isHovered = (val && val.id ? loc.id === val.id : false); });
+
+        // Change the cursor to the pointer when hovering over a label
+        EventDispatcher.trigger('truthupdate', { cursor: val && !_.isEmpty(val) ? 'pointer' : '' });
 
         return  val;
 
@@ -54,7 +71,9 @@ define([
 
         StateManagementStrategy.prototype.toggle,
 
-        StateManagementStrategy.prototype.mapTileHoverToCloseByLocations
+        StateManagementStrategy.prototype.mapTileHoverToCloseByLocations,
+
+        StateManagementStrategy.prototype.hoveredLocation
 
     );
 
