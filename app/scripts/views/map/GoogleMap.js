@@ -70,7 +70,7 @@ define([
             //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
 
             // getCloseByLocationsFromTileCache is memoized
-            closeby = MapUtils.getLocationsFromTileCache(mouse.tile, mouse.zoom);
+            closeby = MapUtils.getCloseByLocationsFromTileCache(mouse.tile, mouse.zoom);
 
             _.each(closeby, function(loc) {
 
@@ -84,13 +84,11 @@ define([
 
                           .filter(function(loc) { 
 
-                                return mouse.offset.x > loc.offsetx - 10
+                                var locTile = loc.tileCache[zoom],
 
-                                        && mouse.offset.x < (loc.offsetx + loc.dimensions.width - 6)
+                                    adjustedOffset = MapUtils.getAdjustedOffset(locTile.offset, mouse.tile, locTile.tile);
 
-                                        && mouse.offset.y > (loc.offsety  - 10)
-
-                                        && mouse.offset.y < (loc.offsety + loc.dimensions.height - 6);
+                                return mouse.offset.x > adjustedOffset.x - 10 && mouse.offset.x < (adjustedOffset.x + loc.dimensions.width - 6) && mouse.offset.y > (adjustedOffset.y  - 10) && mouse.offset.y < (adjustedOffset.y + loc.dimensions.height - 6);
                            })
 
                           .first()
@@ -141,7 +139,7 @@ define([
 
         location.dimensions = { width: $el.outerWidth(), height: $el.outerHeight() };
 
-    }
+    };
 
     GoogleMapView.prototype.refreshLabelCss = function(all, closeby) {
 
