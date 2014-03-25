@@ -49,6 +49,20 @@ define([
 
     };
 
+    StateManagementStrategy.prototype.detailsLocation = function(model, val, key, MapUtils) {
+
+        var all;
+
+        if (key !== 'details') return;
+
+        all = model.get('locations');
+
+        _.each(all, function(loc) { loc.isDetails = (val && val.id ? loc.id === val.id : false); });
+
+        return  val;
+
+    };
+
     StateManagementStrategy.prototype.hoveredLocation = function(model, val, key, MapUtils) {
 
         var all;
@@ -73,7 +87,9 @@ define([
 
         StateManagementStrategy.prototype.mapTileHoverToCloseByLocations,
 
-        StateManagementStrategy.prototype.hoveredLocation
+        StateManagementStrategy.prototype.hoveredLocation,
+
+        StateManagementStrategy.prototype.detailsLocation
 
     );
 

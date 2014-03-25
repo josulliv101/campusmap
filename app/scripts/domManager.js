@@ -81,11 +81,36 @@ define([
     // Html for each label tile
     DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {
 
-        var html = this.labelTileTemplate({ locations: models }),
+        var html, $div;
 
-            $div = $(html);
+        _.each(models, function(model) { model.classnames = this.getLocationClassNames(model); }, this)
+
+        html = this.labelTileTemplate({ locations: models });
+
+        $div = $(html);
 
         return $div[0];
+
+    };
+
+
+    DomManager.prototype.getLocationClassNames = function(loc) {
+
+        var classes = ['location'];
+
+        if (!loc)  return'';
+
+        if (loc.emphasis) classes.push('emphasis' + loc.emphasis);
+
+        if (loc.hide === true) classes.push('hide');
+
+        if (loc.isCloseBy === true) classes.push('closeby');
+
+        if (loc.isHovered === true) classes.push('hover');
+
+        if (loc.isDetails === true) classes.push('details');
+
+        return classes.join(" ");
 
     };
 

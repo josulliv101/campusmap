@@ -1,3 +1,5 @@
+@import "./partials/base";
+
 /* ==========================================================================
    Map Module
    ========================================================================== */
@@ -16,7 +18,7 @@
 
 		height: 256px;
 
-		border: 1px #ccc solid;
+		border: 1px #ccc none;
 
 		.location {
 
@@ -30,6 +32,8 @@
 
 			margin: -8px 0 0 -8px; 
 
+			z-index: 998;
+
 			.bd {
 
 				position: relative;
@@ -39,6 +43,8 @@
 				left: 0;
 
 				z-index: 998;
+
+				display: block;
 
 				padding: 0 4px 0 16px; /* Adjust for icon's 16px width */
 
@@ -54,9 +60,11 @@
 
 			        /*min-width: 80px;*/
 
-			        top: -1px;
+			        top: -3px;
 
 			        left: 4px; /* Put a little space between icon and txt label*/
+
+			        background: transparent;
 
 			        white-space: nowrap;
 
@@ -72,11 +80,13 @@
 
 			        vertical-align: top;
 
-			        padding: 0; /*0 2px 0 0;*/
+			        padding: 2px 3px; /*0 2px 0 0;*/
 
 			        letter-spacing: .05em;
 
-			        font-size: 16px;
+			        font-size: 14px;
+
+			        
 
 				}
 
@@ -102,21 +112,25 @@
 
 		      height: 5px;
 
-		      border-radius: 6px;
+		      opacity: .8;
 
-		      border: 4px #6699cc solid;
+		      border-radius: 12px;
+
+		      border: 4px #9b7458 solid;
 
 		      line-height: 16px;
 
 		      background-size: 16px 16px;
 
-		      background-color: #fff;
+		      background-color: #9b7458;
 /*
 		      background-image: url("../../app/images/icons/map/circle@2x.png");  marker-icon-2x.png circle@2x.png circle_outline_center.png */
 
 		      background-repeat: no-repeat;
 
 		      vertical-align: text-top;
+
+		      @include shadow();
 
 		    }
 
@@ -129,18 +143,202 @@
 				}
 
 			}
+/*
+			&.emphasis1, &.emphasis2, &.emphasis3, &.emphasis4 {
 
-			&.hover {
+				.bd {
+
+					display: none;
+
+				}
+
+			}
+
+			&.emphasis1, &.emphasis2, &.emphasis3 {
 
 				.icon {
 
-					background-color: red !important;
+					display: none;
+
+				}
+
+			}
+*/
+			&.emphasis5 {
+
+				.icon {
+
+					border: 5px #9b7458 solid;
+
+				}
+
+				.bd {
+
+					.txt {
+
+						/*font-size: 19px;*/
+
+					}
+
+				}
+
+			}
+
+			&.details {
+
+				.icon {
+
+					display: block !important;
+					
+					background-color: #fff !important;
+
+					border-color: #3172AE !important;
+
+				}
+
+				.bd {
+
+					display: block !important;
+
+					.txt {
+
+						color: #3172AE !important;
+
+						background: #fff !important;
+
+						@include shadow();
+
+					}
+
+				}
+
+			}
+
+			&.hover {
+
+				color: #000 !important;
+
+				z-index: 9999 !important;
+
+				.icon {
+
+					background-color: #fff !important;
+
+				}
+
+				.bd {
+
+					display: block !important;
+
+					.txt {
+
+						background: #fff;
+
+						@include shadow();
+
+					}
 
 				}
 
 			}
 
 		}
+
+	}
+
+}
+
+.zoomed-out { /* below level 15 */
+	
+	.label-tile {
+
+		display: none !important;
+
+	}
+
+}
+
+.zoom-16 {
+	
+	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
+
+		.bd {
+
+			display: none !important;
+
+		}
+
+	}
+
+	.emphasis1, .emphasis2, .emphasis3 {
+
+		.icon {
+
+			display: none !important;
+
+		}
+
+	}
+
+}
+
+.zoom-17 {
+	
+	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
+
+		.bd {
+
+			display: none !important;
+
+		}
+
+	}
+
+	.emphasis1, .emphasis2, .emphasis3 {
+
+		.icon {
+
+			display: none !important;
+
+		}
+
+	}
+
+}
+
+.zoomed-in { /* above level 17 */
+	
+	.label-tile {
+
+		display: block !important;
+
+	}
+
+	.icon {
+
+		display: block !important;
+
+	}
+
+}
+
+.zoom-15 {
+	
+	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
+
+		display: none !important;
+
+	}
+
+	.icon {
+
+		border: 1px #9b7458 solid !important;
+
+	}
+
+	.bd {
+
+		display: none !important;
 
 	}
 
