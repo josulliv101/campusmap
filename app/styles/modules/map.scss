@@ -1,5 +1,3 @@
-@import "./partials/base";
-
 /* ==========================================================================
    Map Module
    ========================================================================== */
@@ -18,7 +16,7 @@
 
 		height: 256px;
 
-		border: 1px #ccc none;
+		border: 1px #ccc solid;
 
 		.location {
 
@@ -26,13 +24,11 @@
 
 			width: auto;
 
-			background: rgba(0, 0, 0, 0);
+			background: rgba(0, 0, 0, .2);
 
 			color: #333;
 
 			margin: -8px 0 0 -8px; 
-
-			z-index: 998;
 
 			.bd {
 
@@ -44,9 +40,7 @@
 
 				z-index: 998;
 
-				display: block;
-
-				padding: 0 4px 0 16px; /* Adjust for icon's 16px width */
+				padding-left: 16px; /* Adjust for icon's 16px width */
 
 				/* Text Area */
 
@@ -60,11 +54,9 @@
 
 			        /*min-width: 80px;*/
 
-			        top: -3px;
+			        top: -1px;
 
 			        left: 4px; /* Put a little space between icon and txt label*/
-
-			        background: transparent;
 
 			        white-space: nowrap;
 
@@ -80,13 +72,11 @@
 
 			        vertical-align: top;
 
-			        padding: 2px 3px; /*0 2px 0 0;*/
+			        padding: 0; /*0 2px 0 0;*/
 
 			        letter-spacing: .05em;
 
-			        font-size: 14px;
-
-			        
+			        font-size: 16px;
 
 				}
 
@@ -104,33 +94,29 @@
 
 		      z-index: 999;
 
-		      top: 1px;
+		      top: 2px;
 
-		      left: 1px;
+		      left: 2px;
 
-		      width: 5px;
+		      width: 6px;
 
-		      height: 5px;
+		      height: 6px;
 
-		      opacity: .8;
+		      border-radius: 6px;
 
-		      border-radius: 12px;
-
-		      border: 4px #9b7458 solid;
+		      border: 3px #6699cc solid;
 
 		      line-height: 16px;
 
 		      background-size: 16px 16px;
 
-		      background-color: #9b7458;
+		      background-color: #fff;
 /*
 		      background-image: url("../../app/images/icons/map/circle@2x.png");  marker-icon-2x.png circle@2x.png circle_outline_center.png */
 
 		      background-repeat: no-repeat;
 
 		      vertical-align: text-top;
-
-		      @include shadow();
 
 		    }
 
@@ -143,202 +129,18 @@
 				}
 
 			}
-/*
-			&.emphasis1, &.emphasis2, &.emphasis3, &.emphasis4 {
-
-				.bd {
-
-					display: none;
-
-				}
-
-			}
-
-			&.emphasis1, &.emphasis2, &.emphasis3 {
-
-				.icon {
-
-					display: none;
-
-				}
-
-			}
-*/
-			&.emphasis5 {
-
-				.icon {
-
-					border: 5px #9b7458 solid;
-
-				}
-
-				.bd {
-
-					.txt {
-
-						/*font-size: 19px;*/
-
-					}
-
-				}
-
-			}
-
-			&.details {
-
-				.icon {
-
-					display: block !important;
-					
-					background-color: #fff !important;
-
-					border-color: #3172AE !important;
-
-				}
-
-				.bd {
-
-					display: block !important;
-
-					.txt {
-
-						color: #3172AE !important;
-
-						background: #fff !important;
-
-						@include shadow();
-
-					}
-
-				}
-
-			}
 
 			&.hover {
 
-				color: #000 !important;
-
-				z-index: 9999 !important;
-
 				.icon {
 
-					background-color: #fff !important;
-
-				}
-
-				.bd {
-
-					display: block !important;
-
-					.txt {
-
-						background: #fff;
-
-						@include shadow();
-
-					}
+					background-color: red !important;
 
 				}
 
 			}
 
 		}
-
-	}
-
-}
-
-.zoomed-out { /* below level 15 */
-	
-	.label-tile {
-
-		display: none !important;
-
-	}
-
-}
-
-.zoom-16 {
-	
-	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
-
-		.bd {
-
-			display: none !important;
-
-		}
-
-	}
-
-	.emphasis1, .emphasis2, .emphasis3 {
-
-		.icon {
-
-			display: none !important;
-
-		}
-
-	}
-
-}
-
-.zoom-17 {
-	
-	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
-
-		.bd {
-
-			display: none !important;
-
-		}
-
-	}
-
-	.emphasis1, .emphasis2, .emphasis3 {
-
-		.icon {
-
-			display: none !important;
-
-		}
-
-	}
-
-}
-
-.zoomed-in { /* above level 17 */
-	
-	.label-tile {
-
-		display: block !important;
-
-	}
-
-	.icon {
-
-		display: block !important;
-
-	}
-
-}
-
-.zoom-15 {
-	
-	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
-
-		display: none !important;
-
-	}
-
-	.icon {
-
-		border: 1px #9b7458 solid !important;
-
-	}
-
-	.bd {
-
-		display: none !important;
 
 	}
 
