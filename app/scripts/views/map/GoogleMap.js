@@ -11,11 +11,13 @@ define([
 
     , 'scripts/utils/MapUtils'
 
+    , 'scripts/domManager'
+
     , 'eventdispatcher'
 
     , 'async!http://maps.google.com/maps/api/js?sensor=false'
 
-], function($, _, Config, LabelMapType, MapUtils, EventDispatcher) {
+], function($, _, Config, LabelMapType, MapUtils, DomManager, EventDispatcher) {
 
     'use strict';
 
@@ -25,7 +27,9 @@ define([
     function GoogleMapView(options) {
 
         // Grab first maptype as default, or use google roadmap
-        var defaultMapType = _.chain(Config.googlemap.maptypes).keys().first().value() || google.maps.MapTypeId.ROADMAP;
+        var defaultMapType = _.chain(Config.googlemap.maptypes).keys().first().value() || google.maps.MapTypeId.ROADMAP,
+
+            view = this;
 
         options || (options = {});
 
@@ -61,51 +65,85 @@ define([
         });
 
         google.maps.event.addListener(this.map, 'mousemove', function (ev) { // _.throttle()
+
+            console.log('mousemove');
+
+            var loc = view.underLatLng_(ev.latLng, this.getZoom());
+
+            EventDispatcher.trigger('truthupdate', { hover: loc });
+
+        });
+
+        // Make sure unwanted mousemove events aren't triggered during a map drag
+        google.maps.event.addListener(this.map, 'dragstart', function (ev) { 
+
+            console.log('dragstart');
+
+            google.maps.event.clearListeners(this, 'mousemove');
+
+        });
+
+        google.maps.event.addListener(this.map, 'dragend', function (ev) { 
+
+            console.log('dragend');
+
+            // Add mousemove listener back
+            google.maps.event.addListener(this, 'mousemove', function (ev) { // _.throttle()
+
+                console.log('mousemove');
+
+                var loc = view.underLatLng_(ev.latLng, this.getZoom());
+
+                EventDispatcher.trigger('truthupdate', { hover: loc });
+
+            });
+
+        });
+
+        google.maps.event.addListener(this.map, 'click', function (ev) { // _.throttle()
           
-            var  loc, mouse, closeby, locAtPoint, zoom = this.getZoom(), latlng = ev.latLng;
+            var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
-            mouse = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom);
-
-            // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
-            //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
-
-            // getCloseByLocationsFromTileCache is memoized
-            closeby = MapUtils.getLocationsFromTileCache(mouse.tile, mouse.zoom);
-
-            _.each(closeby, function(loc) {
-
-                GoogleMapView.prototype.setLocationDimensions.call(null, loc);
-
-            }, this);
-
-            locAtPoint = _.chain(closeby)
-
-                          .reject(function(loc) { return loc.dimensions === undefined; })
-
-                          .filter(function(loc) { 
-
-                                return mouse.offset.x > loc.offsetx - 10
-
-                                        && mouse.offset.x < (loc.offsetx + loc.dimensions.width - 6)
-
-                                        && mouse.offset.y > (loc.offsety  - 10)
-
-                                        && mouse.offset.y < (loc.offsety + loc.dimensions.height - 6);
-                           })
-
-                          .first()
-
-                          .value();
-
-            EventDispatcher.trigger('truthupdate', { hover: locAtPoint });
+            EventDispatcher.trigger('truthupdate', { details: loc });
 
         });
 
     }
 
-    GoogleMapView.prototype.handleLatLng_ = function(ev) {
+    GoogleMapView.prototype.underLatLng_ = function(latlng, zoom) {
 
-        console.log('handleLatLng', ev);
+        var  loc, mouse, closeby, locAtPoint;
+
+        mouse = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom);
+
+        // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
+        //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
+
+        // getCloseByLocationsFromTileCache is memoized
+        closeby = MapUtils.getCloseByLocationsFromTileCache(mouse.tile, mouse.zoom);
+
+        _.each(closeby, function(loc) {
+
+            GoogleMapView.prototype.setLocationDimensions.call(null, loc);
+
+        }, this);
+
+        return   _.chain(closeby)
+
+                  .reject(function(loc) { return loc.dimensions === undefined; })
+
+                  .filter(function(loc) { 
+
+                        var locTile = loc.tileCache[zoom],
+
+                            adjustedOffset = MapUtils.getAdjustedOffset(locTile.offset, mouse.tile, locTile.tile);
+
+                        return mouse.offset.x > adjustedOffset.x - 10 && mouse.offset.x < (adjustedOffset.x + loc.dimensions.width - 6) && mouse.offset.y > (adjustedOffset.y  - 10) && mouse.offset.y < (adjustedOffset.y + loc.dimensions.height - 6);
+                   })
+
+                  .first()
+
+                  .value();
 
     };
 
@@ -141,31 +179,21 @@ define([
 
         location.dimensions = { width: $el.outerWidth(), height: $el.outerHeight() };
 
-    }
+    };
 
     GoogleMapView.prototype.refreshLabelCss = function(all, closeby) {
 
         _.each(all, function(loc) {
 
-            var $loc, classes = ['location'];
+            var $loc, classes;
 
             if (!loc.id) return;
 
             $loc = $('#' + loc.id);
 
-            if (loc.isCloseBy === true) classes.push('closeby');
-
-            if (loc.isHovered === true) classes.push('hover');
-
-            $loc.removeClass().addClass(classes.join(" "));
+            $loc.removeClass().addClass( DomManager.getLocationClassNames(loc) );
 
         }, this);
-
-        //_.each(closeby, function(loc) {
-
-            //this.setLocationDimensions(loc);
-
-        //}, this);
 
         console.log('refreshLabelCss');
 
@@ -180,7 +208,7 @@ define([
         // Re-renders Labels Tile Overlay
         this.map.overlayMapTypes.insertAt(0, this.labelLayer);
 
-        this.refreshLabelCss(locations);
+        //this.refreshLabelCss(locations);
         // to be deleted - development only
         /*
         _.each(this.labelLayer.locations, function(loc) { 

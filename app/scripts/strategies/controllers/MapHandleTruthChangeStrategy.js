@@ -73,6 +73,14 @@ define([
 
     };
 
+    MapHandleTruthChangeStrategy.prototype.handleDetailsLocation = function(model, val, key, viz) {
+
+        if (key !== 'details') return;
+
+        viz.refreshLabelCss(model.locations, val);
+
+    };
+
     MapHandleTruthChangeStrategy.prototype.dispatch = _.dispatch( 
 
         MapHandleTruthChangeStrategy.prototype.handleMapType,
@@ -87,7 +95,9 @@ define([
 
         MapHandleTruthChangeStrategy.prototype.handleCloseByLocations,
 
-        MapHandleTruthChangeStrategy.prototype.handleHoveredLocation
+        MapHandleTruthChangeStrategy.prototype.handleHoveredLocation,
+
+        MapHandleTruthChangeStrategy.prototype.handleDetailsLocation
 
     );
 
