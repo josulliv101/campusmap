@@ -8,3 +8,20 @@
 	  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,.22);
 	    box-shadow: 2px 2px 2px 0px rgba(0,0,0,.22); 
 }
+
+@mixin animate($seconds) {
+
+	-webkit-transition: all $seconds linear;
+		-moz-transition: all $seconds linear;
+			-o-transition: all $seconds linear;
+				-ms-transform: all $seconds linear;
+					transition: all $seconds linear;
+}
+
+@mixin rotate($degrees) {
+	-webkit-transform: rotate($degrees); 
+		-moz-transform: rotate($degrees); 
+			-o-transform: rotate($degrees); 
+				-ms-transform: rotate($degrees); 
+					transform: rotate($degrees);
+}

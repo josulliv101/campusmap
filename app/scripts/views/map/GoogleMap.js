@@ -37,25 +37,16 @@ define([
         if (!options.el) Config.throwError.mapViewInit();
 
         // Needs a temporary center lat/lng to initialize.
-        this.map = new api.maps.Map(options.el, _.defaults(Config.googlemap.attrs(api), { center: { lat: 0, lng: 0 } }));
+        this.map = new api.maps.Map(options.el, _.defaults(Config.googlemap.attrs(api), { center: { lat: 0, lng: 0 } })); 
 
-        // Create a matype for each maptype in config (either style-related or custom tiles)
-        _.each(Config.googlemap.maptypes, function(data, maptypeid) { 
+        // Convert maptype json daata from config to real maptypes
+        this.initMapTypes(Config.googlemap.maptypes);
 
-            // Styled tiles
-            if (_.isArray(data.styles)) this.map.mapTypes.set(maptypeid, new google.maps.StyledMapType(data.styles)); 
-
-            // Custom tile images
-            else if (_.isFunction(data.tiles)) this.map.mapTypes.set(maptypeid, data.tiles(api)); 
-
-        }, this);
- 
-
+        // The first one is the default
         this.map.setMapTypeId(defaultMapType);
 
-        // Add the Label map type overlay
+        // Add the Label tile overlay
         this.labelLayer = new LabelMapType(new google.maps.Size(256, 256), MapUtils);
-
 
         // Make sure the Truth gets updated if zoom is changed through the map interface directly (scrollwheel, doubleclick)
         google.maps.event.addListener(this.map, 'zoom_changed', function(ev) {
@@ -112,38 +103,56 @@ define([
 
     GoogleMapView.prototype.underLatLng_ = function(latlng, zoom) {
 
-        var  loc, mouse, closeby, locAtPoint;
+        var  location, mouse, mouseoffset;
 
-        mouse = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom);
+        mouse = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom),
+
+        mouseoffset = mouse.offset;
 
         // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
         //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
 
-        // getCloseByLocationsFromTileCache is memoized
-        closeby = MapUtils.getCloseByLocationsFromTileCache(mouse.tile, mouse.zoom);
+        // Only target locations within 1 tile length in any direction
+        location =   _.chain( MapUtils.getCloseByLocationsFromTileCache(mouse.tile, mouse.zoom) )
 
-        _.each(closeby, function(loc) {
+                      // Refresh location dimensions, it's style may have changed.
+                      .each(MapUtils.setLocationDimensions)
 
-            GoogleMapView.prototype.setLocationDimensions.call(null, loc);
+                      // Makes sure an id exists -- will be used for dom el selection
+                      .reject(function(loc) { return loc.dimensions === undefined; })
+
+                      .filter(function(loc) { 
+
+                            var locTile = loc.tileCache[zoom],
+
+                                adjustedOffset = MapUtils.getAdjustedOffset(locTile.offset, mouse.tile, locTile.tile);
+
+                            return mouseoffset.x > adjustedOffset.x - 10 && mouseoffset.x < (adjustedOffset.x + loc.dimensions.width - 6) && mouseoffset.y > (adjustedOffset.y  - 10) && mouseoffset.y < (adjustedOffset.y + loc.dimensions.height - 6);
+                       })
+
+                      .first()
+
+                      .value();
+
+        // Just in case
+        mouse = null; mouseoffset = null;
+
+        return location;
+
+    };
+
+    GoogleMapView.prototype.initMapTypes = function(jsonMaptypes) {
+
+        // Create a matype for each maptype in config (either style-related or custom tiles)
+        _.each(jsonMaptypes, function(data, maptypeid) { 
+
+            // Styled tiles
+            if (_.isArray(data.styles)) this.map.mapTypes.set(maptypeid, new google.maps.StyledMapType(data.styles)); 
+
+            // Custom tile images
+            else if (_.isFunction(data.tiles)) this.map.mapTypes.set(maptypeid, data.tiles(api)); 
 
         }, this);
-
-        return   _.chain(closeby)
-
-                  .reject(function(loc) { return loc.dimensions === undefined; })
-
-                  .filter(function(loc) { 
-
-                        var locTile = loc.tileCache[zoom],
-
-                            adjustedOffset = MapUtils.getAdjustedOffset(locTile.offset, mouse.tile, locTile.tile);
-
-                        return mouse.offset.x > adjustedOffset.x - 10 && mouse.offset.x < (adjustedOffset.x + loc.dimensions.width - 6) && mouse.offset.y > (adjustedOffset.y  - 10) && mouse.offset.y < (adjustedOffset.y + loc.dimensions.height - 6);
-                   })
-
-                  .first()
-
-                  .value();
 
     };
 
@@ -168,16 +177,6 @@ define([
     GoogleMapView.prototype.setCursor = function(cursorid) {
 
         this.map.setOptions({ draggableCursor: cursorid });
-
-    };
-
-    GoogleMapView.prototype.setLocationDimensions = function(location) {
-
-        var $el = $('#' + location.id);
-
-        if (!$el[0]) return;
-
-        location.dimensions = { width: $el.outerWidth(), height: $el.outerHeight() };
 
     };
 
@@ -228,14 +227,6 @@ define([
 
     };
 
-
-    function getCenter_(zoom, offset, options) {    
-
-    }
-
-    function clear_() {
-
-    }
 
     return GoogleMapView;
 

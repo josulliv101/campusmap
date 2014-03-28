@@ -325,6 +325,26 @@ define([
         return encodeURIComponent(url);
 
     };
+
+    Utils.prototype.refreshLocationDimensions = function(models) {
+
+        _.each(models, function(loc) {
+
+            Utils.prototype.setLocationDimensions.call(null, loc);
+
+        });
+
+    };
+
+    Utils.prototype.setLocationDimensions = function(location) {
+
+        var $el = $('#' + location.id);
+
+        if (!$el[0]) return;
+
+        location.dimensions = { width: $el.outerWidth(), height: $el.outerHeight() };
+
+    };
  
     return new Utils();
 

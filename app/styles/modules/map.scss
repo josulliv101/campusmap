@@ -4,6 +4,8 @@
    Map Module
    ========================================================================== */
 
+$animate: .2s;
+
 #map-canvas {
 
 	color: #333;
@@ -86,7 +88,7 @@
 
 			        font-size: 14px;
 
-			        
+			        @include animate($animate);
 
 				}
 
@@ -116,13 +118,13 @@
 
 		      border-radius: 50%;
 
-		      border: 4px #9b7458 solid;
+		      border: 4px #565152 solid; /* 9b7458  */
 
 		      line-height: 16px;
 
 		      background-size: 16px 16px;
 
-		      background-color: #9b7458;
+		      background-color: #565152;
 /*
 		      background-image: url("../../app/images/icons/map/circle@2x.png");  marker-icon-2x.png circle@2x.png circle_outline_center.png */
 
@@ -132,10 +134,7 @@
 
 		      @include shadow();
 
-				-webkit-transition: all .2s ease-in-out;
-				-moz-transition: all .2s ease-in-out;
-				-o-transition: all .2s ease-in-out;
-				transition: all .2s ease-in-out;
+		      @include animate($animate);
 
 		    }
 
@@ -173,7 +172,7 @@
 
 				.icon {
 
-					border: 5px #9b7458 solid;
+					border: 5px #565152 solid;
 
 				}
 
@@ -209,7 +208,7 @@
 
 					.txt {
 
-						color: #3172AE !important;
+						/*color: #3172AE !important;*/
 
 						background: #fff !important;
 
