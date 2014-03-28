@@ -114,7 +114,7 @@
 
 		      opacity: .8;
 
-		      border-radius: 12px;
+		      border-radius: 50%;
 
 		      border: 4px #9b7458 solid;
 
@@ -131,6 +131,11 @@
 		      vertical-align: text-top;
 
 		      @include shadow();
+
+				-webkit-transition: all .2s ease-in-out;
+				-moz-transition: all .2s ease-in-out;
+				-o-transition: all .2s ease-in-out;
+				transition: all .2s ease-in-out;
 
 		    }
 
@@ -193,6 +198,8 @@
 					background-color: #fff !important;
 
 					border-color: #3172AE !important;
+
+					border-radius: 0 !important;
 
 				}
 
