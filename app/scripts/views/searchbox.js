@@ -18,6 +18,7 @@ define([
 
         events: {
 
+            'click .btn.search': 'handleBtnClick'
 
         },
 
@@ -56,6 +57,18 @@ define([
 
             }   
 
+        },
+
+        //// Event Handling ////
+
+        handleBtnClick: function(ev) {
+
+            ev.preventDefault();
+
+            this.$el.focus();
+
+            EventDispatcher.trigger('truthupdate', { panels: '', details: '' });
+            
         }
 
     });
