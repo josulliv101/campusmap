@@ -1,9 +1,11 @@
 
 define([
 
-  '_mixins'
+  'jquery'
 
-], function(_) {
+  , '_mixins'
+
+], function($, _) {
 
 
     'use strict';

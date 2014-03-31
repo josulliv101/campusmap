@@ -31,8 +31,9 @@ define([
 
             EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
-            if (this.model) this.listenTo(this.model, 'change:primarylabel', this.render);
+            //if (this.model) this.listenTo(this.model, 'change:primarylabel', this.render);
 
+            return this;
         },
 
         render: function() {

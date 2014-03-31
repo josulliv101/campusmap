@@ -17,20 +17,30 @@ define([
 
         this.PM = PanelManager;
 
+        this.PM.initialize();
+
         EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
     }
 
     SearchboxController.prototype.handleTruthChange = function(changedAttributes) {
 
+        var PM;
+
         // Looking for panels attr only
         if (!changedAttributes.panels) return;
 
+        PM = this.PM;
+
         // First, close any open panels
-        $.when( this.PM.closePanels() )
+        $.when( PM.closePanels() )
 
          // Then, open.
-         .done( this.PM.openPanels );
+         .done(function() {
+
+            PM.openPanels(changedAttributes.panels);
+
+         });
 
     };
 

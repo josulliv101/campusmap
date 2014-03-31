@@ -28,7 +28,12 @@ define([
 
             if (!model) return;
 
+            // Path to the template -- maps to panels folder
+            this.template = JST[BaseView.path(this.id)];
+
             model.set({ state: 'close' }, { silent: true });
+
+            this.$el.addClass('panel');
 
             // EventDispatcher.on('delegateTruth', function(changedAttrs) { this.model });
 
@@ -39,7 +44,8 @@ define([
         },
 
         close: function(transition) {
-
+var s = this.state();
+debugger;
             transition || (transition = {});
 
             // Only close open panels
@@ -103,7 +109,19 @@ define([
 
         },
 
-        state: function() { return this.model.get('state'); }
+        state: function() { return this.model.get('state'); },
+
+        render: function() {
+
+            var json = this.toJSON();
+
+            if (!this.template) return this;
+
+            this.$el.html(this.template(json));
+
+            return this;
+
+        }
 
     });
 

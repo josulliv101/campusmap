@@ -1,0 +1,30 @@
+/* ==========================================================================
+   State Module
+   ========================================================================== */
+
+#app {
+
+	&.searchbox-open {
+
+		#container-searchbox {
+
+			.panel {
+
+				.btn {
+
+					&.search {
+
+						background-image: url("../../app/images/icons/x@2x.png");
+
+						&:hover {
+
+						  background-image: url("../../app/images/icons/x-lite@2x.png");
+
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

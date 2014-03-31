@@ -2,6 +2,8 @@ define([
 
     'underscore'
 
+    , 'scripts/PanelManager'
+
     , '_mixins'
 
 ], function(_) {
@@ -9,7 +11,7 @@ define([
     'use strict';
 
 
-    function DataTypeStrategy() {
+    function DataTypeStrategy(_, PanelManager) {
 
         this.type = 'truthhandler';
 
@@ -77,9 +79,15 @@ define([
     // Convert panel string ids to object references
     DataTypeStrategy.prototype.panelIdsToObjects = function(model, val, key, Datastore, PanelManager) {
 
+        var attr = {};
+        
         if (key !== 'panels' || !_.isString(val)) return;
 
-        return  val = PanelManager.getPanelsById( val );
+        attr[key] = PanelManager.getPanelsById( val );
+
+        _.extend(model, attr);
+
+        return  attr[key];
 
     };
 

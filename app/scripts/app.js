@@ -11,13 +11,17 @@ define([
 
     , 'scripts/controllers/mapController'
 
+    , 'scripts/controllers/searchboxController'
+
     , 'scripts/router'
 
     , 'datastore'
 
     , 'scripts/domManager'
 
-], function($, _, Config, AppController, MapController, Router, Datastore, DomManager) {
+    , 'scripts/panelManager'
+
+], function($, _, Config, AppController, MapController, SearchboxController, Router, Datastore, DomManager, PanelManager) {
 
 
     'use strict';
@@ -36,6 +40,8 @@ define([
         this.controller = new AppController().init();
 
         this.mapController = new MapController(mapView);
+
+        this.searchboxController = new SearchboxController(PanelManager);
 
     }
     

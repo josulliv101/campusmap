@@ -24,6 +24,12 @@ FakePanelManager.prototype.openPanels = function() {
 
 };
 
+FakePanelManager.prototype.initialize = function() { 
+
+  return 'fake-initialize'; 
+
+};
+
 
 
 function FakeDatastore() {}

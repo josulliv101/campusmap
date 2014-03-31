@@ -80,6 +80,17 @@ define([
 
     };
 
+    StateManagementStrategy.prototype.panels = function(model, val, key, MapUtils) {
+
+        if (key !== 'panels') return;
+
+        // Change the cursor to the pointer when hovering over a label
+        EventDispatcher.trigger('truthupdate', { 'searchbox-open': !_.isEmpty(val) });
+
+        return  val;
+
+    };
+
 
     StateManagementStrategy.prototype.dispatch = _.dispatch( 
 
@@ -89,7 +100,9 @@ define([
 
         StateManagementStrategy.prototype.hoveredLocation,
 
-        StateManagementStrategy.prototype.detailsLocation
+        StateManagementStrategy.prototype.detailsLocation,
+
+        StateManagementStrategy.prototype.panels
 
     );
 

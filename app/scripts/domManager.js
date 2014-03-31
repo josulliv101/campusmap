@@ -83,7 +83,7 @@ define([
 
         var html, $div;
 
-        _.each(models, function(model) { model.classnames = this.getLocationClassNames(model); }, this)
+        _.each(models, function(model) { model.classnames = this.getLocationClassNames(model); }, this);
 
         html = this.labelTileTemplate({ locations: models });
 

@@ -1,3 +1,5 @@
+@import "./partials/base";
+
 /* ==========================================================================
    Layout
    ========================================================================== */
@@ -15,5 +17,67 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+
+}
+
+#app {
+	
+	position: relative;
+
+	#container-searchbox {
+
+		position: absolute;
+		overflow: visible; /* hidden : so the shadows aren't cut off */
+		z-index: 999;
+		top: 12px;
+		left: 12px;
+
+		width: 48%;
+		min-width: 320px;
+		max-width: 420px;
+
+	    .panel {
+	      
+			.form-group {
+
+				#searchbox {
+
+					border: 1px #ddd none;
+					padding: 0;
+					margin: 0;
+					width: 100%;
+					/*max-width: 406px;*/
+
+					@include borderbox();
+					@include shadow();
+
+				}
+
+			}
+
+			.btn {
+
+				&.search {
+
+					width: 24px;
+					height: 20px;
+					position: absolute;
+					z-index: 999;
+					right: 0;
+					top: 0;
+					background: transparent;
+					background-image: url("../../app/images/icons/search@2x.png");
+					background-repeat: no-repeat;
+					background-size: 20px 20px;
+					background-position: center;
+					border: medium none;
+
+				}
+
+			}
+
+	    }
+
+	}
 
 }
