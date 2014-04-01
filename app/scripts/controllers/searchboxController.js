@@ -25,7 +25,7 @@ define([
 
     SearchboxController.prototype.handleTruthChange = function(changedAttributes) {
 
-        var PM;
+        var PM, deferreds;
 
         // Looking for panels attr only
         if (!changedAttributes.panels) return;
@@ -33,7 +33,7 @@ define([
         PM = this.PM;
 
         // First, close any open panels
-        $.when( PM.closePanels() )
+        $.when.apply(null, PM.closePanels())
 
          // Then, open.
          .done(function() {

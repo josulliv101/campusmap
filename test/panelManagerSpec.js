@@ -9,6 +9,8 @@ define([
 
     beforeEach(function() {
 
+      // Avoid any deferred actions
+      PM.transition = undefined;
 
     });
 
@@ -81,7 +83,7 @@ define([
 
         var view1 = PM.getPanel('mypanel1'), view2 = PM.getPanel('mypanel2');
 
-        PM.openPanels();
+        PM.openPanels([view1, view2]);
 
         expect( view1.state() ).toBe('open');
 

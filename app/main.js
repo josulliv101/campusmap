@@ -62,12 +62,6 @@
 
             'transition': './scripts/transitions/transitionCSS',
 
-            'animation': './scripts/animations/animationBase',
-
-            'animationJS': './scripts/animations/animationBase',
-
-            'animationCSS': './scripts/animations/animationCSS',
-
             'config': './scripts/config',
 
             'eventdispatcher': './scripts/eventdispatcher',

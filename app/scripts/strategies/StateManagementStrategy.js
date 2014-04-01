@@ -59,7 +59,9 @@ define([
 
         _.each(all, function(loc) { loc.isDetails = (val && val.id ? loc.id === val.id : false); });
 
-        EventDispatcher.trigger('truthupdate', { panels: _.isObject(val) ? 'panel3' : '' });
+        console.info('detailsLocation', val);
+
+        EventDispatcher.trigger('truthupdate', { forceclosepanels: true, panels: _.isObject(val) ? (val.id === 'm034' ? 'panel1' : 'panel2') : '' });
 
         return  val;
 
@@ -93,6 +95,17 @@ define([
 
     };
 
+    StateManagementStrategy.prototype.forceClosePanels = function(model, val, key, MapUtils) {
+
+        if (key !== 'forceclosepanels') return;
+
+        // Reset
+        if (val === true) EventDispatcher.trigger('truthupdate', { forceclosepanels: false }, { silent: true });
+
+        return  val;
+
+    };
+
 
     StateManagementStrategy.prototype.dispatch = _.dispatch( 
 
@@ -104,7 +117,9 @@ define([
 
         StateManagementStrategy.prototype.detailsLocation,
 
-        StateManagementStrategy.prototype.panels
+        StateManagementStrategy.prototype.panels,
+
+        StateManagementStrategy.prototype.forceClosePanels
 
     );
 

@@ -35,8 +35,6 @@ define([
 
             this.$el.addClass('panel');
 
-            // EventDispatcher.on('delegateTruth', function(changedAttrs) { this.model });
-
             this.handleStateChange = _.dispatch(this.handleOpenState, this.handleCloseState, this.handleOpenPreState, this.handleClosePreState);
 
             this.listenTo(model, 'change:state', this.handleStateChange);
@@ -51,7 +49,7 @@ define([
             if (this.state() !== 'open') return;
 
             // Let the deferred object be undefined if no close method.
-            return transition.close ? transition.close(this) : this.model.set({ state: 'close' });
+            return _.isFunction(transition.close) ? transition.close(this) : this.model.set({ state: 'close' });
 
         },
 
@@ -63,7 +61,7 @@ define([
             if (this.state() !== 'close') return;
 
             // Let the deferred object be undefined if no close method.
-            return transition.open ? transition.open(this) : this.model.set({ state: 'open' });
+            return _.isFunction(transition.open) ? transition.open(this) : this.model.set({ state: 'open' });
 
         },
 

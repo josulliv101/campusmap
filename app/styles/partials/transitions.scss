@@ -7,8 +7,6 @@
 @keyframes slideOut {
     0% {
 
-     
-      opacity: 1;
       -webkit-transform: translateY(0);
        -moz-transform: translateY(0);
         -ms-transform: translateY(0);
@@ -19,13 +17,36 @@
 
     100% {
 
-     
-      opacity: 1;
-      -webkit-transform: translateY(-552px);
-       -moz-transform: translateY(-552px);
-        -ms-transform: translateY(-552px);
-         -o-transform: translateY(-552px);
-            transform: translateY(-552px) scale(1,.8) rotateX(70deg);
+
+
+      -webkit-transform: translateY(-120%);
+       -moz-transform: translateY(-120%);
+        -ms-transform: translateY(-120%);
+         -o-transform: translateY(-120%);
+            transform: translateY(-120%) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+@keyframes slideIn {
+
+    0% {
+      
+
+      -webkit-transform: translateY(-120%);
+       -moz-transform: translateY(-120%);
+        -ms-transform: translateY(-120%);
+         -o-transform: translateY(-120%);
+            transform: translateY(-120%) scale(1,1) rotateX(0deg);
+    }
+
+    100% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
 
     }
 }
@@ -34,7 +55,6 @@
 {
     0% {
       
-      opacity: 1;
       -webkit-transform: translateY(0);
        -moz-transform: translateY(0);
         -ms-transform: translateY(0);
@@ -44,57 +64,29 @@
 
     100% {
 
-       
-      opacity: 1;
-      -webkit-transform: translateY(-552px);
-       -moz-transform: translateY(-552px);
-        -ms-transform: translateY(-552px);
-         -o-transform: translateY(-552px);
-            transform: translateY(-552px) scale(1,.8) rotateX(70deg);
+      -webkit-transform: translateY(-120%);
+       -moz-transform: translateY(-120%);
+        -ms-transform: translateY(-120%);
+         -o-transform: translateY(-120%);
+            transform: translateY(-120%) scale(1,.8) rotateX(70deg);
 
     }
 }
 
-@keyframes slideIn {
 
-    0% {
-       
-      opacity: 1;
-      -webkit-transform: translateY(-552px);
-       -moz-transform: translateY(-552px);
-        -ms-transform: translateY(-552px);
-         -o-transform: translateY(-552px);
-            transform: translateY(-552px) scale(1,.8) rotateX(70deg);
-    }
-
-    100% {
-
-      
-      opacity: 1;
-      -webkit-transform: translateY(0);
-       -moz-transform: translateY(0);
-        -ms-transform: translateY(0);
-         -o-transform: translateY(0);
-            transform: translateY(0) scale(1,1) rotateX(0deg);
-
-    }
-}
 
 @-webkit-keyframes slideIn /* Safari and Chrome */
 {
     0% {
-      
-      opacity: 1;
-      -webkit-transform: translateY(-552px);
-       -moz-transform: translateY(-552px);
-        -ms-transform: translateY(-552px);
-         -o-transform: translateY(-552px);
-            transform: translateY(-552px) scale(1,.8) rotateX(70deg);
+
+      -webkit-transform: translateY(-120%);
+       -moz-transform: translateY(-120%);
+        -ms-transform: translateY(-120%);
+         -o-transform: translateY(-120%);
+            transform: translateY(-120%) scale(1,.8) rotateX(70deg);
     }
     100% {
 
-       
-      opacity: 1;
       -webkit-transform: translateY(0);
        -moz-transform: translateY(0);
         -ms-transform: translateY(0);
@@ -162,24 +154,25 @@
     }
 }
 
-
-
 .show {
+  
 
-	-webkit-animation: slideIn 1s !important;
-	animation: slideIn 1s !important;
+    -webkit-animation: slideIn .4s !important;
+    animation: slideIn .4s !important;
 
-	animation-timing-function:ease-out;
-	-webkit-animation-timing-function:ease-out; /* Safari and Chrome 0.95s */
+    animation-timing-function:ease-out;
+    -webkit-animation-timing-function:ease-out; /* Safari and Chrome 0.95s */
+
 
 }
 
 .hide {
+  
 
-	-webkit-animation: slideOut 1s !important;
-	animation: slideOut 1s !important;
+    -webkit-animation: slideOut .4s !important;
+    animation: slideOut .4s !important;
 
-	animation-timing-function: linear;
-	-webkit-animation-timing-function: linear; /* Safari and Chrome */
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out; /* Safari and Chrome */
 
 }

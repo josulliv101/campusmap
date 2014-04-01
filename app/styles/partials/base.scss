@@ -4,9 +4,9 @@
    ========================================================================== */
 
 @mixin shadow() {
-	-webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,.22);
-	  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,.22);
-	    box-shadow: 2px 2px 2px 0px rgba(0,0,0,.22); 
+	-webkit-box-shadow: 2px 2px 2px 0px #aaa;
+	  -moz-box-shadow: 2px 2px 2px 0px #aaa;
+	    box-shadow: 2px 2px 2px 0px #aaa;
 }
 
 @mixin animate($seconds) {

@@ -81,6 +81,9 @@ define([
         // Nothings changed, cancel
         if (_.isEmpty(changed)) return;
 
+        // Pretend the panels attr changed -- forceclosepanels will be reset by the state strategy
+        if (changed.forceclosepanels === true) changed.panels = model.get('panels');
+
         // Handle each changed attribute in the most appropriate manner, determined by dispatch function
         _.each(changed, function(val, key) { 
 

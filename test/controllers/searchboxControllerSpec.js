@@ -36,11 +36,11 @@ define([
 
       });
 
-      it('tries to close panels if there is a change in the Truth\'s panels attribute', function () {
+      it('tries to open panels if there is a change in the Truth\'s panels attribute', function () {
 
-        spyOn(controller.PM, 'openPanels').andCallThrough();
+        spyOn(controller.PM, 'openPanels');
 
-        controller.trigger('delegateTruth', { panels: 'panel1' });
+        controller.trigger('delegateTruth', { panels: [ new FakePanel('panel1') ] });
 
         expect( controller.PM.openPanels ).toHaveBeenCalled();
 
