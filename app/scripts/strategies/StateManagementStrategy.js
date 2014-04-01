@@ -59,6 +59,8 @@ define([
 
         _.each(all, function(loc) { loc.isDetails = (val && val.id ? loc.id === val.id : false); });
 
+        EventDispatcher.trigger('truthupdate', { panels: _.isObject(val) ? 'panel3' : '' });
+
         return  val;
 
     };

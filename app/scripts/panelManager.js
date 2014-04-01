@@ -6,21 +6,21 @@ define([
 
     , 'datastore'
 
+    , 'transition'
+
     , 'scripts/views/panels/Base'
 
-], function ($, _, Datastore, BaseView) { 
+], function ($, _, Datastore, Transition, BaseView) { 
 
-    var instance,
-
-        openTransition = { open: function(panel) { panel.$el.show(); panel.model.set({ state: 'open' }); } },
-
-        closeTransition = { close: function(panel) { panel.$el.hide(); panel.model.set({ state: 'close' }); } };
+    var instance;
 
     //// Constructor ////
     
     function PanelManager() {
 
         this.panels = [];
+
+        this.transition = new Transition();
 
     }
 
@@ -53,9 +53,9 @@ define([
 
         return _.map(this.panels, function(panel) { 
 
-            return panel.close(closeTransition); 
+            return panel.close(this.transition); 
 
-        });
+        }, this);
 
     };
 
@@ -63,9 +63,9 @@ define([
 
         return _.map(panels, function(panel) { 
 
-            return panel.open(openTransition); 
+            return panel.open(this.transition); 
 
-        });
+        }, this);
 
     };
 

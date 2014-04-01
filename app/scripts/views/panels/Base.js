@@ -44,8 +44,7 @@ define([
         },
 
         close: function(transition) {
-var s = this.state();
-debugger;
+
             transition || (transition = {});
 
             // Only close open panels

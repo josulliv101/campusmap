@@ -9,12 +9,11 @@
 	.panel {
 
 		display: none;
+		overflow: hidden;
 
 		background: #fff;
 		margin: 6px 0;
 		padding: 20px;
-
-		@include borderbox();
 
 		@include shadow();
 

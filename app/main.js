@@ -60,6 +60,8 @@
 
             'app': './scripts/app',
 
+            'transition': './scripts/transitions/transitionCSS',
+
             'animation': './scripts/animations/animationBase',
 
             'animationJS': './scripts/animations/animationBase',
