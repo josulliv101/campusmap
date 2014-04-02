@@ -56,9 +56,15 @@ define([
 
                 //, resize: null
 
-                , primarylabel: ''
+                , primarylabel: null
                               
             }
+
+        },
+
+        labels: {
+
+            primary: 'Search the %campus% campus'
 
         },
 

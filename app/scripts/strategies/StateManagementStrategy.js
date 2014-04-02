@@ -2,11 +2,13 @@ define([
 
     'underscore'
 
+    , 'config'
+
     , 'eventdispatcher'
 
     , '_mixins'
 
-], function(_, EventDispatcher) {
+], function(_, Config, EventDispatcher) {
 
     'use strict';
 
@@ -61,7 +63,15 @@ define([
 
         console.info('detailsLocation', val);
 
-        EventDispatcher.trigger('truthupdate', { forceclosepanels: true, panels: _.isObject(val) ? (val.id === 'm034' ? 'panel2,panel1' : 'details') : '' });
+        EventDispatcher.trigger('truthupdate', { 
+
+            primarylabel: val && val.name,
+
+            forceclosepanels: true, 
+
+            panels: _.isObject(val) ? (val.id === 'm034' ? 'panel2,panel1' : 'details') : '' 
+
+        });
 
         return  val;
 

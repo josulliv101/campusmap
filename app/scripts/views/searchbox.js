@@ -32,7 +32,7 @@ define([
 
             EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
-            //if (this.model) this.listenTo(this.model, 'change:primarylabel', this.render);
+            if (this.model) this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
 
             return this;
         },
@@ -46,6 +46,12 @@ define([
             this.$el.append(html);
 
             return this;
+
+        },
+
+        refreshPrimaryLabel: function(model, label) {
+
+            this.$('#searchbox, .label-primary').val(label);
 
         },
 

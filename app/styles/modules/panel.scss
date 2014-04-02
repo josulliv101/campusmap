@@ -4,6 +4,8 @@
    Panel Module
    ========================================================================== */
 
+$gutter: 8px;
+
 #container-panels {
 
 	.panel {
@@ -15,7 +17,7 @@
 		margin: 6px 0;
 
 		background: #fff;
-		padding: 8px;
+		font-size: 12px;
 
 		@include shadow();
 
@@ -31,8 +33,21 @@
 			z-index: -3;
 		}
 
+		&:first-child {
+			margin-top: 0;
+			z-index: 9999; /* So searchbox bottom shadow gets covered */
+		}
+
+		.navbar {
+			background: #333;
+			color: #fff;
+			padding: 2px $gutter;
+		}
+
 		.panel-bd {
-			font-size: 12px;
+
+			padding: $gutter;
+
 		}
 	}
 }

@@ -29,7 +29,7 @@ define([
 
                 this.model.set({ 
 
-                	id: this.location && this.location.id
+                	location: this.location
 
                 });
 

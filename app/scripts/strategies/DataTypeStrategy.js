@@ -2,16 +2,18 @@ define([
 
     'underscore'
 
+    , 'config'
+
     , 'scripts/PanelManager'
 
     , '_mixins'
 
-], function(_) {
+], function(_, Config) {
 
     'use strict';
 
 
-    function DataTypeStrategy(_, PanelManager) {
+    function DataTypeStrategy(_, Config, PanelManager) {
 
         this.type = 'truthhandler';
 
@@ -84,6 +86,20 @@ define([
         if (key !== 'panels' || !_.isString(val)) return;
 
         attr[key] = PanelManager.getPanelsById( val );
+
+        _.extend(model, attr);
+
+        return  attr[key];
+
+    };
+
+    DataTypeStrategy.prototype.primaryLabelDefault = function(model, val, key, Datastore, PanelManager) {
+
+        var attr = {};
+        
+        if (key !== 'primarylabel' || !_.isEmpty(val)) return;
+
+        attr[key] = Config.labels.primary.replace('%campus%', 'Medford/Somerville');
 
         _.extend(model, attr);
 
@@ -164,7 +180,9 @@ define([
 
         DataTypeStrategy.prototype.campusIdToObject,
 
-        DataTypeStrategy.prototype.locationsDataIntegrity
+        DataTypeStrategy.prototype.locationsDataIntegrity,
+
+        DataTypeStrategy.prototype.primaryLabelDefault
 
     );
 

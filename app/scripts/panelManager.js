@@ -35,13 +35,14 @@ define([
 
         
         // If no panel constructor defined, the Base is used
+
+        this.createPanel('details', DetailsView);
+
         this.createPanel('panel2');
 
         this.createPanel('panel3');
 
         this.createPanel('panel1');
-
-        this.createPanel('details', DetailsView);
 
         this.init = true;
 

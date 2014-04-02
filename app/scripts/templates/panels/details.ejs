@@ -1,9 +1,10 @@
+<div class="navbar">
+	This is where the navbar is.
+</div>
 <div class="panel-bd">
-	<div class="navbar" style="display:none;">
-		Select a PDF.
-	</div>
 	<div class="bd spacing">
 		<!--<h3>panel 3</h3>-->
-		<p>Details Panel (${model.id}): Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+		<p><strong>${model.location && model.location.name}</strong> (${model.location && model.location.id}): Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+		<button data-campusmap='panels:details,panel1'>button 1</button> <button data-campusmap='panels:details,panel2'>button 2</button> <button data-campusmap='panels:details,panel3'>button 3</button>
 	</div>
 </div>

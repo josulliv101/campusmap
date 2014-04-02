@@ -77,6 +77,22 @@ define([
                 return ret;
 
             };
+        },
+
+        stringToObject: function(txt, delimitPairs, delimitKeyVal) {
+
+            var delimPairs = delimitPairs || '|',
+
+                delimKeyVal = delimitKeyVal || ':';
+
+            return _.chain(txt.split(delimPairs))
+
+                    .map(function(pair) { return pair.split(delimKeyVal); })
+
+                    .object()
+
+                    .value();
+
         }
 
     });

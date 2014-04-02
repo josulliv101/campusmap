@@ -8,14 +8,14 @@ define([
 
     //, 'scripts/moduleManager'
 
-    //, 'eventdispatcher''
+    , 'eventdispatcher'
 
     , 'templates'
 
     , '_mixins'
 
 
-], function ($, _, JST) { 
+], function ($, _, EventDispatcher, JST) { 
 
 
     //// Constructor ////
@@ -29,6 +29,24 @@ define([
         this.getElement = _.dispatch(this.getOptionsEl, this.getHtmlEl, this.getRootEl);
 
         this.labelTileTemplate = JST['app/scripts/templates/map-tile.ejs'];
+
+        // Listen for clicks from elements with a 'data'cmd' attribute, and forward to router
+        $('body').on('click', '[data-campusmap]', function(ev) {
+
+            var data = $(this).data('campusmap');
+
+            console.log('data-campusmap', _.stringToObject(data));
+
+            // In case the element happens to be a link
+            ev.preventDefault();
+
+            // These will fisrt pass through the App Controller so the Truth can stay up-to-date
+            EventDispatcher.trigger('truthupdate', _.stringToObject(data));
+
+            // Must return false as well to keep Router Back Button integration working
+            return false;
+
+        });
 
     }
 

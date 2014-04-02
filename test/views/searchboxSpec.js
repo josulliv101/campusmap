@@ -71,7 +71,7 @@ define([
 
         view.render();
 
-        expect( view.$('#searchbox').attr('placeholder') ).toEqual( label );
+        expect( view.$('#searchbox').val() ).toEqual( label );
 
         expect( view.$('.sr-only.label-primary').html() ).toEqual( label );
 
