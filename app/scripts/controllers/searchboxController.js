@@ -33,7 +33,7 @@ define([
         PM = this.PM;
 
         // First, close any open panels
-        $.when.apply(null, PM.closePanels())
+        $.when.apply(null, PM.closePanels(changedAttributes.panels))
 
          // Then, open.
          .done(function() {

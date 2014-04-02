@@ -31,11 +31,13 @@ define([
 
         this.$container = $('#container-panels');
 
-        this.createPanel('panel1');
+        
 
         this.createPanel('panel2');
 
         this.createPanel('panel3');
+
+        this.createPanel('panel1');
 
         this.init = true;
 
@@ -49,19 +51,24 @@ define([
 
     };
 
-    PanelManager.prototype.closePanels = function() {
+    PanelManager.prototype.closePanels = function(panelsToOpen) {
 
-        return _.map(this.panels, function(panel) { 
+        // Don't close a panel if it needs to be reopened, or any that are already closed.
+        var ids = _.map(panelsToOpen, function(p) { return p.id; }),
 
-            return panel.close(this.transition); 
+            panelsToClose = _.reject(this.panels, function(panel) { return panel.model.get('state') !== 'open' || _.contains(ids, panel.id); });
+
+        return _.map(panelsToClose, function(panel, index) { 
+
+            return panel.close(this.transition, index); 
 
         }, this);
 
     };
 
-    PanelManager.prototype.openPanels = function(panels) {
+    PanelManager.prototype.openPanels = function(panelsToOpen) {
 
-        return _.map(panels, function(panel) { 
+        return _.map(panelsToOpen, function(panel) { 
 
             return panel.open(this.transition); 
 

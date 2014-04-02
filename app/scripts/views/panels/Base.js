@@ -41,7 +41,7 @@ define([
 
         },
 
-        close: function(transition) {
+        close: function(transition, index) {
 
             transition || (transition = {});
 
@@ -49,7 +49,7 @@ define([
             if (this.state() !== 'open') return;
 
             // Let the deferred object be undefined if no close method.
-            return _.isFunction(transition.close) ? transition.close(this) : this.model.set({ state: 'close' });
+            return _.isFunction(transition.close) ? transition.close(this, index) : this.model.set({ state: 'close' });
 
         },
 
