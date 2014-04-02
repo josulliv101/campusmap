@@ -3,6 +3,8 @@
    Transitions
    ========================================================================== */
 
+$showDuration: .4s;
+$hideDuration: $showDuration;
 
 @keyframes slideOut {
     0% {
@@ -17,11 +19,11 @@
 
     100% {
 
-      -webkit-transform: translateY(-140%);
-       -moz-transform: translateY(-140%);
-        -ms-transform: translateY(-140%);
-         -o-transform: translateY(-140%);
-            transform: translateY(-140%) scale(1,1) rotateX(0deg);
+      -webkit-transform: translateY(-240%);
+       -moz-transform: translateY(-240%);
+        -ms-transform: translateY(-240%);
+         -o-transform: translateY(-240%);
+            transform: translateY(-240%) scale(1,1) rotateX(0deg);
 
     }
 }
@@ -30,11 +32,11 @@
 
     0% {
 
-      -webkit-transform: translateY(-140%);
-       -moz-transform: translateY(-140%);
-        -ms-transform: translateY(-140%);
-         -o-transform: translateY(-140%);
-            transform: translateY(-140%) scale(1,1) rotateX(0deg);
+      -webkit-transform: translateY(-240%);
+       -moz-transform: translateY(-240%);
+        -ms-transform: translateY(-240%);
+         -o-transform: translateY(-240%);
+            transform: translateY(-240%) scale(1,1) rotateX(0deg);
     }
 
     100% {
@@ -61,11 +63,11 @@
 
     100% {
 
-      -webkit-transform: translateY(-140%);
-       -moz-transform: translateY(-140%);
-        -ms-transform: translateY(-140%);
-         -o-transform: translateY(-140%);
-            transform: translateY(-140%) scale(1,.8) rotateX(70deg);
+      -webkit-transform: translateY(-240%);
+       -moz-transform: translateY(-240%);
+        -ms-transform: translateY(-240%);
+         -o-transform: translateY(-240%);
+            transform: translateY(-240%) scale(1,.8) rotateX(70deg);
 
     }
 }
@@ -76,11 +78,11 @@
 {
     0% {
 
-      -webkit-transform: translateY(-140%);
-       -moz-transform: translateY(-140%);
-        -ms-transform: translateY(-140%);
-         -o-transform: translateY(-140%);
-            transform: translateY(-140%) scale(1,.8) rotateX(70deg);
+      -webkit-transform: translateY(-240%);
+       -moz-transform: translateY(-240%);
+        -ms-transform: translateY(-240%);
+         -o-transform: translateY(-240%);
+            transform: translateY(-240%) scale(1,.8) rotateX(70deg);
     }
     100% {
 
@@ -161,73 +163,44 @@
     
     &.show {
 
+      -webkit-animation: slideIn $showDuration;
+      animation: slideIn $showDuration;
+  
+      animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
+      -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
+
       &:nth-child(1) {
-        
-            -webkit-animation: slideIn .4s;
-            animation: slideIn .4s;
-        
-            animation-timing-function: linear;
-            -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
+
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
 
       }
 
-      &:nth-child(2) {
-        
-            -webkit-animation: slideIn .4s;
-            animation: slideIn .4s;
+      &:nth-child(2) {}
 
-            animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
-            -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
+      &:nth-child(3) {}      
 
-
-      }
-
-      &:nth-child(3) {
-
-            -webkit-animation: slideIn .4s;
-            animation: slideIn .4s;
- 
-
-            animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
-            -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
-
-      }      
     }
 
     &.hide {
 
+      -webkit-animation: slideOut $hideDuration;
+      animation: slideOut $hideDuration;
+
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
+  
       &:nth-child(1) {
         
-            -webkit-animation: slideOut .4s;
-            animation: slideOut .4s;
-        
-            animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
-            -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
-
+        animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
+        -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
 
       }
 
-      &:nth-child(2) {
-        
-            -webkit-animation: slideOut .4s;
-            animation: slideOut .4s;
+      &:nth-child(2) {}
 
-            animation-timing-function: linear;
-            -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
+      &:nth-child(3) {}      
 
-
-      }
-
-      &:nth-child(3) {
-
-            -webkit-animation: slideOut .4s;
-            animation: slideOut .4s;
- 
-
-            animation-timing-function: linear;
-            -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
-
-      }      
     }
   }
 }

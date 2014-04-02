@@ -23,11 +23,11 @@ define([
 
     describe('Functions', function () {
 
-      it('nests its json in a "data" attribute', function () {
+      it('nests its json in a "model" attribute', function () {
 
         var json = baseView.toJSON();
 
-        expect( json.data ).toBeDefined();
+        expect( json.model ).toBeDefined();
 
       });
 

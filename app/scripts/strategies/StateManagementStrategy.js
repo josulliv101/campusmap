@@ -61,7 +61,7 @@ define([
 
         console.info('detailsLocation', val);
 
-        EventDispatcher.trigger('truthupdate', { forceclosepanels: false, panels: _.isObject(val) ? (val.id === 'm034' ? 'panel2,panel1' : 'panel2,panel3') : '' });
+        EventDispatcher.trigger('truthupdate', { forceclosepanels: true, panels: _.isObject(val) ? (val.id === 'm034' ? 'panel2,panel1' : 'details') : '' });
 
         return  val;
 

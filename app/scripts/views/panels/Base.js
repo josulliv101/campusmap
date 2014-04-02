@@ -24,7 +24,7 @@ define([
 
             var model = this.model;
 
-            _.bindAll(this, 'handleStateChange', 'handleOpenState');
+            _.bindAll(this, 'render', 'handleStateChange', 'handleOpenState');
 
             if (!model) return;
 
@@ -60,6 +60,8 @@ define([
             // Only open closed panels
             if (this.state() !== 'close') return;
 
+            this.render();
+            
             // Let the deferred object be undefined if no close method.
             return _.isFunction(transition.open) ? transition.open(this) : this.model.set({ state: 'open' });
 
@@ -102,7 +104,7 @@ define([
         toJSON: function() {
 
             // Having data attr makes tesing for undefined easier in templates
-            return { data: this.model.toJSON() };
+            return { model: this.model.toJSON() };
 
         },
 

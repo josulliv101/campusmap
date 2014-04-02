@@ -10,7 +10,9 @@ define([
 
     , 'scripts/views/panels/Base'
 
-], function ($, _, Datastore, Transition, BaseView) { 
+    , 'scripts/views/panels/details'
+
+], function ($, _, Datastore, Transition, BaseView, DetailsView) { 
 
     var instance;
 
@@ -32,12 +34,14 @@ define([
         this.$container = $('#container-panels');
 
         
-
+        // If no panel constructor defined, the Base is used
         this.createPanel('panel2');
 
         this.createPanel('panel3');
 
         this.createPanel('panel1');
+
+        this.createPanel('details', DetailsView);
 
         this.init = true;
 
@@ -51,12 +55,15 @@ define([
 
     };
 
-    PanelManager.prototype.closePanels = function(panelsToOpen) {
+    PanelManager.prototype.closePanels = function(panelsToOpen, forceClose) {
 
         // Don't close a panel if it needs to be reopened, or any that are already closed.
         var ids = _.map(panelsToOpen, function(p) { return p.id; }),
 
             panelsToClose = _.reject(this.panels, function(panel) { return panel.model.get('state') !== 'open' || _.contains(ids, panel.id); });
+
+        // Force all panels to close no matter what
+        if (forceClose === true) panelsToClose = this.panels;
 
         return _.map(panelsToClose, function(panel, index) { 
 
@@ -76,9 +83,11 @@ define([
 
     };
 
-    PanelManager.prototype.createPanel = function(id) {
+    PanelManager.prototype.createPanel = function(id, constructor) {
 
-        var panel = new BaseView({ id: id, model: new Datastore.Model() });
+        var panelConstructor = constructor || BaseView,
+
+            panel = new panelConstructor({ id: id, model: new Datastore.Model() });
 
         this.panels.push(panel);
 
