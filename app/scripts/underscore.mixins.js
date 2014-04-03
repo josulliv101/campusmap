@@ -93,6 +93,13 @@ define([
 
                     .value();
 
+        },
+
+        // Useful for dealing with models or object literals
+        getAttr: function(item, attr) {
+
+            return item.attributes && item.attributes[attr] || item[attr];
+
         }
 
     });

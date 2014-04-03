@@ -95,6 +95,8 @@ define([
           
             var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
+            ev.stop();
+            
             EventDispatcher.trigger('truthupdate', { details: loc });
 
         });

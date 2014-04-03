@@ -34,6 +34,13 @@ define([
 
             if (this.model) this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
 
+            // Don't use event delegation here to avoid issue where focus event fires in an unexpected way
+            this.$el.on('focus', '#searchbox', function(e) {
+
+                e.preventDefault();
+
+            });
+
             return this;
         },
 
@@ -53,15 +60,14 @@ define([
 
             this.$('#searchbox, .label-primary').val(label);
 
+            // Disable input when location is shown (shows more appropriate cursor)
+            this.$('#searchbox').prop('disabled', !_.isEmpty(model.get('details')));
+            
         },
 
         handleTruthChange: function(changedAttrs) {
 
-            if (this.model) {
-
-                this.model.set(changedAttrs, { silent: false }); 
-
-            }   
+            if (this.model) this.model.set(changedAttrs, { silent: false }); 
 
         },
 

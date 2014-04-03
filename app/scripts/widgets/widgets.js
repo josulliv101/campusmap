@@ -25,7 +25,7 @@ define([
 
             ], function (GoogleMapView, SearchboxView, Config) {
 
-            var searchboxView = new SearchboxView({ el: appDom, model: Datastore.factory.model() }).render(),
+            var searchboxView = new SearchboxView({ model: Datastore.factory.model() }).render().$el.appendTo(appDom),
 
                 mapView = new GoogleMapView({ el: mapDom, model: Datastore.factory.model() }),
 
