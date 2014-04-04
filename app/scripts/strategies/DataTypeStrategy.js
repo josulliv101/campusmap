@@ -129,17 +129,27 @@ define([
 
         attr[key] = _.chain(val)
 
-                     .reject(function(loc) { return loc.latlng === undefined; })
+                     .reject(function(loc) { return _.getAttr(loc, 'latlng') === undefined; })
 
                      .each(function(loc) {
 
-                        if (_.isString(loc.latlng)) DataTypeStrategy.prototype.stringToLatLng.call(this, loc, loc.latlng, 'latlng', Datastore, PanelManager);
+                        var latlng = _.getAttr(loc, 'latlng');
+
+                        if (_.isString(latlng)) {
+
+                            _.setAttr(loc, { 
+
+                                // Pass in fake model so latlng is not automatically updated on model attr
+                                latlng: DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager)
+
+                            });
+                        }
 
                      })
 
                      .value();
 
-        _.extend(model, attr);
+        // Not needed _.extend(model, attr);
 
         return  val;
 

@@ -101,9 +101,13 @@ define([
 
         var html, $div;
 
-        _.each(models, function(model) { model.classnames = this.getLocationClassNames(model); }, this);
+        _.each(models, function(model) { 
 
-        html = this.labelTileTemplate({ locations: models });
+            model.classnames = this.getLocationClassNames(model); 
+
+        }, this);
+
+        html = this.labelTileTemplate({ locations: _.map(models, function(model) { return model.toJSON ? model.toJSON() : model; }) });
 
         $div = $(html);
 

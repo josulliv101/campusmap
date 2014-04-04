@@ -5,7 +5,7 @@ define([
 
   , '../../scripts/views/searchbox'
 
-  , 'datastore'
+  , '../../scripts/datastore/datastore-jsonp'
 
   , 'eventdispatcher'
 

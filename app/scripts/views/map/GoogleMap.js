@@ -121,15 +121,15 @@ define([
                       .each(MapUtils.setLocationDimensions)
 
                       // Makes sure an id exists -- will be used for dom el selection
-                      .reject(function(loc) { return loc.dimensions === undefined; })
+                      .reject(function(loc) { return _.getAttr(loc, 'dimensions') === undefined; })
 
                       .filter(function(loc) { 
 
-                            var locTile = loc.tileCache[zoom],
+                            var locTile = _.getAttr(loc, 'tileCache')[zoom], size = _.getAttr(loc, 'dimensions'),
 
                                 adjustedOffset = MapUtils.getAdjustedOffset(locTile.offset, mouse.tile, locTile.tile);
 
-                            return mouseoffset.x > adjustedOffset.x - 10 && mouseoffset.x < (adjustedOffset.x + loc.dimensions.width - 6) && mouseoffset.y > (adjustedOffset.y  - 10) && mouseoffset.y < (adjustedOffset.y + loc.dimensions.height - 6);
+                            return mouseoffset.x > adjustedOffset.x - 10 && mouseoffset.x < (adjustedOffset.x + size.width - 6) && mouseoffset.y > (adjustedOffset.y  - 10) && mouseoffset.y < (adjustedOffset.y + size.height - 6);
                        })
 
                       .first()

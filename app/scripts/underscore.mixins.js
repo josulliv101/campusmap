@@ -100,6 +100,12 @@ define([
 
             return item.attributes && item.attributes[attr] || item[attr];
 
+        },
+
+        setAttr: function(item, attrs, options) {
+
+            return item.attributes && item.set(attrs, options) || _.extend(item, attrs);
+
         }
 
     });

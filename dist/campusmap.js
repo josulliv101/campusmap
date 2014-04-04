@@ -1,4 +1,4 @@
-/*! campusmap - v0.0.0 - 2014-04-03
+/*! campusmap - v0.0.0 - 2014-04-04
 * Copyright (c) 2014 Joe Sullivan; Licensed MIT */
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.

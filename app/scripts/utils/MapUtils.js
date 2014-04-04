@@ -278,14 +278,12 @@ define([
 //console.log('tileCache', tileCache);
 
       // Give the loc a reference by zoom
-      loc.tileCache || (loc.tileCache = {});
+      _.getAttr(loc, 'tileCache') || (_.setAttr(loc, { tileCache: {} }));
 
-      loc.tileCache[tileOffset.zoom] = tileOffset;
+      _.getAttr(loc, 'tileCache')[tileOffset.zoom] = tileOffset;
 
       // Make offset a bit more accessible in templates
-      loc.offsety = tileOffset.offset.y;
-
-      loc.offsetx = tileOffset.offset.x;
+      _.setAttr(loc, { offsetx: tileOffset.offset.x, offsety: tileOffset.offset.y });
 
       return loc;
 
@@ -344,7 +342,7 @@ define([
 
         if (!$el[0]) return;
 
-        location.dimensions = { width: $el.outerWidth(), height: $el.outerHeight() };
+        _.setAttr(location, { dimensions: { width: $el.outerWidth(), height: $el.outerHeight() }});
 
     };
  

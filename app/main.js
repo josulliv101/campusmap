@@ -70,7 +70,7 @@
 
             'parsecom': 'http://www.parsecdn.com/js/parse-1.2.9.min',
 
-            'datastore': './scripts/datastore/datastore-jsonp', // datastore-injected datastore-jsonp datastore-parse-com
+            'datastore': './scripts/datastore/datastore-parsecom', // datastore-injected datastore-jsonp datastore-parsecom
 
             'datainterface': './scripts/datastore/datastore-interface',
 
@@ -83,10 +83,6 @@
             'strategies': './scripts/strategies',
 
             'googlemap': './scripts/services/map/googlemap',
-
-            'directory': './scripts/services/map/directory',
-
-            'viz': './scripts/services/map/directory',
 
             'async': '../bower_components/requirejs-plugins/src/async',
 

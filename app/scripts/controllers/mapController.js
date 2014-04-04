@@ -51,6 +51,8 @@ define([
 
         MapUtils.resetCache();
 
+        //locations = _.map(locations, function(loc) { return loc.toJSON ? loc.toJSON() : loc; });
+
         _.each(locations, function(loc) {
 
             var tileOffset;
