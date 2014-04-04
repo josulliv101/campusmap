@@ -103,9 +103,9 @@ define([
 
 				  newlatLng = MapUtils.offsetLatLngByPixels(latlng, 17, { x: 100, y: 100 });
 
-				expect( newlatLng.lat ).toBe(42.404478225083665);
+				expect( parseFloat(newlatLng.lat.toFixed(6)) ).toBe(parseFloat(42.404478225083665.toFixed(6)));
 
-				expect( newlatLng.lng ).toBe(-71.12141088360596);
+				expect( parseFloat(newlatLng.lng.toFixed(6)) ).toBe(parseFloat(-71.12141088360596.toFixed(6)));
 
 			});
 
