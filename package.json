@@ -1,6 +1,6 @@
 {
   "name": "campusmap",
-  "description": "a campusmap",
+  "description": "a campusmap app",
   "version": "0.0.0",
   "engines": {
     "node": ">= 0.8.0"
@@ -9,9 +9,9 @@
     "test": "grunt jasmine"
   },
   "author": {
-    "name": "Author Name",
-    "email": "email@domain.com",
-    "url": "http://bower.io/"
+    "name": "Joe Sullivan",
+    "email": "joseph.sullivan@tufts.edu",
+    "url": "http://www.tufts.edu/"
   },
   "licenses": [
     {

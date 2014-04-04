@@ -38,11 +38,11 @@ define([
 
         this.createPanel('details', DetailsView);
 
-        this.createPanel('panel2');
+        this.createPanel('panel2'); // test
 
-        this.createPanel('panel3');
+        this.createPanel('panel3'); // test
 
-        this.createPanel('panel1');
+        this.createPanel('panel1'); // test
 
         this.init = true;
 
@@ -86,9 +86,9 @@ define([
 
     PanelManager.prototype.createPanel = function(id, constructor) {
 
-        var panelConstructor = constructor || BaseView,
+        var Constructor = constructor || BaseView,
 
-            panel = new panelConstructor({ id: id, model: new Datastore.Model() });
+            panel = new Constructor({ id: id, model: new Datastore.Model() });
 
         this.panels.push(panel);
 

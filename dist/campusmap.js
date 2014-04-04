@@ -1,5 +1,5 @@
-/*! campusmap - v0.0.0 - 2014-04-02
-* Copyright (c) 2014 Author Name; Licensed MIT */
+/*! campusmap - v0.0.0 - 2014-04-03
+* Copyright (c) 2014 Joe Sullivan; Licensed MIT */
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.
 /*jslint regexp: true, nomen: true, sloppy: true */
@@ -2122,9 +2122,15 @@ define('config',[
 
                 //, resize: null
 
-                , primarylabel: ''
+                , primarylabel: null
                               
             }
+
+        },
+
+        labels: {
+
+            primary: 'Search the %campus% campus'
 
         },
 

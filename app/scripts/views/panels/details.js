@@ -8,28 +8,28 @@ define([
 
     'use strict';
 
-	return Base.extend({
+    return Base.extend({
 
 
-	    initialize: function() {
+        initialize: function() {
 
-	        Base.prototype.initialize.call(this);
+            Base.prototype.initialize.call(this);
 
-	        this.location = null;
+            this.location = null;
 
             EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
 
-            	var location;
+                var location;
 
-            	if (!changedAttrs.details) return;
+                if (!changedAttrs.details) return;
 
-            	this.location = changedAttrs.details;
+                this.location = changedAttrs.details;
 
                 console.log('**************', changedAttrs, previousAttrs);
 
                 this.model.set({ 
 
-                	location: this.location
+                    location: this.location
 
                 });
 
@@ -37,6 +37,6 @@ define([
                 //this.render();
 
             }, this);
-	    }
-	});
+        }
+    });
 });

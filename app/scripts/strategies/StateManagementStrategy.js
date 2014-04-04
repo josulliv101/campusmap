@@ -98,7 +98,6 @@ define([
 
         if (key !== 'panels') return;
 
-        // Change the cursor to the pointer when hovering over a label
         EventDispatcher.trigger('truthupdate', { 'searchbox-open': !_.isEmpty(val) });
 
         return  val;
