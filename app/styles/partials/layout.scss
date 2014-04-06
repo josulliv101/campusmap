@@ -48,7 +48,7 @@ body {
 					#searchbox {
 
 						border: 1px #ddd none;
-						padding: 0;
+						padding: 6px 8px;
 						margin: 0;
 						width: 100%;
 						/*max-width: 406px;*/
@@ -64,8 +64,8 @@ body {
 
 					&.search {
 
-						width: 24px;
-						height: 20px;
+						width: 32px;
+						height: 32px;
 						position: absolute;
 						z-index: 999;
 						right: 0;

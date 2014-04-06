@@ -103,7 +103,7 @@ define([
 
         _.each(models, function(model) { 
 
-            model.classnames = this.getLocationClassNames(model); 
+            _.setAttr(model, { classnames: this.getLocationClassNames(model) }); 
 
         }, this);
 
@@ -122,15 +122,15 @@ define([
 
         if (!loc)  return'';
 
-        if (loc.emphasis) classes.push('emphasis' + loc.emphasis);
+        if (_.getAttr(loc, 'emphasis')) classes.push('emphasis' + _.getAttr(loc, 'emphasis'));
 
-        if (loc.hide === true) classes.push('hide');
+        if (_.getAttr(loc, 'hide') === true) classes.push('hide');
 
-        if (loc.isCloseBy === true) classes.push('closeby');
+        if (_.getAttr(loc, 'isCloseBy') === true) classes.push('closeby');
 
-        if (loc.isHovered === true) classes.push('hover');
+        if (_.getAttr(loc, 'isHovered') === true) classes.push('hover');
 
-        if (loc.isDetails === true) classes.push('details');
+        if (_.getAttr(loc, 'isDetails') === true) classes.push('details');
 
         return classes.join(" ");
 

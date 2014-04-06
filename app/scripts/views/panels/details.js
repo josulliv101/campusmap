@@ -23,13 +23,13 @@ define([
 
                 if (!changedAttrs.details) return;
 
-                this.location = changedAttrs.details;
+                this.location = changedAttrs.details || {};
 
                 console.log('**************', changedAttrs, previousAttrs);
 
                 this.model.set({ 
 
-                    location: this.location
+                    location: this.location.toJSON ? this.location.toJSON() : this.location
 
                 });
 
@@ -37,6 +37,18 @@ define([
                 //this.render();
 
             }, this);
+        },
+
+        // Make sure there's always a location obj
+        toJSON: function() {
+
+            var json = Base.prototype.toJSON.call(this);
+
+            json.model.location || (json.model.location = {});
+
+            return json;
+
         }
+
     });
 });

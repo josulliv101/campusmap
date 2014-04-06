@@ -49,6 +49,8 @@ $animate: .2s;
 				display: block;
 
 				padding: 0 4px 0 16px; /* Adjust for icon's 16px width */
+				
+				@include animate($animate); /* When hidden and displayed on hover */
 
 				/* Text Area */
 
@@ -67,6 +69,8 @@ $animate: .2s;
 			        left: 4px; /* Put a little space between icon and txt label*/
 
 			        background: transparent;
+
+			        opacity: .7;
 
 			        white-space: nowrap;
 
@@ -147,17 +151,50 @@ $animate: .2s;
 				}
 
 			}
-/*
-			&.emphasis1, &.emphasis2, &.emphasis3, &.emphasis4 {
+
+			&.emphasis1, &.emphasis2, &.emphasis3 {
+				
+				.icon {
+					
+					top: 3px;
+
+					left: 3px;
+
+					width: 3px;
+
+					height: 3px;
+
+					opacity: 1;
+
+
+					border-width: 2px;
+
+					border-radius: 0;
+
+					background: #aaa;
+
+					border-color: #aaa;
+
+					@include noshadow();
+
+				}
 
 				.bd {
 
+					opacity: 0;
+
 					display: none;
+
+					.txt {
+
+						font-size: 12px;
+
+					}
 
 				}
 
 			}
-
+/*
 			&.emphasis1, &.emphasis2, &.emphasis3 {
 
 				.icon {
@@ -179,8 +216,14 @@ $animate: .2s;
 				.bd {
 
 					.txt {
+						
+						top: -5px;
 
-						/*font-size: 19px;*/
+						left: 10px;
+
+						font-size: 19px;
+
+						padding: 6px;
 
 					}
 
@@ -192,17 +235,21 @@ $animate: .2s;
 
 				.icon {
 
+					opacity: 1 !important;
+
 					display: block !important;
 					
-					background-color: #fff !important;
+					background-color: #fff;
 
-					border-color: #3172AE !important;
+					border-color: #3172AE;
 
 					border-radius: 0 !important;
 
 				}
 
 				.bd {
+
+					opacity: 1 !important;
 
 					display: block !important;
 
@@ -212,7 +259,30 @@ $animate: .2s;
 
 						background: #fff !important;
 
+						opacity: 1;
+
 						@include shadow();
+
+					}
+
+				}
+
+				&.emphasis1, &.emphasis2, &.emphasis3 {
+					
+					.icon {
+
+						background-color: #3172AE;
+
+					}
+
+					&.hover {
+
+						.icon {
+
+							background-color: #3172AE;
+
+						}
+
 
 					}
 
@@ -222,17 +292,19 @@ $animate: .2s;
 
 			&.hover {
 
-				color: #000 !important;
+				/*color: #000 !important;*/
 
 				z-index: 9999 !important;
 
 				.icon {
 
-					background-color: #fff !important;
+					background-color: #fff;
 
 				}
 
 				.bd {
+
+					opacity: 1 !important;
 
 					display: block !important;
 
@@ -240,7 +312,19 @@ $animate: .2s;
 
 						background: #fff;
 
+						opacity: 1;
+
 						@include shadow();
+
+					}
+
+				}
+
+				&.emphasis1, &.emphasis2, &.emphasis3 {
+					
+					.icon {
+
+						background-color: #aaa;
 
 					}
 

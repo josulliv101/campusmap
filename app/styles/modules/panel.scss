@@ -16,7 +16,7 @@ $gutter: 8px;
 		overflow: hidden;
 		margin: 6px 0;
 
-		background: #fff;
+		background: #f8f8f8;
 		font-size: 12px;
 
 		@include shadow();
@@ -41,13 +41,81 @@ $gutter: 8px;
 		.navbar {
 			background: #333;
 			color: #fff;
-			padding: 2px $gutter;
+			padding: 0 $gutter;
+			line-height: 26px;
 		}
 
 		.panel-bd {
 
+			position: relative;
+
+			width: 100%;
+
+			max-width: 320px;
+
+			min-height: 100px;
+
+			display: table-cell;
+
+			vertical-align: top;
+
 			padding: $gutter;
 
+			@include borderbox();
+
+			.bd {
+				
+				p {
+
+					margin: 0 0 6px;
+				}
+				
+
+			}
+
+			.btns {
+
+				position: absolute;
+
+				bottom: 8px;
+
+				left: 8px;
+
+				line-height: 18px;
+
+			}
+
+			&.full {
+				
+				max-width: 100%;
+
+			}
+
+		}
+
+		aside {
+
+			display: table-cell;
+
+			vertical-align: top;
+
+			min-width: 100px;
+
+			.thumb {
+				
+				width: auto;
+
+				max-width: 140px;
+
+				height: 100%;
+
+			}
+
+			&.no-thumb {
+				
+				display: none;
+
+			}
 		}
 	}
 }

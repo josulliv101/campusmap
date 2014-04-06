@@ -3,10 +3,31 @@
    Base
    ========================================================================== */
 
+
+img {
+
+	display: block;
+	
+}
+
+input[type="text"]:disabled {
+
+	background-color:#fff;
+
+	color: #333;
+
+}
+
 @mixin shadow() {
 	-webkit-box-shadow: 2px 2px 2px 0px #aaa;
 	  -moz-box-shadow: 2px 2px 2px 0px #aaa;
 	    box-shadow: 2px 2px 2px 0px #aaa;
+}
+
+@mixin noshadow() {
+	-webkit-box-shadow: none;
+	  -moz-box-shadow: none;
+	    box-shadow: none;
 }
 
 @mixin animate($seconds) {

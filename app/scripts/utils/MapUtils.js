@@ -336,13 +336,13 @@ define([
 
     };
 
-    Utils.prototype.setLocationDimensions = function(location) {
+    Utils.prototype.setLocationDimensions = function(loc) {
 
-        var $el = $('#' + location.id);
+        var $el = $('#' + _.getAttr(loc, 'locationid'));
 
         if (!$el[0]) return;
 
-        _.setAttr(location, { dimensions: { width: $el.outerWidth(), height: $el.outerHeight() }});
+        _.setAttr(loc, { dimensions: { width: $el.outerWidth(), height: $el.outerHeight() }});
 
     };
  

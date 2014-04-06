@@ -41,7 +41,7 @@ define([
 
         closeby = MapUtils.getCloseByLocationsFromTileCache(val.tile, val.zoom);
 
-        _.each(all, function(loc) { loc.isCloseBy = _.contains(closeby, loc); });
+        _.each(all, function(loc) { _.setAttr(loc, { isCloseBy: (_.contains(closeby, loc)) }); });
 
         console.log('closeby locs', closeby.length);
 
@@ -59,17 +59,17 @@ define([
 
         all = model.get('locations');
 
-        _.each(all, function(loc) { loc.isDetails = (val && val.id ? loc.id === val.id : false); });
+        _.each(all, function(loc) { _.setAttr(loc, { isDetails: (val && _.getAttr(val, 'locationid') ? _.getAttr(loc, 'locationid') === _.getAttr(val, 'locationid') : false) }); });
 
         console.info('detailsLocation', val);
 
         EventDispatcher.trigger('truthupdate', { 
 
-            primarylabel: val && val.name,
+            primarylabel: val && _.getAttr(val, 'name'),
 
             forceclosepanels: true, 
 
-            panels: _.isObject(val) ? (val.id === 'm034' ? 'panel2,panel1' : 'details') : '' 
+            panels: _.isObject(val) ? (_.getAttr(val, 'locationid') === 'm034' ? 'panel2,panel1' : 'details') : '' 
 
         });
 
@@ -85,7 +85,7 @@ define([
 
         all = model.get('locations');
 
-        _.each(all, function(loc) { loc.isHovered = (val && val.id ? loc.id === val.id : false); });
+        _.each(all, function(loc) { _.setAttr(loc, { isHovered: (val && _.getAttr(val, 'locationid') ? _.getAttr(loc, 'locationid') === _.getAttr(val, 'locationid') : false) }); });
 
         // Change the cursor to the pointer when hovering over a label
         EventDispatcher.trigger('truthupdate', { cursor: val && !_.isEmpty(val) ? 'pointer' : '' });

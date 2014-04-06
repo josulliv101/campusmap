@@ -61,7 +61,7 @@ define([
             //if (!!loc.label !== true) return;
 
             // The latLngToTileOffset function caches the return value for future use
-            tileOffset = MapUtils.latLngToTileOffset(loc.latlng, this.theTruthJSON.zoom);
+            tileOffset = MapUtils.latLngToTileOffset(_.getAttr(loc, 'latlng'), this.theTruthJSON.zoom);
 
             MapUtils.addLocationToTileCache(tileOffset, loc);
 

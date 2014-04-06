@@ -4,16 +4,31 @@
 
 </div>
 
-<div class="panel-bd">
+<div class="panel-bd <% if (!model.location.thumbnail) { %>full<% } %>">
 
-	<div class="bd spacing">
+	<div class="bd spacing ">
 
-		<p><strong>${model.location && model.location.name}</strong> (${model.location && model.location.id}): Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+		<% if (model.location.address1) { %>
+			<p>${model.location.address1}</p>
+		<% } %>
 
-		<button data-campusmap='panels:details,panel1'>button 1</button> 
-		<button data-campusmap='panels:details,panel2'>button 2</button> 
-		<button data-campusmap='panels:details,panel3'>button 3</button>
+		<p>Medford, MA 02155</p>
+
+		<p><a href="#">Contact Info</a></p>
+
+		<div class="btns">
+			<button data-campusmap='panels:details,panel1'>Accessibility</button> 
+			<button data-campusmap='panels:details,panel2'>Directions</button> 
+			<button data-campusmap='panels:details,panel3'>Share a Link</button>
+		</div>
+
 
 	</div>
 	
 </div>
+
+<aside class="<% if (!model.location.thumbnail) { %>no-thumb<% } %>">
+	<% if (model.location.thumbnail) { %>
+		<img class="thumb" src="./app/images/thumbs/${model.location.thumbnail}" />
+	<% } %>
+</aside>

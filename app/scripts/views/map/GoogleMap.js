@@ -57,7 +57,7 @@ define([
 
         google.maps.event.addListener(this.map, 'mousemove', function (ev) { // _.throttle()
 
-            console.log('mousemove');
+            //console.log('mousemove');
 
             var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
@@ -114,6 +114,8 @@ define([
         // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
         //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
 
+
+
         // Only target locations within 1 tile length in any direction
         location =   _.chain( MapUtils.getCloseByLocationsFromTileCache(mouse.tile, mouse.zoom) )
 
@@ -121,7 +123,7 @@ define([
                       .each(MapUtils.setLocationDimensions)
 
                       // Makes sure an id exists -- will be used for dom el selection
-                      .reject(function(loc) { return _.getAttr(loc, 'dimensions') === undefined; })
+                      .reject(function(loc) { console.info('underLatLng_', loc); return _.getAttr(loc, 'dimensions') === undefined; })
 
                       .filter(function(loc) { 
 
@@ -186,11 +188,11 @@ define([
 
         _.each(all, function(loc) {
 
-            var $loc, classes;
+            var $loc, classes, id = _.getAttr(loc, 'locationid');
 
-            if (!loc.id) return;
+            if (!id) return;
 
-            $loc = $('#' + loc.id);
+            $loc = $('#' + id);
 
             $loc.removeClass().addClass( DomManager.getLocationClassNames(loc) );
 
@@ -216,11 +218,11 @@ define([
 
           var marker = new google.maps.Marker({
 
-              position: loc.latlng,
+              position: _.getAttr(loc, 'latlng'),
 
               map: this.map,
 
-              title: loc.name
+              title: _.getAttr(loc, 'latlng')
 
           });
 
