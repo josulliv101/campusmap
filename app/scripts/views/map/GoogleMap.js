@@ -213,7 +213,7 @@ define([
 
         //this.refreshLabelCss(locations);
         // to be deleted - development only
-        /*
+      /*  
         _.each(this.labelLayer.locations, function(loc) { 
 
           var marker = new google.maps.Marker({
@@ -222,7 +222,7 @@ define([
 
               map: this.map,
 
-              title: _.getAttr(loc, 'latlng')
+              title: _.getAttr(loc, 'name')
 
           });
 

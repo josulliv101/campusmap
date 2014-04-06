@@ -44,6 +44,8 @@ body {
 		    .panel {
 		      
 				.form-group {
+					
+					margin-right: 4px; /* Line it up with panel container */
 
 					#searchbox {
 
@@ -51,6 +53,8 @@ body {
 						padding: 6px 8px;
 						margin: 0;
 						width: 100%;
+						letter-spacing: .1em;
+						font-weight: 400;
 						/*max-width: 406px;*/
 
 						@include borderbox();
@@ -68,7 +72,7 @@ body {
 						height: 32px;
 						position: absolute;
 						z-index: 999;
-						right: 0;
+						right: 4px;
 						top: 0;
 						background: transparent;
 						background-image: url("../../app/images/icons/search@2x.png");
@@ -87,10 +91,20 @@ body {
 
 	}
 
-	#container-searchbox, #container-panels { /* Hide panels that slide under searchox */
+	#container-searchbox { /* Hide panels that slide under searchox */
 		
 		overflow: hidden;
 
 	}
+
+	#container-panels { 
+		
+		overflow: hidden;
+
+		padding-right: 4px;
+
+	}
+
+	
 
 }

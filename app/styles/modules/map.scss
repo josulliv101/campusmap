@@ -156,6 +156,11 @@ $animate: .2s;
 				
 				.icon {
 					
+					background: #bbb;
+
+					border-color: #bbb;
+
+					/*
 					top: 3px;
 
 					left: 3px;
@@ -176,7 +181,7 @@ $animate: .2s;
 					border-color: #aaa;
 
 					@include noshadow();
-
+*/
 				}
 
 				.bd {
@@ -268,7 +273,7 @@ $animate: .2s;
 				}
 
 				&.emphasis1, &.emphasis2, &.emphasis3 {
-					
+					/*
 					.icon {
 
 						background-color: #3172AE;
@@ -285,6 +290,7 @@ $animate: .2s;
 
 
 					}
+					*/
 
 				}
 
@@ -321,13 +327,13 @@ $animate: .2s;
 				}
 
 				&.emphasis1, &.emphasis2, &.emphasis3 {
-					
+					/*
 					.icon {
 
 						background-color: #aaa;
 
 					}
-
+*/
 				}
 
 			}
