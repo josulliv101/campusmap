@@ -122,13 +122,13 @@ $animate: .2s;
 
 		      border-radius: 50%;
 
-		      border: 4px #565152 solid; /* 9b7458  */
+		      border: 4px #3172AE solid; /* 565152 9b7458  */
 
 		      line-height: 16px;
 
 		      background-size: 16px 16px;
 
-		      background-color: #565152;
+		      background-color: #3172AE;
 /*
 		      background-image: url("../../app/images/icons/map/circle@2x.png");  marker-icon-2x.png circle@2x.png circle_outline_center.png */
 
@@ -136,7 +136,7 @@ $animate: .2s;
 
 		      vertical-align: text-top;
 
-		      @include shadow();
+		      @include noshadow();
 
 		      @include animate($animate);
 
@@ -156,9 +156,11 @@ $animate: .2s;
 				
 				.icon {
 					
-					background: #bbb;
+					background: #999; /*#bbb;565152*/
 
-					border-color: #bbb;
+					border-color: #999;
+					
+					@include noshadow();
 
 					/*
 					top: 3px;
@@ -214,7 +216,7 @@ $animate: .2s;
 
 				.icon {
 
-					border: 5px #565152 solid;
+					border: 5px #3172AE solid;
 
 				}
 
@@ -246,9 +248,11 @@ $animate: .2s;
 					
 					background-color: #fff;
 
-					border-color: #3172AE;
+					/*border-color: #3172AE;*/
 
 					border-radius: 0 !important;
+
+					@include shadow();
 
 				}
 

@@ -19,7 +19,7 @@ define([
 
     }
 
-    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         if (val !== 'true' && val !== 'false') return;
 
@@ -27,7 +27,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         // Includes negative integers
         if (!_.isString(val) || val.match(/^-?\d+$/) === null) return;
@@ -36,7 +36,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         var match, attr = {};
 
@@ -57,7 +57,7 @@ define([
     };
 
     // Incrementing/decrementing zoom level (+, -)
-    DataTypeStrategy.prototype.zoomToInteger = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.zoomToInteger = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         var z;
 
@@ -70,7 +70,7 @@ define([
     };
 
     // Convert location string ids to object references
-    DataTypeStrategy.prototype.locationIdsToObjects = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.locationIdsToObjects = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         if (key !== 'details' || !_.isString(val)) return;
 
@@ -79,7 +79,7 @@ define([
     };
 
     // Convert panel string ids to object references
-    DataTypeStrategy.prototype.panelIdsToObjects = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.panelIdsToObjects = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         var attr = {};
         
@@ -93,7 +93,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.primaryLabelDefault = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.primaryLabelDefault = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         var attr = {};
         
@@ -107,7 +107,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.campusIdToObject = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.campusIdToObject = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         var attr = {};
 
@@ -121,7 +121,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.locationsDataIntegrity = function(model, val, key, Datastore, PanelManager) {
+    DataTypeStrategy.prototype.locationsDataIntegrity = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         var attr = {};
 
@@ -154,25 +154,37 @@ define([
         return  val;
 
     };
-/*
-    DataTypeStrategy.prototype.hoveredLocation = function(model, val, key, Datastore, PanelManager) {
 
-        var attr = {};
+    DataTypeStrategy.prototype.detailsNavbar = function(model, val, key, Datastore, PanelManager, theTruth) {
 
-        if (key !== 'hover') return;
+        var nav;
 
-        if (_.isEmpty(val)) {
+        if (key !== 'detailsnavbar') return;
 
-            attr[key] = { id: -1 };
+        // If it's a string, assume its the id of the desired nav item
+        if (_.isString(val)) {
+
+            nav = theTruth.get('detailsnavbar');
+
+            _.chain( nav )
+
+             // Reset each item
+             .each(function(navitem) { navitem.classes = (navitem.id !== val ? '' : 'active'); })
+
+             .value();
+
+            // Only want to update navbar model. Delete attr so navbar array is not changed to string.
+            model.detailsnavbar = nav;
+
+            // Hack to get it to trigger event
+            theTruth.set({ detailsnavbar: null }, { silent: true });
 
         }
-        
-        _.extend(model, attr);
 
-        return  attr[key];
+        return  val;
 
     };
-*/
+
 
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 
@@ -192,7 +204,9 @@ define([
 
         DataTypeStrategy.prototype.locationsDataIntegrity,
 
-        DataTypeStrategy.prototype.primaryLabelDefault
+        DataTypeStrategy.prototype.primaryLabelDefault,
+
+        DataTypeStrategy.prototype.detailsNavbar
 
     );
 

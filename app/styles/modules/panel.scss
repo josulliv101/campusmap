@@ -42,9 +42,36 @@ $gutter: 8px;
 
 		.navbar {
 			background: #565152;
-			color: #fff;
-			padding: 0 $gutter;
+			padding: 0;
 			line-height: 26px;
+			letter-spacing: .06em;
+			ul {
+				list-style: none;
+				li {
+					list-style: none;
+					display: inline-block;
+					padding: 0;
+					
+					button {
+						border: none;
+						background: none;
+						width: 100%;
+						padding: 0 10.4px;
+						line-height: 26px;
+						color: #fff;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+					&.active {
+						background: #E5E5CC;
+						button {
+							color: #333;
+						}
+						
+					}
+				}
+			}
 		}
 
 		.panel-bd {
@@ -55,7 +82,7 @@ $gutter: 8px;
 
 			max-width: 300px;
 
-			min-height: 100px;
+			height: 150px;
 
 			display: table-cell;
 
@@ -67,6 +94,22 @@ $gutter: 8px;
 
 			.bd {
 				
+				height: 100%;
+
+				.more-info {
+
+					margin-top: 1.3em;
+
+					p {
+						color: #999;
+					}
+
+					a {
+						color: #666;
+					}
+
+				}
+
 				p {
 
 					margin: 0 0 6px;

@@ -63,7 +63,7 @@ define([
         _.each(changedAttrs, function(val, key) { 
 
             // Update DOM with appropriate css flags -- on root element of app
-            this.dataTypeStrategy.dispatch(changedAttrs, val, key, Datastore, PanelManager);
+            this.dataTypeStrategy.dispatch(changedAttrs, val, key, Datastore, PanelManager, this.theTruth);
 
         }, this);
 

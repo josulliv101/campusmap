@@ -61,17 +61,18 @@ define([
 
         _.each(all, function(loc) { _.setAttr(loc, { isDetails: (val && _.getAttr(val, 'locationid') ? _.getAttr(loc, 'locationid') === _.getAttr(val, 'locationid') : false) }); });
 
-        console.info('detailsLocation', val);
-
+        // Do silently?
         EventDispatcher.trigger('truthupdate', { 
 
             primarylabel: val && _.getAttr(val, 'name'),
 
             forceclosepanels: true, 
 
-            panels: _.isObject(val) ? (_.getAttr(val, 'locationid') === 'm034' ? 'panel2,panel1' : 'details') : '' 
+            panels: _.isObject(val) ? 'details' : ''
 
         });
+
+        console.info('detailsLocation', val);
 
         return  val;
 

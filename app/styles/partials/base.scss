@@ -10,6 +10,11 @@ img {
 	
 }
 
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 input[type="text"]:disabled {
 
 	background-color:#fff;
@@ -18,10 +23,24 @@ input[type="text"]:disabled {
 
 }
 
+a {
+
+	text-decoration: none;
+
+	color: #333;
+
+	&:hover {
+		
+		text-decoration: underline;
+
+	}
+
+}
+
 @mixin shadow() {
-	-webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,.3);
-	  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,.3);
-	    box-shadow: 2px 2px 2px 0px rgba(0,0,0,.3);
+	-webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,.2);
+	  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,.2);
+	    box-shadow: 2px 2px 2px 0px rgba(0,0,0,.2);
 }
 
 @mixin noshadow() {

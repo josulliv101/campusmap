@@ -81,7 +81,7 @@ define([
             // Add mousemove listener back
             google.maps.event.addListener(this, 'mousemove', function (ev) { // _.throttle()
 
-                console.log('mousemove');
+                //console.log('mousemove');
 
                 var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
@@ -123,7 +123,7 @@ define([
                       .each(MapUtils.setLocationDimensions)
 
                       // Makes sure an id exists -- will be used for dom el selection
-                      .reject(function(loc) { console.info('underLatLng_', loc); return _.getAttr(loc, 'dimensions') === undefined; })
+                      .reject(function(loc) { return _.getAttr(loc, 'dimensions') === undefined; })
 
                       .filter(function(loc) { 
 
