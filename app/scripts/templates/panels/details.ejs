@@ -1,7 +1,7 @@
 <div class="navbar">
 	<ul>
-		<% _.each(model.detailsnavbar, function(navitem) { %>
-			<li class="${navitem.classes}"><button data-campusmap="detailsnavbar:${navitem.id}">${navitem.label}</button></li>
+		<% _.each(model.navbar, function(navitem) { %>
+			<li id="${navitem.id}" class="navitem ${navitem.classes}"><button data-campusmap="detailsnavbarstate:${navitem.id}">${navitem.label}</button></li>
 		<% }); %>
 	</ul>
 </div>

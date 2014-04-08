@@ -155,36 +155,6 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.detailsNavbar = function(model, val, key, Datastore, PanelManager, theTruth) {
-
-        var nav;
-
-        if (key !== 'detailsnavbar') return;
-
-        // If it's a string, assume its the id of the desired nav item
-        if (_.isString(val)) {
-
-            nav = theTruth.get('detailsnavbar');
-
-            _.chain( nav )
-
-             // Reset each item
-             .each(function(navitem) { navitem.classes = (navitem.id !== val ? '' : 'active'); })
-
-             .value();
-
-            // Only want to update navbar model. Delete attr so navbar array is not changed to string.
-            model.detailsnavbar = nav;
-
-            // Hack to get it to trigger event
-            theTruth.set({ detailsnavbar: null }, { silent: true });
-
-        }
-
-        return  val;
-
-    };
-
 
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 
@@ -204,9 +174,7 @@ define([
 
         DataTypeStrategy.prototype.locationsDataIntegrity,
 
-        DataTypeStrategy.prototype.primaryLabelDefault,
-
-        DataTypeStrategy.prototype.detailsNavbar
+        DataTypeStrategy.prototype.primaryLabelDefault
 
     );
 

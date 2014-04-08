@@ -30,36 +30,42 @@ define([
 
                 var location;
 
-                if (!changedAttrs.details) return;
-
                 this.location = changedAttrs.details || {};
 
                 console.log('**************', changedAttrs, previousAttrs);
 
                 this.model.set({ 
 
-                    location: this.location.toJSON ? this.location.toJSON() : this.location
+                    location: this.location.toJSON ? this.location.toJSON() : this.location,
+
+                    navbar: changedAttrs.detailsnavbar || this.model.get('navbar'),
+
+                    navbarstate: changedAttrs.detailsnavbarstate || this.model.get('navbarstate')
 
                 });
 
                 // No need to re-render. The panel is forced close every time so will re-render before opening.
-                //this.render();
+                if (changedAttrs.detailsnavbarstate) this.refresh();
 
             }, this);
 
-            EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
+        },
 
-                if (!changedAttrs.detailsnavbar) return;
+        refresh: function() {
 
-                this.model.set({ 
+            var navModel = this.model.get('navbar'), state = this.model.get('navbarstate');
 
-                    detailsnavbar: changedAttrs.detailsnavbar
+            // Select first as default if none specified
+            if (_.isEmpty(state)) state = _.first(navModel).id;
 
-                });
+            _.each(navModel, function(navitem) { 
 
-                this.render();
+                var classes = state === navitem.id ? 'active' : '';
+
+                this.$('#' + navitem.id).removeClass('active').addClass(classes);
 
             }, this);
+
         },
 
         // Make sure there's always a location obj
@@ -68,12 +74,34 @@ define([
             var json = Base.prototype.toJSON.call(this),
 
                 // SHortcut to loc json
-                jsonLoc = json.model.location || (json.model.location = {});
+                jsonLoc = json.model.location || (json.model.location = {}),
+
+                navbarstate = json.model.navbarstate;
 
             // Format phone numbers
             jsonLoc.phone && (jsonLoc.phone = this.formatPhone(jsonLoc.phone));
 
+            if (json.model.navbar) {
+
+                _.each(json.model.navbar, function(item) { item.classes = (item.id === navbarstate ? 'active' : '') })
+            
+            }
+
             return json;
+
+        },
+
+        handleOpenPreState: function(model, state) {
+
+            var navbarstate;
+
+            if (state !== 'openPre') return;
+            
+            navbarstate = _.first(model.get('navbar')).id;
+
+            EventDispatcher.trigger('truthupdate', { detailsnavbarstate: navbarstate });
+
+            return state;
 
         },
 
