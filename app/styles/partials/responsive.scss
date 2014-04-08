@@ -13,3 +13,51 @@
 .mobile {
 
 }
+
+
+/* Smartphones (portrait and landscape) ----------- */  
+@media only screen   
+and (min-device-width : 320px)   
+and (max-device-width : 480px) {  
+/* Styles */  
+
+#app {
+	#container-searchbox {
+		min-width: auto;
+		max-width: 80%;
+		width: 80%;
+		top: 0;
+		left: 0;
+		& > form {
+		    .panel {
+				.form-group {
+					#searchbox {
+						width: 80%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+}  
+  
+/* Smartphones (landscape) ----------- */  
+@media only screen   
+and (min-width : 321px) {  
+/* Styles */  
+}  
+  
+/* Smartphones (portrait) ----------- */  
+@media only screen   
+and (max-width : 320px) {  
+/* Styles */  
+}  
+  
+/* iPads (portrait and landscape) ----------- */  
+@media only screen   
+and (min-device-width : 768px)   
+and (max-device-width : 1024px) {  
+/* Styles */  
+}  
