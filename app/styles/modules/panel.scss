@@ -171,6 +171,8 @@ $gutter: 8px;
 
 				max-width: 150px;
 
+				max-height: 150px;
+
 				height: 100%;
 
 			}
@@ -199,6 +201,9 @@ $gutter: 8px;
 
 				min-height: 150px;
 
+				/* keep or change to gradient of gray? */
+				@include panelfade();
+
 				 -webkit-transition: -webkit-transform .6s ease-out;
 				  -moz-transition: transform .6s ease-out;
 				    -o-transition: transform .6s ease-out;
@@ -210,6 +215,13 @@ $gutter: 8px;
 		}
 
 		/* States */
+
+		.panel-details { z-index: 999; }
+
+		.panel-depts-offices { z-index: 990; } /* Needs to be hidden by others when going from 1 to 3rd panel */
+
+		.panel-imagery { z-index: 999; }
+
 
 		&.bd-active-details {
 			
@@ -241,6 +253,7 @@ $gutter: 8px;
 		}
 
 		&.bd-active-depts-offices {
+
 			
 			.panel-depts-offices { 
 

@@ -48,7 +48,7 @@ $animate: .2s;
 
 				display: block;
 
-				padding: 0 4px 0 16px; /* Adjust for icon's 16px width */
+				padding: 0 4px 0 18px; /* Adjust for icon's 16px width */
 				
 				@include animate($animate); /* When hidden and displayed on hover */
 
@@ -64,7 +64,7 @@ $animate: .2s;
 
 			        /*min-width: 80px;*/
 
-			        top: -3px;
+			        top: -2px;
 
 			        left: 4px; /* Put a little space between icon and txt label*/
 
@@ -92,7 +92,19 @@ $animate: .2s;
 
 			        font-size: 14px;
 
+			        /* test 
+
+						top: -5px;
+
+						left: 10px;
+
+						font-size: 19px;
+
+						padding: 6px;
+*/
 			        @include animate($animate);
+
+			        @include textshadow();
 
 				}
 
@@ -118,17 +130,19 @@ $animate: .2s;
 
 		      height: 5px;
 
-		      opacity: .8;
+		      opacity: 1;
 
 		      border-radius: 50%;
 
-		      border: 4px #3172AE solid; /* 565152 9b7458  */
+		      /*border: 4px #3172AE solid;  565152 9b7458  */
+
+		      border: 5px #936c4c solid;
 
 		      line-height: 16px;
 
 		      background-size: 16px 16px;
 
-		      background-color: #3172AE;
+		      background-color: #936c4c;
 /*
 		      background-image: url("../../app/images/icons/map/circle@2x.png");  marker-icon-2x.png circle@2x.png circle_outline_center.png */
 
@@ -136,7 +150,7 @@ $animate: .2s;
 
 		      vertical-align: text-top;
 
-		      @include noshadow();
+		      @include shadow();
 
 		      @include animate($animate);
 
@@ -156,9 +170,9 @@ $animate: .2s;
 				
 				.icon {
 					
-					background: #999; /*#bbb;565152*/
+					background: #b7a08d; /*#bbb;565152*/
 
-					border-color: #999;
+					border-color: #b7a08d;
 					
 					@include noshadow();
 
@@ -194,7 +208,7 @@ $animate: .2s;
 
 					.txt {
 
-						font-size: 12px;
+						/*font-size: 12px;*/
 
 					}
 
@@ -216,11 +230,17 @@ $animate: .2s;
 
 				.icon {
 
-					border: 5px #3172AE solid;
+					width: 6px;
+
+					height: 6px;
+
+					border: 6px #936c4c solid;
 
 				}
 
 				.bd {
+
+					padding: 0 4px 0 16px;
 
 					.txt {
 						

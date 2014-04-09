@@ -121,6 +121,33 @@ define([
 
     };
 
+    DataTypeStrategy.prototype.detailsChange = function(model, val, key, Datastore, PanelManager, theTruth) {
+
+        var navbar, navbarstate, nextItem;
+
+        if (key !== 'details' || _.isEmpty(val)) return;
+
+        // Only proceed if the location is the same
+        if (theTruth.get('details') !== val) return
+
+        navbar = theTruth.get('detailsnavbar');
+
+        navbarstate = theTruth.get('detailsnavbarstate');
+
+        //navitemCurrent = _.find( navbar , function(navitem) { return navitem.id === navbarstate; });
+
+        // Set a default navbar state
+        if (_.isEmpty(navbarstate)) model.detailsnavbarstate = _.first(navbar).id;
+
+        nextItem = _.getNext( navbar, navbarstate );
+
+        // Update the Truth with appropriate navbar state
+        model.detailsnavbarstate = nextItem.id;
+
+        return  val;
+
+    };
+
     DataTypeStrategy.prototype.locationsDataIntegrity = function(model, val, key, Datastore, PanelManager, theTruth) {
 
         var attr = {};
@@ -174,9 +201,12 @@ define([
 
         DataTypeStrategy.prototype.locationsDataIntegrity,
 
-        DataTypeStrategy.prototype.primaryLabelDefault
+        DataTypeStrategy.prototype.primaryLabelDefault,
+
+        DataTypeStrategy.prototype.detailsChange
 
     );
+
 
     return DataTypeStrategy;
 

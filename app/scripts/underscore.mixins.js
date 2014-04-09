@@ -106,6 +106,36 @@ define([
 
             return item.attributes && item.set(attrs, options) || _.extend(item, attrs);
 
+        },
+
+        // Get next item in array, or first if at end
+        getNext: function(arr, item) {
+
+            var curIndex, nextItem;
+
+            // Convert string id to object
+            if (_.isString(item)) {
+
+                item = _.chain(arr).find(function(itm) { return itm.id === item; }).value();
+
+            }
+
+            // Get current index of passed-in item
+            if (_.isObject(item)) {
+
+                curIndex = _.indexOf(arr, item);
+
+            } 
+
+            // If no item, return first
+            if (_.isEmpty(item)) return _.first(arr);
+
+            // If last item passed in, retun first
+            if (curIndex === arr.length - 1) return _.first(arr);
+            
+            // return next item
+            return arr[++curIndex];
+
         }
 
     });
