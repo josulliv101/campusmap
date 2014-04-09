@@ -53,18 +53,36 @@ define([
 
         refresh: function() {
 
-            var navModel = this.model.get('navbar'), state = this.model.get('navbarstate');
+            var navbarprefix = 'bd-active-',
+
+                navModel = this.model.get('navbar'), 
+
+                navbarstate = this.model.get('navbarstate');
 
             // Select first as default if none specified
-            if (_.isEmpty(state)) state = _.first(navModel).id;
+            if (_.isEmpty(navbarstate)) navbarstate = _.first(navModel).id;
 
             _.each(navModel, function(navitem) { 
 
-                var classes = state === navitem.id ? 'active' : '';
+                var classes = navbarstate === navitem.id ? 'active' : '';
 
                 this.$('#' + navitem.id).removeClass('active').addClass(classes);
 
             }, this);
+
+            this.$el.removeClass(function() {
+
+                return _.chain($(this).attr('class').split(/\s+/))
+
+                        .reject(function(classname) { return classname.indexOf(navbarprefix) !== 0; })
+
+                        .value()
+
+                        .join(" ");
+
+            });
+
+            this.$el.addClass(navbarprefix + navbarstate);
 
         },
 
@@ -97,6 +115,7 @@ define([
 
             if (state !== 'openPre') return;
             
+            // Reset to first whenever panel opens
             navbarstate = _.first(model.get('navbar')).id;
 
             EventDispatcher.trigger('truthupdate', { detailsnavbarstate: navbarstate });

@@ -80,7 +80,7 @@ $gutter: 8px;
 
 			width: 100%;
 
-			max-width: 300px;
+			min-width: 450px;
 
 			height: 150px;
 
@@ -153,7 +153,13 @@ $gutter: 8px;
 
 		aside {
 
-			display: table-cell;
+			display: block;
+
+			position: absolute;
+
+			top: 0;
+
+			right: 0;
 
 			vertical-align: top;
 
@@ -174,6 +180,120 @@ $gutter: 8px;
 				display: none;
 
 			}
+		}
+		
+
+		.panels-contents {
+			
+			position: relative;
+
+			min-height: 150px;
+
+			.panel-content {
+				
+				position: absolute;
+
+				top: 0;
+
+				left: 0;
+
+				min-height: 150px;
+
+				 -webkit-transition: -webkit-transform .6s ease-out;
+				  -moz-transition: transform .6s ease-out;
+				    -o-transition: transform .6s ease-out;
+				       transition: transform .6s ease-out;
+
+ 
+			}
+
+		}
+
+		/* States */
+
+		&.bd-active-details {
+			
+			.panel-details { 
+
+				 -webkit-transform: translateX(0);
+				 -moz-transform: translateX(0);
+				 -ms-transform: translateX(0);
+				  -o-transform: translateX(0);
+				     transform: translateX(0);
+				
+
+
+			}
+
+			.panel-depts-offices, .panel-imagery {
+
+				display: block;
+
+				 -webkit-transform: translateX(100%);
+				 -moz-transform: translateX(100%);
+				 -ms-transform: translateX(100%);
+				  -o-transform: translateX(100%);
+				     transform: translateX(100%);
+				
+				
+			}
+
+		}
+
+		&.bd-active-depts-offices {
+			
+			.panel-depts-offices { 
+
+				 -webkit-transform: translateX(0);
+				 -moz-transform: translateX(0);
+				 -ms-transform: translateX(0);
+				 -o-transform: translateX(0);
+				     transform: translateX(0);
+				
+
+			}
+
+			.panel-details { 
+
+				 -webkit-transform: translateX(-100%);
+				 -moz-transform: translateX(-100%);
+				 -ms-transform: translateX(-100%);
+				  -o-transform: translateX(-100%);
+				     transform: translateX(-100%);
+				
+			}
+
+			.panel-imagery { 
+
+				 -webkit-transform: translateX(100%);
+				 -moz-transform: translateX(100%);
+				 -ms-transform: translateX(100%);
+				  -o-transform: translateX(100%);
+				     transform: translateX(100%);
+				
+
+			}
+
+		}
+
+		&.bd-active-imagery {
+			
+			.panel-imagery { transform: translateX(0); }
+
+			.panel-details, .panel-depts-offices {
+
+				display: block;
+
+				 -webkit-transform: translateX(-100%);
+				 -moz-transform: translateX(-100%);
+				 -ms-transform: translateX(-100%);
+				  -o-transform: translateX(-100%);
+				     transform: translateX(-100%);
+
+				
+				
+			}
+
 		}
 	}
 }
