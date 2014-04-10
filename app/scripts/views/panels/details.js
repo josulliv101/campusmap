@@ -1,10 +1,14 @@
 define([
 
-    'scripts/views/panels/Base'
+    'jquery'
+
+    , 'underscore'
+
+    , 'scripts/views/panels/Base'
 
     , 'eventdispatcher'
 
-], function(Base, EventDispatcher) {
+], function($, _, Base, EventDispatcher) {
 
     'use strict';
 
@@ -101,7 +105,7 @@ define([
 
             if (json.model.navbar) {
 
-                _.each(json.model.navbar, function(item) { item.classes = (item.id === navbarstate ? 'active' : '') })
+                _.each(json.model.navbar, function(item) { item.classes = (item.id === navbarstate ? 'active' : ''); });
             
             }
 

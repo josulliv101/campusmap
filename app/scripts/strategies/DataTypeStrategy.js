@@ -4,7 +4,7 @@ define([
 
     , 'config'
 
-    , 'scripts/PanelManager'
+    , 'scripts/panelManager'
 
     , '_mixins'
 
@@ -128,7 +128,7 @@ define([
         if (key !== 'details' || _.isEmpty(val)) return;
 
         // Only proceed if the location is the same
-        if (theTruth.get('details') !== val) return
+        if (theTruth.get('details') !== val) return;
 
         navbar = theTruth.get('detailsnavbar');
 
