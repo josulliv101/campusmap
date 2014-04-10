@@ -21,23 +21,25 @@ $gutter: 8px;
 
 		@include shadow();
 
-		@include panelfade();
+		
+		
+		&[style*="display: block"] {
+			
+			background: #f8f8f8;
 
-		&:nth-child(1) {
-			z-index: 1;
-		}
+			z-index: 9991;
 
-		&:nth-child(2) {
-			z-index: -2;
-		}
+			@include panelfade-muted();
+			
+			&:first-child {
+				
+				z-index: 9999;
 
-		&:nth-child(3) {
-			z-index: -3;
-		}
+				margin-top: 0;
 
-		&:first-child {
-			margin-top: 0;
-			z-index: 9999; /* So searchbox bottom shadow gets covered */
+				@include panelfade();
+
+			}		
 		}
 
 		.navbar {
@@ -56,7 +58,7 @@ $gutter: 8px;
 						border: none;
 						background: none;
 						width: 100%;
-						padding: 0 10.4px;
+						padding: 0 12px;
 						line-height: 26px;
 						color: #fff;
 						&:hover {
@@ -88,7 +90,7 @@ $gutter: 8px;
 
 			vertical-align: top;
 
-			padding: 16px $gutter $gutter;
+			padding: 16px 12px $gutter;
 
 			@include borderbox();
 
@@ -98,10 +100,11 @@ $gutter: 8px;
 
 				.more-info {
 
-					margin-top: 1.3em;
+					margin-top: 1.0em;
 
 					p {
 						color: #999;
+						margin-bottom: 5px;
 					}
 
 					a {
@@ -118,7 +121,7 @@ $gutter: 8px;
 
 						color: #565152;
 
-						font-size: 14px;
+						font-size: 16px;
 
 						letter-spacing: .06em;
 
@@ -135,11 +138,27 @@ $gutter: 8px;
 
 				position: absolute;
 
-				bottom: 8px;
+				bottom: 6px;
 
-				left: 8px;
+				left: 12px;
 
-				line-height: 18px;
+				line-height: 22px;
+
+				button {
+					
+					height: 22px;
+
+					margin-left: 4px;
+
+					font-size: 11px;
+
+					&:first-child {
+
+						margin-left: 0;
+
+					}
+
+				}
 
 			}
 
@@ -201,13 +220,13 @@ $gutter: 8px;
 
 				min-height: 150px;
 
-				/* keep or change to gradient of gray? */
-				@include panelfade();
+				/* @include panelfade();keep or change to gradient of gray? */
+				
 
-				 -webkit-transition: -webkit-transform .6s ease-out;
-				  -moz-transition: transform .6s ease-out;
-				    -o-transition: transform .6s ease-out;
-				       transition: transform .6s ease-out;
+				 -webkit-transition: -webkit-transform .6s linear;
+				  -moz-transition: transform .6s linear;
+				    -o-transition: transform .6s linear;
+				       transition: transform .6s linear;
 
  
 			}
@@ -216,97 +235,11 @@ $gutter: 8px;
 
 		/* States */
 
-		.panel-details { z-index: 999; }
+		.panel-details { z-index: 9999; @include panelfade(); }
 
-		.panel-depts-offices { z-index: 990; } /* Needs to be hidden by others when going from 1 to 3rd panel */
+		.panel-depts-offices { z-index: 999; @include panelfade();} /* Needs to be hidden by others when going from 1 to 3rd panel */
 
-		.panel-imagery { z-index: 999; }
+		.panel-imagery { z-index: 9999; @include panelfade(); }
 
-
-		&.bd-active-details {
-			
-			.panel-details { 
-
-				 -webkit-transform: translateX(0);
-				 -moz-transform: translateX(0);
-				 -ms-transform: translateX(0);
-				  -o-transform: translateX(0);
-				     transform: translateX(0);
-				
-
-
-			}
-
-			.panel-depts-offices, .panel-imagery {
-
-				display: block;
-
-				 -webkit-transform: translateX(100%);
-				 -moz-transform: translateX(100%);
-				 -ms-transform: translateX(100%);
-				  -o-transform: translateX(100%);
-				     transform: translateX(100%);
-				
-				
-			}
-
-		}
-
-		&.bd-active-depts-offices {
-
-			
-			.panel-depts-offices { 
-
-				 -webkit-transform: translateX(0);
-				 -moz-transform: translateX(0);
-				 -ms-transform: translateX(0);
-				 -o-transform: translateX(0);
-				     transform: translateX(0);
-				
-
-			}
-
-			.panel-details { 
-
-				 -webkit-transform: translateX(-100%);
-				 -moz-transform: translateX(-100%);
-				 -ms-transform: translateX(-100%);
-				  -o-transform: translateX(-100%);
-				     transform: translateX(-100%);
-				
-			}
-
-			.panel-imagery { 
-
-				 -webkit-transform: translateX(100%);
-				 -moz-transform: translateX(100%);
-				 -ms-transform: translateX(100%);
-				  -o-transform: translateX(100%);
-				     transform: translateX(100%);
-				
-
-			}
-
-		}
-
-		&.bd-active-imagery {
-			
-			.panel-imagery { transform: translateX(0); }
-
-			.panel-details, .panel-depts-offices {
-
-				display: block;
-
-				 -webkit-transform: translateX(-100%);
-				 -moz-transform: translateX(-100%);
-				 -ms-transform: translateX(-100%);
-				  -o-transform: translateX(-100%);
-				     transform: translateX(-100%);
-
-				
-				
-			}
-
-		}
 	}
 }
