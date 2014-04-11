@@ -50,9 +50,31 @@ define([
     
     PanelManager.prototype.getPanelsById = function(ids) {
 
-        ids = ids.split(',');
+        var panels =  _.chain(ids.split(','))
 
-        return _.filter(this.panels, function(panel) { return _.contains(ids, panel.id); } );
+                       // See if any panels want to be toggled (specified by '+' at end of id)
+                       .map(function(id) { 
+
+                            var panel, panelid = id.replace('+', '');
+
+                            if (_.isEmpty(id)) return;
+                            
+                            panel = _.find(this.panels, function(panel) { return panel.id === panelid; });
+
+                            return panel && id.indexOf('+') > 0 && panel.state() === 'open' ? undefined : panel;
+
+                        }, this)
+
+                       // Don't include any that should be toggled shut
+                       .reject(function(panel) {
+
+                            return panel === undefined;
+
+                       })
+
+                       .value();
+ 
+        return panels; //_.filter(this.panels, function(panel) { return _.contains(ids, panel.id); } );
 
     };
 

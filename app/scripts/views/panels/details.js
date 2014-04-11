@@ -18,9 +18,14 @@ define([
 
         events: {
 
-            'click .navbar button': function(ev) {
-//debugger;
-                //EventDispatcher.trigger('truthupdate', { detailsnavbar : $(ev.currentTarget) });
+            'click .panel-details': function(ev) {
+
+                if (ev.target && ev.target.nodeName.toLowerCase() !== 'button') {
+
+                    // Closes any secondary panels that are open
+                    EventDispatcher.trigger('truthupdate', { panels : 'details' });
+
+                }
 
             }
 

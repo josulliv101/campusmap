@@ -1,8 +1,26 @@
 <div class="panel-bd panel-secondary">
 	<div class="bd spacing">
-		<label class="subhead">${model.location.name}</label>
-		<h3>Accessibility</h3>
-		<p>Accessibility: Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-		<div class='footer'><button class="panel-close" data-campusmap='panels:details'>close</button></div>
+		<h3 class="subhead">Accessibility</h3>
+
+		<% if (model.location.accessibility > 0 || model.location.accessiblerestroom > 0) { %>
+			<ul class="addr accessibility">
+				<li>
+				<% if (model.location.accessibility === 1) { %>
+					<img src="./app/images/icons/accessibility1@2x.png" /> Fully Accessible
+				<% } else if (model.location.accessibility === 2) { %>
+					<img src="./app/images/icons/accessibility2@2x.png" /> Accessible with Assistance
+				<% } %>
+				</li>
+				<% if (model.location.accessiblerestroom === 1) { %>
+					<li><img src="./app/images/icons/accessibility1@2x.png" /> Accessible Restroom</li>
+				<% } %>
+			</ul>
+			<div class='footer'>
+		<% } else { %>
+			<div class='footer no-content'>
+		<% } %>
+			<a href="#">Office of Equal Opportunity Website</a> <span class="divider">|</span> <a href="#">Accessibility Map</a> (pdf)
+			<button class="btn-close" data-campusmap='panels:details'>close</button>
+		</div>
 	</div>
 </div>

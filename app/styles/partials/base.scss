@@ -13,6 +13,8 @@ img {
 ul {
 	margin: 0;
 	padding: 0;
+	list-style: none;
+
 }
 
 input[type="text"]:disabled {
@@ -38,6 +40,7 @@ a {
 	}
 
 }
+
 
 @mixin shadow() {
 	-webkit-box-shadow: 2px 3px 2px 0px rgba(0,0,0,.18);
