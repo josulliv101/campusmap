@@ -38,11 +38,11 @@ define([
 
         this.createPanel('details', DetailsView);
 
-        this.createPanel('panel2'); // test
+        this.createPanel('accessibility'); // test
 
-        this.createPanel('panel3'); // test
+        this.createPanel('directions'); // test
 
-        this.createPanel('panel1'); // test
+        this.createPanel('sharelink'); // test
 
         this.init = true;
 

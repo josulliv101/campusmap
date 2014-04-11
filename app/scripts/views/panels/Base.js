@@ -20,24 +20,37 @@ define([
 
     BaseView = Datastore.View.extend({
 
+        title: '',
+
         initialize: function() {
 
             var model = this.model;
 
-            _.bindAll(this, 'render', 'handleStateChange', 'handleOpenState');
+            _.bindAll(this, 'render', 'getTitle', 'handleStateChange', 'handleOpenState', 'handleCloseState', 'handleOpenPreState', 'handleClosePreState');
 
             if (!model) return;
 
             // Path to the template -- maps to panels folder
             this.template = JST[BaseView.path(this.id)];
 
-            model.set({ state: 'close' }, { silent: true });
+            model.set({ state: 'close', location: {} }, { silent: true });
 
             this.$el.addClass('panel');
 
             this.handleStateChange = _.dispatch(this.handleOpenState, this.handleCloseState, this.handleOpenPreState, this.handleClosePreState);
 
             this.listenTo(model, 'change:state', this.handleStateChange);
+
+            // Every panel will know when a location changes
+            EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
+
+                if (!changedAttrs.details) return;
+
+                this.location = changedAttrs.details || {};
+
+                this.model.set({ location: this.location.toJSON ? this.location.toJSON() : this.location });
+
+            }, this);
 
         },
 
@@ -119,6 +132,12 @@ define([
             this.$el.html(this.template(json));
 
             return this;
+
+        },
+
+        getTitle: function() {
+
+            return _.isFunction(this.title) ? this.title() : title;
 
         }
 

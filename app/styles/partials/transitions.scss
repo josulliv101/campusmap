@@ -187,8 +187,8 @@ $hideDuration: $showDuration;
       -webkit-animation: slideOut $hideDuration;
       animation: slideOut $hideDuration;
 
-      animation-timing-function: linear;
-      -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
+      animation-timing-function: ease-out;
+      -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
   
       &:nth-child(1) {
         

@@ -14,6 +14,8 @@ define([
 
     return Base.extend({
 
+        title: function() { return this.model.get('location').name; },
+
         events: {
 
             'click .navbar button': function(ev) {
@@ -32,15 +34,7 @@ define([
 
             EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
 
-                var location;
-
-                this.location = changedAttrs.details || {};
-
-                console.log('**************', changedAttrs, previousAttrs);
-
                 this.model.set({ 
-
-                    location: this.location.toJSON ? this.location.toJSON() : this.location,
 
                     navbar: changedAttrs.detailsnavbar || this.model.get('navbar'),
 
@@ -95,13 +89,12 @@ define([
 
             var json = Base.prototype.toJSON.call(this),
 
-                // SHortcut to loc json
-                jsonLoc = json.model.location || (json.model.location = {}),
+                navbarstate = json.model.navbarstate,
 
-                navbarstate = json.model.navbarstate;
+                loc = json.model.location;
 
             // Format phone numbers
-            jsonLoc.phone && (jsonLoc.phone = this.formatPhone(jsonLoc.phone));
+            loc.phone && (loc.phone = this.formatPhone(loc.phone));
 
             if (json.model.navbar) {
 
@@ -118,7 +111,7 @@ define([
             var navbarstate;
 
             if (state !== 'openPre') return;
-            
+
             // Reset to first whenever panel opens
             navbarstate = _.first(model.get('navbar')).id;
 

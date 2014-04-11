@@ -29,9 +29,11 @@
 				</div>
 
 				<div class="btns">
-					<button data-campusmap='panels:details,panel1'>Accessibility</button> 
-					<button data-campusmap='panels:details,panel2'>Directions</button> 
-					<button data-campusmap='panels:details,panel3'>Share a Link</button>
+					<% if (model.location.accessibility || model.location.accessiblerestroom) { %>
+						<button data-campusmap='panels:details,accessibility'>Accessibility</button> 
+					<% } %>
+					<button data-campusmap='panels:details,directions'>Directions</button> 
+					<button data-campusmap='panels:details,sharelink'>Share a Link</button>
 				</div>
 
 
