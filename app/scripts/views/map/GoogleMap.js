@@ -93,11 +93,13 @@ define([
 
         google.maps.event.addListener(this.map, 'click', function (ev) { // _.throttle()
           
-            var loc = view.underLatLng_(ev.latLng, this.getZoom());
+            var loc = view.underLatLng_(ev.latLng, this.getZoom()),
+
+                panels = loc && 'details' || '';
 
             ev.stop();
             
-            EventDispatcher.trigger('truthupdate', { details: loc });
+            EventDispatcher.trigger('truthupdate', { details: loc, panels: panels });
 
         });
 

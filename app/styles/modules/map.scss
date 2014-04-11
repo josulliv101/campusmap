@@ -172,8 +172,16 @@ $animate: .2s;
 					
 					background: #b7a08d; /*#bbb;565152*/
 
-					border-color: #b7a08d;
+					border: 4px #b7a08d solid;
+
+					top: 3px;
+
+					left: 2px;
 					
+					width: 4px;
+
+					height: 4px;
+
 					@include noshadow();
 
 					/*
