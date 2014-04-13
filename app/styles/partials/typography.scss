@@ -7,14 +7,23 @@ body {
 
 .muted {
 
-	color: #999
+	color: #666;
 
 }
 
 .heavy {
     color: #565152;
     display: inline-block;
-    letter-spacing: 0.03em;
-    margin-bottom: 4px;
+    margin-bottom: 9px;
+    font-size: 12px !important;
+    letter-spacing: 0.06em;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.small {
+
+	font-size: 11px;
+	
 }
 

@@ -12,7 +12,9 @@ define([
 
     , 'scripts/views/panels/details'
 
-], function ($, _, Datastore, Transition, BaseView, DetailsView) { 
+    , 'scripts/views/panels/directions'
+
+], function ($, _, Datastore, Transition, BaseView, DetailsView, DirectionsView) { 
 
     var instance;
 
@@ -38,11 +40,13 @@ define([
 
         this.createPanel('details', DetailsView);
 
-        this.createPanel('accessibility'); // test
+        this.createPanel('accessibility'); 
 
-        this.createPanel('directions'); // test
+        this.createPanel('directions', DirectionsView); 
 
-        this.createPanel('sharelink'); // test
+        this.createPanel('sharelink'); 
+
+         this.createPanel('select-destination'); 
 
         this.init = true;
 

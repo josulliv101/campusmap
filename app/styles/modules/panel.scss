@@ -144,22 +144,6 @@ $gutter: 8px;
 
 				line-height: 22px;
 
-				button {
-					
-					height: 22px;
-
-					margin-left: 4px;
-
-					font-size: 11px;
-
-					&:first-child {
-
-						margin-left: 0;
-
-					}
-
-				}
-
 			}
 
 			&.full {
@@ -230,7 +214,7 @@ $gutter: 8px;
 
 						vertical-align: bottom;
 
-						margin-right: 4px;
+						margin-right: 2px;
 
 					}
 
@@ -254,40 +238,7 @@ $gutter: 8px;
 
 					button {
 						
-						&.btn-close {
-							
-							position: absolute;
 
-							right: 12px;
-
-							bottom: 8px;
-
-							line-height: 17px;
-
-							font-size: 11px;
-
-							background: none;
-
-							border: none;
-
-							color: #999;
-
-							letter-spacing: .06em;
-
-							 -webkit-transition: all .1s ease-out;
-							  -moz-transition: all .1s ease-out;
-							    -o-transition: all .1s ease-out;
-							       transition: all .1s ease-out;
-
-							&:hover {
-
-								color: #fff;
-
-								background: #999;
-
-							}
-
-						}
 
 					}
 
@@ -370,7 +321,7 @@ $gutter: 8px;
 			
 			.panel-bd {
 
-				padding-right: 32px;
+				padding-right: 12px;
 
 			}
 

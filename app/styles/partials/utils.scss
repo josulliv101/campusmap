@@ -14,10 +14,38 @@
     border: 0;
 }
 
+.pull-left {
+    float: left;
+}
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.block {
+  display: block;
+}
+
 .divider {
     
     padding: 0 6px;
 
+}
+
+.bare {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .css3 {

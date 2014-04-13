@@ -1,7 +1,24 @@
 <div class="panel-bd panel-secondary">
 	<div class="bd spacing">
-		<h3 class="subhead">Directions</h3>
-		<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-		<div class='footer'><button class="btn-close" data-campusmap='panels:details'>close</button></div>
+		<h3 class="subhead">Get Directions | <a data-campusmap="panels:details,select-destination" class="link internal" href="#">Back</a></h3>
+		<div class="input-info clearfix">
+			<p class="span-50 bare pull-left">
+				<strong class="heavy">Where are you coming from?</strong><br/>
+				<input class="full" type="text" value="" placeholder="address"/>
+				<input class="span-80" type="text" value="" placeholder="city"/>
+				<input class="span-20 input-state" type="text" value="MA"/>
+			</p>
+			<p class="span-50 bare pull-left non-street-accessible">
+
+				<button class="btn-large btn-directions">Get Directions</button> 
+				<label class="block small muted">Directions provided by Google.</label>
+			</p>
+		</div>
+
+		<div class='footer'>
+
+			<button class="btn-close" data-campusmap='panels:details'>close</button>
+
+		</div>
 	</div>
 </div>

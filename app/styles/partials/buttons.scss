@@ -4,7 +4,73 @@
    ========================================================================== */
 
 button {
-
+	
 	color: #333;
+
+	height: 22px;
+
+	line-height: 22px;
+
+	margin-left: 4px;
+
+	font-size: 11px;
+
+	&:first-child {
+
+		margin-left: 0;
+
+	}
+
+	label {
+		padding: 0 6px;
+	}
+
+	&.btn-close {
+		
+		position: absolute;
+
+		right: 12px;
+
+		bottom: 8px;
+		
+		height: 17px;
+
+		line-height: 17px;
+
+		font-size: 11px;
+
+		background: none;
+
+		border: none;
+
+		color: #999;
+
+		letter-spacing: .06em;
+
+		 -webkit-transition: all .1s ease-out;
+		  -moz-transition: all .1s ease-out;
+		    -o-transition: all .1s ease-out;
+		       transition: all .1s ease-out;
+
+		&:hover {
+
+			color: #fff;
+
+			background: #565152;
+
+		}
+
+	}
+
+}
+
+.btn-directions {
+	
+	margin-bottom: 9px;
+	
+}
+
+.btn-large {
+	
 
 }
