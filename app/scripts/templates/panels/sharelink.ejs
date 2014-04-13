@@ -1,7 +1,11 @@
 <div class="panel-bd panel-secondary">
 	<div class="bd spacing">
 		<h3 class="subhead">Share a Link</h3>
-		<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+		<p>
+			<strong class="heavy">Send a link directly to ${model.location.name}</strong>:<br/>
+			<input class="full input-sharelink" type="text" value="${model.pageurl}#locationid=${model.location.locationid}" onClick="this.setSelectionRange(0, this.value.length)" />
+		</p>
+		<p><em>Copy/Paste the url above.</em></p>
 		<div class='footer'><button class="btn-close" data-campusmap='panels:details'>close</button></div>
 	</div>
 </div>

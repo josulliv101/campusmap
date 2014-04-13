@@ -28,7 +28,9 @@ define([
 
                 }
 
-            }
+            },
+
+            pageurl: window.location.origin + window.location.pathname
 
         },
 

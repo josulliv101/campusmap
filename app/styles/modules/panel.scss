@@ -366,6 +366,15 @@ $gutter: 8px;
 
 		}
 
+		&#sharelink {
+			
+			.panel-bd {
+
+				padding-right: 32px;
+
+			}
+
+		}
 		/* States */
 
 		.panel-details { z-index: 9999; @include panelfade(); }

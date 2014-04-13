@@ -1,16 +1,18 @@
 define([
 
-    'jquery',
+    'jquery'
 
-    'underscore',
+    , 'underscore'
 
-    'templates',
+    , 'scripts/config'
 
-    'datastore',
+    , 'templates'
 
-    'eventdispatcher'
+    , 'datastore'
 
-], function($, _, JST, Datastore, EventDispatcher) {
+    , 'eventdispatcher'
+
+], function($, _, Config, JST, Datastore, EventDispatcher) {
 
     'use strict';
 
@@ -33,7 +35,15 @@ define([
             // Path to the template -- maps to panels folder
             this.template = JST[BaseView.path(this.id)];
 
-            model.set({ state: 'close', location: {} }, { silent: true });
+            model.set({ 
+
+                state: 'close', 
+
+                location: {},
+
+                pageurl: Config.env.pageurl
+
+            }, { silent: true });
 
             this.$el.addClass('panel');
 
