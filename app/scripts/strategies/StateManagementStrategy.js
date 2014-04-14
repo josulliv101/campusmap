@@ -53,22 +53,34 @@ define([
 
     StateManagementStrategy.prototype.detailsLocation = function(model, val, key, MapUtils) {
 
-        var all;
+        var all, navbar;
 
         if (key !== 'details') return;
 
         all = model.get('locations');
 
         _.each(all, function(loc) { _.setAttr(loc, { isDetails: (val && _.getAttr(val, 'locationid') ? _.getAttr(loc, 'locationid') === _.getAttr(val, 'locationid') : false) }); });
+/*
+        navbar = _.chain(_.clone(Config.defaults.theTruth.detailsnavbar))
 
+                          .reject(function(navitem) {
+
+                            return val && _.isEmpty(_.getAttr(val, 'imageurl'))
+
+                          })
+
+                          .value();
+*/
         // Do silently?
         EventDispatcher.trigger('truthupdate', { 
 
-            primarylabel: val && _.getAttr(val, 'name'),
+            primarylabel: val && _.getAttr(val, 'name')
 
-            forceclosepanels: true, 
+            , forceclosepanels: true
 
-            panels: _.isObject(val) ? 'details' : ''
+            , panels: _.isObject(val) ? 'details' : ''
+
+            //, detailsnavbar: navbar
 
         });
 

@@ -113,14 +113,16 @@ define([
 
         handleOpenPreState: function(model, state) {
 
-            var navbarstate;
+            var navbarstate, navbar
 
             if (state !== 'openPre') return;
 
-            // Reset to first whenever panel opens
-            navbarstate = _.first(model.get('navbar')).id;
+            navbar = model.get('navbar');
 
-            EventDispatcher.trigger('truthupdate', { detailsnavbarstate: navbarstate });
+            // Reset to first whenever panel opens
+            navbarstate = navbar.length > 0 ? _.first(navbar).id : '';
+
+            if (!_.isEmpty(navbarstate)) EventDispatcher.trigger('truthupdate', { detailsnavbarstate: navbarstate });
 
             return state;
 
