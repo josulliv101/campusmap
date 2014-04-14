@@ -113,6 +113,8 @@ define([
 
             var curIndex, nextItem;
 
+            //if (_.isEmpty(arr)) return;
+
             // Convert string id to object
             if (_.isString(item)) {
 

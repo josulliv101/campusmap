@@ -139,7 +139,8 @@ define([
         // Set a default navbar state
         if (_.isEmpty(navbarstate)) model.detailsnavbarstate = _.first(navbar).id;
 
-        nextItem = _.getNext( navbar, navbarstate );
+        // The navbar should already have correct items hidden since we're dealing with changes to the same loc
+        nextItem = _.getNext( _.reject(navbar, function(navitem) { return navitem.hide && navitem.hide === true; }), navbarstate );
 
         // Update the Truth with appropriate navbar state
         model.detailsnavbarstate = nextItem.id;

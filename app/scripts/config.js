@@ -60,9 +60,17 @@ define([
 
                 , primarylabel: null
 
-                , detailsnavbar: [{ id: 'details', label: 'Details', classes: '' }, { id: 'imagery', label: 'Photo' }]
-                     //  { id: 'depts-offices', label: 'Departments & Offices', hide: true },         
+                , detailsnavbarstate: null
+
+                , detailsnavbar: []
+                          
             }
+
+        },
+
+        models: {
+
+            detailsnavbar: [{ id: 'details', label: 'Details' }, { id: 'depts-offices', label: 'Departments & Offices' }, { id: 'imagery', label: 'Photo' }]
 
         },
 

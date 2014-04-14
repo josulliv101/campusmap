@@ -48,7 +48,7 @@ define([
                 });
 
                 // No need to re-render. The panel is forced close every time so will re-render before opening.
-                if (changedAttrs.detailsnavbarstate) this.refresh();
+                if (changedAttrs.detailsnavbarstate || changedAttrs.detailsnavbar) this.refresh();
 
             }, this);
 
@@ -63,7 +63,7 @@ define([
                 navbarstate = this.model.get('navbarstate');
 
             // Select first as default if none specified
-            if (_.isEmpty(navbarstate)) navbarstate = _.first(navModel).id;
+            if (_.isEmpty(navbarstate) && navModel.length > 0) navbarstate = _.first(navModel).id;
 
             _.each(navModel, function(navitem) { 
 
@@ -89,6 +89,8 @@ define([
 
         },
 
+
+
         // Make sure there's always a location obj
         toJSON: function() {
 
@@ -104,6 +106,9 @@ define([
             if (json.model.navbar) {
 
                 _.each(json.model.navbar, function(item) { item.classes = (item.id === navbarstate ? 'active' : ''); });
+
+                // Remove any that have hide true
+                json.model.navbar = _.reject(json.model.navbar, function(navitem) { return navitem.hide && navitem.hide === true; });
             
             }
 
@@ -114,7 +119,7 @@ define([
         handleOpenPreState: function(model, state) {
 
             var navbarstate, navbar
-
+debugger;
             if (state !== 'openPre') return;
 
             navbar = model.get('navbar');

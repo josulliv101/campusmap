@@ -47,7 +47,7 @@ define([
 
             success: function(campuses, data) {
 
-                var campus = campuses.at(2),
+                var campus = campuses.at(0),
 
                     map = campus.get('maps')[0],
 // to be deleted

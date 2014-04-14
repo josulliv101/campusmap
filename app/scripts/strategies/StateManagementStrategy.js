@@ -60,17 +60,31 @@ define([
         all = model.get('locations');
 
         _.each(all, function(loc) { _.setAttr(loc, { isDetails: (val && _.getAttr(val, 'locationid') ? _.getAttr(loc, 'locationid') === _.getAttr(val, 'locationid') : false) }); });
-/*
-        navbar = _.chain(_.clone(Config.defaults.theTruth.detailsnavbar))
 
-                          .reject(function(navitem) {
+        navbar = _.chain(Config.models.detailsnavbar)
 
-                            return val && _.isEmpty(_.getAttr(val, 'imageurl'))
+                          // Reset
+                          .each(function(navitem) { navitem.hide = false; })
+
+                          // Determine which items should be displayed, and update model
+                          .each(function(navitem) {
+
+                                if (_.isObject(val) && navitem.id === 'imagery') {
+
+                                    navitem.hide = _.isEmpty(_.getAttr(val, 'imageurl'));
+
+                                }
+
+                                if (_.isObject(val) && navitem.id === 'depts-offices') {
+
+                                    navitem.hide = _.isEmpty(_.getAttr(val, 'occupants'));
+
+                                }
 
                           })
 
                           .value();
-*/
+
         // Do silently?
         EventDispatcher.trigger('truthupdate', { 
 
@@ -80,9 +94,13 @@ define([
 
             , panels: _.isObject(val) ? 'details' : ''
 
-            //, detailsnavbar: navbar
+            , detailsnavbar: navbar
 
         });
+
+
+        // Hack to get the navbar state to be correct on first display
+        EventDispatcher.trigger('delegateTruth', { detailsnavbar: navbar });
 
         console.info('detailsLocation', val);
 
