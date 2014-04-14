@@ -311,10 +311,7 @@ $gutter: 8px;
 				  -moz-transition: transform .5s ease-out;
 				    -o-transition: transform .5s ease-out;
 				       transition: transform .5s ease-out;
-
- 
 			}
-
 		}
 
 		&#sharelink {
@@ -330,7 +327,28 @@ $gutter: 8px;
 
 		.panel-details { z-index: 9999; @include panelfade(); }
 
-		.panel-depts-offices { z-index: 999; @include panelfade();} /* Needs to be hidden by others when going from 1 to 3rd panel */
+		.panel-depts-offices { 
+
+				z-index: 999; 
+
+				@include panelfade();
+
+				.panel-bd {
+					&.full {
+						&.single {
+							h4 {
+								margin-bottom: 12px;
+							}
+							ul {
+								li {
+									margin-bottom: 6px;
+								}
+							}
+						}
+					}
+				}
+
+			} /* Needs to be hidden by others when going from 1 to 3rd panel */
 
 		.panel-imagery { z-index: 9999; @include panelfade(); }
 

@@ -36,7 +36,7 @@ define([
         this.$container = $('#container-panels');
 
         
-        // If no panel constructor defined, the Base is used
+        //// If no panel constructor defined, the Base panel view is used ////
 
         this.createPanel('details', DetailsView);
 
@@ -46,7 +46,7 @@ define([
 
         this.createPanel('sharelink'); 
 
-         this.createPanel('select-destination'); 
+        this.createPanel('select-destination');
 
         this.init = true;
 

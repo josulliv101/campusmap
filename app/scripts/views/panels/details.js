@@ -119,7 +119,7 @@ define([
         handleOpenPreState: function(model, state) {
 
             var navbarstate, navbar
-debugger;
+
             if (state !== 'openPre') return;
 
             navbar = model.get('navbar');

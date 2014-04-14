@@ -32,7 +32,7 @@ and (max-device-width : 480px) {
 		    .panel {
 				.form-group {
 					#searchbox {
-						width: 80%;
+						max-width: 320px;
 					}
 				}
 			}

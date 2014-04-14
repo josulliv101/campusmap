@@ -5,19 +5,14 @@
 		<% }); %>
 	</ul>
 </div>
-
 <div class="panels-contents">
 	<div class="panel-content panel-details">
 		<div class="panel-bd <% if (!model.location.thumbnail) { %>full<% } %>">
-
 			<div class="bd spacing ">
-
 				<% if (model.location.address1) { %>
 					<p class="addr">${model.location.address1}</p>
 				<% } %>
-
 				<p class="addr">Medford, MA 02155</p>
-
 				<div class="more-info">
 					<% if (model.location.phone) { %>
 						<p><label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a></p>
@@ -27,7 +22,6 @@
 						<p><a target="_blank" href="http://{model.location.website}">Visit the website &gt;</a></p>
 					<% } %>
 				</div>
-
 				<div class="btns">
 					<% if (model.location.accessibility || model.location.accessibilerestroom) { %>
 						<button data-campusmap='panels:details,accessibility+' title="Toggle Accessibility Details">Accessibility</button> 
@@ -36,51 +30,29 @@
 					<button data-campusmap='panels:details,select-destination+' title="Toggle Directions Details">Directions</button> 
 					<button data-campusmap='panels:details,sharelink+' title="Toggle Share a Link Details">Share a Link</button>
 				</div>
-
-
 			</div>
-			
 		</div>
-
 		<aside class="<% if (!model.location.thumbnail) { %>no-thumb<% } %>">
 			<% if (model.location.thumbnail) { %>
 				<img class="thumb" src="./app/images/thumbs/${model.location.thumbnail}" />
 			<% } %>
 		</aside>
 	</div>
-
 	<div class="panel-content panel-depts-offices">
-		<div class="panel-bd <% if (!model.location.thumbnail) { %>full<% } %>">
-
+		<div class="panel-bd full <% if (model.location.occupants && model.location.occupants.length === 1) { %>single<% } %>">
 			<div class="bd spacing ">
-
-				<% if (model.location.address1) { %>
-					<p class="addr">${model.location.address1}</p>
+				<% if (model.location.occupants && model.location.occupants.length === 1) { %>
+					<h4 class="heavy">${model.location.occupants[0].name}</h4>
+					<ul>
+						<% if (model.location.occupants[0].locwithin) { %> <li>${model.location.occupants[0].locwithin}</li><% } %>
+						<% if (model.location.occupants[0].phone) { %>     <li>${model.location.occupants[0].phone}</li><% } %>
+						<% if (model.location.occupants[0].email) { %>     <li><a class="link email" href="mailto:${model.location.occupants[0].email}">${model.location.occupants[0].email}</a></li><% } %>
+						<% if (model.location.occupants[0].website) { %>   <li><a class="link external" href="${model.location.occupants[0].website}">Visit the website &gt;</a></li><% } %>
+					</ul>
 				<% } %>
-
-				<p class="addr">Medford, MA 02156</p>
-
-				<div class="more-info">
-					<% if (model.location.phone) { %>
-						<p><label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a></p>
-					<% } %>
-
-					<% if (model.location.website) { %>
-						<p><a target="_blank" href="http://{model.location.website}">Visit the website &gt;</a></p>
-					<% } %>
-				</div>
-
 			</div>
-			
 		</div>
-
-		<aside class="<% if (!model.location.thumbnail) { %>no-thumb<% } %>">
-			<% if (model.location.thumbnail) { %>
-				<img style="display:none;" class="thumb" src="./app/images/thumbs/${model.location.thumbnail}" />
-			<% } %>
-		</aside>
 	</div>
-
 	<div class="panel-content panel-imagery">
 		<% if (model.location.imageurl) { %>
 			<img class="wide-shot" src="./app/images/wide/${model.location.imageurl}" />
