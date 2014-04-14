@@ -80,6 +80,8 @@
 	</div>
 
 	<div class="panel-content panel-imagery">
-		<img class="thumb" src="./app/images/wide/ballouhall-wide.png" />
+		<% if (model.location.imageurl) { %>
+			<img class="wide-shot" src="./app/images/wide/${model.location.imageurl}" />
+		<% } %>
 	</div>
 </div>

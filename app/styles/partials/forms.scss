@@ -12,6 +12,7 @@
 
 input {
 	margin-bottom: 6px;
+	padding: 3px;
 	color: #666;
 	@include borderbox();
 }
