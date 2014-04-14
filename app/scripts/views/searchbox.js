@@ -18,7 +18,14 @@ define([
 
         events: {
 
-            'click .btn.search': 'handleBtnClick'
+            'click .btn.search': 'handleBtnClick',
+
+            // For cases where a map icon/label is under the searchbox, unhighlight it
+            'mouseover #container-searchbox': function() {
+
+                EventDispatcher.trigger('truthupdate', { hover: null });
+
+            }
 
         },
 

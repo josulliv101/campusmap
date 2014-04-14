@@ -60,8 +60,8 @@ define([
 
                 , primarylabel: null
 
-                , detailsnavbar: [{ id: 'details', label: 'Details', classes: '' },  { id: 'depts-offices', label: 'Departments & Offices', hide: true }, { id: 'imagery', label: 'Photo' }]
-                              
+                , detailsnavbar: [{ id: 'details', label: 'Details', classes: '' }, { id: 'imagery', label: 'Photo' }]
+                     //  { id: 'depts-offices', label: 'Departments & Offices', hide: true },         
             }
 
         },
@@ -110,7 +110,9 @@ define([
 
                         position: api.maps.ControlPosition.RIGHT_BOTTOM
 
-                    }                
+                    },
+
+                    disableDoubleClickZoom: true               
 
                 };
 
