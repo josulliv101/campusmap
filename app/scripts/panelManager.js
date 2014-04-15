@@ -14,7 +14,9 @@ define([
 
     , 'scripts/views/panels/directions'
 
-], function ($, _, Datastore, Transition, BaseView, DetailsView, DirectionsView) { 
+    , 'scripts/views/panels/results'
+
+], function ($, _, Datastore, Transition, BaseView, DetailsView, DirectionsView, ResultsView) { 
 
     var instance;
 
@@ -38,8 +40,12 @@ define([
         
         //// If no panel constructor defined, the Base panel view is used ////
 
+        // Primary Panels
         this.createPanel('details', DetailsView);
 
+        this.createPanel('results', ResultsView);
+
+        // Secondary Panels
         this.createPanel('accessibility'); 
 
         this.createPanel('directions', DirectionsView); 

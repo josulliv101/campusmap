@@ -23,7 +23,29 @@ define([
             // For cases where a map icon/label is under the searchbox, unhighlight it
             'mouseover #container-searchbox': function() {
 
-                EventDispatcher.trigger('truthupdate', { hover: null });
+                //EventDispatcher.trigger('truthupdate', { hover: null });
+
+            },
+
+            // When focused, remove help txt
+            'focusin #searchbox': function() {
+
+                // Set val to empty string to clear value in input. Set it to null to show placeholder text.
+                EventDispatcher.trigger('truthupdate', { primarylabel: '' });
+
+            },
+
+            'focusout #searchbox': function(ev) {
+
+                // Set primarylabel to null to show placeholder text if no user entered text in searchbox
+                if (_.isEmpty( $(ev.currentTarget).val() )) EventDispatcher.trigger('truthupdate', { primarylabel: null });
+
+            },
+
+            // Update query model on keyup
+            'keyup  #searchbox': function(ev) {
+
+                EventDispatcher.trigger('truthupdate', { query: $(ev.currentTarget).val() });
 
             }
 
@@ -39,7 +61,14 @@ define([
 
             EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
-            if (this.model) this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
+            if (this.model) {
+
+                this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
+
+                this.listenTo(this.model, 'change:query', this.refreshResultsPanel);
+
+
+            }
 
             // Don't use event delegation here to avoid issue where focus event fires in an unexpected way
             this.$el.on('focus', '#searchbox', function(e) {
@@ -69,6 +98,14 @@ define([
 
             // Disable input when location is shown (shows more appropriate cursor)
             this.$('#searchbox').prop('disabled', !_.isEmpty(model.get('details')));
+            
+        },
+
+        refreshResultsPanel: function(model, query) {
+
+            console.log('query', query);
+
+            EventDispatcher.trigger('truthupdate', { panels: !_.isEmpty(query) ? 'results' : '' }); 
             
         },
 

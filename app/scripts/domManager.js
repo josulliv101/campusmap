@@ -95,6 +95,11 @@ define([
     // Defined in init so this keyword behaves
     DomManager.prototype.getElement = function() {};
 
+    DomManager.prototype.unfocusAll = function(options) {
+
+        $(':focus').focusout().blur();
+
+    };
 
     // Html for each label tile
     DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {

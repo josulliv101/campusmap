@@ -33,6 +33,10 @@
   }
 }
 
+.striped > li:nth-child(2n+1) {
+    background-color: #f8f8f8;
+}
+
 .block {
   display: block;
 }

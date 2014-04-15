@@ -4,11 +4,13 @@ define([
 
     , 'config'
 
+    , 'scripts/domManager'
+
     , 'eventdispatcher'
 
     , '_mixins'
 
-], function(_, Config, EventDispatcher) {
+], function(_, Config, DomManager, EventDispatcher) {
 
     'use strict';
 
@@ -88,7 +90,7 @@ define([
         // Do silently?
         EventDispatcher.trigger('truthupdate', { 
 
-            primarylabel: val && _.getAttr(val, 'name')
+            primarylabel: (val && _.getAttr(val, 'name')) || null
 
             , forceclosepanels: true
 
@@ -124,6 +126,7 @@ define([
         return  val;
 
     };
+
 
     StateManagementStrategy.prototype.panels = function(model, val, key, MapUtils) {
 

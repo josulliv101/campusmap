@@ -76,7 +76,7 @@ define([
 
         labels: {
 
-            primary: 'Search the %campus% campus'
+            primary: 'Search by building, address or keyword'
 
         },
 

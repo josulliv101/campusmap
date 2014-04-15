@@ -97,7 +97,7 @@ define([
 
         var attr = {};
         
-        if (key !== 'primarylabel' || !_.isEmpty(val)) return;
+        if (key !== 'primarylabel' || val !== null) return;
 
         attr[key] = Config.labels.primary.replace('%campus%', 'Medford/Somerville');
 
@@ -116,6 +116,23 @@ define([
         attr[key] = Datastore.getCampus( val );
 
         _.extend(model, attr);
+
+        return  attr[key];
+
+    };
+
+    DataTypeStrategy.prototype.hoverLocationChange = function(model, val, key, Datastore, PanelManager, theTruth) {
+
+        var attr = {}, locations;
+
+        if (key !== 'hover' || !_.isString(val)) return;
+
+        locations = theTruth.get('locations');
+
+        attr[key] = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
+
+        // only update if there's a found location
+        if (attr[key]) _.extend(model, attr);
 
         return  attr[key];
 
@@ -204,7 +221,9 @@ define([
 
         DataTypeStrategy.prototype.primaryLabelDefault,
 
-        DataTypeStrategy.prototype.detailsChange
+        DataTypeStrategy.prototype.detailsChange,
+
+        DataTypeStrategy.prototype.hoverLocationChange
 
     );
 

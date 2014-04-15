@@ -1,0 +1,12 @@
+<div class="panel-bd">
+	<div class="bd spacing">
+		<div class="head">
+			<p class="results-found"><%= model.results.length %> results found</p>
+		</div>
+		<ul class="list list-results striped">
+			<% _.each(model.results, function(result) { %>
+			<li class="result"><button data-locationid="${result.locationid}" data-campusmap="center:${result.latlng.lat},${result.latlng.lng}">${result.name}</button></li>
+			<% }) %>
+		</ul>
+	</div>
+</div>

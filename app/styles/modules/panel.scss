@@ -323,6 +323,52 @@ $gutter: 8px;
 			}
 
 		}
+
+		&#results {
+			
+			background: #fff;
+
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0 12px 12px;
+			}
+
+			.panel-bd {
+				height: auto;
+				padding: 0;
+
+				.results-found {
+
+					color: #999;
+					text-align: right;
+					padding: 6px 16px;
+					margin-bottom: 0;
+				}
+			}
+
+			.list {
+				li {
+					border-top: 1px #eee solid;
+					button {
+						width: 100%;
+						height: 100%;
+						border: none;
+						background: none;
+						padding: 0 16px;
+						font-size:14px;
+						line-height: 32px;
+						text-align: left;
+
+						&:hover, &:focus {
+							background: #ddd;
+							&:after {
+							 content: " \003E ";
+							}
+						}
+					}
+				}
+			}
+		}
+
 		/* States */
 
 		.panel-details { z-index: 9999; @include panelfade(); }
