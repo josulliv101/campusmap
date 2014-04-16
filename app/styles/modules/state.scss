@@ -3,6 +3,13 @@
    ========================================================================== */
 
 #app {
+	.searchbox {
+		&.show-backto {
+			.btn-backto, .divider-backto {
+				display: block !important;
+			}
+		}
+	}
 	&.streetview {
 		#container-searchbox {
 			opacity: 0;

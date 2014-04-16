@@ -72,9 +72,18 @@ define([
     // Convert location string ids to object references
     DataTypeStrategy.prototype.locationIdsToObjects = function(model, val, key, Datastore, PanelManager, theTruth) {
 
+        var attr = {}, locations;
+
         if (key !== 'details' || !_.isString(val)) return;
 
-        return  val = Datastore.getLocationById(val);
+        locations = theTruth.get('locations');
+
+        attr[key] = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
+
+        // only update if there's a found location
+        if (attr[key]) _.extend(model, attr);
+
+        return  attr[key];
 
     };
 

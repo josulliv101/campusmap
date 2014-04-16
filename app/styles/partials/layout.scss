@@ -76,9 +76,19 @@ body {
 					}
 
 				}
-
+				.divider-backto {
+					display: none;
+					position: absolute;
+					right: 26px;
+					top: 5px;				
+				}
 				.btn {
-
+					&.btn-backto {
+						display: none;
+					    position: absolute;
+					    right: 36px;
+					    top: 5px;
+					}
 					&.search {
 
 						width: 32px;

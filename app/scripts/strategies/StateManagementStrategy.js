@@ -88,17 +88,15 @@ define([
                           .value();
 
         // Do silently?
-        EventDispatcher.trigger('truthupdate', { 
+        EventDispatcher.trigger('truthupdate', _.extend({ 
 
-            primarylabel: (val && _.getAttr(val, 'name')) || null
-
-            , forceclosepanels: true
+            forceclosepanels: true
 
             , panels: _.isObject(val) ? 'details' : ''
 
             , detailsnavbar: navbar
 
-        });
+        }, _.isObject(val) ? { primarylabel: _.getAttr(val, 'name') }  : {}));
 
 
         // Hack to get the navbar state to be correct on first display

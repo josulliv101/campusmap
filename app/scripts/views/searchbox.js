@@ -47,8 +47,20 @@ define([
 
                 EventDispatcher.trigger('truthupdate', { query: $(ev.currentTarget).val() });
 
-            }
+            },
 
+            // The back To List btn 
+            'click  .btn-backto': function(ev) {
+
+                var attrs = this.model.get('backto');
+
+                ev.preventDefault();
+
+                EventDispatcher.trigger('truthupdate', _.extend(attrs, { backto: null }));
+
+                console.log('backto attrs', attrs);
+
+            }
         },
 
         className: 'searchbox',
@@ -57,7 +69,7 @@ define([
 
         initialize: function() {
 
-            _.bindAll(this, 'handleTruthChange');
+            _.bindAll(this, 'handleTruthChange', 'refreshBackTo');
 
             EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
@@ -66,6 +78,8 @@ define([
                 this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
 
                 this.listenTo(this.model, 'change:query', this.refreshResultsPanel);
+
+                this.listenTo(this.model, 'change:backto', this.refreshBackTo);
 
 
             }
@@ -109,6 +123,26 @@ define([
             
         },
 
+        refreshBackTo: function(model, attrs) {
+
+            var classname = 'show-backto',
+
+                $lbl = this.$el.find('.btn-backto .lbl');
+
+            this.$el.removeClass(classname);
+
+            if (_.isEmpty(attrs)) return;
+
+            $lbl.html(attrs.label || 'back');
+
+            // Show the btn
+            this.$el.addClass(classname);
+
+            console.log('backto', attrs);
+            
+        },
+
+
         handleTruthChange: function(changedAttrs) {
 
             if (this.model) this.model.set(changedAttrs, { silent: false }); 
@@ -123,7 +157,7 @@ define([
 
             this.$el.focus();
 
-            EventDispatcher.trigger('truthupdate', { panels: '', details: '' });
+            EventDispatcher.trigger('truthupdate', { panels: '', details: '', backto: null, primarylabel: null });
             
         }
 

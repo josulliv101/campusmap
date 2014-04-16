@@ -119,7 +119,7 @@ define([
 
             ev.stop();
             
-            EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null });
+            EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, primarylabel: null });
 
             // Remove focus from searchbox so default text is displayed
             DomManager.unfocusAll();
