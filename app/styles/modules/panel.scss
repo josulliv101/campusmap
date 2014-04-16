@@ -375,6 +375,7 @@ $gutter: 8px;
 						background: none;
 						padding: 0 16px;
 						font-size:14px;
+						letter-spacing: .04em;
 						line-height: 32px;
 						text-align: left;
 
@@ -383,7 +384,6 @@ $gutter: 8px;
 							color: #000;
 							text-decoration: underline;
 							font-style: normal;
-							letter-spacing: .04em;
 						}
 
 						&:hover, &:focus {

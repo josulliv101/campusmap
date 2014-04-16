@@ -98,12 +98,12 @@ define([
                                   // Highlight letters matching query
                                   .each(function(result) {
 
-                                    var expr = "(" + query + ")";
+                                    var expr = "(^|[ -/]+)(" + query + ")";
 
                                     if (_.isEmpty(result.name)) return;
 
                                     // Only replace first match - insensitive to case
-                                    result.name = result.name.replace(new RegExp(expr, "ig"), "<em>$1</em>");
+                                    result.name = result.name.replace(new RegExp(expr, "i"), "$1<em>$2</em>");
 
                                   })
 
