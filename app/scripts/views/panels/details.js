@@ -33,7 +33,7 @@ define([
 
                 _.delay(this.showHint, 500);
 
-                _.delay(this.hideHint, 16000);
+                _.delay(this.hideHint, 20000);
 
             })
         },
