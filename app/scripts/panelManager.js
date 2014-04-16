@@ -50,7 +50,9 @@ define([
 
         this.createPanel('directions', DirectionsView); 
 
-        this.createPanel('sharelink'); 
+        this.createPanel('sharelink');
+
+        this.createPanel('hint-map-icons'); 
 
         this.createPanel('select-destination');
 
@@ -121,6 +123,9 @@ define([
         var Constructor = constructor || BaseView,
 
             panel = new Constructor({ id: id, model: new Datastore.Model() });
+
+        // An reference to the PanelManager just in case
+        panel.manager = this;
 
         this.panels.push(panel);
 

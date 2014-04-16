@@ -27,13 +27,22 @@ define([
 
                 }
 
-            }
+            },
 
+            'mouseover .panel-details': _.once(function(ev) {
+
+                _.delay(this.showHint, 500);
+
+                _.delay(this.hideHint, 16000);
+
+            })
         },
 
         initialize: function() {
 
             Base.prototype.initialize.call(this);
+
+            _.bindAll(this, 'hideHint');
 
             this.location = null;
 
@@ -136,6 +145,22 @@ define([
         formatPhone: function(digits) {
 
             return digits.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+
+        },
+
+        showHint: function() {
+
+            // Show hint panel about map icons advancing navbar
+            EventDispatcher.trigger('truthupdate', { panels : 'details,hint-map-icons' });
+
+        },
+
+        hideHint: function() {
+
+            var panel = this.manager.getPanel('hint-map-icons');
+
+            // Only close if hint panel is still showing
+            if (panel.state() === 'open') EventDispatcher.trigger('truthupdate', { panels : 'details' });
 
         }
 

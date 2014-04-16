@@ -1,7 +1,7 @@
 <div class="panel-bd">
 	<div class="bd spacing">
 		<div class="head">
-			<p class="results-found"><%= model.results.length %> results found</p>
+			<p class="results-found"><%= model.results.length %> result<%= model.results.length !== 1 ? 's' : '' %> found</p>
 		</div>
 		<ul class="list list-results striped">
 			<% _.each(model.results, function(result) { %>

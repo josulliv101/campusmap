@@ -324,6 +324,24 @@ $gutter: 8px;
 
 		}
 
+		&#hint-map-icons {
+			min-height: 30px;
+			.subhead {
+				top: 9px;
+				left: 12px;
+				right: auto;
+				strong {
+					color: #3172AE;
+				}
+			}
+			.footer {
+				.btn-close {
+					bottom: 6px;
+					right: 14px;
+				}
+			}
+		}
+
 		&#results {
 			
 			background: #fff;
