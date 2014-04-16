@@ -29,7 +29,7 @@ define([
         // Grab first maptype as default, or use google roadmap
         var defaultMapType = _.chain(Config.googlemap.maptypes).keys().first().value() || google.maps.MapTypeId.ROADMAP,
 
-            view = this;
+            view = this, streetview;
 
         options || (options = {});
 
@@ -47,6 +47,26 @@ define([
 
         // Add the Label tile overlay
         this.labelLayer = new LabelMapType(new google.maps.Size(256, 256), MapUtils);
+
+        // Need to listen for when streetviw is displayed
+        streetview = this.streetview = this.map.getStreetView();
+
+        this.streetview.setOptions({
+
+          addressControl: false
+
+        });
+
+        google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
+
+            google.maps.event.addListener(streetview, 'visible_changed', function() {
+
+                // Css flag gets set root dom of app
+                EventDispatcher.trigger('truthupdate', { streetview: streetview.getVisible() });
+
+            });
+
+        });
 
         // Make sure the Truth gets updated if zoom is changed through the map interface directly (scrollwheel, doubleclick)
         google.maps.event.addListener(this.map, 'zoom_changed', function(ev) {

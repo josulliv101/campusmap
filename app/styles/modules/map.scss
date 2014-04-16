@@ -130,7 +130,7 @@ $animate: .2s;
 
 		      height: 5px;
 
-		      opacity: 1;
+		      opacity: .7;
 
 		      border-radius: 50%;
 
@@ -238,11 +238,15 @@ $animate: .2s;
 
 				.icon {
 
-					width: 6px;
+					width: 7px;
 
-					height: 6px;
+					height: 7px;
 
-					border: 6px #936c4c solid;
+					border: 7px #936c4c solid;
+
+					top: -1px;
+
+					opacity: .9;
 
 				}
 
@@ -270,7 +274,7 @@ $animate: .2s;
 
 				.icon {
 
-					opacity: 1 !important;
+					/*opacity: 1 !important;*/
 
 					display: block !important;
 					

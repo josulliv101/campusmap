@@ -23,6 +23,18 @@ body {
 #app {
 	
 	position: relative;
+	
+	#container-searchbox {
+		opacity: 1;
+
+		-webkit-transition: all .3s ease-in .2s;
+			-moz-transition: all .3s ease-in .2s;
+				-o-transition: all .3s ease-in .2s;
+					-ms-transform: all .3s ease-in .2s;
+						transition: all .3s ease-in .2s;
+
+
+	}
 
 	#container-searchbox {
 
