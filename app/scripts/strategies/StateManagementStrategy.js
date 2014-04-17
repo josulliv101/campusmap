@@ -92,11 +92,11 @@ define([
 
             forceclosepanels: true
 
-            , panels: _.isObject(val) ? 'details' : ''
+            //, panels: _.isObject(val) ? 'details' : ''
 
             , detailsnavbar: navbar
 
-        }, _.isObject(val) ? { primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
+        }, _.isObject(val) ? { panels: 'details', primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
 
 
         // Hack to get the navbar state to be correct on first display

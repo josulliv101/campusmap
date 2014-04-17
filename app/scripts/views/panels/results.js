@@ -54,17 +54,22 @@ define([
 
                 if (!locid) return;
 
-                if ($li.hasClass('active')) {
+                //if ($li.hasClass('active')) {
 
-                    EventDispatcher.trigger('truthupdate', {  details: locid, backto: { searchboxdisable: this.model.get('searchboxdisable'), panels: 'results', details: '', label: 'back to results', primarylabel: this.model.get('query') } });
+                    _.delay(function(model) {
 
-                } else {
+                        EventDispatcher.trigger('truthupdate', {  details: locid, backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } });
+
+                    }, 400, this.model);
+                    
+
+/*                } else {
 
                     this.$('.active').removeClass('active');
 
                     $li.addClass('active');
 
-                }
+                }*/
             }
         },
 
@@ -81,6 +86,8 @@ define([
                     query: changedAttrs.query || this.model.get('query'),
 
                     locations: changedAttrs.locations || this.model.get('locations'),
+
+                    primarylabel: changedAttrs.primarylabel || this.model.get('primarylabel'),
 
                     searchboxdisable: changedAttrs.searchboxdisable || this.model.get('searchboxdisable')
 
@@ -100,7 +107,7 @@ define([
                 // Convert models to json
                 results = Filter.filter(q, locations, 'name');
 
-            model.set({ results: _.sortBy(results, 'name') });
+            model.set({ results: _.chain(results).first(5).sortBy('name').value() });
 
             this.render();
 
