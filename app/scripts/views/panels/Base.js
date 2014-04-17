@@ -147,7 +147,7 @@ define([
 
         getTitle: function() {
 
-            return _.isFunction(this.title) ? this.title() : title;
+            return _.isFunction(this.title) ? this.title() : this.title;
 
         }
 

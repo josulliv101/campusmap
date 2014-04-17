@@ -196,9 +196,9 @@ define([
 
         var val1, val2, val3;
 
-        val1 = strategy.dispatch({}, 'myloc', 'details', DS, PM);
+        val1 = strategy.dispatch({}, 'myloc', 'details', DS, PM, { get: function() { return [{ locationid : 'myloc' }]; }});
 
-        expect( val1 ).toEqual({ id : 'myloc' });
+        expect( val1 ).toEqual({ locationid : 'myloc' });
 
       });
 

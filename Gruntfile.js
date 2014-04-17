@@ -44,7 +44,8 @@ module.exports = function (grunt) {
     },
     uglify: {
       options: {
-        banner: '<%= banner %>'
+        banner: '<%= banner %>',
+        report: 'gzip'
       },
       dist: {
         src: '<%= concat.dist.dest %>',

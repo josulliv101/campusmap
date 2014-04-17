@@ -128,7 +128,7 @@ define([
 
         handleOpenPreState: function(model, state) {
 
-            var navbarstate, navbar
+            var navbarstate, navbar;
 
             if (state !== 'openPre') return;
 
