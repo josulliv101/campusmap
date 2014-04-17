@@ -56,6 +56,12 @@ define([
 
         this.createPanel('select-destination');
 
+        this.createPanel('popular-tags');
+
+        this.createPanel('printable-maps');
+
+        this.createPanel('settings');
+        
         this.init = true;
 
     };
