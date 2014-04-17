@@ -153,7 +153,7 @@ define([
 
         if (key !== 'details' || _.isEmpty(val)) return;
 
-        // Only proceed if the location is the same
+        // Only proceed if the location is the same - want to advance the navbar to next item
         if (theTruth.get('details') !== val) return;
 
         navbar = theTruth.get('detailsnavbar');

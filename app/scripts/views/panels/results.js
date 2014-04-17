@@ -17,20 +17,35 @@ define([
     return Base.extend({
 
         events: {
+
             'focusin .list .result button' : function(ev) {
+
                 var locid =  $(ev.currentTarget).data('locationid');
+
                 console.log('mouseover', locid);
+
                 EventDispatcher.trigger('truthupdate', { hover: locid });
+
             },
+
             'mouseover .list .result button' : function(ev) {
+
                 var locid =  $(ev.currentTarget).data('locationid');
+
                 console.log('mouseover', locid);
+
                 EventDispatcher.trigger('truthupdate', { hover: locid });
+
             },
+
             'mouseout .list .result button' : function(ev) {
+
                 console.log('mouseout');
+
                 EventDispatcher.trigger('truthupdate', { hover: null });
+
             },
+
             'click .list .result button' : function(ev) {
 
                 var $li =  $(ev.currentTarget).closest('.result'),
@@ -41,11 +56,14 @@ define([
 
                 if ($li.hasClass('active')) {
 
-                    EventDispatcher.trigger('truthupdate', { panels: 'details', details: locid, backto: { panels: 'results', details: '', label: 'back to results', primarylabel: this.model.get('query') } });
+                    EventDispatcher.trigger('truthupdate', {  details: locid, backto: { searchboxdisable: this.model.get('searchboxdisable'), panels: 'results', details: '', label: 'back to results', primarylabel: this.model.get('query') } });
 
                 } else {
+
                     this.$('.active').removeClass('active');
+
                     $li.addClass('active');
+
                 }
             }
         },
@@ -62,7 +80,9 @@ define([
 
                     query: changedAttrs.query || this.model.get('query'),
 
-                    locations: changedAttrs.locations || this.model.get('locations')
+                    locations: changedAttrs.locations || this.model.get('locations'),
+
+                    searchboxdisable: changedAttrs.searchboxdisable || this.model.get('searchboxdisable')
 
                 });
 

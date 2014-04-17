@@ -69,7 +69,7 @@ define([
 
         initialize: function() {
 
-            _.bindAll(this, 'handleTruthChange', 'refreshBackTo');
+            _.bindAll(this, 'handleTruthChange', 'refreshBackTo', 'refreshSearchboxDisabled', 'refreshPrimaryLabel');
 
             EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
@@ -77,10 +77,11 @@ define([
 
                 this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
 
+                this.listenTo(this.model, 'change:searchboxdisable', this.refreshSearchboxDisabled);
+
                 this.listenTo(this.model, 'change:query', this.refreshResultsPanel);
 
                 this.listenTo(this.model, 'change:backto', this.refreshBackTo);
-
 
             }
 
@@ -111,8 +112,14 @@ define([
             this.$('#searchbox, .label-primary').val(label);
 
             // Disable input when location is shown (shows more appropriate cursor)
-            this.$('#searchbox').prop('disabled', !_.isEmpty(model.get('details')));
-            
+            //this.refreshSearchboxDisabled(model, _.isObject(model.get('details')));
+
+        },
+
+        refreshSearchboxDisabled: function(model, isDisabled) {
+
+            this.$('#searchbox').prop('disabled', isDisabled);
+
         },
 
         refreshResultsPanel: function(model, query) {
@@ -157,7 +164,7 @@ define([
 
             this.$el.focus();
 
-            EventDispatcher.trigger('truthupdate', { panels: '', details: '', backto: null, primarylabel: null });
+            EventDispatcher.trigger('truthupdate', { panels: '', details: '', backto: null, primarylabel: null, searchboxdisable: false });
             
         }
 

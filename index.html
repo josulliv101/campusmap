@@ -19,7 +19,20 @@
     <!-- endbuild -->
 </head>
 <body>
-
+    <div>
+        <ul id="nav-primary" class="nav">
+            <li><a href="#" data-campusmap='panels:results|query:hall|primarylabel:All Buildings|searchboxdisable:true|forceclosepanels:true'>All Buildings</a></li>
+            <li><a href="#">Parking</a></li>
+            <li><a href="#">Accessibility</a></li>
+        </ul>
+        <ul id="nav-secondary" class="nav">
+            <li id="list-featured"><a href="#" data-campusmap='query:#featured,querytype:tag,cmd:Results'>Featured Locations</a></li>
+            <li><a href="#" data-campusmap='cmd:Tags,searchboxlabel:Popular Tags'>Popular Tags</a></li>
+            <li><a href="#" data-campusmap='cmd:Pdfs,searchboxlabel:Printable Maps'>Printable Maps</a></li>
+            <li><a href="#" data-campusmap='cmd:Settings,searchboxlabel:Settings'><!--<i class="nav-icon-cog">&nbsp;</i>-->Settings</a></li>
+            <li><a href="#" data-campusmap='panels:|details:|primarylabel:|searchboxdisable:false'>Search</a></li>
+        </ul>
+    </div>
     <div id="app">
         <div id="campusmap">
             <div id="map-canvas"></div>

@@ -1,0 +1,22 @@
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.nav {
+	font-size: 14px;
+	li {
+		display: inline-block;
+	}
+	&#nav-primary, &#nav-secondary {
+		a {
+			padding: 0 12px;
+		}
+	}
+	&#nav-secondary {
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 12px;
+	}
+}

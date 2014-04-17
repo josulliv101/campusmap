@@ -96,7 +96,7 @@ define([
 
             , detailsnavbar: navbar
 
-        }, _.isObject(val) ? { primarylabel: _.getAttr(val, 'name') }  : {}));
+        }, _.isObject(val) ? { primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
 
 
         // Hack to get the navbar state to be correct on first display
