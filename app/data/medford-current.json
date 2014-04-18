@@ -1,0 +1,849 @@
+{
+	"campus": {
+		"name": "Medford/Somerville",
+		"uid":	"medford",
+		"lat" :	 42.405876,
+		"lng" :	 -71.119952,
+		"zoom" : 17,
+		"city" : "Medford",
+		"state" : "MA",
+		"zip" : "02155",
+		"locationdata" : { 
+			"children" : [							{ "label" : "Miscellaneous",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 
+								"children" : [
+									
+									{ "label" : "Tufts University", "fid" : "tufts_university_z4.png", "hideinnav" : 1, "hideinsearch" : 1, "image" : "tufts_university_z4.png",   "addr1" : "Medford, MA", "parkinguid" : "Parking-1", 					
+										"map" : { "lat" : 42.40606760, "lng" : -71.12040, "icon" : { "type" : "labelIcon", "width" : 59, "height" : 29, "source" : "assets/images/tufts_university_z4.png" } } }
+									]},
+				{ "label" : "Academic Building",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 					"children" : [
+
+
+{ "label" : "23 Bellevue Street", "fid" : "m23bellevue",  "tags" : "CSRD",    "addr1" : "23 Bellevue Street", "parkinguid" : "Parking-1", 	
+	"occupants" : [
+		{ "name" : "Center for the Study of Race and Democracy", "website" : "http://as.tufts.edu/csrd/", "phone" : "(781) 874-9178", "locwithin" : "Third floor" },
+		{ "name" : "Talloires Network Secretariat", "website" : "http://talloiresnetwork.tufts.edu", "email" : "talloiresnetwork@tufts.edu", "phone" : "(781) 874-9731", "locwithin" : "Entrance on Capen Street Extended" }
+	],					
+	"map" : { "lat" : 42.410310, "lng" : -71.121862, "polygon" : "121757,410302 121838,410239 121969,410322 121889,410389"} },	
+
+
+						{ "label" : "SIS Project Building", "fid" : "msis",       "tags" : "Student Information System",    "addr1" : "62 Rear Talbot Ave", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.404294, "lng" : -71.120356, "polygon" : "120356,404294 120092,404201 119905,404513 120172,404599 12033,404337 120356,404294"} },
+
+						{ "label" : "101 Talbot Avenue", "fid" : "m122",       "tags" : "Russian House, residence",    "addr1" : "101 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.405945, "lng" : -71.12187, "polygon" : "12187,405945 121765,405906 121696,406007 121802,406046 12187,405945"} },						
+						{ "label" : "108 Bromfield Road", "fid" : "m144",  "wireless" : 1,  "phone" : "617-627-4000",    "tags" : "PACE, psychology",    "addr1" : "108 Bromfield Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.404783, "lng" : -71.116726, "polygon" : "116818,404814 116811,404741 116638,404751 116646,404825"} },						
+						{ "label" : "108 Packard Avenue", "fid" : "m074",   "website" : "http://ase.tufts.edu/conferences/",  "phone" : "617-627-3568",    "tags" : "Conference bureau, summer programs",    "addr1" : "108 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "European Center", "website" : "http://ase.tufts.edu/europeancenter/", "email" : "france@tufts.edu", "phone" : "(617) 627-3290", "locwithin" : "Third floor" }
+							],					
+							"map" : { "lat" : 42.405775, "lng" : -71.122946, "polygon" : "122946,405775 12278,40572 122733,405798 122899,405853 122946,405775"} },						
+						{ "label" : "112 Packard Avenue", "fid" : "m103",   "website" : "http://ase.tufts.edu/commhealth/",  "phone" : "617-627-3233",    "tags" : "Community health",    "addr1" : "112 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Community Health - A&S", "website" : "http://ase.tufts.edu/commhealth/", "email" : "chp@tufts.edu", "phone" : "(617) 627-3233" }
+							],					
+							"map" : { "lat" : 42.405877, "lng" : -71.122879, "polygon" : "122879,405877 122713,405822 122665,405901 122832,405956 122879,405877"} },						
+						{ "label" : "120 Packard Avenue", "fid" : "m104",  "wireless" : 1, "website" : "http://communityrelations.tufts.edu/",     "tags" : "Government and Community Relations",    "addr1" : "120 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Audit & Management Advisory Services", "website" : "http://sites.tufts.edu/amas/", "email" : "Seth.kornetsky@tufts.edu", "phone" : "(617) 627-3227", "locwithin" : "First and 2nd floor" },
+								{ "name" : "University Relations - Community Relations", "website" : "http://communityrelations.tufts.edu/", "email" : "barbara.rubel@tufts.edu", "phone" : "(617) 627-3780", "locwithin" : "First floor" }
+							],					
+							"map" : { "lat" : 42.406046, "lng" : -71.122819, "polygon" : "122819,406046 122692,406004 122652,40607 122779,406111 122819,406046"} },						
+						{ "label" : "114 Curtis Street", "fid" : "m132", "image" : "m132.jpg",   "tags" : "Feinstein International Center",    "addr1" : "114 Curtis Street", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 				
+							"occupants" : [
+								{ "name" : "Feinstein International Center", "website" : "http://sites.tufts.edu/feinstein/", "email" : "fic@tufts.edu", "phone" : "(617) 627-3423" }
+							],							
+							"map" : { "lat" : 42.407128, "lng" : -71.125067, "polygon" : "125067,407128 1249,407071 124842,407164 125009,40722 125067,407128"} },						
+						{ "label" : "126 Curtis Street", "fid" : "m093",   "wireless" : 1,    "tags" : "Anthropology, religion",    "addr1" : "126 Curtis Street", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.407593, "lng" : -71.124729, "polygon" : "124729,407593 124571,407538 124529,407605 124688,407658 124729,407593"} },						
+						{ "label" : "128 Professors Row", "fid" : "m110",          "addr1" : "128 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.407272, "lng" : -71.124095, "polygon" : "124095,407272 123967,407225 123879,407354 124006,407401 124095,407272"} },						
+						{ "label" : "16-20 Sawyer Avenue", "fid" : "m148",          "addr1" : "16 Sawyer Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "International Office - A&S", "website" : "http://ase.tufts.edu/icenter/", "email" : "InternationalCenter@tufts.edu", "phone" : "(617) 627-3458" }
+							],					
+							"map" : { "lat" : 42.406236, "lng" : -71.123558, "polygon" : "123558,406236 123407,406176 123323,406289 123475,406349 123558,406236"} },						
+						{ "label" : "177 College Avenue", "fid" : "m011",        "directionsoverride" : "42.40796901297795,-71.11593961715698",   "addr1" : "177 College Avenue", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.408211, "lng" : -71.11687, "polygon" : "11687,408211 11665,407997 116496,408086 116714,408298 11687,408211"} },						
+						{ "label" : "20 Professors Row", "fid" : "m106", "wireless" : 1, "addr1" : "20 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Boards of Advisors", "website" : "http://provost.tufts.edu/advisors/", "email" : "advisors@tufts.edu", "phone" : "(617) 627-3324", "locwithin" : "Third floor" },
+								{ "name" : "Office of the Vice Provost", "website" : "http://viceprovost.tufts.edu/", "email" : "Martin.Lavigne@tufts.edu", "phone" : "(617) 627-3417", "locwithin" : "First floor" }
+							],					
+							"map" : { "lat" : 42.405357, "lng" : -71.118827, "polygon" : "118827,405357 118573,405328 118544,405465 118798,405494 118827,405357"} },						
+						{ "label" : "200 Boston Avenue", "fid" : "r027",       "tags" : "HR",  "directionsoverride" : "42.41571680782663, -71.1275053024292",  "directionsmessage" : "This building has its own parking lot which has no parking restrictions.",  "addr1" : "200 Boston Avenue", "parkinguid" : "Parking-15", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Department of Biology, School of Arts and Sciences", "phone" : "(617) 627-0320; (617) 627-0322", "locwithin" : "4th Floor, Suites 4600, 4700, and 4800; Receptions/Deliveries to Room 4676" },
+								{ "name" : "Center for Regenerative and Developmental Biology", "phone" : "(617) 627-5735", "locwithin" : "Suite 4800" },
+								{ "name" : "Gordon Institute", "website" : "http://gordon.tufts.edu/", "email" : "nancy.buczko@tufts.edu", "phone" : "(617) 627-3117", "locwithin" : "Suite 2400" },
+								{ "name" : "Human Resources", "website" : "http://hr.tufts.edu", "phone" : "617 627 4288", "locwithin" : "1st floor" },
+								{ "name" : "Human-Robot Interaction Laboratory ", "website" : "http://hrilab.cs.tufts.edu/"  },
+								{ "name" : "Neuromechanics and Biomimetic Devices Laboratory", "website" : "http://ase.tufts.edu/biology/labs/trimmer/", "phone" : "(617) 627-0322", "locwithin" : "Suite 2600" },
+								{ "name" : "Tufts Collaborative Cluster in Genome Structure and Developmental Patterning", "phone" : "(617) 627-0320", "locwithin" : "Suites 4700 and 4800" }
+								],					
+							"map" : { "lat" : 42.415965, "lng" : -71.127259, "polygon" : "127259,415965 126406,415402 126103,415652 12695,416216"} },		
+						{ "label" : "196 Boston Avenue", "fid" : "r196b",  "directionsoverride" : "42.41571680782663, -71.1275053024292",  "directionsmessage" : "This building has its own parking lot which has no parking restrictions.",  "addr1" : "196 Boston Avenue", "parkinguid" : "Parking-15",
+							"occupants" : [
+								{ "name" : "Interdisciplinary Laboratory for Computation - ILC", "locwithin" : "4th floor"  },
+								{ "name" : "Office of Equal Opportunity", "website" : "http://oeo.tufts.edu", "email" : "oeo@tufts.edu", "phone" : "(617) 627-3298", "locwithin" : "First floor" }								
+							],								
+							"map" : { "lat" : 42.416382, "lng" : -71.127752, "polygon" : "127752,416382 127908,416253 127484,415972 12732,416107 127752,416382"} },								
+												
+						{ "label" : "26 Winthrop Street", "fid" : "m013",  "wireless" : 1,  "website" : "http://ase.tufts.edu/bsot/",  "phone" : "617-627-5720",    "tags" : "OT, Occupational Therapy",    "addr1" : "26 Winthrop Street", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Occupational Therapy - A&S", "website" : "http://ase.tufts.edu/bsot/", "email" : "BSOT@tufts.edu", "phone" : "(617) 627-5750" }
+							],					
+							"map" : { "lat" : 42.410364, "lng" : -71.123084, "polygon" : "123033,410227 122892,410394 123119,410502 123262,410329"} },						
+						{ "label" : "28 Sawyer Avenue", "fid" : "m149",          "addr1" : "28 Sawyer Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Institutional Research", "website" : "http://provost.tufts.edu/institutionalresearch/", "phone" : "(617) 627-3274" }
+							],					
+							"map" : { "lat" : 42.406391, "lng" : -71.12378, "polygon" : "12378,406391 123621,406327 123565,406403 123725,406466 12378,406391"} },						
+						{ "label" : "44 Teele Avenue", "fid" : "m123",   "website" : "http://ase.tufts.edu/gdae/",  "phone" : "617-627-3530",    "tags" : "GDAE, Global Development and Environment Institute",    "addr1" : "44 Teele Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Global Development And Environment Institute", "website" : "http://ase.tufts.edu/gdae/", "email" : "GDAE@tufts.edu", "phone" : "(617) 627-3530" }
+							],					
+							"map" : { "lat" : 42.405646, "lng" : -71.125264, "polygon" : "125264,405646 125153,405602 125027,40577 125141,405815 125264,405646"} },						
+						{ "label" : "Fung House", "fid" : "m107",   "website" : "http://ase.tufts.edu/CHAT/",  "phone" : "617-627-3342",    "tags" : "Center for Humanities",    "addr1" : "48 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Center for the Humanities", "website" : "http://ase.tufts.edu/chat/", "email" : "humanities@tufts.edu", "phone" : "(617) 627-3342" }
+							],					
+							"map" : { "lat" : 42.405886, "lng" : -71.120304, "polygon" : "120304,405886 120101,405812 120045,405897 120249,405969 120304,405886"} },						
+						{ "label" : "51 Winthrop Street", "fid" : "m193",  "wireless" : 1,         "addr1" : "51 Winthrop Street", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 42.411048, "lng" : -71.121967}  }, 					
+							"map" : { "lat" : 42.410963, "lng" : -71.121433, "polygon" : "121433,410963 121744,411159 121873,411071 121556,410868"} },						
+						{ "label" : "55 Talbot Avenue", "fid" : "m120",   "website" : "http://www.ase.tufts.edu/womenscenter/",  "phone" : "617-627-3184",    "tags" : "Women's Center",    "addr1" : "55 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.405224, "lng" : -71.119868, "polygon" : "119868,405224 119719,405173 119672,405247 11982,405299 119868,405224"} },						
+						{ "label" : "80 George Street", "fid" : "m192", "image" : "m192.jpg",  "wireless" : 1,      "tags" : "Dame School",  "directionsoverride" : "42.412124,-71.114534",  "directionsmessage" : "This building has its own parking lot. It is restricted but includes a few visitor parking spots.",  "addr1" : "80 George Street", "parkinguid" : "Parking-10", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 42.411963, "lng" : -71.114711}  }, 
+							"occupants" : [
+								{ "name" : "Nutrition Newsletter Office", "email" : "julie.flaherty@tufts.edu", "phone" : "(617) 627-4273", "locwithin" : "First floor" },
+								{ "name" : "University Relations - Digital Communications", "website" : "http://webcomm.tufts.edu/", "email" : "wccontact@tufts.edu", "phone" : "(617) 627-4282", "locwithin" : "First floor" },
+								{ "name" : "University Photography", "website" : "http://photo.tufts.edu/", "email" : "photo@tufts.edu", "phone" : "(617) 627-4282", "locwithin" : "First floor" },
+								{ "name" : "UA - AS&E Tufts Fund", "website" : "http://giving.tufts.edu/ways_to_give/annualgiving/get_involved/student_fund.html", "email" : "tuftsfund@tufts.edu", "phone" : "(617) 627-3014", "locwithin" : "Suite 300-5" },
+								{ "name" : "UA - Parents Program", "website" : "http://giving.tufts.edu/parents/", "email" : "parentsprogram@tufts.edu", "phone" : "(617) 627-3798", "locwithin" : "Suite 300" },
+								{ "name" : "UA - Arts & Sciences Development", "website" : "http://giving.tufts.edu/ways_to_give/support/a&s.html", "email" : "tuftsfund@tufts.edu", "phone" : "(617) 627-3014", "locwithin" : "Suite 300-2" },
+								{ "name" : "UA - Alumni Relations", "website" : "http://alumni.tufts.edu/", "email" : "kaleigh.fitzpatrick@tufts.edu", "phone" : "(617) 627-3532", "locwithin" : "Suite 100-3" },
+								{ "name" : "UA - Gift & Information Systems", "website" : "http://finance.tufts.edu/financialservices/", "email" : "giftupdate@tufts.edu", "phone" : "(617) 627-4705", "locwithin" : "Suite 200-4" },
+								{ "name" : "UA - Special Events", "phone" : "(617) 627-3787", "locwithin" : "Suite 200-3" },
+								{ "name" : "UA - Planned Giving", "website" : "http://www.tufts.edu/development/ways_to_give/giftplanning/index.html", "email" : "giftplanning@tufts.edu", "phone" : "(617) 627-3727", "locwithin" : "Suite 300-6" },
+								{ "name" : "UA - Corporate & Foundation Relations", "website" : "http://cfr.tufts.edu/", "email" : "donald.mcgowan@tufts.edu", "phone" : "(617) 627-5263", "locwithin" : "Suite 200-2" },
+								{ "name" : "UA - Prospect Management & Research", "email" : "Amber.Countis@tufts.edu", "phone" : "(617) 627-3433", "locwithin" : "Suite 200-1" },
+								{ "name" : "University Relations - Public Relations", "website" : "http://pr.tufts.edu/", "email" : "kim.thurler@tufts.edu", "phone" : "(617) 627-3069", "locwithin" : "Suite 100" },
+								{ "name" : "UA - Advancement Services", "website" : "http://advancement.tufts.edu/", "email" : "giving@tufts.edu", "phone" : "(617) 627-3143", "locwithin" : "Suite 200-4" },
+								{ "name" : "UA - Office of Vice President", "website" : "http://advancement.tufts.edu/", "phone" : "(617) 627-3143", "locwithin" : "Suite 300-1" },
+								{ "name" : "UA - Central Development Program", "email" : "chris.simoneau@tufts.edu", "phone" : "(617) 627-3287", "locwithin" : "Suite 300-1" },
+								{ "name" : "UA - University Advancement Development", "website" : "http://advancement.tufts.edu/", "email" : "giving@tufts.edu", "phone" : "(617) 627-3143", "locwithin" : "Suite 200-4" },
+								{ "name" : "UA - Information Systems", "locwithin" : "Suite 200-4" },
+								{ "name" : "UA - Technology Support", "website" : "http://ase.tufts.edu/its/", "locwithin" : "Suite 200-4" },
+								{ "name" : "UA - Planning & Administration", "locwithin" : "Suite 200-4" },
+								{ "name" : "UA - Communications & Donor Relations", "locwithin" : "Suite 200-3" },
+								{ "name" : "University Relations - Publications", "website" : "http://publications.tufts.edu/", "email" : "karen.bailey@tufts.edu", "phone" : "(617) 627-2126", "locwithin" : "Suite 100-1" }
+							],					
+							"map" : { "lat" : 42.411784, "lng" : -71.115494, "polygon" : "115494,411784 115076,411618 114822,41197 115239,412135 115494,411784"} },						
+						{ "label" : "89-91 Curtis Street", "fid" : "m089",          "addr1" : "89-91 Curtis Street", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Dining Services", "website" : "http://dining.tufts.edu/", "email" : "tuftsdining@tufts.edu", "phone" : "(617) 627-3566", "locwithin" : "First floor" },
+								{ "name" : "Faculty Center/Catering", "website" : "http://catering.tufts.edu/", "phone" : "617-627-3411", "locwithin" : "Third floor" }
+							],					
+							"map" : { "lat" : 42.406244, "lng" : -71.125192, "polygon" : "125192,406244 125029,406179 12491,406345 125071,406408 125192,406244"} },						
+						{ "label" : "96 Packard Avenue", "fid" : "m174",  "wireless" : 2,  "website" : "http://www.tuftsgloballeadership.org/",  "phone" : "617-627-3314",    "tags" : "Institute for Global Leadership, IGL",    "addr1" : "96 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.405373, "lng" : -71.123228, "polygon" : "123228,405373 123078,405313 12302,40539 123172,40545 123228,405373"} },						
+						{ "label" : "97 Talbot Avenue", "fid" : "m147",  "wireless" : 1,  "website" : "http://ase.tufts.edu/uep/",  "phone" : "617-627-3394",    "tags" : "UEP, Urban and Environmental Policy",    "addr1" : "97 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Urban & Enviro Policy & Plan", "website" : "http://ase.tufts.edu/uep/", "email" : "ann.urosevich@tufts.edu", "phone" : "(617) 627-3394" }
+							],					
+							"map" : { "lat" : 42.405871, "lng" : -71.121687, "polygon" : "121687,405871 121553,405821 121437,405992 121571,406042 121687,405871"} },						
+						{ "label" : "TTS Technology Support Center", "fid" : "m145",  "wireless" : 1,      "tags" : "Arena Annex",    "addr1" : "35 Lower Campus Road", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							
+							"occupants" : [
+								{ "name" : "Tufts Online", "website" : "https://student.support.tufts.edu/", "email" : "tolhelp@tufts.edu", "phone" : "(617) 627-4865" }
+							],								
+							
+							"map" : { "lat" : 42.404414, "lng" : -71.120731, "polygon" : "120731,404414 120525,404341 12046,404443 120665,404516 120731,404414"} },						
+						{ "label" : "Aidekman Arts Center", "fid" : "m019", "wireless" : 1, "image" : "m019.jpg",       "tags" : "Tufts University Art Gallery, music, arts, dance, performance, theatre, theater, play, act, ticket, music library",    "addr1" : "40 Talbot Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Art Gallery", "website" : "http://artgallery.tufts.edu/default.aspx", "email" : "artgallery@tufts.edu", "phone" : "(617) 627-3518", "locwithin" : "First and 2nd floor" },
+								{ "name" : "Drama and Dance - A&S", "website" : "http://ase.tufts.edu/drama-dance/", "email" : "rita.dioguardi@tufts.edu", "phone" : "(617) 627-3524", "locwithin" : "Left of Cohen" },
+								{ "name" : "Audio Labs" }
+							],					
+							"map" : { "lat" : 42.404511, "lng" : -71.119378, "polygon" : "119378,404511 119431,404387 119336,404363 119299,404304 119419,40403 119475,404044 119522,403939 119368,403902 119341,403964 119201,40393 118987,404417 119378,404511"} },						
+						{ "label" : "Alumnae Hall", "fid" : "m019",  "wireless" : 1,         "addr1" : "40 Talbot Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404738, "lng" : -71.119188, "polygon" : "119188,404738 119248,404602 11894,404528 11888,404664 119188,404738"} },						
+						{ "label" : "Alumni House", "fid" : "m041",  "wireless" : 2,         "addr1" : "95 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Experimental College", "website" : "http://www.excollege.tufts.edu/", "email" : "excollege@tufts.edu", "phone" : "(617) 627-3384" }
+							],					
+							"map" : { "lat" : 42.405838, "lng" : -71.121063, "polygon" : "121063,405838 121253,405909 121316,405817 121125,405746 121063,405838"} },						
+						{ "label" : "Anderson Hall", "fid" : "m003", "image" : "m003.jpg",  "wireless" : 1,      "tags" : "engineering",    "addr1" : "200 College Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Mechanical Engineering", "website" : "http://engineering.tufts.edu/me/", "email" : "meinfo@tufts.edu", "phone" : "(617) 627-3239", "locwithin" : "Room 204" },
+								{ "name" : "School of Engineering", "website" : "http://engineering.tufts.edu/", "email" : "engineeringdeansoffice@tufts.edu", "phone" : "(617) 627-3237", "locwithin" : "Room 105" },
+								{ "name" : "Civil and Environmental Engineering", "website" : "http://engineering.tufts.edu/cee/", "email" : "ceeinfo@tufts.edu", "phone" : "(617) 627-3211", "locwithin" : "First floor, Room 11" },
+								{ "name" : "UA - Engineering Development", "website" : "http://ase.tufts.edu/epdc/", "email" : "leah.friedberg@tufts.edu", "phone" : "(617) 627-2402", "locwithin" : "First floor" }
+							],					
+							"map" : { "lat" : 42.406101, "lng" : -71.116957, "polygon" : "116957,406101 116903,406081 116974,405978 116624,405844 116527,405981 116678,406039 11649,406308 116531,406325 11651,406356 116673,406418 116696,406387 116744,406406 116957,406101"} },						
+						{ "label" : "Bacon Hall", "fid" : "m025", "wireless" : 1,  "tags" : "animal research, psychology lab",    "addr1" : "530 Boston Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404898, "lng" : -71.115171, "polygon" : "115171,404898 115077,404775 114757,404905 114851,405028 115171,404898"} },						
+						{ "label" : "Balch Arena Theater", "fid" : "m019",   "wireless" : 1,    "tags" : "play, theater, performance",    "addr1" : "40 Talbot Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404483, "lng" : -71.11926, "polygon" : "11926,404483 118988,404417 11894,404527 119212,404592 11926,404483"} },						
+						{ "label" : "Ballou Hall", "fid" : "m029", "image" : "m029.jpg",  "wireless" : 1,      "tags" : "Coolidge Room, administration",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "1 The Green", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Office of Institutional Diversity", "website" : "http://diversity.tufts.edu", "phone" : "(617) 627-3298", "locwithin" : "First floor" },
+								{ "name" : "Graduate Arts & Sciences", "website" : "http://gs.as.tufts.edu/about/contactus.htm", "email" : "gradschool@ase.tufts.edu", "phone" : "(617) 627-3395", "locwithin" : "First floor" },
+								{ "name" : "Office of Vice President of Operations", "website" : "http://operations.tufts.edu/", "email" : "linda.snyder@tufts.edu", "phone" : "(617) 627-3334", "locwithin" : "Fourth floor" },
+								{ "name" : "Office of the Executive Vice President", "website" : "http://evp.tufts.edu/", "email" : "Patricia.Campbell@tufts.edu", "phone" : "(617) 627-3331", "locwithin" : "Fourth floor" },
+								{ "name" : "President's Office", "website" : "http://president.tufts.edu/", "email" : "candace.copithorne@tufts.edu", "phone" : "(617) 627-3300", "locwithin" : "Second floor" },
+								{ "name" : "Office Dean Arts & Sciences", "website" : "http://as.tufts.edu/about/deansoffice/index.htm", "email" : "Laurie.Tautkas@tufts.edu", "phone" : "(617) 627-5117", "locwithin" : "Third floor" },
+								{ "name" : "Office of the Trustees", "website" : "http://trustees.tufts.edu/", "phone" : "(617) 627-3320", "locwithin" : "Fourth floor" },
+								{ "name" : "University Relations - Office of the VP", "website" : "http://universityrelations.tufts.edu/university-relations-contact-information/", "email" : "mary.jeka@tufts.edu", "phone" : "(617) 627-4220", "locwithin" : "Third floor" },
+								{ "name" : "University Relations - University Counsel", "website" : "http://legal.tufts.edu/", "email" : "marie.salipante@tufts.edu", "phone" : "(617) 627-2147", "locwithin" : "Third floor" },
+								{ "name" : "Provost's Office", "website" : "http://provost.tufts.edu/", "email" : "provost@tufts.edu", "phone" : "(617) 627-3310", "locwithin" : "Second floor" }
+							],					
+							"map" : { "lat" : 42.407364, "lng" : -71.120351, "polygon" : "120351,407364 119966,407218 11984,4074 120224,407545 120351,407364"} },						
+						{ "label" : "Barnum Hall", "fid" : "m004", "image" : "m004.jpg", "wireless" : 1,  "tags" : "Biology, Lab, Film Series",    "addr1" : "163 Packard Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Biology - A&S", "website" : "http://ase.tufts.edu/biology/", "email" : "eileen.magnant@tufts.edu", "phone" : "(617) 627-3195" }
+							],					
+							"map" : { "lat" : 42.407528, "lng" : -71.120945, "polygon" : "120945,407528 120535,407373 120378,407598 120751,407738 120853,407589 120891,407603 120945,407528"} },						
+						{ "label" : "Bendetson Hall", "fid" : "m035", "image" : "m035.jpg",  "wireless" : 1,  "website" : "http://admissions.tufts.edu/",  "phone" : "617-627-3170",   "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "2 The Green", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"map" : { "lat" : 42.408097, "lng" : -71.119889, "polygon" : "119889,408097 119574,407978 119455,408148 11977,408267 119889,408097"} },						
+						{ "label" : "Blakeley Hall", "fid" : "m071",  "wireless" : 2,      "tags" : "Residence, Dorm, Fletcher",    "addr1" : "1 Winthrop Street", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.407942, "lng" : -71.122703, "polygon" : "122703,407942 122595,4079 122399,408186 122815,408344 123012,408058 122901,408016 122757,408222 122561,408148 122703,407942"} },						
+						{ "label" : "Blakeslee House", "fid" : "m065",   "wireless" : 1,    "tags" : "Fletcher, Law, Diplomacy",    "addr1" : "132 Curtis Street", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.407769, "lng" : -71.124601, "polygon" : "124601,407769 124652,407687 124506,407638 124455,407719 124601,407769"} },						
+						{ "label" : "Bolles House", "fid" : "m005",   "website" : "http://ase.tufts.edu/lgbt/",  "phone" : "617-627-3770",    "tags" : "LGBT, Lesbian Gay Bisexual Transgender Center",    "addr1" : "226 College Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "LGBT Center", "website" : "http://ase.tufts.edu/lgbt/", "email" : "lgbt@tufts.edu", "phone" : "(617) 627-3770", "locwithin" : "Second and 3rd floor" },
+								{ "name" : "Latino Center", "website" : "http://ase.tufts.edu/latinocenter/", "email" : "latinocenter@tufts.edu", "phone" : "(617) 627-3363", "locwithin" : "First floor" }
+							],					
+							"map" : { "lat" : 42.405062, "lng" : -71.117717, "polygon" : "117717,405062 117636,405068 117632,405041 117541,405048 117559,405174 117731,405161 117717,405062"} },						
+						{ "label" : "Braker Hall", "fid" : "m007",  "wireless" : 1, "website" : "http://ase.tufts.edu/econ/",  "phone" : "617-627-3560",    "tags" : "Economics",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "8 Upper Campus Road", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Economics - A&S", "website" : "http://ase.tufts.edu/econ/", "email" : "Linda.Casey@tufts.edu", "phone" : "(617) 627-3560", "locwithin" : "First floor, Room 11" }
+							],					
+							"map" : { "lat" : 42.407306, "lng" : -71.118229, "polygon" : "118229,407306 118075,407248 118089,407227 117971,407183 117881,407313 117998,407358 117952,407427 118106,407485 118154,407417 118292,407468 118383,407339 118244,407286 118229,407306"} },						
+						{ "label" : "Bray Laboratory", "fid" : "m008",          "addr1" : "504 Boston Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.40554, "lng" : -71.11558, "polygon" : "11558,40554 115359,40563 11565,406018 115871,405928 11558,40554"} },						
+						{ "label" : "Bromfield House", "fid" : "m099",  "wireless" : 1,  "website" : "https://it.tufts.edu/ests",  "phone" : "617-627-3380",    "tags" : "Educational & Scholarly Technology Services",    "addr1" : "16 Dearborn Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.404824, "lng" : -71.116363, "polygon" : "116363,404824 116232,404831 116245,404951 116375,404944 116363,404824"} },						
+						{ "label" : "Bromfield-Pearson", "fid" : "m002",  "wireless" : 2,  "website" : "http://math.tufts.edu/",  "phone" : "617-627-3235",    "tags" : "Mathematics",    "addr1" : "503 Boston Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Mathematics - A&S", "website" : "http://math.tufts.edu/", "phone" : "(617) 627-3234/5", "locwithin" : "Room 102" }
+							],					
+							"map" : { "lat" : 42.405399, "lng" : -71.116568, "polygon" : "116568,405399 116386,405329 116203,405591 116385,40566 116568,405399"} },						
+						{ "label" : "Cabot Intercultural Center", "fid" : "m151", "image" : "m151.jpg",  "wireless" : 1,      "tags" : "Fletcher, International Relations",    "addr1" : "170 Packard Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "International Relations", "website" : "http://ase.tufts.edu/ir/", "email" : "internationalrelations@tufts.edu", "phone" : "(617) 627-2776", "locwithin" : "Sixth floor, Room 60" },
+								{ "name" : "Fares Center for Eastern Mediterranean Studies", "website" : "http://farescenter.tufts.edu/", "email" : "Fares-center@tufts.edu", "phone" : "(617) 627-6560", "locwithin" : "Mugar 129" },
+								{ "name" : "Academic Support-Fletcher", "website" : "http://fletcher.tufts.edu/Academic/Registrar-Office", "email" : "nora.moser@tufts.edu", "phone" : "(617) 627-2405", "locwithin" : "Second floor" },
+								{ "name" : "Student Services - Fletcher", "email" : "Sarah.Strong@tufts.edu", "phone" : "(617) 627-5997", "locwithin" : "Fourth floor" }
+							],					
+							"map" : { "lat" : 42.407826, "lng" : -71.121678, "polygon" : "121678,407826 121686,407813 121435,407719 121338,407859 121264,407831 121231,407882 121456,407965 121506,407895 121604,407932 121644,407876 121745,407914 121779,407865 121678,407826"} },						
+						{ "label" : "Campus Bookstore", "fid" : "m033", "image" : "m033.jpg",   "website" : "http://tufts.bncollege.com/webapp/wcs/stores/servlet/BNCBHomePage?storeId=20051&catalogId=10001&langId=-1",  "phone" : "617-627-3468",    "tags" : "Textbooks, supplies, apparel, clothing, books",    "addr1" : "46 Professors Row", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.405547, "lng" : -71.12026, "polygon" : "12026,405547 120161,405694 120281,405738 120318,405686 120435,405728 120612,405467 120374,405378 12026,405547"} },						
+						{ "label" : "Campus Center", "fid" : "m158", "image" : "m158.jpg",  "wireless" : 1,  "website" : "http://ocl.tufts.edu/mayer-campus-center/",     "tags" : "Elizabeth Van Huysen Mayer Campus Center, dining, atm, hotung cafe, information booth, ping-pong, pool table, Jumbocash Machine, cash machine, food",    "addr1" : "44 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Student Activities - A&S", "website" : "http://ocl.tufts.edu/", "email" : "ocl@tufts.edu", "phone" : "(617) 627-3212" },
+								{ "name" : "Campus Center - Dining Services", "website" : "http://dining.tufts.edu/locations-hours/overview/commons-deli-grill/", "email" : "sabrina.mccarthy@tufts.edu", "phone" : "(617) 627-5204" }
+							],					
+							"map" : { "lat" : 42.405547, "lng" : -71.120259, "polygon" : "120259,405547 120208,405528 120232,405492 120031,405418 120009,405449 119723,405344 119624,405493 119695,40552 119563,405715 119765,40579 11983,405699 119872,405713 119897,405676 119985,405707 120028,405645 120161,405693 120259,405547"} },						
+						{ "label" : "Central Services", "fid" : "m085",          "addr1" : "520 Boston Avenue", "parkinguid" : "Parking-1", 
+							"occupants" : [
+								{ "name" : "Construction Management", "email" : "linda.bratton@tufts.edu", "phone" : "(617) 627-3371", "locwithin" : "Second floor" },
+								{ "name" : "Facilities - Medford", "website" : "http://operations.tufts.edu/facilities/contact-info/", "phone" : "617-627-3496" },
+								{ "name" : "Facilities Medford - Trades A", "website" : "http://operations.tufts.edu/facilities/contact-info/", "phone" : "617-627-3496" },
+								{ "name" : "Facilities Medford - Trades B", "website" : "http://operations.tufts.edu/facilities/contact-info/", "phone" : "617-627-3496" },
+								{ "name" : "Facilities Medford - Workcrew", "website" : "http://operations.tufts.edu/facilities/contact-info/", "phone" : "617-627-3496" }
+							],					
+							"map" : { "lat" : 42.405099, "lng" : -71.115257, "polygon" : "115257,405099 114985,40521 115259,405574 115532,405464 115257,405099"} },						
+						{ "label" : "Chandler House", "fid" : "m068",       "tags" : "Spanish language, residence",    "addr1" : "125 Powderhouse Boulevard", "parkinguid" : "Parking-1", 	"city" : "Somerville", "zip" : "02144",				
+							"map" : { "lat" : 42.404721, "lng" : -71.123619, "polygon" : "123619,404721 123511,404679 123412,404816 123519,404859 123619,404721"} },						
+						{ "label" : "Cohen Auditorium", "fid" : "m019",   "wireless" : 1,   "tags" : "Plays, Performance, Lecture",    "addr1" : "40 Talbot Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404526, "lng" : -71.118938, "polygon" : "118938,404526 11905,40427 11875,404198 11864,404446 118703,404462 1187,404469 118938,404526"} },						
+						{ "label" : "Costume Shop", "fid" : "m036",          "addr1" : "54 Talbot Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404664, "lng" : -71.120144, "polygon" : "120144,404664 119999,404609 119892,404762 120037,404817 120144,404664"} },						
+						{ "label" : "Curtis Hall", "fid" : "m039",  "wireless" : 1,      "tags" : "dining, Brown and Brew, MAB Lab, Media Advisory Board, Tufts Observer, Tufts Daily, WMFO, TUTV, food, post office",    "addr1" : "474 Boston Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Brown and Brew", "website" : "http://dining.tufts.edu/locations-hours/overview/brown-brew-coffee-house/", "email" : "arthur.rigordaeva@tufts.edu", "phone" : "(617) 627-5748", "locwithin" : "First floor" },
+								{ "name" : "Center for Engineering Education and Outreach", "website" : "http://ceeo.tufts.edu/", "email" : "ceeo@tufts.edu", "phone" : "(617) 627-5888", "locwithin" : "Basement" }
+							],					
+							"map" : { "lat" : 42.40695, "lng" : -71.116557, "polygon" : "116557,40695 116575,40695 11658,406833 116418,406829 116363,406833 116359,406945 116408,406946 11639,407026 116535,407044 116557,40695"} },						
+						{ "label" : "Dana Laboratory", "fid" : "m001", "wireless" : 1,  "tags" : "Biology Lab",    "addr1" : "165 Packard Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.407684, "lng" : -71.121103, "polygon" : "121103,407684 120854,407589 120654,407878 120903,407972 121103,407684"} },						
+						{ "label" : "Dowling Hall", "fid" : "m023", "image" : "m023.jpg",  "wireless" : 1,  "website" : "http://uss.tufts.edu/stuServ/",  "phone" : "617-627-2000",    "tags" : "administration, atm, Academic Resource Center, Visitor Parking, Bursar's Office, Career Planning Center, Dean of Students, University Police, Registrar's Office, Student Employment Office, information booth, campus tours, Admissions Visitor Center",  "directionsoverride" : "419 Boston Ave, Medford, MA",   "addr1" : "419 Boston Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 42.408659, "lng" : -71.118418}  }, 
+							"occupants" : [
+								{ "name" : "Summer Session - A&S", "website" : "http://ase.tufts.edu/summer/", "email" : "summer@tufts.edu", "phone" : "(617) 627-2000" },
+								{ "name" : "Public Safety", "website" : "http://publicsafety.tufts.edu/", "email" : "kevin.maguire@tufts.edu", "phone" : "(617) 627-3502", "locwithin" : "First floor" },
+								{ "name" : "Public Safety Affairs - Medford", "website" : "http://publicsafety.tufts.edu/", "email" : "duane.weisse@tufts.edu", "phone" : "(617) 627-3030", "locwithin" : "First floor" },
+								{ "name" : "Financial Services", "website" : "http://uss.tufts.edu/finserv/", "email" : "studentservices@ase.tufts.edu", "phone" : "(617) 627-2000", "locwithin" : "Seventh floor" },
+								{ "name" : "Office of the Dean of Undergraduate Education", "website" : "http://uss.tufts.edu/undergradEducation/", "email" : "james.glaser@tufts.edu", "phone" : "(617) 627-4239", "locwithin" : "Seventh floor" },
+								{ "name" : "Programs Abroad", "website" : "http://uss.tufts.edu/studyabroad/", "email" : "sheila.bayne@tufts.edu", "phone" : "(617) 627-2000" },
+								{ "name" : "Student Services Center - A&S", "website" : "http://uss.tufts.edu/stuserv/", "email" : "studentservices@ase.tufts.edu", "phone" : "(617) 627-2000" },
+								{ "name" : "Admissions - AS&E", "website" : "http://admissions.tufts.edu/", "email" : "admissions.inquiry@ase.tufts.edu", "phone" : "(617) 627-3170" }
+							],					
+							"map" : { "lat" : 42.408097, "lng" : -71.118203, "polygon" : "118203,408097 117782,408305 118328,408901 118748,408693 118203,408097"} },							
+						{ "label" : "East Hall", "fid" : "m038", "wireless" : 1, "tags" : "English, History",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "6 The Green", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "History - A&S", "website" : "http://ase.tufts.edu/history/", "email" : "Mary-Ann.Hagopian@tufts.edu", "phone" : "(617) 627-2783", "locwithin" : "Room 10" },
+								{ "name" : "English - A&S", "website" : "http://ase.tufts.edu/english/", "email" : "english@tufts.edu", "phone" : "(617) 627-3459", "locwithin" : "Room 210" }
+							],					
+							"map" : { "lat" : 42.407637, "lng" : -71.118953, "polygon" : "118953,407637 118557,407487 118463,407622 118859,407772 118953,407637"} },						
+						{ "label" : "Eaton Hall", "fid" : "m010",  "wireless" : 2,      "tags" : "ITS, Computing, Computers",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "5 The Green", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Anthropology", "website" : "http://ase.tufts.edu/anthropology/", "email" : "jamie.gorman@tufts.edu", "phone" : "(617) 627-6528", "locwithin" : "302 Eaton Hall" },
+								{ "name" : "Religion - A&S", "website" : "http://ase.tufts.edu/religion/", "email" : "jamie.gorman@tufts.edu", "phone" : "(617) 627-6528", "locwithin" : "302 Eaton Hall" },
+								{ "name" : "Classics - A&S", "website" : "http://ase.tufts.edu/classics/", "email" : "classics@tufts.edu", "phone" : "(617) 627-3213", "locwithin" : "Third floor" },
+								{ "name" : "American Studies", "website" : "http://ase.tufts.edu/amstud/", "email" : "kathy.spagnoli@tufts.edu", "phone" : "(617) 627-2311", "locwithin" : "Bottom floor" },
+								{ "name" : "Center for Interdisciplinary Studies", "website" : "http://cis.tufts.edu/", "email" : "andrea.carlino@tufts.edu", "phone" : "(617) 627-5447", "locwithin" : "First floor, Room 11" },
+								{ "name" : "Sociology - A&S", "website" : "http://ase.tufts.edu/sociology/", "email" : "john.libassi@tufts.edu", "phone" : "(617) 627-3561", "locwithin" : "First floor, Room 11" },
+								{ "name" : "Women's, Gender, and Sexuality Studies", "website" : "http://ase.tufts.edu/wgss/default.aspx", "email" : "WomensStudies@tufts.edu", "phone" : "(617) 627-2955", "locwithin" : "Room 106" },
+								{ "name" : "Peace & Justice Study", "website" : "http://pjs.tufts.edu/default.aspx", "email" : "dale.bryan@tufts.edu", "phone" : "(617) 627-2261", "locwithin" : "First floor" },
+								{ "name" : "Perseus Digital Library Project", "website" : "http://www.perseus.tufts.edu/hopper/", "email" : "lisa.cerrato@tufts.edu", "phone" : "(617) 627-3830", "locwithin" : "First Floor, 134C" },
+								{ "name" : "Archaeology Program", "website" : "http://ase.tufts.edu/classics/undergrad/majorArchaeology.htm", "email" : "archaeology@tufts.edu", "phone" : "(617) 627-3213" }
+							],					
+							"map" : { "lat" : 42.406717, "lng" : -71.118808, "polygon" : "118808,406717 118822,406696 11867,406639 118655,406659 118489,406595 11843,406681 118406,406672 118344,406761 118369,406771 118309,406857 118466,406915 118509,406853 118681,406919 118639,40698 118795,407039 118975,406779 118808,406717"} },						
+						{ "label" : "Eliot-Pearson Child Development Center", "fid" : "m012",  "wireless" : 2,       "directionsoverride" : "42.40971573673789,-71.11431419849396",   "addr1" : "105 College Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 42.410212, "lng" : -71.114894}  }, 					
+							"map" : { "lat" : 42.410136, "lng" : -71.114747, "polygon" : "114747,410136 114625,410071 114365,410334 114543,41043 114414,410561 114549,410633 114805,410373 11467,410302 114639,410333 114583,410303 114747,410136"} },						
+						{ "label" : "Eliot-Pearson Children's School", "fid" : "m012",          "addr1" : "105 College Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.410033, "lng" : -71.114592, "polygon" : "114592,410033 114615,410045 114669,409991 114556,409931 114532,409954 114518,409946 114197,410272 114004,410168 11393,410242 114123,410346 113958,410515 114062,41057 114318,41031 114366,410334 11446,410238 114414,410213 114592,410033"} },						
+						{ "label" : "Fairmont House", "fid" : "m070",          "addr1" : "21-23 Fairmount Street", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.409956, "lng" : -71.121335, "polygon" : "121335,409956 121165,409857 120975,410036 121144,410135 121335,409956"} },						
+						{ "label" : "Goddard Hall", "fid" : "m014",  "wireless" : 1,      "tags" : "Fletcher, Ginn, library",    "addr1" : "160 Packard Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "UA - Fletcher Development & Alumni Relations", "website" : "http://fletcher.tufts.edu/alumni/", "email" : "fletcheralum@tufts.edu", "phone" : "(617) 627-4573" }
+							],					
+							"map" : { "lat" : 42.407478, "lng" : -71.121479, "polygon" : "121479,407478 121353,407661 12174,407806 121866,407624 121479,407478"} },						
+						{ "label" : "Granoff Family Hillel Center", "fid" : "m020", "image" : "m020.jpg",   "website" : "http://www.tuftshillel.org/",  "phone" : "617-627-3242",       "addr1" : "220 Packard Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.40933, "lng" : -71.121051, "polygon" : "121051,40933 120799,409183 120788,409218 120675,409245 120668,409286 120713,409313 120736,40931 120746,409317 120757,409326 120764,409332 120777,40934 120795,409348 120809,409355 120828,409363 120847,409369 120868,409374 120885,409377 120903,40938 120926,409382 120944,409383 120962,409385 120981,409385 121,409385 121024,409383 121043,409379 121051,40933"} },						
+						{ "label" : "Hall House", "fid" : "m059",       "tags" : "Jewish culture, residence",    "addr1" : "98 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.405465, "lng" : -71.123165, "polygon" : "123165,405465 123008,405403 122949,405484 123105,405546 123165,405465"} },						
+						{ "label" : "Halligan Hall", "fid" : "m026",  "wireless" : 1,  "tags" : "Athletics Department, Electrical Engineering, Computer Engineering",    "addr1" : "161 College Avenue", "parkinguid" : "Parking-1", 
+							"occupants" : [
+								{ "name" : "Computer Science", "website" : "http://www.cs.tufts.edu/", "email" : "csadmin@cs.tufts.edu", "phone" : "(617) 627-2225", "locwithin" : "Room 102" },
+								{ "name" : "Electrical & Computer Engineer", "website" : "http://www.ece.tufts.edu/", "email" : "yvette.landry@tufts.edu", "phone" : "(617) 627-3217", "locwithin" : "Room 101" }
+							],					
+							"map" : { "lat" : 42.408222, "lng" : -71.116402, "polygon" : "116402,408222 116174,408099 116037,408237 116064,408253 115895,408426 116094,408534 116182,408446 11654,408638 116672,408504 116315,408312 116402,408222"} },						
+						{ "label" : "Hayes House", "fid" : "m060",          "addr1" : "17 Chetwynd Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.408372, "lng" : -71.125109, "polygon" : "125109,408372 125002,408335 124938,408438 125045,408475 125109,408372"} },						
+						{ "label" : "Health Service", "fid" : "m032",  "wireless" : 2,  "website" : "http://ase.tufts.edu/healthservice/",  "phone" : "617-627-3350",    "tags" : "Hooper Infirmary, doctor, sick, illness",    "addr1" : "124 Professors Row", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.407049, "lng" : -71.124003, "polygon" : "124003,407049 123782,406967 123594,407242 123814,407324 124003,407049"} },												
+						{ "label" : "Interfaith Center", "fid" : "m189", "image" : "z001.jpg",          "addr1" : "58 Winthrop Street", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.411342, "lng" : -71.122352, "polygon" : "122352,411342 122087,411252 122025,411351 122291,41144 122352,411342"} },											
+						{ "label" : "Leir Hall", "fid" : "m019",   "wireless" : 1,   "addr1" : "40 Talbot Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404648, "lng" : -71.118813, "polygon" : "118813,404648 118831,404608 118897,404623 118938,404527 118702,40447 118641,404606 118813,404648"} },						
+						{ "label" : "Lincoln Filene Hall", "fid" : "m015", "wireless" : 1, "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "10 Upper Campus Road", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Lincoln Filene Center", "website" : "http://activecitizen.tufts.edu/communitypartnerships/", "email" : "Shirley.Mark@tufts.edu", "phone" : "(617) 627-3453" },
+								{ "name" : "Tisch College", "website" : "http://activecitizen.tufts.edu/", "email" : "activecitizen@tufts.edu", "phone" : "(617) 627-3453" }
+							],					
+							"map" : { "lat" : 42.407299, "lng" : -71.117891, "polygon" : "117891,407299 117921,407255 117873,407236 117947,407129 117753,407056 117609,407264 117802,407337 117843,40728 117891,407299"} },						
+						{ "label" : "McCollester House", "fid" : "m072",       "tags" : "dormitory, residence",    "addr1" : "28 Capen Street", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.410955, "lng" : -71.124053, "polygon" : "124053,410955 123921,41091 123829,411055 123962,411101 124053,410955"} },												
+						{ "label" : "Michael Laboratory", "fid" : "m016",  "wireless" : 1,  "addr1" : "62 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.40471, "lng" : -71.12088, "polygon" : "12088,40471 120656,404627 120547,404785 12077,404868 12088,40471"} },						
+						{ "label" : "Milne House", "fid" : "m046",       "tags" : "Latino, Hispanic culture",    "addr1" : "8-10 Whitfield Road", "parkinguid" : "Parking-1", 	"city" : "Somerville", "zip" : "02144",				
+							"map" : { "lat" : 42.405608, "lng" : -71.123345, "polygon" : "123345,405608 123246,405568 123167,405676 123266,405715 123345,405608"} },						
+						{ "label" : "Miner Hall", "fid" : "m017",  "wireless" : 1,      "tags" : "Philosophy",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "14 Upper Campus Road", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Center for Cognitive Studies", "website" : "http://ase.tufts.edu/cogstud/", "phone" : "(617) 627-3297", "locwithin" : "Main Office: Room 115; Visiting Fellows and Postdocs: Room 111" }, 
+								{ "name" : "Philosophy - A&S", "website" : "http://ase.tufts.edu/philosophy/", "email" : "philosophy@tufts.edu", "phone" : "(617) 627-3230", "locwithin" : "Second floor" }
+							],					
+							"map" : { "lat" : 42.406428, "lng" : -71.117988, "polygon" : "117988,406428 117798,406357 11765,40657 11784,406642 117988,406428"} },						
+						{ "label" : "Mugar Hall", "fid" : "m018",  "wireless" : 1,  "website" : "http://dining.tufts.edu/locations-hours/overview/mugar-cafeacute-fletcher-graduate-school-dining/",  "phone" : "617-627-5099",    "tags" : "dining, food",    "addr1" : "160R Packard Avenue", "parkinguid" : "Parking-1", 
+						"occupants" : [
+								{ "name" : "Mugar Dining", "website" : "http://dining.tufts.edu/locations-hours/overview/mugar-cafeacute-fletcher-graduate-school-dining/", "email" : "dante.goytizolo@tufts.edu ", "phone" : "(617) 627-5099" }
+							],					
+							"accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.407799, "lng" : -71.122504, "polygon" : "122504,407799 121903,407572 121727,407826 12233,408052 122504,407799"} },						
+						{ "label" : "Office Services", "fid" : "m084",          "addr1" : "179 College Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.407945, "lng" : -71.116706, "polygon" : "116706,407945 116491,407649 116362,4077 116576,407996 116706,407945"} },						
+						{ "label" : "Olin Center", "fid" : "m086", "image" : "m086.jpg",  "wireless" : 1,      "tags" : "Languages, Spanish, German, French, Russian, Arabic, Japanese, Chinese",    "addr1" : "180 Packard Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Romance Languages - A&S", "website" : "http://ase.tufts.edu/romlang/", "email" : "romancelanguages@tufts.edu", "phone" : "(617) 627-3289", "locwithin" : "Second floor, Room 2" },
+								{ "name" : "German, Russian, and Asian Languages", "website" : "http://ase.tufts.edu/grall/", "email" : "vicky.cirrone@tufts.edu", "phone" : "(617) 627-3442", "locwithin" : "Third floor, Room 32" }
+							],					
+							"map" : { "lat" : 42.408149, "lng" : -71.121448, "polygon" : "121448,408149 121276,408068 121252,408094 121201,40807 12115,408129 121179,408143 12112,408224 121103,408217 121061,408273 121079,408281 121019,408363 121003,408356 120953,408421 121022,40845 121009,408468 121087,4085 121101,408483 121173,408512 121214,408459 121201,408451 121409,408256 121421,408262 121478,408201 121425,408176 121448,408149"} },						
+						{ "label" : "Packard Hall", "fid" : "m034", "image" : "m034.jpg", "wireless" : 1, "tags" : "administration",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "4 The Green", "parkinguid" : "Parking-1", "accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Political Science - A&S", "website" : "http://ase.tufts.edu/polsci/", "email" : "politicalscience@tufts.edu", "phone" : "(617) 627-3465" }
+							],					
+							"map" : { "lat" : 42.407848, "lng" : -71.119485, "polygon" : "119485,407848 119319,407784 119187,407974 119354,408037 119485,407848"} },						
+						{ "label" : "Paige Hall", "fid" : "m027", "image" : "m027.jpg",  "wireless" : 1,  "website" : "http://ase.tufts.edu/education/",  "phone" : "617-627-3244",    "tags" : "Education",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "12 Upper Campus Road", "parkinguid" : "Parking-1", 
+							"occupants" : [
+								{ "name" : "Education - A&S", "website" : "http://ase.tufts.edu/education/", "email" : "Lori.jackson@tufts.edu", "phone" : "(617) 627-3244" }
+							],					
+							"map" : { "lat" : 42.406685, "lng" : -71.117584, "polygon" : "117584,406685 117424,406916 117562,406969 117644,406851 117761,406894 117839,406782 117584,406685"} },						
+						{ "label" : "Pearson Chemical Laboratory", "fid" : "m009", "wireless" : 1,  "tags" : "Pearson Hall",    "addr1" : "62 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Chemistry - A&S", "website" : "http://chem.tufts.edu/", "phone" : "(617) 627-3441" }
+							],					
+							"map" : { "lat" : 42.404922, "lng" : -71.120766, "polygon" : "120766,404922 120207,404714 120066,404921 120624,405128 120766,404922"} },						
+						{ "label" : "Perry and Marty Granoff Music Center", "fid" : "m195", "image" : "m195.jpg",  "wireless" : 1, "website" : "http://as.tufts.edu/music/musiccenter/default.aspx",  "phone" : "617-627-3679",  "shortname" : "Granoff Music Center",   "tags" : "Music, performance, concert, Distler Performance Hall",    "addr1" : "20 Talbot Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 42.404508, "lng" : -71.117774}  }, 
+							"occupants" : [
+								{ "name" : "Music - A&S", "website" : "http://as.tufts.edu/music/default.aspx", "email" : "musicadmin@tufts.edu", "phone" : "(617) 627-3564", "locwithin" : "First floor" }
+							],					
+							"map" : { "lat" : 42.404313, "lng" : -71.118605, "polygon" : "118605,404313 118373,404253 118332,404337 118303,404349 118273,404365 118241,404384 118219,404402 118213,404366 118176,404369 118171,404343 118124,404346 118127,404373 117959,404385 117995,404662 11825,404644 118247,404611 118315,40464 1184,404651 118472,404641 118524,404611 11848,404576 118605,404313"} },						
+						{ "label" : "Psychology Building", "fid" : "m021",  "wireless" : 1, "website" : "http://ase.tufts.edu/psychology/",  "phone" : "617-627-3523",       "addr1" : "490 Boston Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.406126, "lng" : -71.116024, "polygon" : "116024,406126 115804,406215 116025,40651 116246,406421 116024,406126"} },						
+						{ "label" : "Remis Sculpture Court", "fid" : "m019",          "addr1" : "15 Lower Campus Road", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404561, "lng" : -71.11866, "polygon" : "11866,404561 118704,404462 118639,404446 118596,404545 11866,404561"} },						
+						{ "label" : "Robinson Hall", "fid" : "m022", "wireless" : 1, "tags" : "Engineering",    "addr1" : "212 College Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Physics & Astronomy - A&S", "website" : "https://wikis.uit.tufts.edu/confluence/display/physics/Home", "email" : "gayle.grant@tufts.edu", "phone" : "(617) 627-3029", "locwithin" : "Room 257" }
+							],					
+							"map" : { "lat" : 42.405689, "lng" : -71.117175, "polygon" : "117175,405689 117012,405626 116809,405915 116973,405977 117175,405689"} },						
+						{ "label" : "Sawyer House", "fid" : "m049", "wireless" : 1,  "addr1" : "120 Curtis Street", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Counseling Center", "website" : "http://ase.tufts.edu/counseling/", "email" : "j.ross@tufts.edu", "phone" : "(617) 627-3360" }
+							],					
+							"map" : { "lat" : 42.407286, "lng" : -71.124895, "polygon" : "124895,407286 124774,407245 124684,407389 124805,40743 124895,407286"} },						
+						{ "label" : "Scene Shop", "fid" : "m102",          "addr1" : "530 Boston Avenue", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.405125, "lng" : -71.115191, "polygon" : "115191,405125 115056,404944 114851,405029 114986,405209 115191,405125"} },						
+						{ "label" : "Science and Technology Center", "fid" : "m028",  "wireless" : 1,      "tags" : "Engineering, Biology, Laboratory, SciTech",    "addr1" : "4 Colby Street", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Biomedical Engineering", "website" : "http://engineering.tufts.edu/bme/", "email" : "BME@tufts.edu", "phone" : "(617) 627-2580", "locwithin" : "Second floor, Room 229" },
+								{ "name" : "Chemical Engineering", "website" : "http://engineering.tufts.edu/chbe/", "email" : "ChBE@tufts.edu", "phone" : "(617) 627-3900", "locwithin" : "First floor, Room 148" },
+								{ "name" : "Center For Science and Mathematics Teaching", "website" : "http://ase.tufts.edu/csmt/", "email" : "csmt@tufts.edu", "phone" : "(617) 627-2825", "locwithin" : "Second floor, Room 263" },
+								{ "name" : "High-Energy Physics", "locwithin" : "First floor, Room 105" }
+							],					
+							"map" : { "lat" : 42.403363, "lng" : -71.113225, "polygon" : "113225,403363 112793,403541 113019,403844 11323,40376 113959,404729 11418,40464 113225,403363"} },												
+						{ "label" : "Start House", "fid" : "m081",          "addr1" : "17 Latin Way", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.405639, "lng" : -71.120994, "polygon" : "120994,405639 120886,405599 120814,405706 120921,405746 120994,405639"} },						
+						{ "label" : "TAB", "fid" : "m030",  "wireless" : 2,      "tags" : "Tufts Administration Building",   "directionsmessage" : "There is meterEd parking on the street but it is limited.",  "addr1" : "169 Holland Street", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "Somerville", "zip" : "02144", 
+							"occupants" : [
+								{ "name" : "Risk Management", "website" : "http://finance.tufts.edu/risk-ins/", "email" : "David.Slater@tufts.edu", "phone" : "(617) 627-3981" },
+								{ "name" : "Tufts Technology Services", "website" : "http://it.tufts.edu/", "email" : "uitsc@tufts.edu", "phone" : "(617) 627-3376" }
+							],					
+							"map" : { "lat" : 42.402161, "lng" : -71.124896, "polygon" : "124896,402161 125274,40163 12463,401387 12422,401908"} },						
+						{ "label" : "Tisch Library", "fid" : "m024", "image" : "m024.jpg",  "wireless" : 1,  "website" : "http://www.library.tufts.edu/Tisch/",  "phone" : "617-627-3347",    "tags" : "Information Technology Services - ITS, Tower Cafe",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "35 Professors Row", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Tisch Library", "website" : "http://www.library.tufts.edu/tisch/", "email" : "tischadmin@tufts.edu", "phone" : "(617) 627-3345" },
+								{ "name" : "Digital Collections & Archives", "website" : "http://sites.tufts.edu/dca/", "email" : "archives@tufts.edu", "phone" : "(617) 627-3737", "locwithin" : "Level G" },
+								{ "name" : "University Library Services", "website" : "http://ase.tufts.edu/its/", "email" : "tulips@tufts.edu", "locwithin" : "First floor" },
+								{ "name" : "Arts & Sciences Information Technology", "website" : "http://ase.tufts.edu/its/", "email" : "tulips@tufts.edu", "locwithin" : "First floor" },
+								{ "name" : "Tower Cafe", "website" : "http://dining.tufts.edu/locations-hours/overview/the-tower-caf-at-tisch-library/", "email" : "arthur.rigordaeva@tufts.edu", "phone" : "(617) 627-3841", "locwithin" : "Inside the Tower" }
+							],					
+							"map" : { "lat" : 42.405866, "lng" : -71.118749, "polygon" : "118749,405866 118804,405787 11855,405689 118495,405768 118395,405759 118306,405775 118233,40581 118181,405864 118155,40592 118165,405993 118194,406044 118261,406098 118239,406127 118156,406096 11806,406234 118611,406446 118563,406516 119214,406765 119367,406548 119287,406515 119371,406396 119452,406426 119599,406216 119369,406125 119436,406029 119212,405942 119153,406021 118749,405866"} },						
+						{ "label" : "Tousey House", "fid" : "m057",          "addr1" : "14 Edison Avenue", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.410433, "lng" : -71.123949, "polygon" : "123949,410433 123757,410368 123702,410455 123895,41052 123949,410433"} },						
+						{ "label" : "Wyeth House", "fid" : "m076",       "tags" : "German Culture, Residence",    "addr1" : "21 Whitfield Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.405928, "lng" : -71.123338, "polygon" : "123338,405928 123231,405886 123149,405996 123257,406039 123338,405928"} }						
+						]},
+				{ "label" : "Athletics",  "visible" : 1, "includeInCatchAll" : 1, 					"children" : [
+						{ "label" : "Baronian Field House", "fid" : "m162",          "addr1" : "20 Lower Campus Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.403098, "lng" : -71.119641, "polygon" : "119641,403098 119478,403119 1195,403211 119403,403427 11932,403486 119435,403574 119569,403481 119676,403249 119641,403098"} },						
+						{ "label" : "Cousens Gym", "fid" : "m031",  "wireless" : 2,      "tags" : "gymnasium, work out, exercise, fitness, sport",    "addr1" : "161 College Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 42.408469, "lng" : -71.115092}  }, 					
+							"map" : { "lat" : 42.408773, "lng" : -71.116541, "polygon" : "116541,408773 115692,408315 115354,408658 116204,409113 116541,408773"} },						
+						{ "label" : "Gantcher Center", "fid" : "m184", "wireless" : 1, "tags" : "Gym, Gymnasium, Workout, Exercise, Track, Pool, Athletics",    "addr1" : "161 College Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.409588, "lng" : -71.115559, "polygon" : "115559,409588 115592,409554 115016,409244 114982,409279 114881,409225 114437,409673 115385,410183 115825,409735 115559,409588"} },						
+						{ "label" : "Steve Tisch Sports and Fitness Center", "fid" : "m202",       "tags" : "Gym, Gymnasium, Workout, Exercise, Track, Pool, Athletics, swimming",    "addr1" : "161 College Ave", "parkinguid" : "Parking-1", "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.409002, "lng" : -71.115874, "polygon" : "115874,409002 115767,408947 115811,408904 115573,408777 11508,409277 11542,40946 115874,409002"} },						
+						{ "label" : "Jackson Gym", "fid" : "m040", "wireless" : 1, "tags" : "Dance, dancing, gymnasium",    "addr1" : "50 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 					
+							"map" : { "lat" : 42.404749, "lng" : -71.119731, "polygon" : "119731,404749 119808,404574 119393,404474 119377,40451 11926,404483 119212,404592 119247,404601 119211,404685 119374,404723 119398,40467 119731,404749"} }						
+						]},
+				{ "label" : "Fraternity/Sorority House",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 					"children" : [
+						{ "label" : "Alpha Omicron Pi", "fid" : "m142", "image" : "m142.jpg",   "website" : "http://aoiidelta.wordpress.com/",     "tags" : "sorority, greek, residence, aopi",    "addr1" : "25 Whitfield Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.406132, "lng" : -71.123882, "polygon" : "123882,406132 123743,406075 123663,406182 123808,40624 123882,406132"} },						
+						{ "label" : "Alpha Phi", "fid" : "m111", "image" : "wh_m111.jpg",       "tags" : "sorority, greek, residence",    "addr1" : "14 Sawyer Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.406213, "lng" : -71.123221, "polygon" : "123221,406213 123115,40617 123061,406246 123165,406288 123221,406213"} },						
+						{ "label" : "Alpha Tau Omega", "fid" : "m136", "image" : "m136.jpg",       "tags" : "fraternity, greek, residence, ato",    "addr1" : "134 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.407352, "lng" : -71.124426, "polygon" : "124426,407352 124273,407296 124165,407453 124319,40751 124426,407352"} },						
+						{ "label" : "Chi Omega", "fid" : "m135", "image" : "m135.jpg",   "website" : "http://chaptersites.chiomega.com/default.aspx?site=30",     "tags" : "sorority, greek, ChiO, Chi O, residence",    "addr1" : "106 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.406798, "lng" : -71.123002, "polygon" : "123002,406798 122889,406962 123053,407023 123165,406859 123002,406798"} },						
+						{ "label" : "Delta Tau Delta: Beta Mu", "fid" : "m137", "image" : "m133.jpg",       "tags" : "fraternity, greek, residence, aepi",    "addr1" : "98 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.406747, "lng" : -71.122756, "polygon" : "122756,406747 122685,40672 122647,406776 122552,406741 122496,406822 122702,406899 122757,406817 122718,406802 122756,406747"} },						
+						{ "label" : "Delta Upsilon", "fid" : "m133", "image" : "m133.jpg",       "tags" : "fraternity, greek, DU, residence",    "addr1" : "114 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.407007, "lng" : -71.123508, "polygon" : "123508,407007 123291,406926 123179,407091 123395,407172 123508,407007"} },						
+						{ "label" : "Sigma Nu", "fid" : "m109", "image" : "m109.jpg",       "tags" : "fraternity, greek, residence",    "addr1" : "92 Professors Row", "parkinguid" : "Parking-1", 	"city" : "Somerville", "zip" : "02144",				
+							"map" : { "lat" : 42.40664, "lng" : -71.122469, "polygon" : "122469,40664 122309,406581 122211,406725 122371,406784 122469,40664"} },						
+						{ "label" : "Theta Chi", "fid" : "m138", "image" : "wh_m138.jpg",   "website" : "http://tuftsthetachi.com/",     "tags" : "fraternity, greek, residence",    "addr1" : "100 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.405572, "lng" : -71.12313, "polygon" : "12313,405572 122955,405503 122894,405585 123069,405655 12313,405572"} },						
+						{ "label" : "Theta Delta Chi", "fid" : "z003", "image" : "z003.jpg", "tags" : "fraternity, greek, residence",    "addr1" : "123 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.406191, "lng" : -71.121892, "polygon" : "121892,406191 122025,406241 122146,406063 122013,406014 121892,406191"} },						
+						{ "label" : "Zeta Beta Tau", "fid" : "m105", "image" : "m105.jpg",   "website" : "http://zbtomicron.com/newsite/index.php",     "tags" : "fraternity, greek, residence, zbt",    "addr1" : "126 Packard Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.40636, "lng" : -71.122598, "polygon" : "122598,40636 122473,40631 122424,406376 122551,406426 122598,40636"} },						
+						{ "label" : "Zeta Psi", "fid" : "m139", "image" : "m139.jpg",   "website" : "http://kappazete.com/",     "tags" : "fraternity, greek, residence",    "addr1" : "80 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.406367, "lng" : -71.121896, "polygon" : "121896,406367 12175,406313 12162,406502 121766,406556 121896,406367"} }						
+						]},
+				{ "label" : "Other",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 					"children" : [
+						{ "label" : "William A. Shoemaker Boathouse at Tufts University", "fid" : "m197", "image" : "tbd-bh.jpg",    "shortname" : "Tufts Boathouse",   "tags" : "crew",    "addr1" : "177 Corporation Way", "parkinguid" : "Parking-14",				
+							"map" : { "lat" : 42.410668, "lng" : -71.073947, "polygon" : "073947,410668 073936,41045 073724,41046 073735,410673"} },						
+						{ "label" : "Brown & Brew", "fid" : "mbb",   "website" : "http://dining.tufts.edu/locations-hours/overview/brown-brew-coffee-house/",     "tags" : "food, dining, coffee",    "addr1" : "474 Boston Ave", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.406815, "lng" : -71.11658, "polygon" : "11658,406815 116558,406682 116272,406706 116294,406839 11658,406815"} },						
+						{ "label" : "Central Heating Building", "fid" : "m063",          "addr1" : "100 North Hill Road", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.407908, "lng" : -71.118432, "polygon" : "118432,407908 118374,407935 118325,40788 118353,407865 118214,407707 118139,407742 118093,407691 118012,40773 118056,407781 118038,407791 118178,407949 118199,40794 118249,407995 118271,407985 118314,408033 118459,408095 118556,408049 118432,407908"} },						
+						{ "label" : "Dewick-MacPhie Dining Hall", "fid" : "m078", "wireless" : 1, "image" : "m078.jpg",   "website" : "http://dining.tufts.edu/locations-hours/overview/dewickmacphie-dining-center/",  "phone" : "617-627-3462",    "tags" : "dining, food",    "addr1" : "25 Latin Way", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	"accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Central Kitchen and Bakery", "website" : "http://dining.tufts.edu/", "email" : "ja.fisher@tufts.edu", "phone" : "(617) 627-2067", "locwithin" : "Lower Level" },
+								{ "name" : "Dewick Dining", "website" : "http://dining.tufts.edu/locations-hours/overview/dewickmacphie-dining-center/", "email" : "john.beaulac@tufts.edu", "phone" : "(617) 627-3462", "locwithin" : "Upper Level" }
+							],					
+							"map" : { "lat" : 42.405166, "lng" : -71.121693, "polygon" : "121693,405166 12129,405015 121122,405258 121081,405241 120972,405398 121474,405586 121581,405431 121526,40541 121693,405166"} },						
+						{ "label" : "Gifford House", "fid" : "m045", "image" : "m045.jpg",  "wireless" : 1,  "website" : "http://president.tufts.edu/", "tags" : "Tony Monaco, President",    "addr1" : "161 Packard Avenue", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.407032, "lng" : -71.121481, "polygon" : "121481,407032 121245,406946 121073,407206 121308,407291 121481,407032"} },						
+						{ "label" : "Goddard Chapel", "fid" : "m042", "image" : "m042.jpg",   "website" : "http://chaplaincy.tufts.edu/goddard/",     "tags" : "Religion, Services, Chaplaincy",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "3 The Green", "parkinguid" : "Parking-1", 
+							"occupants" : [
+								{ "name" : "Chaplain's Office", "website" : "http://chaplaincy.tufts.edu/", "email" : "Linda.Karpowich@tufts.edu", "phone" : "(617) 627-3427" }
+							],					
+							"map" : { "lat" : 42.406947, "lng" : -71.119446, "polygon" : "119446,406947 119369,407055 119267,407016 119209,407099 119312,407137 119287,407173 119494,407251 119624,407066 119638,407071 119673,407021 11961,406997 119602,407007 119446,406947"} },						
+						{ "label" : "Hillside House", "fid" : "m061",          "addr1" : "32 Dearborn Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.404948, "lng" : -71.117136, "polygon" : "117136,404948 117023,404957 117043,405094 117156,405085 117136,404948"} }						
+						]},
+				{ "label" : "Residence Halls",  "visible" : 1, "includeInCatchAll" : 1, 					"children" : [
+						{ "label" : "10 Winthrop Street", "fid" : "m125",       "tags" : "residence",    "addr1" : "10 Winthrop Street", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.409542, "lng" : -71.123507, "polygon" : "123507,409542 123342,409486 123293,409563 123458,409619 123507,409542"} },						
+						{ "label" : "12 Dearborn Road", "fid" : "m087",       "tags" : "dormitory, residence",    "addr1" : "12 Dearborn Road", "parkinguid" : "Parking-1",  "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.404839, "lng" : -71.11618, "polygon" : "11618,404839 116055,404847 116069,404976 116194,404968 11618,404839"} },						
+						{ "label" : "176 Curtis Street", "fid" : "m098",       "tags" : "residence",    "addr1" : "176 Curtis Street", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.409188, "lng" : -71.123716, "polygon" : "123716,409188 123634,40916 12364,40915 123544,409118 123488,409207 123666,409267 123716,409188"} },						
+						{ "label" : "9-11 Sunset Road", "fid" : "m117",       "tags" : "residence",    "addr1" : "9-11 Sunset Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.408724, "lng" : -71.124437, "polygon" : "124437,408724 124329,408688 124244,408823 124352,408859 124437,408724"} },						
+						{ "label" : "90-94 Curtis Street", "fid" : "m090",       "tags" : "residence",    "addr1" : "90-94 Curtis Street", "parkinguid" : "Parking-1", 	"city" : "Somerville", "zip" : "02144",				
+							"map" : { "lat" : 42.40644, "lng" : -71.125544, "polygon" : "125544,40644 125364,406369 125249,406526 125429,406597 125544,40644"} },						
+						{ "label" : "Anthony House", "fid" : "m056",       "tags" : "Crafts House, residence",    "addr1" : "14 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.405313, "lng" : -71.11841, "polygon" : "11841,405313 118278,405316 118286,405465 118417,405462 11841,405313"} },						
+						{ "label" : "Bartol House", "fid" : "m047",       "tags" : "Arts House, residence",    "addr1" : "37 Sawyer Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.406559, "lng" : -71.123302, "polygon" : "123302,406559 123149,406497 123098,406566 123252,406627 123302,406559"} },						
+						{ "label" : "Bush Hall", "fid" : "m064",   "wireless" : 1,    "tags" : "dormitory, residence",    "addr1" : "29 Latin Way", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.404987, "lng" : -71.122006, "polygon" : "122006,404987 121457,404779 121372,4049 12192,40511 122006,404987"} },						
+						{ "label" : "Capen House", "fid" : "m066",       "tags" : "African American Culture, African American Center, Africana house, residence",    "addr1" : "8 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",
+							"occupants" : [
+								{ "name" : "African American Center", "website" : "http://ase.tufts.edu/africana/", "email" : "africana@tufts.edu", "phone" : "(617) 627-3372", "locwithin" : "First floor" }
+							],					
+							"map" : { "lat" : 42.405312, "lng" : -71.118072, "polygon" : "118072,405312 117863,405341 117901,405492 11811,405464 118072,405312"} },						
+						{ "label" : "Carmichael Hall", "fid" : "m067", "image" : "m067.jpg",  "wireless" : 1,  "website" : "http://dining.tufts.edu/locations-hours/overview/carmichael-dining-center/",  "phone" : "617-627-3557",    "tags" : "chase center, dormitory, dining, food",    "addr1" : "200 Packard Avenue", "parkinguid" : "Parking-1", "accessibility" : { "level" : 0, "restroom" : 0, "parking" : { "lat" : 42.409714, "lng" : -71.122653}  }, 
+							"occupants" : [
+								{ "name" : "Carmichael Dining Hall", "website" : "http://dining.tufts.edu/locations-hours/overview/carmichael-dining-center/", "email" : "peter.kourafalos@tufts.edu", "phone" : "(617) 627-3557", "locwithin" : "Basement" }
+							],					
+							"map" : { "lat" : 42.408935, "lng" : -71.122951, "polygon" : "122951,408935 122659,408769 12257,408853 122695,408923 122618,408996 122675,409029 122437,409257 122379,409225 122301,409301 122178,409231 122094,409312 122322,40944 122402,40936 122554,409444 122947,409065 122865,409018 122951,408935"} },						
+						{ "label" : "Carpenter House", "fid" : "m129",       "tags" : "residence",    "addr1" : "8 Winthrop Street", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.409383, "lng" : -71.123707, "polygon" : "123707,409383 123652,409363 123661,409348 123604,409329 123575,409376 123529,409361 123549,409328 123481,409305 123464,409332 123449,409327 123385,409428 123628,40951 123707,409383"} },						
+						{ "label" : "Davies House", "fid" : "m069",       "tags" : "International House, residence, I house",    "addr1" : "13 Sawyer Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.406461, "lng" : -71.123036, "polygon" : "123036,406461 122903,406408 122834,406505 122965,406558 123036,406461"} },						
+						{ "label" : "Dearborn House", "fid" : "m108",       "tags" : "residence",    "addr1" : "72 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.406258, "lng" : -71.121483, "polygon" : "121483,406258 121353,40621 121252,406359 121381,406407 121483,406258"} },						
+					
+						{ "label" : "Fine Arts House", "fid" : "m118", "wireless" : 1, "tags" : "residence",    "addr1" : "11 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",	
+							"occupants" : [
+								{ "name" : "Art and Art History", "website" : "http://ase.tufts.edu/art/", "email" : "rosalie.bruno@tufts.edu", "phone" : "(617) 627-3567" }
+							],					
+							"map" : { "lat" : 42.404973, "lng" : -71.118115, "polygon" : "118115,404973 117887,404994 117906,405104 118134,405082 118115,404973"} },						
+						{ "label" : "Hallowell Hall", "fid" : "m155",  "wireless" : 1, "tags" : "dormitory, residence",    "addr1" : "10-80 North Hill Road", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.408541, "lng" : -71.119115, "polygon" : "119115,408541 119151,408526 119112,408473 118967,408532 119014,408597 118915,408637 118961,408699 118863,408739 118909,408802 118811,408841 118856,408903 118827,408914 118854,40895 118992,408894 118945,408831 119043,408792 118997,408729 119095,40869 119048,408625 119147,408585 119115,408541"} },						
+						{ "label" : "Haskell Hall", "fid" : "m054",  "wireless" : 1,      "tags" : "dormitory, residence",    "addr1" : "43 Latin Way", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.40413, "lng" : -71.122171, "polygon" : "122171,40413 121979,404056 121579,404612 121771,404686 122171,40413"} },						
+						{ "label" : "Hill Hall", "fid" : "m053",    "wireless" : 1,   "tags" : "dormitory, residence, mail",    "addr1" : "387 Boston Avenue", "parkinguid" : "Parking-1", 
+							"occupants" : [
+								{ "name" : "Support Services", "website" : "http://operations.tufts.edu/mailservices/", "email" : "sheila.chisholm@tufts.edu", "phone" : "(617) 627-5123", "locwithin" : "Back of building" }
+							],					
+							"map" : { "lat" : 42.409466, "lng" : -71.119819, "polygon" : "119819,409466 119863,409426 11972,409338 119675,409377 119342,409171 119245,409257 119577,409463 119483,409546 119626,409634 11972,409552 119892,409659 11999,409572 119819,409466"} },						
+						{ "label" : "Hillside Housing 1", "fid" : "m153", "wireless" : 1, "tags" : "dormitory, residence",    "addr1" : "10-80 North Hill Road", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.408971, "lng" : -71.119227, "polygon" : "119227,408971 118971,409074 119027,40915 119283,409047 119227,408971"} },						
+						{ "label" : "Hillside Housing 2", "fid" : "m154", "wireless" : 1, "tags" : "dormitory, residence",    "addr1" : "10-80 North Hill Road", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.408782, "lng" : -71.119584, "polygon" : "119584,408782 119328,408886 119385,408962 119641,408858 119584,408782"} },						
+						{ "label" : "Hodgdon Hall", "fid" : "m052",   "website" : "http://dining.tufts.edu/locations-hours/overview/hodgdon-goodtogo-takeout/",  "phone" : "617-627-2917",    "tags" : "dormitory, dining, food",    "addr1" : "100 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",
+							"occupants" : [
+								{ "name" : "Hodgdon Dining", "website" : "http://dining.tufts.edu/locations-hours/overview/hodgdon-goodtogo-takeout/", "email" : "cyrus.falconer@tufts.edu", "phone" : "(617) 627-2917", "locwithin" : "Basement" }
+							],					
+							"map" : { "lat" : 42.405214, "lng" : -71.122139, "polygon" : "122139,405214 121968,405462 121658,405347 121586,40545 121902,405568 121873,405611 122093,405691 122133,405634 122293,405693 122374,405575 122126,405482 122275,405265 122139,405214"} },						
+						{ "label" : "Houston Hall", "fid" : "m080",  "wireless" : 1,      "tags" : "dormitory, residence",    "addr1" : "190 Packard Avenue", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.408424, "lng" : -71.122535, "polygon" : "122535,408424 121689,407931 121556,408053 122403,408545 122535,408424"} },						
+						{ "label" : "Latin Way Dormitory", "fid" : "m146",    "wireless" : 1,   "tags" : "dormitory, residence",    "addr1" : "40A-F Lower Campus Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.404132, "lng" : -71.121545, "polygon" : "121545,404132 121638,403998 121607,403928 121167,403764 121079,403785 121013,403876 120947,403892 120818,403846 120743,403861 120638,404006 120647,404051 120699,40407 120754,404048 120798,403988 120861,403971 120945,404002 121007,404011 12108,403991 121146,403906 121211,403889 121458,40398 121475,404021 12143,404089 121441,404136 121487,404152 121545,404132"} },						
+						{ "label" : "Lane Hall", "fid" : "m006", "wireless" : 1, "tags" : "Art, Geology",  "directionsoverride" : "419 Boston Ave, Medford, MA",  "directionsmessage" : "Driving directions bring you to the closest parking, the Dowling Parking Garage.",  "addr1" : "2 North Hill Road", "parkinguid" : "Parking-1", 
+							"occupants" : [
+								{ "name" : "Geology - A&S", "website" : "http://eos.tufts.edu/", "email" : "janet.silvano@tufts.edu", "phone" : "(617) 627-3494", "locwithin" : "Room 101" }
+							],					
+							"map" : { "lat" : 42.408994, "lng" : -71.119804, "polygon" : "119804,408994 119658,409123 119927,40929 120074,409161 119804,408994"} },							
+						{ "label" : "Lewis Hall", "fid" : "m128",       "tags" : "dormitory, residence",    "addr1" : "75 Packard Avenue", "parkinguid" : "Parking-1", 	"city" : "Somerville", "zip" : "02144",				
+							"map" : { "lat" : 42.40481, "lng" : -71.12296, "polygon" : "12296,40481 123002,404826 123024,404795 122911,40475 122987,404645 122967,404635 12302,404562 122982,404547 122975,404556 122647,404428 122609,404477 12258,404466 12256,404493 122642,404524 122636,404533 122839,40461 122828,404622 122847,40463 122726,404798 122801,404828 122615,405083 122598,405077 122589,405086 122351,404994 122339,405009 122257,404978 122237,405004 12227,405018 122242,405057 122525,405168 122491,405216 12253,405232 12259,40515 122684,405189 12296,40481"} },						
+						{ "label" : "MetCalf Hall", "fid" : "m073",   "wireless" : 1,    "tags" : "dormitory, residence",    "addr1" : "56 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.40605, "lng" : -71.121089, "polygon" : "121089,40605 120956,406001 120931,406038 120802,40599 120818,405967 120659,405908 120534,406093 120691,406151 120736,406086 120865,406134 120829,406189 120961,406238 121089,40605"} },						
+						{ "label" : "Miller Hall", "fid" : "m077",  "wireless" : 2,      "tags" : "dormitory, residence",    "addr1" : "210 Packard Avenue", "parkinguid" : "Parking-1", 
+							"occupants" : [
+								{ "name" : "Tufts Institute of the Environment", "website" : "http://environment.tufts.edu/", "email" : "TIE@tufts.edu", "phone" : "(617) 627-3645", "locwithin" : "Garden Level/East Rear Door" },
+								{ "name" : "Office of Sustainability", "website" : "http://sustainability.tufts.edu", "email" : "sustainabilityoffice@tufts.edu", "phone" : "617-627-5517", "locwithin" : "Garden Level/East Rear Door" },
+								{ "name" : "Environmental Studies Program", "website" : "http://as.tufts.edu/environmentalstudies", "email" : "ann.greaney-williams@tufts.edu", "phone" : "617-627-3553", "locwithin" : "Garden Level/East Rear Door" }
+							],					
+							"map" : { "lat" : 42.409189, "lng" : -71.121743, "polygon" : "121743,409189 120895,408694 120762,408817 12161,409311 121743,409189"} },						
+						{ "label" : "Richardson House", "fid" : "m051",       "tags" : "women's residence",    "addr1" : "28 Professors Row", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",						
+							"map" : { "lat" : 42.405475, "lng" : -71.119307, "polygon" : "119307,405475 119198,405445 119175,405491 119109,405473 119133,405426 119026,405396 118959,405522 119241,405602 119307,405475"} },						
+						{ "label" : "Schmalz House", "fid" : "m050",       "tags" : "residence",    "addr1" : "15 Whitfield Road", "parkinguid" : "Parking-1", 	"city" : "Somerville", "zip" : "02144",				
+							"map" : { "lat" : 42.405867, "lng" : -71.123172, "polygon" : "123172,405867 123064,405825 122984,405935 123091,405978 123172,405867"} },						
+						{ "label" : "Sophia Gordon Hall", "fid" : "m196", "image" : "m196.jpg",  "wireless" : 1,      "tags" : "dormitory, residence",    "addr1" : "15 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 42.404783, "lng" : -71.118407}  }, 					
+							"map" : { "lat" : 42.405227, "lng" : -71.118723, "polygon" : "118723,405227 118821,40524 118888,40495 118692,404926 118653,405033 118588,40503 118585,405061 118432,405051 118431,40503 118441,40503 118411,40489 118202,404899 118225,405234 118381,405229 118383,405244 118453,405242 118442,405145 118573,405153 118563,405232 118718,40525 118723,405227"} },						
+						{ "label" : "South Hall", "fid" : "m043",  "wireless" : 2,      "tags" : "dormitory, residence",  "directionsoverride" : "42.404268,-71.121615",   "addr1" : "30 Lower Campus Road", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, 
+							"occupants" : [
+								{ "name" : "Residence Life Office", "website" : "http://ase.tufts.edu/reslife/", "email" : "reslife@tufts.edu", "phone" : "(617) 627-3248", "locwithin" : "First floor" }
+							],					
+							"map" : { "lat" : 42.40353, "lng" : -71.120542, "polygon" : "120542,40353 12072,403594 120759,403538 120837,403566 120888,403491 120493,403346 120474,403374 12038,403339 12001,403878 120084,403904 120061,403938 120479,404092 120529,404025 120451,403996 120485,403944 120307,403879 120542,40353"} },						
+						{ "label" : "Stratton Hall", "fid" : "m048",       "tags" : "dormitory, residence",    "addr1" : "45 Talbot Avenue", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.405102, "lng" : -71.119459, "polygon" : "119459,405102 119368,40508 119357,405103 119099,405042 119109,405018 119018,404996 118951,405155 119039,405176 119049,405154 119308,405216 11927,405304 119391,405333 119421,405268 119389,405259 119459,405102"} },						
+						{ "label" : "Tilton Hall", "fid" : "m062",       "tags" : "dormitory, residence",    "addr1" : "1 Tilton Lane", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144",					
+							"map" : { "lat" : 42.404461, "lng" : -71.122441, "polygon" : "122441,404461 122267,404396 121987,404802 122162,404867 122441,404461"} },						
+						{ "label" : "West Hall", "fid" : "m037",  "wireless" : 1,      "tags" : "dormitory, residence",    "addr1" : "175 Packard Avenue", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.408226, "lng" : -71.12053, "polygon" : "12053,408226 120131,408078 120043,408206 120442,408353 12053,408226"} },						
+						{ "label" : "Wilson House", "fid" : "m075",       "tags" : "residence",    "addr1" : "136 Curtis Street", "parkinguid" : "Parking-1", "city" : "Somerville", "zip" : "02144", 					
+							"map" : { "lat" : 42.407882, "lng" : -71.124742, "polygon" : "124742,407882 124641,407848 124649,407834 124541,407798 124528,407816 124427,407782 124345,407914 124453,407951 12449,407893 124584,407924 124551,407979 12466,408015 124742,407882"} },						
+						{ "label" : "Wren Hall", "fid" : "m055",  "wireless" : 1, "tags" : "dormitory, residence",    "addr1" : "11 Winthrop Street", "parkinguid" : "Parking-1", 					
+							"map" : { "lat" : 42.409493, "lng" : -71.121548, "polygon" : "121548,409493 121398,409634 12213,41006 122282,409922 121548,409493"} }						
+						]},
+				{ "label" : "Parking",  "visible" : 1, "includeInCatchAll" : 1,
+					"children" : [
+						{ "label" : "Visitor", "code" : "v", "children" : [						
+							{ "label" : "Dowling Parking Garage", "type" : "parking", "fid" : "p001",  "uid" : "Parking-1", 
+							  "more" : "There is plenty of parking available in the University's main parking garage on Boston Avenue. Visitors must purchase a token ($5.00) to exit the garage. The entrances to the garage are from North Hill Road and from Boston Avenue. The garage is open from 6:00 AM to 12 midnight and closed on holidays and weekends. Overnight parking is not allowed in the garage.", 							  
+							  "codes" : "v,f,c",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "419 Boston Avenue", 					 
+							  "map" : { "lat" : 42.40879, "lng" : -71.118257 } }							
+						
+						
+						] },				
+						{ "label" : "Faculty/Staff", "code" : "f", "children" : [						
+							{ "label" : "80 George Street Parking Lot", "type" : "parking", "fid" : "p004",  "uid" : "Parking-10", 
+							  "more" : "There are a limited number of visitor and handicap parking slots at 80 George St.  All remaining parking requires a faculty/staff sticker or guest pass. Due to an agreement between Tufts and the City of Medford, Tufts employees are not permitted to park on the streets surrounding the building. Please use a Tufts lot.", 
+							  "shortname" : "80 George Parking Lot",							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "80 George Street", 					 
+							  "map" : { "lat" : 42.41173, "lng" : -71.11481 } },												
+							{ "label" : "Aidekman Arts Center Parking Lot 1", "type" : "parking", "fid" : "p006",  "uid" : "Parking-5",  
+							  "shortname" : "Aidekman Parking Lot 1",							  
+							  "codes" : "f,c",
+							  
+							  "restriction" : "Parking is restricted to faculty/staff, commuter and vehicles with a guest pass only. Stickers are required.",							  
+							  							  
+							  							  
+							  "addr1" : "Lower Campus Road", 					 
+							  "map" : { "lat" : 42.404346, "lng" : -71.117646 } },												
+							{ "label" : "Aidekman Arts Center Parking Lot 2", "type" : "parking", "fid" : "p014",  "uid" : "Parking-8",  
+							  "shortname" : "Aidekman Parking Lot 2",							  
+							  "codes" : "f",
+							  
+							  "restriction" : "Faculty/Staff parking only (sticker required).",							  
+							  							  
+							  							  
+							  "addr1" : "Lower Campus Road", 					 
+							  "map" : { "lat" : 42.404239, "lng" : -71.119797 } },												
+							{ "label" : "Anderson/Bromfield Pearson Parking Lot", "type" : "parking", "fid" : "p015",  "uid" : "Parking-9",  
+							  "shortname" : "Anderson/Bromfield Pearson Lot",							  
+							  "codes" : "f",
+							  
+							  "restriction" : "Faculty/Staff parking only (sticker required).",							  
+							  							  
+							  							  
+							  "addr1" : "Boston Avenue", 					 
+							  "map" : { "lat" : 42.405856, "lng" : -71.116433 } },												
+							{ "label" : "Cousens Parking Lot", "type" : "parking", "fid" : "p003",  "uid" : "Parking-3",  							  
+							  "codes" : "c,r,f",
+							  
+							  "restriction" : "Guest pass, faculty/staff, commuter, resident, and sophomore. Stickers are required.",							  
+							  							  
+							  							  
+							  "addr1" : "College Avenue", 					 
+							  "map" : { "lat" : 42.408222, "lng" : -71.115054 } },												
+							{ "label" : "Dowling Parking Garage", "type" : "parking", "fid" : "p001",  "uid" : "Parking-1B", 
+							  "more" : "There is plenty of parking available in the University's main parking garage on Boston Avenue. Visitors must purchase a token ($5.00) to exit the garage. The entrances to the garage are from North Hill Road and from Boston Avenue. The garage is open from 6:00 AM to 12 midnight and closed on holidays and weekends. Overnight parking is not allowed in the garage.", 							  
+							  "codes" : "v,f,c",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "419 Boston Avenue", 					 
+							  "map" : { "lat" : 42.40879, "lng" : -71.118257 } },												
+							{ "label" : "Eliot Pearson Parking Lot", "type" : "parking", "fid" : "p002",  "uid" : "Parking-2",  							  
+							  "codes" : "f",
+							  
+							  "restriction" : "A guest pass or faculty/staff sticker is required.",							  
+							  							  
+							  							  
+							  "addr1" : "College Avenue", 					 
+							  "map" : { "lat" : 42.41028, "lng" : -71.115049 } },												
+							{ "label" : "Fletcher Parking Lot", "type" : "parking", "fid" : "p010",  "uid" : "Parking-6",  							  
+							  "codes" : "f",
+							  
+							  "restriction" : "Faculty/Staff sticker required.",							  
+							  							  
+							  							  
+							  "addr1" : "Curtis Street", 					 
+							  "map" : { "lat" : 42.408422, "lng" : -71.12345 } },												
+							{ "label" : "TAB Parking Lot", "type" : "parking", "fid" : "p005",  "uid" : "Parking-4", 
+							  "more" : "TAB faculty/staff sticker required. Parking in the TAB lot is reserved for special faculty/staff TAB Parking stickers.  All other parking is prohibited. There are some metered parking spots along the adjacent street.", 							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "169 Holland Street", "city" : "Somerville", "zip" : "2144", 					 
+							  "map" : { "lat" : 42.401848, "lng" : -71.125928 } },												
+							{ "label" : "Upper Campus Road Parking Lot", "type" : "parking", "fid" : "p012",  "uid" : "Parking-7",  
+							  "shortname" : "Upper Campus Lot",							  
+							  "codes" : "f",
+							  
+							  "restriction" : "Faculty/Staff Parking (sticker required).",							  
+							  							  
+							  							  
+							  "addr1" : "Upper Campus Rd", 					 
+							  "map" : { "lat" : 42.408466, "lng" : -71.120215 } }							
+						
+						
+						] },				
+						{ "label" : "Resident", "code" : "r", "children" : [						
+							{ "label" : "Cousens Parking Lot", "type" : "parking", "fid" : "p003",  "uid" : "Parking-3B",  							  
+							  "codes" : "c,r,f",
+							  
+							  "restriction" : "Guest pass, faculty/staff, commuter, resident, and sophomore. Stickers are required.",							  
+							  							  
+							  							  
+							  "addr1" : "College Avenue", 					 
+							  "map" : { "lat" : 42.408222, "lng" : -71.115054 } },												
+							{ "label" : "Hill Hall Parking Lot", "type" : "parking", "fid" : "p013",  "uid" : "Parking-13",  							  
+							  "codes" : "r",
+							  
+							  "restriction" : "Resident and Sophomore Parking (sticker required).",							  
+							  							  
+							  							  
+							  "addr1" : "Boston Avenue", 					 
+							  "map" : { "lat" : 42.409828, "lng" : -71.119646 } },												
+							{ "label" : "Lower Campus Parking Garage", "type" : "parking", "fid" : "p007",  "uid" : "Parking-11",  
+							  "shortname" : "Lower Campus Garage",							  
+							  "codes" : "r",
+							  
+							  "restriction" : "Residential sticker parking only.",							  
+							  							  
+							  							  
+							  "addr1" : "Lower Campus Road", 					 
+							  "map" : { "lat" : 42.403717, "lng" : -71.119743 } },												
+							{ "label" : "Miller Hall Parking Lot", "type" : "parking", "fid" : "p011",  "uid" : "Parking-12",  							  
+							  "codes" : "r",
+							  
+							  "restriction" : "Resident parking only (sticker required).",							  
+							  							  
+							  							  
+							  "addr1" : "Curtis Street", 					 
+							  "map" : { "lat" : 42.409182, "lng" : -71.121079 } }							
+						
+						
+						] },				
+						{ "label" : "Commuter Student", "code" : "c", "children" : [						
+							{ "label" : "Aidekman Arts Center Parking Lot 1", "type" : "parking", "fid" : "p006",  "uid" : "Parking-5B",  
+							  "shortname" : "Aidekman Parking Lot 1",							  
+							  "codes" : "f,c",
+							  
+							  "restriction" : "Parking is restricted to faculty/staff, commuter and vehicles with a guest pass only. Stickers are required.",							  
+							  							  
+							  							  
+							  "addr1" : "Lower Campus Road", 					 
+							  "map" : { "lat" : 42.404346, "lng" : -71.117646 } },												
+							{ "label" : "Cousens Parking Lot", "type" : "parking", "fid" : "p003",  "uid" : "Parking-3C",  							  
+							  "codes" : "c,r,f",
+							  
+							  "restriction" : "Guest pass, faculty/staff, commuter, resident, and sophomore. Stickers are required.",							  
+							  							  
+							  							  
+							  "addr1" : "College Avenue", 					 
+							  "map" : { "lat" : 42.408222, "lng" : -71.115054 } },												
+							{ "label" : "Dowling Parking Garage", "type" : "parking", "fid" : "p001",  "uid" : "Parking-1C", 
+							  "more" : "There is plenty of parking available in the University's main parking garage on Boston Avenue. Visitors must purchase a token ($5.00) to exit the garage. The entrances to the garage are from North Hill Road and from Boston Avenue. The garage is open from 6:00 AM to 12 midnight and closed on holidays and weekends. Overnight parking is not allowed in the garage.", 							  
+							  "codes" : "v,f,c",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "419 Boston Avenue", 					 
+							  "map" : { "lat" : 42.40879, "lng" : -71.118257 } }							
+						
+						
+						] },				
+						{ "label" : "No sticker required", "code" : "x", "children" : [						
+							{ "label" : "200 Boston Ave Parking Lot", "type" : "parking", "fid" : "p009",  "uid" : "Parking-15", 
+							  "more" : "All parking at 200 Boston Ave is open. No Tufts sticker is required. Parking over night is not allowed.", 
+							  "shortname" : "200 Boston Ave Lot",							  
+							  "codes" : "x",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "200 Boston Ave Parking Lot", 					 
+							  "map" : { "lat" : 42.415457, "lng" : -71.127076 } },												
+							{ "label" : "William A. Shoemaker Boathouse at Tufts University Parking Lot", "type" : "parking", "fid" : "p008",  "uid" : "Parking-14",  "shortname" : "Boathouse Parking",							  
+							  "codes" : "x",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "177 Corporation Way", 					 
+							  "map" : { "lat" : 42.410677, "lng" : -71.074373 } }							
+						
+						
+						] }			
+					]
+				}
+			]
+		},
+		"styles" : {
+			"polygon" : {
+				"stroke" : { "color" : "0x666666", "alpha" : 0.5, "thickness" : 0.5 }, 
+				"strokehover" : { "color" : "0x6699CC", "alpha" : 0.9, "thickness" : 0.5 }, 
+				"fill" : { "color" : "0xDDDDDD", "alpha" : 1 }, 
+				"fillhover" : { "color" : "0xC4DEF9", "alpha" : 1 }
+			},
+			"marker" : { },
+			"link" : { "color" : "#6699cc" }
+		},
+		"ui" : {
+			"searchbox" : { "inputbox_min_characters" : 2}
+		},
+		"labels" : {
+			"pdfs" : { "main" : "Printable Maps", "popup" : "Printable Maps - PDF Format" },
+			"wireless" : { "main" : "Wireless Internet Access", "full" : "Full Coverage", "partial" : "Partial Coverage" },
+			"search" : { "main" : "Search", "sub" : "By Name, Keyword or Address", "textbox" : " Locate buildings on campus", "button" : ">" },
+			"infobox" : { "main" : "Directions, PDFs & more &gt;&gt;" },
+			"popupbox" : { 
+				"print" :  { "main" : "Print" },
+				"details" : { 
+					"main" : "Details", "website" : "Visit the Website", "phone" : "Main Phone", "gps" : "GPS Coordinates", 
+					"parking" : { "main" : "Parking", "visitor" : "View Closest Visitor Parking On Campus &gt;&gt;", "height" : 40 },
+					"directions" : { "main" : "Directions", "driving" : "Driving Directions To This Location &gt;&gt;", 
+						"html" : "<br/><a target='_blank' href='http://campusmaps.tufts.edu/docs/Tufts_Medford-Som_Map_Dir.pdf'><font color=\"#6699cc\">Download PDF of Driving Directions to Campus >></font></a>",
+						"height" : 60
+					},
+					"officesdepts" : { "main" : "Offices & Departments", "sub" : "View Offices & Departments&nbsp;>>" },
+					"link" : { "main" : "Link Directly To This Location", "sub" : "Get Link", "hint" : "Copy & Paste This Link Into Your Browser" }
+				 },
+				"officesdepts" : { "main" : "Offices & Departments", "website" : "Visit the Website" },
+				"accessibility" : { "main" : "Accessibility" },
+				"directions" : {
+					"main" : "Get Directions",
+					"label1" : "Where are you coming from?",
+					"label2" : "Select a Destination",
+					"label3" : "Find Local Transportation",
+					"warning" : "Both a city &amp; a state are required.",
+					"textbox1" : "address",
+					"textbox2" : "city",
+					"textbox3" : "MA",
+					"button" : "Get Directions",
+					"website" : "Visit the Website"
+				}
+			 },
+			 "navigation" : {
+			 	"all" : "All Buildings",
+			 	"officesdepts" : "Offices & Departments",
+			 	"parking" : "Parking"
+			 }
+		},
+		"icons" : {
+			"print" : "print.png",
+			"wireless-full" : "wireless_full.png",
+			"wireless-partial" : "wireless_partial.png",
+			"parking" : {
+				"visitor" : "v.png",
+				"facultystaff" : "f.png",
+				"resident" : "r.png",
+				"commuter" : "c.png",
+				"none" : "x.png"
+			}
+		}
+	}
+}
+
+
+

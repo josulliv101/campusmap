@@ -4,7 +4,7 @@
    Layout
    ========================================================================== */
 
-html, body, #app, #campusmap, #map-canvas { 
+html, body, #app, #campusmap { 
 
 	height: 100%;
 
@@ -22,6 +22,10 @@ body {
 
 #app {
 	
+	@include borderbox(); /* Help push map down */
+
+	padding-top: 40px;
+
 	position: relative;
 	
 	#container-searchbox {
@@ -41,7 +45,7 @@ body {
 		position: absolute;
 		overflow: hidden; /* hidden : so the shadows aren't cut off */
 		z-index: 999;
-		top: 12px;
+		top: 52px; /* Take navbar into account */
 		left: 12px;
 		padding: 0 6px 6px; /* Give shadow room instead of getting cut off by overflow hidden */
 		width: 48%;

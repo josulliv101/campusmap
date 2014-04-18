@@ -32,7 +32,10 @@ a {
 	text-decoration: none;
 
 	color: #333;
-
+	&:focus, &:active {
+		outline: #eee;
+		text-decoration: underline;
+	}
 	&:hover {
 		
 		text-decoration: underline;

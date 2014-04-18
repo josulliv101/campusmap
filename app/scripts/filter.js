@@ -16,28 +16,35 @@
 
         var query_ = { term: '' }, 
 
+            // Canned filters
+            filters_ = {
+
+                all: function() { return true; }
+
+            },
+
         // Cache the created function for access later
-        getFilterFnForAttr_ = _.memoize(
+            getFilterFnForAttr_ = _.memoize(
 
-            function(attr) {
+                function(attr) {
 
-                return function(loc) { 
-                    
-                    var val, words;
+                    return function(loc) { 
+                        
+                        var val, words;
 
-                    val = _.getAttr(loc, attr) && _.getAttr(loc, attr).toLowerCase();
+                        val = _.getAttr(loc, attr) && _.getAttr(loc, attr).toLowerCase();
 
-                    if (!val) return false;
+                        if (!val) return false;
 
-                    words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and', 'the', 'an', 'at'], word); }).value();
+                        words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and', 'the', 'an', 'at'], word); }).value();
 
-                    return _.exists(val) && _.some(words, function(word) { return word.indexOf(query_.term) === 0; }); //val.indexOf(query_.term) > -1; 
+                        return _.exists(val) && _.some(words, function(word) { return word.indexOf(query_.term) === 0; }); //val.indexOf(query_.term) > -1; 
 
-                };
+                    };
 
-            }
+                }
 
-        );
+            );
 
         // Convert filter params (a <String> key) to functions which can actually filter. If function passed in, just return it.
         function filterParamsToFns_(filters) {
@@ -83,7 +90,10 @@
 
             filter: filter_,
 
-            getQuery: function () { return query_; }
+            getQuery: function () { return query_; },
+
+            // See it matches a canned filter.
+            getFilter: function(arg) { return filters_[arg] || arg; }
 
         };
 

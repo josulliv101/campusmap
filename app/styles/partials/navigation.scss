@@ -2,25 +2,35 @@
 /* ==========================================================================
    Navigation
    ========================================================================== */
-
-.nav {
-	font-size: 14px;
-	li {
-		display: inline-block;
+.navs{
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-height: 40px;
+	width: 100%;
+	background: #6699cc;
+	a {
+		color: #fff;
 	}
-	&#nav-primary, &#nav-secondary {
-		a {
-			padding: 0 12px;
-			line-height: 40px;
+	.nav {
+		font-size: 14px;
+		li {
+			display: inline-block;
 		}
-	}
-	&#nav-secondary {
-		position: absolute;
-		top: 0;
-		right: 0;
-		font-size: 12px;
-	}
-	#list-featured {
-		display: none;
-	}
+		&#nav-primary, &#nav-secondary {
+			a {
+				padding: 0 12px;
+				line-height: 40px;
+			}
+		}
+		&#nav-secondary {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 12px;
+		}
+		#list-featured {
+			display: none;
+		}
+	}	
 }

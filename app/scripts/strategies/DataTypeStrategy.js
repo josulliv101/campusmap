@@ -94,6 +94,10 @@ define([
         
         if (key !== 'panels' || !_.isString(val)) return;
 
+        // Always ensure that a change is registered on panel change.
+        // temp hack
+        //if (val === 'results') theTruth.set({ panels: null }, { silent: true });
+
         attr[key] = PanelManager.getPanelsById( val );
 
         _.extend(model, attr);
@@ -143,6 +147,21 @@ define([
         // only update if there's a found location
         if (attr[key]) _.extend(model, attr);
 
+        return  attr[key];
+
+    };
+
+    // Convert a backto value of true to an usable object
+    DataTypeStrategy.prototype.backTo = function(model, val, key, Datastore, PanelManager, theTruth) {
+
+        var attr = {}, panel;
+
+        if (key !== 'backto' || !_.isString(val)) return;
+
+        attr[key] = { panels: theTruth.get('panels'), label: val };
+
+        if (attr[key]) _.extend(model, attr);
+        
         return  attr[key];
 
     };
@@ -232,7 +251,9 @@ define([
 
         DataTypeStrategy.prototype.detailsChange,
 
-        DataTypeStrategy.prototype.hoverLocationChange
+        DataTypeStrategy.prototype.hoverLocationChange,
+
+        DataTypeStrategy.prototype.backTo
 
     );
 

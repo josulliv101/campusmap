@@ -89,7 +89,9 @@ define([
 
                     primarylabel: changedAttrs.primarylabel || this.model.get('primarylabel'),
 
-                    searchboxdisable: changedAttrs.searchboxdisable || this.model.get('searchboxdisable')
+                    searchboxdisable: changedAttrs.searchboxdisable || this.model.get('searchboxdisable'),
+
+                    filter: changedAttrs.filter || this.model.get('filter')
 
                 });
 
@@ -105,9 +107,9 @@ define([
             var model = this.model, locations = model.get('locations'), q = model.get('query'),
 
                 // Convert models to json
-                results = Filter.filter(q, locations, 'name');
-
-            model.set({ results: _.chain(results).first(5).sortBy('name').value() });
+                results = Filter.filter(q, locations, Filter.getFilter(model.get('filter')));
+//.first(5)
+            model.set({ results: results });
 
             this.render();
 
@@ -121,6 +123,8 @@ define([
             json.model.results = _.chain(json.model.results)
 
                                   .map(function(loc) { return loc.toJSON ? loc.toJSON() : loc; })
+
+                                  .sortBy('name')
 
                                   // Highlight letters matching query
                                   .each(function(result) {

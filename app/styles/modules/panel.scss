@@ -364,6 +364,9 @@ $gutter: 8px;
 			}
 
 			.list {
+				max-height: 240px;
+				overflow-y: auto;
+				overflow-x: hidden;
 				li {
 					
 					border-top: 1px #eee solid;

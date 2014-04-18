@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Data Transform</title>
+
+</head>
+
+<body>  
+	<h1>Data Transform</h1>
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$.ajax({
+
+				url: "./app/data/medford-current.json"
+
+			}).done(function( data ) {
+
+				if ( console && console.log ) {
+
+					var data = _.chain(data.campus.locationdata.children)
+
+								.map(function(group) { return group.children; })
+
+								.flatten()
+
+								.reject(function(loc) { return loc.map === undefined; })
+
+								.map(transform)
+
+					 			.value();
+
+					 debugger;
+
+				}
+
+			});
+
+			function transform(model, i) {
+
+				return {
+
+					locationid: model.fid,
+
+					name: model.label,
+
+					tags: model.tags,
+
+					phone: model.phone && model.phone.replace(new RegExp("[^0-9]", "ig"), ""),
+
+					website: model.website,
+
+					address1: model.addr1,
+
+					address2: model.addr2,
+
+					city: model.city,
+
+					zip: model.zip,
+
+					latlng: model.map.lat + ',' + model.map.lng,
+
+					accessibility: model.accessibility && model.accessibility.level,
+
+					accessibilityrestroom: model.accessibility && model.accessibility.restroom,
+
+					occupants: _.map(model.occupants, function(occ) { 
+
+									// Only grab phone digits
+									return _.extend(occ, { phone: occ.phone && occ.phone.replace(new RegExp("[^0-9]", "ig"), "")}); 
+
+								})
+				};
+
+			}
+
+		});
+	</script>
+</body>
+</html>

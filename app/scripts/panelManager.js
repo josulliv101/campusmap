@@ -106,7 +106,7 @@ define([
         // Force all panels to close no matter what
         if (forceClose === true) panelsToClose = this.panels;
 
-        return _.map(panelsToClose, function(panel, index) { 
+        return _.map(this.panels, function(panel, index) { 
 
             return panel.close(this.transition, index); 
 

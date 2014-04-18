@@ -1,7 +1,11 @@
 
 define([
 
-], function() {
+    'underscore'
+
+    , 'scripts/filter'
+
+], function(_, Filter) {
 
     'use strict';
 
@@ -63,6 +67,8 @@ define([
                 , detailsnavbarstate: null
 
                 , detailsnavbar: []
+
+                , filter: 'all'
                           
             }
 
