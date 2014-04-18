@@ -28,7 +28,7 @@ define([
 
             var model = this.model;
 
-            _.bindAll(this, 'render', 'getTitle', 'handleStateChange', 'handleOpenState', 'handleCloseState', 'handleOpenPreState', 'handleClosePreState');
+            _.bindAll(this, 'render', 'open', 'getTitle', 'handleStateChange', 'handleOpenState', 'handleCloseState', 'handleOpenPreState', 'handleClosePreState');
 
             if (!model) return;
 
