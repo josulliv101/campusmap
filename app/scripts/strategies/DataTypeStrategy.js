@@ -21,18 +21,34 @@ define([
 
     DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore, PanelManager, theTruth) {
 
+        var attr = {};
+
         if (val !== 'true' && val !== 'false') return;
 
-        return  val = (val === 'true');
+        val = (val === 'true');
+
+        attr[key] = val;
+
+        _.extend(model, attr);
+
+        return  val;
 
     };
 
     DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore, PanelManager, theTruth) {
 
+        var attr = {};
+        
         // Includes negative integers
         if (!_.isString(val) || val.match(/^-?\d+$/) === null) return;
 
-        return  val = parseInt(val);
+        val = parseInt(val);
+
+        attr[key] = val;
+
+        _.extend(model, attr);
+
+        return  val;
 
     };
 
@@ -158,9 +174,9 @@ define([
 
         if (key !== 'backto' || !_.isString(val)) return;
 
-        attr[key] = { panels: theTruth.get('panels'), label: val };
+        //attr[key] = { panels: theTruth.get('panels'), label: val };
 
-        if (attr[key]) _.extend(model, attr);
+        //if (attr[key]) _.extend(model, attr);
         
         return  attr[key];
 

@@ -25,23 +25,23 @@ define([
 
     SearchboxController.prototype.handleTruthChange = function(changedAttributes) {
 
-        var PM, deferreds;
+        var PM, deferreds, panels = changedAttributes.panels;
 
         // Looking for panels attr only
-        if (!changedAttributes.panels) return;
+        if (!panels) return;
 
         PM = this.PM;
 
         // First, close any open panels
-        $.when.apply(null, PM.closePanels(changedAttributes.panels, changedAttributes.forceclosepanels))
+        $.when.apply(null, PM.closePanels(panels, changedAttributes.forceclosepanels))
 
          // Then, open.
          .done(function() {
 
-            PM.openPanels(changedAttributes.panels);
+            if (_.isEmpty(panels)) return;
 
+            PM.openPanels(panels);
          });
-
     };
 
     SearchboxController.prototype.trigger = _.bind(EventDispatcher.trigger, EventDispatcher);
