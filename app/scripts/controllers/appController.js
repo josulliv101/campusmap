@@ -6,6 +6,8 @@ define([
 
     , 'datastore'
 
+    , 'scripts/domManager'
+
     , 'scripts/panelManager'
 
     , 'scripts/utils/MapUtils'
@@ -18,7 +20,7 @@ define([
 
     , 'eventdispatcher'
 
-], function(_, Backbone, Datastore, PanelManager, MapUtils, CssFlagStrategy, DataTypeStrategy, StateManagementStrategy, EventDispatcher) {
+], function(_, Backbone, Datastore, DomManager, PanelManager, MapUtils, CssFlagStrategy, DataTypeStrategy, StateManagementStrategy, EventDispatcher) {
 
     'use strict';
 
@@ -63,7 +65,7 @@ define([
         _.each(changedAttrs, function(val, key) { 
 
             // Update DOM with appropriate css flags -- on root element of app
-            this.dataTypeStrategy.dispatch(changedAttrs, val, key, Datastore, PanelManager, this.theTruth);
+            this.dataTypeStrategy.dispatch(changedAttrs, val, key, Datastore, PanelManager, DomManager, this.theTruth);
 
         }, this);
 

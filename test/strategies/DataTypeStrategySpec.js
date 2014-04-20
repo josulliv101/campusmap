@@ -170,9 +170,9 @@ define([
 
         var val2, val3;
 
-        val2 = strategy.dispatch({ zoom: 17 }, '+', 'zoom', DS, PM);
+        val2 = strategy.dispatch({ zoom: 17 }, '+', 'zoom', DS, PM, { get: function() { return 17; }});
 
-        val3 = strategy.dispatch({ zoom: 17 }, '-', 'zoom', DS, PM);
+        val3 = strategy.dispatch({ zoom: 17 }, '-', 'zoom', DS, PM, { get: function() { return 17; }});
 
         expect( val2 ).toBe(18);
 

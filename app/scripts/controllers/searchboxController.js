@@ -25,22 +25,41 @@ define([
 
     SearchboxController.prototype.handleTruthChange = function(changedAttributes) {
 
-        var PM, deferreds, panels = changedAttributes.panels;
+        var PM, deferreds, panels = changedAttributes.panels, self = this;
 
         // Looking for panels attr only
-        if (!panels) return;
+        if (!panels || this.transition === true) return;
 
         PM = this.PM;
 
+        this.transition = true;
+
+        deferreds = PM.closePanels(panels, changedAttributes.forceclosepanels);
+
         // First, close any open panels
-        $.when.apply(null, PM.closePanels(panels, changedAttributes.forceclosepanels))
+        $.when.apply(null, deferreds)
 
          // Then, open.
          .done(function() {
 
-            if (_.isEmpty(panels)) return;
+            if (_.isEmpty(panels)) {
 
-            PM.openPanels(panels);
+                //EventDispatcher.trigger('truthupdate', { paneltransitiondone: true });
+
+                self.transition = false;
+
+                return;
+
+            }
+
+            $.when.apply(null, PM.openPanels(panels)).done(function() { 
+
+                EventDispatcher.trigger('truthupdate', { paneltransitiondone: true });
+
+                self.transition = false;
+
+            });
+
          });
     };
 

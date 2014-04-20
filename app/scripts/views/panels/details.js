@@ -139,6 +139,8 @@ define([
 
             if (!_.isEmpty(navbarstate)) EventDispatcher.trigger('truthupdate', { detailsnavbarstate: navbarstate });
 
+            this.render();
+            
             return state;
 
         },

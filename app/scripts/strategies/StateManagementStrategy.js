@@ -96,9 +96,9 @@ define([
 
             , detailsnavbar: navbar
 
-        }, _.isObject(val) ? { panels: 'details', primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
+        }, _.isObject(val) ? {  primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
 
-
+//panels: 'details',
         // Hack to get the navbar state to be correct on first display
         EventDispatcher.trigger('delegateTruth', { detailsnavbar: navbar });
 
@@ -147,6 +147,21 @@ define([
 
     };
 
+    StateManagementStrategy.prototype.panelTransitionDone = function(model, val, key, MapUtils) {
+
+        if (key !== 'paneltransitiondone') return;
+
+        // Reset
+        if (val === true) {
+
+            EventDispatcher.trigger('truthupdate', { paneltransitiondone: null }, { silent: true });
+
+        }
+
+        return  val;
+
+    };
+
 
     StateManagementStrategy.prototype.dispatch = _.dispatch( 
 
@@ -160,7 +175,9 @@ define([
 
         StateManagementStrategy.prototype.panels,
 
-        StateManagementStrategy.prototype.forceClosePanels
+        StateManagementStrategy.prototype.forceClosePanels,
+
+        StateManagementStrategy.prototype.panelTransitionDone
 
     );
 

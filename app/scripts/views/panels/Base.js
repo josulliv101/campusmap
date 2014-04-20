@@ -83,8 +83,6 @@ define([
             // Only open closed panels
             if (this.state() !== 'close') return;
 
-            this.render();
-            
             // Let the deferred object be undefined if no close method.
             return _.isFunction(transition.open) ? transition.open(this) : this.model.set({ state: 'open' });
 
@@ -96,6 +94,8 @@ define([
 
             if (state !== 'openPre') return;
             
+            this.render();
+
             return state;
 
         },

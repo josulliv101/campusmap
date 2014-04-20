@@ -81,6 +81,14 @@ define([
 
     };
 
+    MapHandleTruthChangeStrategy.prototype.panelTransitionDone = function(model, val, key, viz) {
+
+        if (key !== 'paneltransitiondone' || _.isEmpty(model.searchboxdimensions) || _.isEmpty(model.details) || !_.isNumber(model.zoom)) return;
+
+        viz.handleSearchboxCollisons(model.searchboxdimensions, model.zoom, _.getAttr(model.details, 'latlng'));
+
+    };
+
     MapHandleTruthChangeStrategy.prototype.dispatch = _.dispatch( 
 
         MapHandleTruthChangeStrategy.prototype.handleMapType,
@@ -97,7 +105,9 @@ define([
 
         MapHandleTruthChangeStrategy.prototype.handleHoveredLocation,
 
-        MapHandleTruthChangeStrategy.prototype.handleDetailsLocation
+        MapHandleTruthChangeStrategy.prototype.handleDetailsLocation,
+
+        MapHandleTruthChangeStrategy.prototype.panelTransitionDone
 
     );
 

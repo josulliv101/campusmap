@@ -19,7 +19,7 @@ define([
 
     }
 
-    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.stringToBoolean = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {};
 
@@ -35,7 +35,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.stringToInteger = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {};
         
@@ -52,7 +52,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.stringToLatLng = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var match, attr = {};
 
@@ -73,20 +73,26 @@ define([
     };
 
     // Incrementing/decrementing zoom level (+, -)
-    DataTypeStrategy.prototype.zoomToInteger = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.zoomToInteger = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
-        var z;
+        var z, attr = {};
 
         if (key !== 'zoom' || (val !== '+' && val !== '-')) return;
 
-        z = model.zoom;
+        z = theTruth.get('zoom');
 
-        return  val = val === '+' ? ++z : --z;
+        val = val === '+' ? ++z : --z;
+
+        attr[key] = val;
+
+        _.extend(model, attr);
+
+        return  attr[key];
 
     };
 
     // Convert location string ids to object references
-    DataTypeStrategy.prototype.locationIdsToObjects = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.locationIdsToObjects = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {}, locations;
 
@@ -104,7 +110,7 @@ define([
     };
 
     // Convert panel string ids to object references
-    DataTypeStrategy.prototype.panelIdsToObjects = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.panelIdsToObjects = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {};
         
@@ -122,7 +128,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.primaryLabelDefault = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.primaryLabelDefault = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {};
         
@@ -136,7 +142,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.campusIdToObject = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.campusIdToObject = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {};
 
@@ -150,7 +156,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.hoverLocationChange = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.hoverLocationChange = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {}, locations;
 
@@ -168,7 +174,7 @@ define([
     };
 
     // Convert a backto value of true to an usable object
-    DataTypeStrategy.prototype.backTo = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.backTo = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {}, panel;
 
@@ -182,7 +188,17 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.detailsChange = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.panelTransitionDone = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        if (key !== 'paneltransitiondone' || val !== true) return;
+
+        model.searchboxdimensions = DomManager.getDimensions($('#container-searchbox'));
+        
+        return  model.searchboxdimensions;
+
+    };
+    
+    DataTypeStrategy.prototype.detailsChange = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var navbar, navbarstate, nextItem;
 
@@ -190,6 +206,9 @@ define([
 
         // Only proceed if the location is the same - want to advance the navbar to next item
         if (theTruth.get('details') !== val) return;
+
+        // No change in searchbox height width
+        model.paneltransitiondone = null;
 
         navbar = theTruth.get('detailsnavbar');
 
@@ -210,7 +229,7 @@ define([
 
     };
 
-    DataTypeStrategy.prototype.locationsDataIntegrity = function(model, val, key, Datastore, PanelManager, theTruth) {
+    DataTypeStrategy.prototype.locationsDataIntegrity = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var attr = {};
 
@@ -244,7 +263,6 @@ define([
 
     };
 
-
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 
         DataTypeStrategy.prototype.stringToBoolean,
@@ -269,7 +287,9 @@ define([
 
         DataTypeStrategy.prototype.hoverLocationChange,
 
-        DataTypeStrategy.prototype.backTo
+        DataTypeStrategy.prototype.backTo,
+
+        DataTypeStrategy.prototype.panelTransitionDone
 
     );
 

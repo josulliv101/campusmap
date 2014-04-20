@@ -227,6 +227,47 @@ define([
 
     };
 
+    GoogleMapView.prototype.handleSearchboxCollisons = function(dimensions, zoom, latlng) {
+
+        var bounds = this.map.getBounds(), z = this.map.getZoom(),
+
+            center = this.map.getCenter(),
+
+            ne = bounds.getNorthEast(), sw = bounds.getSouthWest(),
+
+            nw = { lat: ne.lat(), lng: sw.lng() },
+
+            seAdjusted = MapUtils.offsetLatLngByPixels(nw, zoom, { x: -dimensions.width, y: -dimensions.height }),
+
+            swAdjusted = new google.maps.LatLng(seAdjusted.lat, sw.lng()),
+
+            neAdjusted = new google.maps.LatLng(ne.lat(), seAdjusted.lng),
+
+            searchboxBounds = new google.maps.LatLngBounds(swAdjusted, neAdjusted),
+
+            isCollision = searchboxBounds.contains(new google.maps.LatLng(latlng.lat, latlng.lng));
+
+            if (isCollision === true) {
+
+                EventDispatcher.trigger('truthupdate', { center: MapUtils.offsetLatLngByPixels({ lat: center.lat(), lng: center.lng() }, zoom, { x: 300, y: 0 }) });
+
+            }
+/*
+  var rectangle = new google.maps.Rectangle({
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    map: this.map,
+    bounds: searchboxBounds
+  });*/
+ 
+        debugger;
+
+    };
+
+
     GoogleMapView.prototype.renderLabelOverlay = function(locations) {
 
         this.labelLayer.locations = locations;

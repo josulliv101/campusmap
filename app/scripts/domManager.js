@@ -101,6 +101,12 @@ define([
 
     };
 
+    DomManager.prototype.getDimensions = function($el) {
+
+        return { width: $el.outerWidth(), height: $el.outerHeight() };
+
+    };
+
     // Html for each label tile
     DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {
 

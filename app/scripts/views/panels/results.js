@@ -58,8 +58,8 @@ define([
 
                     _.delay(function(model) {
 
-                        EventDispatcher.trigger('truthupdate', {  details: locid, backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } });
-
+                        EventDispatcher.trigger('truthupdate', {  panels: 'details', details: locid });
+//backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } 
                     }, 400, this.model);
                     
 
@@ -111,7 +111,7 @@ define([
 //.first(5)
             model.set({ results: results });
 
-            this.render();
+            //this.render();
 
         },
 
