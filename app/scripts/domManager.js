@@ -151,6 +151,8 @@ define([
         if (_.getAttr(loc, 'isDetails') === true) classes.push('details');
 
         // Tag-based css flags
+        if (_.contains(loc.tagItems, 'parking')) classes.push('parking');
+        
         if (_.contains(loc.tagItems, 'field')) classes.push('field');
 
         if (_.contains(loc.tagItems, 'lawn')) classes.push('lawn');
