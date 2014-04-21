@@ -244,13 +244,13 @@ define([
                         var latlng = _.getAttr(loc, 'latlng');
 
                         if (_.isString(latlng)) {
-
-                            _.setAttr(loc, { 
+                            loc.latlngObj = DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager);
+                            //_.setAttr(loc, { 
 
                                 // Pass in fake model so latlng is not automatically updated on model attr
-                                latlng: DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager)
+                                //latlng: DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager)
 
-                            });
+                            //});
                         }
 
                      })

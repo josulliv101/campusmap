@@ -54,22 +54,22 @@ define([
 
                 if (!locid) return;
 
-                //if ($li.hasClass('active')) {
+                if ($li.hasClass('active')) {
 
-                    _.delay(function(model) {
+                    //_.delay(function(model) {
 
                         EventDispatcher.trigger('truthupdate', {  panels: 'details', details: locid });
 //backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } 
-                    }, 400, this.model);
+                    //}, 400, this.model);
                     
 
-/*                } else {
+               } else {
 
                     this.$('.active').removeClass('active');
 
                     $li.addClass('active');
 
-                }*/
+                }/* */
             }
         },
 

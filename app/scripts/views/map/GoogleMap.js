@@ -119,10 +119,19 @@ define([
 
             ev.stop();
             
-            EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
+            if (_.isObject(loc)) EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
 
             // Remove focus from searchbox so default text is displayed
             DomManager.unfocusAll();
+
+        });
+
+        // Broadcast every double click event on the map
+        google.maps.event.addListener(this.map, 'dblclick', function (ev) { // _.throttle()
+
+            ev.stop();
+            
+            EventDispatcher.trigger('mapdblclick', ev.latLng.toUrlValue());
 
         });
 
@@ -246,11 +255,18 @@ define([
             searchboxBounds = new google.maps.LatLngBounds(swAdjusted, neAdjusted),
 
             isCollision = searchboxBounds.contains(new google.maps.LatLng(latlng.lat, latlng.lng));
+// clean up here
+var ll1 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(swAdjusted), zoom);
+var ll2 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latlng.lat, latlng.lng)), zoom);
+var y = ll1.y - ll2.y;
 
             if (isCollision === true) {
 
-                EventDispatcher.trigger('truthupdate', { center: MapUtils.offsetLatLngByPixels({ lat: center.lat(), lng: center.lng() }, zoom, { x: 300, y: 0 }) });
+                _.delay(function() {
 
+                    EventDispatcher.trigger('truthupdate', { center: MapUtils.offsetLatLngByPixels({ lat: center.lat(), lng: center.lng() }, zoom, { x: 0, y: y+16 }) });
+
+                }, 400);
             }
 /*
   var rectangle = new google.maps.Rectangle({

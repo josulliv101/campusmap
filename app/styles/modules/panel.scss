@@ -284,7 +284,9 @@ $gutter: 8px;
 
 			&.no-thumb {
 				
-				display: none;
+				/*display: none;*/
+				height: 100%;
+				background: #eee;
 
 			}
 		}
