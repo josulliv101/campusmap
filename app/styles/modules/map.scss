@@ -6,6 +6,10 @@
 
 $animate: .2s;
 
+$green: #003200;
+
+$lite: #fff;
+
 #campusmap {
 	#controls-zoom {
 		position: absolute;
@@ -420,10 +424,38 @@ $animate: .2s;
 
 			}
 
+			/* Parking */
+			&.parking {
+				.bd {
+					.txt {
+						color: #336699;
+					}
+				}
+				.icon {
+					background-image: url("../../app/images/icons/parking.png");
+					width: 16px;
+					height: 16px;
+					border: none;
+				}
+			}
+
+			/* Fields */
+			&.field, &.lawn {
+				.bd {
+					.txt {
+						color: $green;
+					}
+				}
+				.icon {
+					background-color: $green;
+					border-color: $green;
+					&:hover {
+						background-color: $lite;
+					}
+				}
+			}
 		}
-
 	}
-
 }
 
 .zoomed-out { /* below level 15 */

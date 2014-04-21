@@ -131,9 +131,14 @@ define([
 
     DomManager.prototype.getLocationClassNames = function(loc) {
 
-        var classes = ['location'];
+        var classes = ['location'], tags;
 
         if (!loc)  return'';
+
+        tags = _.getAttr(loc, 'tags');
+
+        // Don't want to change tags string attr -- needed as string for persistance.
+        if (_.isString(tags)) loc.tagItems = loc.tagItems || _.getAttr(loc, 'tags').split(',');
 
         if (_.getAttr(loc, 'emphasis')) classes.push('emphasis' + _.getAttr(loc, 'emphasis'));
 
@@ -144,6 +149,11 @@ define([
         if (_.getAttr(loc, 'isHovered') === true) classes.push('hover');
 
         if (_.getAttr(loc, 'isDetails') === true) classes.push('details');
+
+        // Tag-based css flags
+        if (_.contains(loc.tagItems, 'field')) classes.push('field');
+
+        if (_.contains(loc.tagItems, 'lawn')) classes.push('lawn');
 
         return classes.join(" ");
 
