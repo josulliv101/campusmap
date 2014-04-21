@@ -16,7 +16,9 @@ define([
 
     , 'scripts/views/panels/results'
 
-], function ($, _, Datastore, Transition, BaseView, DetailsView, DirectionsView, ResultsView) { 
+    , 'scripts/views/panels/admin-location'
+
+], function ($, _, Datastore, Transition, BaseView, DetailsView, DirectionsView, ResultsView, AdminLocationView) { 
 
     var instance;
 
@@ -44,6 +46,8 @@ define([
         this.createPanel('details', DetailsView);
 
         this.createPanel('results', ResultsView);
+
+        this.createPanel('admin-location', AdminLocationView);
 
         // Secondary Panels
         this.createPanel('accessibility'); 

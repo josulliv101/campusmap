@@ -3,6 +3,7 @@
 		<% _.each(model.navbar, function(navitem) { %>
 			<li id="${navitem.id}" class="navitem ${navitem.classes}"><button data-campusmap="detailsnavbarstate:${navitem.id}|panels:details">${navitem.label}</button></li>
 		<% }); %>
+		<li class="admin-edit"><button data-campusmap="panels:admin-location">(edit)</button></li>
 	</ul>
 </div>
 <div class="panels-contents">

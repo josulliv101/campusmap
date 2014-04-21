@@ -89,6 +89,14 @@ define([
 
     };
 
+    MapHandleTruthChangeStrategy.prototype.handleAdminMarker = function(model, val, key, viz) {
+
+        if (key !== 'adminmarker') return;
+
+        viz.setAdminMarker(val);
+
+    };
+
     MapHandleTruthChangeStrategy.prototype.dispatch = _.dispatch( 
 
         MapHandleTruthChangeStrategy.prototype.handleMapType,
@@ -107,7 +115,9 @@ define([
 
         MapHandleTruthChangeStrategy.prototype.handleDetailsLocation,
 
-        MapHandleTruthChangeStrategy.prototype.panelTransitionDone
+        MapHandleTruthChangeStrategy.prototype.panelTransitionDone,
+
+        MapHandleTruthChangeStrategy.prototype.handleAdminMarker
 
     );
 

@@ -263,10 +263,45 @@ define([
     bounds: searchboxBounds
   });*/
  
-        debugger;
+        //debugger;
 
     };
 
+    GoogleMapView.prototype.setAdminMarker = function(latlng) {
+
+        var map = this.map, am;
+
+        if (!this.adminmarker) {
+
+            this.adminmarker  = new google.maps.Marker({
+
+                                    map: this.map,
+
+                                    title: 'Drag markerto change lat/lng',
+
+                                    draggable: true
+
+                                });
+
+            am = this.adminmarker;
+
+            google.maps.event.addListener(this.adminmarker, 'dragend', function() {
+
+                var ll = am.getPosition().toUrlValue();
+debugger;
+                EventDispatcher.trigger('truthupdate', { adminmarker: ll.replace(/[\(\)]+/g, '') });
+
+            });
+
+        }
+
+        if (_.isEmpty(latlng)) return this.adminmarker.setVisible(false);
+        
+        this.adminmarker.setPosition(latlng);
+
+        this.adminmarker.setVisible(true);
+
+    }
 
     GoogleMapView.prototype.renderLabelOverlay = function(locations) {
 

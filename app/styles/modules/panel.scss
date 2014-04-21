@@ -53,7 +53,9 @@ $gutter: 8px;
 					list-style: none;
 					display: inline-block;
 					padding: 0;
-					
+					&.admin-edit {
+						float: right;
+					}
 					button {
 						border: none;
 						background: none;

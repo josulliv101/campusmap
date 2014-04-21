@@ -103,6 +103,8 @@ define([
 
     DomManager.prototype.getDimensions = function($el) {
 
+        if (!$el) return { x: 0, y: 0 };
+
         return { width: $el.outerWidth(), height: $el.outerHeight() };
 
     };
