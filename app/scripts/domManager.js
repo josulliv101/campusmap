@@ -159,6 +159,8 @@ define([
 
         if (_.contains(loc.tagItems, 'lawn')) classes.push('lawn');
 
+        if (_.contains(loc.tagItems, 'commencement')) classes.push('commencement');
+
         if (_.contains(loc.tagItems, 'first-aid'))  {
 
             classes.push('first-aid');

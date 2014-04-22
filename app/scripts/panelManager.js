@@ -44,7 +44,7 @@ define([
         
         //// If no panel constructor defined, the Base panel view is used ////
 
-        // Primary Panels
+        // Primary Panels - order here is reflected in the DOM
         this.createPanel('details', DetailsView);
 
         this.createPanel('results', ResultsView);

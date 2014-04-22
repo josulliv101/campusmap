@@ -20,6 +20,9 @@
 				border: 1px #ccc none;
 
 				.location {
+					&.commencement {
+						opacity: 1;
+					}
 					&.web-viewing-area {
 						.bd {
 							.txt {
