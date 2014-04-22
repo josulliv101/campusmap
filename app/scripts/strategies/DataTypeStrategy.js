@@ -207,7 +207,7 @@ define([
         _.extend(model, { parking: false, commencement: false, building: false, accessibility: false });
         
         model[val] = true;
-debugger;
+
         return  val;
 
     };

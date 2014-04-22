@@ -318,6 +318,10 @@ $gutter: 8px;
 			}
 		}
 
+		&#secondary {
+			z-index: -1;
+		}
+
 		&#sharelink {
 			
 			.panel-bd {

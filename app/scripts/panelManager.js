@@ -49,6 +49,8 @@ define([
 
         this.createPanel('results', ResultsView);
 
+        this.createPanel('commencement');
+
         this.createPanel('admin-location', AdminLocationView);
 
         this.createPanel('admin-add-locations', AdminAddLocationsView);
@@ -69,7 +71,7 @@ define([
         this.createPanel('printable-maps');
 
         this.createPanel('settings');
-        
+
         this.init = true;
 
     };

@@ -161,6 +161,16 @@ define([
 
         if (_.contains(loc.tagItems, 'commencement')) classes.push('commencement');
 
+        if (_.contains(loc.tagItems, 'restroom')) classes.push('restroom');
+
+        if (_.contains(loc.tagItems, 'disabled-dropoff')) classes.push('disabled-dropoff');
+
+        if (_.contains(loc.tagItems, 'food-service')) classes.push('food-service');
+
+        if (_.contains(loc.tagItems, 'shuttle')) classes.push('shuttle');
+
+        if (_.contains(loc.tagItems, 'restroom-disabled')) classes.push('restroom-disabled');
+
         if (_.contains(loc.tagItems, 'first-aid'))  {
 
             classes.push('first-aid');

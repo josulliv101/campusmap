@@ -22,6 +22,81 @@
 				.location {
 					&.commencement {
 						opacity: 1;
+
+						&.food-service {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/food-service.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+							}
+						}
+
+						&.shuttle {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/shuttle.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+							}
+						}
+
+						&.disabled-dropoff {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/disabled-dropoff.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+								border-radius: 0;
+							}
+						}
+
+						&.restroom {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/restroom.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+							}
+						}
+						&.restroom-disabled {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/restroom-disabled.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+							}
+						}
 					}
 					&.web-viewing-area {
 						.bd {
