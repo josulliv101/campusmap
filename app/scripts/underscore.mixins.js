@@ -141,6 +141,10 @@ define([
             // return next item
             return arr[++curIndex];
 
+        },
+
+        trim: function(str) {
+            return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         }
 
     });

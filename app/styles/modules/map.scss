@@ -7,6 +7,7 @@
 $animate: .2s;
 
 $green: #5c7557;
+$greentxt: #30432b;
 
 $lite: #fff;
 
@@ -433,6 +434,7 @@ $lite: #fff;
 				}
 				.icon {
 					background-image: url("../../app/images/icons/parking.png");
+					background-color: transparent;
 					width: 16px;
 					height: 16px;
 					border: none;
@@ -443,17 +445,87 @@ $lite: #fff;
 			&.field, &.lawn {
 				.bd {
 					.txt {
-						color: $green;
+						color: $greentxt;
+						opacity: .88;
 					}
 				}
 				.icon {
 					background-color: $green;
 					border-color: $green;
+					
 					&:hover {
 						background-color: $lite;
 					}
 				}
 			}
+			/*
+			&.web-viewing-area {
+				.bd {
+					.txt {
+						left: 16px;
+					}
+				}
+				.icon {
+					background-image: url("../../app/images/icons/commencement/web-viewing-area.png");
+					width: 24px;
+					height: 24px;
+					border: none;
+					background-color: transparent;
+				}
+			}
+			&.first-aid {
+				.bd {
+					.txt {
+						left: 16px;
+					}
+				}
+				.icon {
+					background-image: url("../../app/images/icons/commencement/first-aid.png");
+					width: 24px;
+					height: 24px;
+					border: none;
+					background-color: transparent;
+				}
+			}
+			&.info-booth {
+				.bd {
+					.txt {
+						left: 16px;
+					}
+				}
+				.icon {
+					background-image: url("../../app/images/icons/commencement/info-booth.png");
+					width: 24px;
+					height: 24px;
+					border: none;
+					background-color: transparent;
+				}
+			}
+			&.graduation-ceromony {
+				.bd {
+					padding-left: 29px;
+					.txt {
+						 left: 6px;
+					}
+				}
+				.icon {
+					background-image: url("../../app/images/icons/commencement/graduation-ceromony.png");
+					width: 36px;
+					height: 36px;
+					border: none;
+					background-color: rgba(0,0,0,0);
+					top: -8px;
+					left: -8px;
+					background-size: 36px 36px;
+					@include noshadow();
+				}
+				&.emphasis5 {
+					.bd {
+						opacity: 1 !important;
+						display: block !important;
+					}
+				}
+			}*/
 		}
 	}
 }

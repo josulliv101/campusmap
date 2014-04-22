@@ -10,7 +10,7 @@ define([
 
     'use strict';
 
-    var cssFlags = ['streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted'];
+    var cssFlags = ['commencement', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted'];
 
     function CssFlagStrategy() {
 

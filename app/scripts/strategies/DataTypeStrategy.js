@@ -197,6 +197,20 @@ define([
         return  model.searchboxdimensions;
 
     };
+
+    // Convery mode into model representing css flags
+    DataTypeStrategy.prototype.modeChange = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        if (key !== 'mode') return;
+
+        // Reset
+        _.extend(model, { parking: false, commencement: false, building: false, accessibility: false });
+        
+        model[val] = true;
+debugger;
+        return  val;
+
+    };
     
     DataTypeStrategy.prototype.detailsChange = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
@@ -264,6 +278,8 @@ define([
     };
 
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
+
+        DataTypeStrategy.prototype.modeChange,
 
         DataTypeStrategy.prototype.stringToBoolean,
 

@@ -63,12 +63,18 @@ a {
 }
 
 @mixin animate($seconds) {
-
-	-webkit-transition: all $seconds linear;
-		-moz-transition: all $seconds linear;
-			-o-transition: all $seconds linear;
-				-ms-transform: all $seconds linear;
-					transition: all $seconds linear;
+/*
+	-webkit-transition: border-radius $seconds linear, opacity $seconds linear, box-shadow $seconds linear;
+		-moz-transition: border-radius $seconds linear, opacity $seconds linear, box-shadow $seconds linear;
+			-o-transition: border-radius $seconds linear, opacity $seconds linear, box-shadow $seconds linear;
+				-ms-transform: border-radius $seconds linear, opacity $seconds linear, box-shadow $seconds linear;
+					transition: border-radius $seconds linear, opacity $seconds linear, box-shadow $seconds linear;
+*/
+	-webkit-transition: border-radius $seconds linear;
+		-moz-transition: border-radius $seconds linear;
+			-o-transition: border-radius $seconds linear;
+				-ms-transform: border-radius $seconds linear;
+					transition: border-radius $seconds linear;
 }
 
 @mixin rotate($degrees) {

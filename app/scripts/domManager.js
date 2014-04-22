@@ -137,8 +137,10 @@ define([
 
         tags = _.getAttr(loc, 'tags');
 
+//// Refactor This ////
+
         // Don't want to change tags string attr -- needed as string for persistance.
-        if (_.isString(tags)) loc.tagItems = loc.tagItems || _.getAttr(loc, 'tags').split(',');
+        if (_.isString(tags)) loc.tagItems = loc.tagItems || _.chain(_.getAttr(loc, 'tags').split(',')).map(_.trim).value();
 
         if (_.getAttr(loc, 'emphasis')) classes.push('emphasis' + _.getAttr(loc, 'emphasis'));
 
@@ -152,10 +154,42 @@ define([
 
         // Tag-based css flags
         if (_.contains(loc.tagItems, 'parking')) classes.push('parking');
-        
+
         if (_.contains(loc.tagItems, 'field')) classes.push('field');
 
         if (_.contains(loc.tagItems, 'lawn')) classes.push('lawn');
+
+        if (_.contains(loc.tagItems, 'first-aid'))  {
+
+            classes.push('first-aid');
+
+            //classes.push('emphasis5');
+
+        }
+
+        if (_.contains(loc.tagItems, 'graduation-ceromony'))  {
+
+            classes.push('graduation-ceromony');
+
+            //classes.push('emphasis5');
+
+        }
+
+        if (_.contains(loc.tagItems, 'info-booth'))  {
+
+            classes.push('info-booth');
+
+            //classes.push('emphasis5');
+
+        }
+
+        if (_.contains(loc.tagItems, 'web viewing area'))  {
+
+            classes.push('web-viewing-area');
+
+            //classes.push('emphasis5');
+
+        }
 
         return classes.join(" ");
 
