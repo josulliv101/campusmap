@@ -99,7 +99,7 @@ define([
         getAttr: function(item, attr) {
 
             // Avoid changing latlng strings into objects, use this as a work-around. Helps with parse.com saving.
-            if (attr == 'latlng' && item.latlngObj)  return item.latlngObj;
+            if (attr === 'latlng' && item.latlngObj)  return item.latlngObj;
 
             return item.attributes && item.attributes[attr] || item[attr];
 

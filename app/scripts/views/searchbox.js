@@ -31,7 +31,7 @@ define([
             'focusin #searchbox': function() {
 
                 // Set val to empty string to clear value in input. Set it to null to show placeholder text.
-                EventDispatcher.trigger('truthupdate', { primarylabel: '' });
+                EventDispatcher.trigger('truthupdate', { primarylabel: '', filter: 'name' });
 
             },
 

@@ -44,8 +44,6 @@ define([
 
             if (_.isEmpty(panels)) {
 
-                //EventDispatcher.trigger('truthupdate', { paneltransitiondone: true });
-
                 self.transition = false;
 
                 return;

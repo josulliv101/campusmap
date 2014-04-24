@@ -72,6 +72,8 @@ define([
 
         this.createPanel('settings');
 
+        this.createPanel('back-to');
+
         this.init = true;
 
     };

@@ -61,3 +61,18 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) {  
 /* Styles */  
 }  
+
+/* Desktop (portrait and landscape) ----------- */  
+@media only screen   
+and (min-device-width : 1025px) {  
+/* Styles */ 
+
+	#app, #campusmap, #map-canvas { 
+		min-height: 540px;
+	}
+
+	.interior-wrapper a:hover {
+		color: #fff;
+	}
+
+}  

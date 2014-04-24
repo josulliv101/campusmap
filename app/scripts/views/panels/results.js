@@ -109,9 +109,11 @@ define([
                 // Convert models to json
                 results = Filter.filter(q, locations, Filter.getFilter(model.get('filter')));
 //.first(5)
+
+
             model.set({ results: results });
 
-            //this.render();
+            this.render();
 
         },
 

@@ -72,9 +72,9 @@ define([
 
             _.each(omitKeys, function(key) {
 
-                location.set(key, null, { silent: true })
+                location.set(key, null, { silent: true });
 
-            })
+            });
 //debugger;
             location.save(inputObj)
 

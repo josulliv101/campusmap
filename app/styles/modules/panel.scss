@@ -332,6 +332,64 @@ $gutter: 8px;
 
 		}
 
+		&#commencement {
+			.menu-commencement {
+				.item-menu {
+					float: left;
+					width: 50%;
+					
+					@include borderbox();
+					button {
+						width: 100%;
+						text-align: left;
+						height: 62px;
+						padding-left: 54px;	
+					    font-size: 12px;
+					    font-weight: 700;
+					    letter-spacing: 0.06em;
+						background: none;
+						border: none;
+						&:hover {
+							color: #666;
+						}				
+					}
+					&:hover {
+						background: #6699cc;
+						button {
+							color: #fff;
+						}
+					}
+					&:nth-child(2n+1) {
+						margin-right: 0;
+					}
+					&.ceromony-locations button {
+						background: url("../../app/images/icons/commencement/graduation-ceromony-small.png") no-repeat 12px center;
+					}
+					&.shuttle button {
+						background: url("../../app/images/icons/commencement/shuttle.png") no-repeat 12px center;
+					}
+					&.web-viewing-areas button {
+						background: url("../../app/images/icons/commencement/web-viewing-area.png") no-repeat 12px center;
+					}
+					&.info-booths button {
+						background: url("../../app/images/icons/commencement/info-booth.png") no-repeat 12px center;
+					}
+					&.disabled-dropoff button {
+						background: url("../../app/images/icons/commencement/disabled-dropoff.png") no-repeat 12px center;
+					}
+					&.restrooms button {
+						background: url("../../app/images/icons/commencement/restroom.png") no-repeat 12px center;
+					}
+					&.disabled-restrooms button {
+						background: url("../../app/images/icons/commencement/restroom-disabled.png") no-repeat 12px center;
+					}
+					&.food-service button {
+						background: url("../../app/images/icons/commencement/food-service.png") no-repeat 12px center;
+					}
+				}
+			}
+		}
+
 		&#hint-map-icons {
 			min-height: 30px;
 			.subhead {

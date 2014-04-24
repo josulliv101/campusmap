@@ -111,8 +111,8 @@ module.exports = function (grunt) {
         options: {
           name: 'config',
           mainConfigFile: 'app/main.js',
-          out: '<%= concat.dist.dest %>',
-          optimize: 'none'
+          out: '<%= concat.dist.dest %>'
+          , optimize: 'none'
         }
       }
     },

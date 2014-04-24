@@ -111,14 +111,15 @@ define([
 
         });
 
-        google.maps.event.addListener(this.map, 'click', function (ev) { // _.throttle()
+        // Name the cb function for debug
+        google.maps.event.addListener(this.map, 'click', function mapClickHandler(ev) { // _.throttle()
           
             var loc = view.underLatLng_(ev.latLng, this.getZoom()),
 
                 panels = loc && 'details' || '';
 
             ev.stop();
-            
+
             if (_.isObject(loc)) EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
 
             // Remove focus from searchbox so default text is displayed
@@ -304,7 +305,7 @@ var y = ll1.y - ll2.y;
             google.maps.event.addListener(this.adminmarker, 'dragend', function() {
 
                 var ll = am.getPosition().toUrlValue();
-debugger;
+
                 EventDispatcher.trigger('truthupdate', { adminmarker: ll.replace(/[\(\)]+/g, '') });
 
             });
@@ -317,7 +318,7 @@ debugger;
 
         this.adminmarker.setVisible(true);
 
-    }
+    };
 
     GoogleMapView.prototype.renderLabelOverlay = function(locations) {
 

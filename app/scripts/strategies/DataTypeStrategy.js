@@ -123,7 +123,7 @@ define([
         attr[key] = PanelManager.getPanelsById( val );
 
         _.extend(model, attr);
-
+        
         return  attr[key];
 
     };
@@ -192,7 +192,7 @@ define([
 
         if (key !== 'paneltransitiondone' || val !== true) return;
 
-        model.searchboxdimensions = DomManager.getDimensions($('#container-searchbox'));
+        //model.searchboxdimensions = DomManager.getDimensions($('#container-searchbox'));
         
         return  model.searchboxdimensions;
 
@@ -222,7 +222,7 @@ define([
         if (theTruth.get('details') !== val) return;
 
         // No change in searchbox height width
-        model.paneltransitiondone = null;
+        //model.paneltransitiondone = null;
 
         navbar = theTruth.get('detailsnavbar');
 

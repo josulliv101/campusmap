@@ -4,20 +4,25 @@
    Layout
    ========================================================================== */
 
-html, body, #app, #campusmap { 
 
+html, body {
 	height: 100%;
+}
 
+
+#app, #campusmap, #map-canvas { 
+	height: 100%;
+	min-height: 320px;
 }
 
 body {
-
+/*
 	background: #f8f8f8;
 	overflow: hidden;
 	height: 100%;
 	margin: 0;
 	padding: 0;
-
+*/
 }
 
 #app {
