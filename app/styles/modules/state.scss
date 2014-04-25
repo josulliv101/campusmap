@@ -5,6 +5,18 @@
    ========================================================================== */
 
 #app {
+	&.parking {
+		#map-canvas {
+
+			.label-tile {
+				.location {
+					&.parking {
+						display: block;
+					}
+				}
+			}
+		}
+	}
 	&.commencement {
 		#results {
 			.result{

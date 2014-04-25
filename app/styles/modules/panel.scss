@@ -86,7 +86,7 @@ $gutter: 8px;
 
 			min-width: 450px;
 
-			height: 150px;
+			height: auto; /* 150px */
 
 			display: table-cell;
 
@@ -127,7 +127,14 @@ $gutter: 8px;
 
 						letter-spacing: .06em;
 
+						&.addr2 {
+							font-size: 12px;
+							color: #999;
+						}
+
 					}
+
+
 
 				}
 
@@ -332,11 +339,11 @@ $gutter: 8px;
 
 		}
 
-		&#commencement {
-			.menu-commencement {
+		&#parking {
+			.menu-parking {
 				.item-menu {
 					float: left;
-					width: 50%;
+					width: 33%;
 					
 					@include borderbox();
 					button {
@@ -344,8 +351,8 @@ $gutter: 8px;
 						text-align: left;
 						height: 62px;
 						padding-left: 54px;	
-					    font-size: 12px;
-					    font-weight: 700;
+					    font-size: 11px;
+					    font-weight: 400;
 					    letter-spacing: 0.06em;
 						background: none;
 						border: none;
@@ -354,9 +361,58 @@ $gutter: 8px;
 						}				
 					}
 					&:hover {
-						background: #6699cc;
+						background: #ddd;
 						button {
-							color: #fff;
+							color: #333;
+						}
+					}
+					&:nth-child(2n+1) {
+						margin-right: 0;
+					}
+					&.parking-faculty-staff button {
+						background: url("../../app/images/icons/parking/f.png") no-repeat 12px center;
+					}
+					&.parking-visitor button {
+						background: url("../../app/images/icons/parking/v.png") no-repeat 12px center;
+					}
+					&.parking-resident button {
+						background: url("../../app/images/icons/parking/r.png") no-repeat 12px center;
+					}
+					&.parking-commuter button {
+						background: url("../../app/images/icons/parking/c.png") no-repeat 12px center;
+					}
+					&.parking-no-sticker button {
+						background: url("../../app/images/icons/parking/x.png") no-repeat 12px center;
+					}
+				}
+			}
+		}
+
+		&#commencement {
+			.menu-commencement {
+				.item-menu {
+					float: left;
+					width: 33.33%;
+					
+					@include borderbox();
+					button {
+						width: 100%;
+						text-align: left;
+						height: 62px;
+						padding-left: 54px;	
+					    font-size: 11px;
+					    font-weight: 400;
+					    letter-spacing: 0.06em;
+						background: none;
+						border: none;
+						&:hover {
+							color: #666;
+						}				
+					}
+					&:hover {
+						background: #ddd;
+						button {
+							color: #333;
 						}
 					}
 					&:nth-child(2n+1) {

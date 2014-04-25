@@ -13,6 +13,9 @@
 				<% if (model.location.address1) { %>
 					<p class="addr">${model.location.address1}</p>
 				<% } %>
+				<% if (model.location.address2) { %>
+					<p class="addr addr2">${model.location.address2}</p>
+				<% } %>
 				<p class="addr">Medford, MA 02155</p>
 				<div class="more-info">
 					<% if (model.location.phone) { %>

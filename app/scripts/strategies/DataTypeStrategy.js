@@ -123,7 +123,7 @@ define([
         attr[key] = PanelManager.getPanelsById( val );
 
         _.extend(model, attr);
-        
+        debugger;
         return  attr[key];
 
     };

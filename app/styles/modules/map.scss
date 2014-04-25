@@ -431,6 +431,10 @@ $lite: #fff;
 
 			/* Parking */
 			&.parking {
+				display: none;
+				&#p-dowling-garage {
+					display: block;
+				}
 				.bd {
 					.txt {
 						color: #336699;

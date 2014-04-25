@@ -50,6 +50,8 @@ define([
 
         this.createPanel('commencement');
 
+        this.createPanel('parking');
+
         this.createPanel('admin-location', AdminLocationView);
 
         this.createPanel('admin-add-locations', AdminAddLocationsView);
@@ -72,6 +74,8 @@ define([
         this.createPanel('settings');
 
         this.createPanel('back-to');
+
+        this.createPanel('back-to-parking');
 
         this.init = true;
 
@@ -102,8 +106,8 @@ define([
                        })
 
                        .value();
- 
-        return _.filter(this.panels, function(panel) { return _.contains(ids, panel.id); } );
+ debugger;
+        return panels; //_.filter(this.panels, function(panel) { return _.contains(ids, panel.id); } );
 
     };
 

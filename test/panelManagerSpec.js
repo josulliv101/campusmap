@@ -91,6 +91,18 @@ define([
 
       });
 
+      it('gets a single panel by id when similar names found', function () {
+
+        //var view1 = PM.getPanel('mypanel1'), view2 = PM.getPanel('mypanel2');
+
+        //PM.openPanels([view1, view2]);
+
+        //expect( view1.state() ).toBe('open');
+
+        //expect( view2.state() ).toBe('open');
+
+      });
+
     });
 
   });

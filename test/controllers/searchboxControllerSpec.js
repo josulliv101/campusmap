@@ -11,7 +11,7 @@ define([
 
     beforeEach(function() {
 
-      spyOn(SearchboxController.prototype, 'handleTruthChange').andCallThrough();
+      spyOn(SearchboxController.prototype, 'handleTruthChangeSB').andCallThrough();
 
       PM = new FakePanelManager();
 
@@ -32,7 +32,7 @@ define([
 
         controller.trigger('delegateTruth', { myattr: 123 });
 
-        expect( SearchboxController.prototype.handleTruthChange ).toHaveBeenCalled();
+        expect( SearchboxController.prototype.handleTruthChangeSB ).toHaveBeenCalled();
 
       });
 
