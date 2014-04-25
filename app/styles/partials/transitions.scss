@@ -4,7 +4,7 @@
    ========================================================================== */
 
 $showDuration: .65s;
-$hideDuration: $showDuration;
+$hideDuration: .85s;
 
 @keyframes slideOut {
     0% {
@@ -24,6 +24,28 @@ $hideDuration: $showDuration;
         -ms-transform: translateY(-200%);
          -o-transform: translateY(-200%);
             transform: translateY(-200%) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+@keyframes slideOut-secondary {
+    0% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+
+    100% {
+
+      -webkit-transform: translateY(-1100%);
+       -moz-transform: translateY(-1100%);
+        -ms-transform: translateY(-1100%);
+         -o-transform: translateY(-1100%);
+            transform: translateY(-1100%) scale(1,1) rotateX(0deg);
 
     }
 }
@@ -50,15 +72,16 @@ $hideDuration: $showDuration;
     }
 }
 
+/* Tier 2 panels need slightly tweaked animation */
 @keyframes slideIn-secondary {
 
     0% {
 
-      -webkit-transform: translateY(-1100%);
-       -moz-transform: translateY(-1100%);
-        -ms-transform: translateY(-1100%);
-         -o-transform: translateY(-1100%);
-            transform: translateY(-1100%) scale(1,1) rotateX(0deg);
+      -webkit-transform: translateY(-1500%);
+       -moz-transform: translateY(-1500%);
+        -ms-transform: translateY(-1500%);
+         -o-transform: translateY(-1500%);
+            transform: translateY(-1500%) scale(1,1) rotateX(0deg);
     }
 
     100% {
@@ -94,6 +117,28 @@ $hideDuration: $showDuration;
     }
 }
 
+@-webkit-keyframes slideOut-secondary /* Safari and Chrome */
+{
+    0% {
+      
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+    }
+
+    100% {
+
+      -webkit-transform: translateY(-1500%);
+       -moz-transform: translateY(-1500%);
+        -ms-transform: translateY(-1500%);
+         -o-transform: translateY(-1500%);
+            transform: translateY(-1500%) scale(1,.8) rotateX(70deg);
+
+    }
+}
+
 
 
 @-webkit-keyframes slideIn /* Safari and Chrome */
@@ -117,6 +162,7 @@ $hideDuration: $showDuration;
     }
 }
 
+/* Tier 2 panels need slightly tweaked animation */
 @-webkit-keyframes slideIn-secondary /* Safari and Chrome */
 {
     0% {
@@ -218,7 +264,7 @@ $hideDuration: $showDuration;
 
       }
 
-      &.secondary {
+      &#back-to, &#select-destination, &#sharelink, &#directions {
         z-index: -1;
         -webkit-animation: slideIn-secondary $showDuration;
         animation: slideIn-secondary $showDuration;
@@ -239,6 +285,15 @@ $hideDuration: $showDuration;
       // animation-timing-function: ease-out;
       // -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
   
+      &#back-to, &#select-destination, &#sharelink, &#directions {
+        z-index: -1;
+        -webkit-animation: slideOut-secondary $showDuration;
+        animation: slideOut-secondary $showDuration;
+
+        animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
+      }
+
       &:nth-child(1) {
         
         // animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);

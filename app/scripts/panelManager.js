@@ -40,7 +40,6 @@ define([
     PanelManager.prototype.initialize = function() {
 
         this.$container = $('#container-panels');
-
         
         //// If no panel constructor defined, the Base panel view is used ////
 
