@@ -190,10 +190,12 @@ define([
 
     DataTypeStrategy.prototype.panelTransitionDone = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
-        if (key !== 'paneltransitiondone' || val !== true) return;
+        if (key !== 'paneltransitiondone' || !_.isString(val)) return;
 
-        //model.searchboxdimensions = DomManager.getDimensions($('#container-searchbox'));
+        model.searchboxdimensions = DomManager.getDimensions($('#container-searchbox'));
         
+        delete model.paneltransitiondone;
+
         return  model.searchboxdimensions;
 
     };

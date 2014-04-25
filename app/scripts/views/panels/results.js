@@ -110,10 +110,10 @@ define([
                 results = Filter.filter(q, locations, Filter.getFilter(model.get('filter')));
 //.first(5)
 
-
             model.set({ results: results });
 
-            this.render();
+            // Let the panel re-render via Base's pre open call
+            //if (this.state() === 'open') this.render();
 
         },
 

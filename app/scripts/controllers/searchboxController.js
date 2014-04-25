@@ -13,20 +13,20 @@ define([
 
     function SearchboxController(PanelManager) {
 
-        _.bindAll(this, 'handleTruthChange');
+        _.bindAll(this, 'handleTruthChangeSB');
 
         this.PM = PanelManager;
 
         this.PM.initialize();
 
-        EventDispatcher.on('delegateTruth', this.handleTruthChange);
+        EventDispatcher.on('delegateTruth', this.handleTruthChangeSB);
 
     }
 
-    SearchboxController.prototype.handleTruthChange = function(changedAttributes) {
+    SearchboxController.prototype.handleTruthChangeSB = function(changedAttributes) {
 
-        var PM, deferreds, panels = changedAttributes.panels, self = this;
-
+        var PM, deferredsClosePanels, panels = changedAttributes.panels, self = this;
+console.log('handleTruthChange sbcontroller', changedAttributes);
         // Looking for panels attr only
         if (!panels || this.transition === true) return;
 
@@ -34,13 +34,15 @@ define([
 
         this.transition = true;
 
-        deferreds = PM.closePanels(panels, changedAttributes.forceclosepanels);
-
+        deferredsClosePanels = PM.closePanels(panels, changedAttributes.forceclosepanels);
+console.log('handleTruthChange sbcontroller 2', panels);
         // First, close any open panels
-        $.when.apply(null, deferreds)
+        $.when.apply(null, deferredsClosePanels)
 
          // Then, open.
          .done(function() {
+
+            EventDispatcher.trigger('truthupdate', { paneltransitiondone: _.uniqueId('panelsopen_') }, { silent: false });
 
             if (_.isEmpty(panels)) {
 
@@ -50,16 +52,22 @@ define([
 
             }
 
-            $.when.apply(null, PM.openPanels(panels)).done(function() { 
+            $.when.apply(null, PM.openPanels(panels)).done(_.throttle(function() { 
+console.log('panels open done')
+                //if (!_.isEmpty(panels)) {
 
-                EventDispatcher.trigger('truthupdate', { paneltransitiondone: true });
+                    EventDispatcher.trigger('truthupdate', { paneltransitiondone: _.uniqueId('panelsopen_') }, { silent: false });
+
+                //}
 
                 self.transition = false;
 
-            });
+            }, 1000));
 
          });
     };
+
+    SearchboxController.prototype.handlePanelsOpen = _.bind(EventDispatcher.trigger, EventDispatcher);
 
     SearchboxController.prototype.trigger = _.bind(EventDispatcher.trigger, EventDispatcher);
 

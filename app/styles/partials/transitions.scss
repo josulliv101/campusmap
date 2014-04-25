@@ -3,7 +3,7 @@
    Transitions
    ========================================================================== */
 
-$showDuration: .4s;
+$showDuration: .65s;
 $hideDuration: $showDuration;
 
 @keyframes slideOut {
@@ -19,11 +19,11 @@ $hideDuration: $showDuration;
 
     100% {
 
-      -webkit-transform: translateY(-640%);
-       -moz-transform: translateY(-640%);
-        -ms-transform: translateY(-640%);
-         -o-transform: translateY(-640%);
-            transform: translateY(-640%) scale(1,1) rotateX(0deg);
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,1) rotateX(0deg);
 
     }
 }
@@ -32,11 +32,33 @@ $hideDuration: $showDuration;
 
     0% {
 
-      -webkit-transform: translateY(-640%);
-       -moz-transform: translateY(-640%);
-        -ms-transform: translateY(-640%);
-         -o-transform: translateY(-640%);
-            transform: translateY(-640%) scale(1,1) rotateX(0deg);
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,1) rotateX(0deg);
+    }
+
+    100% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+@keyframes slideIn-secondary {
+
+    0% {
+
+      -webkit-transform: translateY(-1100%);
+       -moz-transform: translateY(-1100%);
+        -ms-transform: translateY(-1100%);
+         -o-transform: translateY(-1100%);
+            transform: translateY(-1100%) scale(1,1) rotateX(0deg);
     }
 
     100% {
@@ -63,11 +85,11 @@ $hideDuration: $showDuration;
 
     100% {
 
-      -webkit-transform: translateY(-640%);
-       -moz-transform: translateY(-640%);
-        -ms-transform: translateY(-640%);
-         -o-transform: translateY(-640%);
-            transform: translateY(-640%) scale(1,.8) rotateX(70deg);
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,.8) rotateX(70deg);
 
     }
 }
@@ -78,11 +100,11 @@ $hideDuration: $showDuration;
 {
     0% {
 
-      -webkit-transform: translateY(-640%);
-       -moz-transform: translateY(-640%);
-        -ms-transform: translateY(-640%);
-         -o-transform: translateY(-640%);
-            transform: translateY(-640%) scale(1,.8) rotateX(70deg);
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,.8) rotateX(70deg);
     }
     100% {
 
@@ -95,6 +117,26 @@ $hideDuration: $showDuration;
     }
 }
 
+@-webkit-keyframes slideIn-secondary /* Safari and Chrome */
+{
+    0% {
+
+      -webkit-transform: translateY(-1100%);
+       -moz-transform: translateY(-1100%);
+        -ms-transform: translateY(-1100%);
+         -o-transform: translateY(-1100%);
+            transform: translateY(-1100%) scale(1,1) rotateX(0deg);
+    }
+    100% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+}
 
 
 
@@ -166,17 +208,24 @@ $hideDuration: $showDuration;
       -webkit-animation: slideIn $showDuration;
       animation: slideIn $showDuration;
   
-      animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
-      -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
+      // animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
+      // -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
 
       &:nth-child(1) {
 
-        animation-timing-function: linear;
-        -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
+        // animation-timing-function: linear;
+        // -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
 
       }
 
-      &:nth-child(2) {}
+      &.secondary {
+        z-index: -1;
+        -webkit-animation: slideIn-secondary $showDuration;
+        animation: slideIn-secondary $showDuration;
+
+        animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
+      }
 
       &:nth-child(3) {}      
 
@@ -187,13 +236,13 @@ $hideDuration: $showDuration;
       -webkit-animation: slideOut $hideDuration;
       animation: slideOut $hideDuration;
 
-      animation-timing-function: ease-out;
-      -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
+      // animation-timing-function: ease-out;
+      // -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
   
       &:nth-child(1) {
         
-        animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
-        -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
+        // animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
+        // -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
 
       }
 

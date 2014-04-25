@@ -126,7 +126,7 @@ define([
 
             console.log('query', query);
 
-            EventDispatcher.trigger('truthupdate', { panels: !_.isEmpty(query) ? 'results' : '' }); 
+            //EventDispatcher.trigger('truthupdate', { panels: !_.isEmpty(query) ? 'results' : '' }); 
             
         },
 

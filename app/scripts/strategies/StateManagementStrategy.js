@@ -149,14 +149,14 @@ define([
 
     StateManagementStrategy.prototype.panelTransitionDone = function(model, val, key, MapUtils) {
 
-        if (key !== 'paneltransitiondone') return;
-
+/*        if (key !== 'paneltransitiondone') return;
+console.log('panelTransitionDone', val, key);
         // Reset
         if (val === true) {
-
+            console.log('panelTransitionDone true', val, key);
             EventDispatcher.trigger('truthupdate', { paneltransitiondone: null }, { silent: true });
 
-        }
+        }*/
 
         return  val;
 

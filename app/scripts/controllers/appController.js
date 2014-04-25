@@ -61,6 +61,8 @@ define([
         // Gets cleared when router handles route -- needed for Back Button integration.
         if (options.clear === true) this.theTruth.clear({ silent: true });
 
+console.log('changedAttrs', changedAttrs);
+
         // Preprocess changed attributes -- acts as insertion point for attr tweaks
         _.each(changedAttrs, function(val, key) { 
 
@@ -68,7 +70,7 @@ define([
             this.dataTypeStrategy.dispatch(changedAttrs, val, key, Datastore, PanelManager, DomManager, this.theTruth);
 
         }, this);
-
+console.log('changedAttrs - after', changedAttrs, options);
         // Forward on params. Handy for { silent: true } option
         this.theTruth.set(changedAttrs, options);
 
@@ -85,7 +87,7 @@ define([
 
         // Pretend the panels attr changed -- forceclosepanels will be reset by the state strategy
         if (changed.forceclosepanels === true) changed.panels = model.get('panels');
-
+console.log('handleTruthChange', changed);
         // Handle each changed attribute in the most appropriate manner, determined by dispatch function
         _.each(changed, function(val, key) { 
 
@@ -96,7 +98,7 @@ define([
             this.cssFlagStrategy.dispatch(model, val, key);
 
         }, this);
-
+console.log('**************************************', changed);
         // The Truth changes get sent to Component-level controllers for further handling
         EventDispatcher.trigger('delegateTruth', changed, previous);
 
