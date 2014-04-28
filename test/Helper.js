@@ -36,9 +36,8 @@ FakePanelManager.prototype.initialize = function() {
 function FakePanel(id) { this.id = id; }
 
 FakePanel.prototype.open = function() {};
-
 FakePanel.prototype.close = function() {};
-
+FakePanel.prototype.getTitle = function() { return ""; };
 
 
 function FakeDatastore() {}

@@ -56,8 +56,10 @@ define([
 
         this.createPanel('admin-add-locations', AdminAddLocationsView);
 
-        // Secondary Panels
         this.createPanel('accessibility', undefined, { title: 'Accessibility' }); 
+
+        // Secondary Panels
+        this.createPanel('details-accessibility'); 
 
         this.createPanel('directions', DirectionsView); 
 
@@ -76,6 +78,8 @@ define([
         this.createPanel('back-to');
 
         this.createPanel('back-to-parking');
+
+        this.createPanel('back-to-accessibility');
 
         this.createPanel('back-to-results');
 

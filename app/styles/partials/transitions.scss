@@ -264,7 +264,7 @@ $hideDuration: .85s;
 
       }
 
-      &#back-to, &#back-to-parking, &#back-to-results, &#select-destination, &#sharelink, &#directions {
+      &#back-to, &#back-to-accessibility, &#back-to-parking, &#back-to-results, &#select-destination, &#sharelink, &#directions {
         z-index: -1;
         -webkit-animation: slideIn-secondary $showDuration;
         animation: slideIn-secondary $showDuration;
@@ -285,7 +285,7 @@ $hideDuration: .85s;
       // animation-timing-function: ease-out;
       // -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
   
-      &#back-to, &#back-to-parking, &#back-to-results, &#select-destination, &#sharelink, &#directions {
+      &#back-to, &#back-to-accessibility, &#back-to-parking, &#back-to-results, &#select-destination, &#sharelink, &#directions {
         z-index: -1;
         -webkit-animation: slideOut-secondary $showDuration;
         animation: slideOut-secondary $showDuration;

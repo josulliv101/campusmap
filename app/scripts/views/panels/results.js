@@ -21,7 +21,7 @@ define([
             var titlesByMode = this.model.get('titles');
 
             mode || (mode = this.model.get('mode'));
- debugger;
+
             return titlesByMode[mode] || 'No title found'; 
 
         },
@@ -173,7 +173,7 @@ define([
             titlesByMode = this.model.get('titles');
 
             titlesByMode[mode] = label;
-debugger;
+
             // Remember the primarylabel for the current mode. Used with back to list links.
             this.model.set('titles', titlesByMode);
             

@@ -1,26 +1,14 @@
-<div class="panel-bd panel-secondary">
+<div class="panel-bd bare">
 	<div class="bd spacing">
-		<h3 class="subhead">Accessibility</h3>
+		<ul class="menu-accessibility">
 
-		<% if (model.location.accessibility > 0 || model.location.accessiblerestroom > 0) { %>
-			<ul class="addr accessibility">
-				<li>
-				<% if (model.location.accessibility === 1) { %>
-					<img src="./app/images/icons/accessibility1@2x.png" /> Fully Accessible
-				<% } else if (model.location.accessibility === 2) { %>
-					<img src="./app/images/icons/accessibility2@2x.png" /> Accessible with Assistance
-				<% } %>
-				</li>
-				<% if (model.location.accessiblerestroom === 1) { %>
-					<li><img src="./app/images/icons/accessibility1@2x.png" /> Accessible Restroom</li>
-				<% } %>
-			</ul>
-			<div class='footer'>
-		<% } else { %>
-			<div class='footer no-content'>
-		<% } %>
-			<a href="#">Office of Equal Opportunity Website</a> <span class="divider">|</span> <a href="#">Accessibility Map (pdf)</a>
-			<button class="btn-close" data-campusmap='panels:details'>close</button>
-		</div>
+			<li class="item-menu accessible-full"><button data-campusmap='panels:results,back-to-accessibility|filter:tags|query:accessible-full|primarylabel:Fully Accessible|searchboxdisable:true|forceclosepanels:true|mode:accessibility'>Fully Accessible</button></li>
+
+			<li class="item-menu accessible-assistance"><button data-campusmap='panels:results,back-to-accessibility|filter:tags|query:accessible-assistance|primarylabel:Accessible with Assistance|searchboxdisable:true|forceclosepanels:true|mode:accessibility'>Accessible with Assistance</button></li>
+
+			<li class="item-menu accessible-restroom"><button data-campusmap='panels:results,back-to-accessibility|filter:tags|query:accessible-restroom|primarylabel:Accessible Restrooms|searchboxdisable:true|forceclosepanels:true|mode:accessibility'>Accessible Restrooms</button></li>
+
+		</ul>
+		<div class='footer'><button class="btn-close" data-campusmap='panels:|details:'>close</button></div>
 	</div>
 </div>

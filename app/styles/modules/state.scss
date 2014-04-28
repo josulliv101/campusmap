@@ -5,7 +5,21 @@
    ========================================================================== */
 
 #app {
+	&.building {
+		#nav-primary {
+			.building {
+				background: #446D9A;
+				color: #fff;
+			}		
+		}
+	}
 	&.parking {
+		#nav-primary {
+			.parking {
+				background: #446D9A;
+				color: #fff;
+			}		
+		}
 		#map-canvas {
 
 			.label-tile {
@@ -17,7 +31,91 @@
 			}
 		}
 	}
+	&.accessibility {
+		#nav-primary {
+			.accessibility {
+				background: #446D9A;
+				color: #fff;
+			}		
+		}
+		#map-canvas {
+			.label-tile {
+				.location {
+					&.accessible-full {
+						.icon {
+							top: -1px;
+							background-image: url("../../app/images/icons/accessibility/accessibility1@2x.png");
+						    background-color: rgba(0, 0, 0, 0);
+						    background-size: 20px 20px;
+						    border: medium none;
+						    height: 20px;
+						    width: 20px;
+						    @include noshadow();
+						}					
+					}
+					&.accessible-assistance {
+						.icon {
+							top: -1px;
+							background-image: url("../../app/images/icons/accessibility/accessibility2@2x.png");
+							background-color: rgba(0, 0, 0, 0);
+						    background-size: 20px 20px;
+						    border: medium none;
+						    height: 20px;
+						    width: 20px;
+						    @include noshadow();
+						}					
+					}
+					&.accessible-restroom {
+						.icon {
+							top: -1px;
+							background-image: url("../../app/images/icons/accessibility/accessibility3@2x.png");
+							background-color: rgba(0, 0, 0, 0);
+						    background-size: 20px 20px;
+						    border: medium none;
+						    height: 20px;
+						    width: 20px;
+						    @include noshadow();
+						}					
+					}
+
+					&.accessible-full {
+						&.accessible-restroom {
+							.icon {
+								top: -1px;
+								background-image: url("../../app/images/icons/accessibility/accessibility1_3@2x.png");
+								width: 40px;
+								background-size: 40px 20px;
+							}
+							/* Icon is wider so adjust text bg */
+							.bd {
+								padding-left: 36px;
+							}
+						}
+					}
+					&.accessible-assistance {
+						&.accessible-restroom {
+							.icon {
+								background-image: url("../../app/images/icons/accessibility/accessibility2_3@2x.png");
+								width: 40px;
+								background-size: 40px 20px;							
+							}
+							/* Icon is wider so adjust text bg */
+							.bd {
+								padding-left: 36px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	&.commencement {
+		#nav-primary {
+			.commencement {
+				background: #446D9A;
+				color: #fff;
+			}		
+		}
 		#results {
 			.result{
 				&.active {

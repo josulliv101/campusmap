@@ -152,6 +152,13 @@ define([
 
         if (_.getAttr(loc, 'isDetails') === true) classes.push('details');
 
+        // Accessibility
+        if (_.contains(loc.tagItems, 'accessible-full')) classes.push('accessible-full');
+
+        if (_.contains(loc.tagItems, 'accessible-assistance')) classes.push('accessible-assistance');
+
+        if (_.contains(loc.tagItems, 'accessible-restroom')) classes.push('accessible-restroom');
+
         // Tag-based css flags
         if (_.contains(loc.tagItems, 'parking')) classes.push('parking');
 
