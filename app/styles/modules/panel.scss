@@ -343,7 +343,7 @@ $gutter: 8px;
 			.menu-accessibility {
 				.item-menu {
 					float: left;
-					width: 33%;
+					width: 33.33%;
 					
 					@include borderbox();
 					button {
@@ -386,7 +386,7 @@ $gutter: 8px;
 			.menu-parking {
 				.item-menu {
 					float: left;
-					width: 33%;
+					width: 33.33%;
 					
 					@include borderbox();
 					button {
@@ -503,6 +503,37 @@ $gutter: 8px;
 				.btn-close {
 					bottom: 6px;
 					right: 14px;
+				}
+			}
+		}
+
+		&#printable-maps {
+			.list-pdfs {
+				li {
+					float: left;
+					margin-bottom: 20px;
+					@include borderbox();
+					min-height: 160px;
+					padding: 6px 10px;
+
+					a {
+						width: 120px;
+						display: block;
+						text-align: center;
+						color: #6699cc;
+						&:hover {
+							color: #666;
+						}
+					}
+
+					img {
+						max-width: 120px;
+						height: auto;
+						@include shadow();
+						display: block;
+						border: 1px #ddd solid;
+						margin-top: 8px;
+					}
 				}
 			}
 		}

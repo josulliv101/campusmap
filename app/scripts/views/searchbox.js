@@ -171,7 +171,7 @@ console.log('keyup  #searchbox', q);
 
             this.$el.focus();
 
-            EventDispatcher.trigger('truthupdate', { mode: 'buildings', panels: '', details: '', backto: null, primarylabel: null, searchboxdisable: false });
+            EventDispatcher.trigger('truthupdate', { panels: '', details: '', backto: null, primarylabel: null, searchboxdisable: false });
             
         }
 
