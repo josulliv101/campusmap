@@ -23,7 +23,7 @@ define([
                 if (ev.target && ev.target.nodeName.toLowerCase() !== 'button') {
 
                     // Closes any secondary panels that are open
-                    EventDispatcher.trigger('truthupdate', { panels : 'details' });
+                    EventDispatcher.trigger('truthupdate', { panels : 'details,back-to-results' });
 
                 }
 
@@ -31,10 +31,10 @@ define([
 
             'mouseover .panel-details': _.once(function(ev) {
 
-                _.delay(this.showHint, 500);
+/*                _.delay(this.showHint, 500);
 
                 _.delay(this.hideHint, 20000);
-
+*/
             })
 
         },

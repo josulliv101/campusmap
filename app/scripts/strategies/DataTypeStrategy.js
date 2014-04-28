@@ -42,6 +42,9 @@ define([
         // Includes negative integers
         if (!_.isString(val) || val.match(/^-?\d+$/) === null) return;
 
+        // Don't change any val that is a query
+        if(key === 'query') return;
+        
         val = parseInt(val);
 
         attr[key] = val;
@@ -116,14 +119,19 @@ define([
         
         if (key !== 'panels' || !_.isString(val)) return;
 
-        // Always ensure that a change is registered on panel change.
-        // temp hack
-        //if (val === 'results') theTruth.set({ panels: null }, { silent: true });
+        // Add the Back To panel whenever results displayed for Parking
+        if (val === 'results' && (model.parking === true || theTruth.get('parking') === true)) val = val + ',back-to-parking';
+
+        if (val === 'results' && (model.commencement === true || theTruth.get('commencement') === true)) val = val + ',back-to';
 
         attr[key] = PanelManager.getPanelsById( val );
 
+        // When a panel change occurs, update the primary label if not explicitly set
+        if (!model.primarylabel && attr[key][0]) model.primarylabel = attr[key][0].getTitle(model.mode);
+
+
         _.extend(model, attr);
-        debugger;
+
         return  attr[key];
 
     };

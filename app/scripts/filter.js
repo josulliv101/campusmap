@@ -36,7 +36,7 @@
 
                         if (!val) return false;
 
-                        words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and', 'the', 'an', 'at'], word); }).value();
+                        words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and', 'the', 'an', 'at', 'for'], word); }).value();
 
                         return _.exists(val) && _.some(words, function(word) { return word.indexOf(query_.term) === 0; }); //val.indexOf(query_.term) > -1; 
 

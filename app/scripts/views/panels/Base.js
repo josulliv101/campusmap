@@ -145,9 +145,9 @@ define([
 
         },
 
-        getTitle: function() {
+        getTitle: function(/* args */) {
 
-            return _.isFunction(this.title) ? this.title() : this.title;
+            return _.isFunction(this.title) ? this.title.apply(this, arguments) : this.title;
 
         }
 

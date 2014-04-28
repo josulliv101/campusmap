@@ -43,11 +43,18 @@ define([
             },
 
             // Update query model on keyup
-            'keyup  #searchbox': function(ev) {
+            'keyup  #searchbox': _.debounce(function(ev) {
 
-                EventDispatcher.trigger('truthupdate', { query: $(ev.currentTarget).val() });
+                var q = $(ev.currentTarget).val(),
 
-            },
+                    args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'name', query: q };
+console.log('keyup  #searchbox', q);
+                EventDispatcher.trigger('truthupdate', args);
+
+                // Announce keyup event, results panel is listening
+                EventDispatcher.trigger('searchbox:keyup', args);
+
+            }, 200),
 
             // The back To List btn 
             'click  .btn-backto': function(ev) {

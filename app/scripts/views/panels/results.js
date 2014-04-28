@@ -16,6 +16,16 @@ define([
 
     return Base.extend({
 
+        title: function(mode) { 
+
+            var titlesByMode = this.model.get('titles');
+
+            mode || (mode = this.model.get('mode'));
+ debugger;
+            return titlesByMode[mode] || 'No title found'; 
+
+        },
+
         events: {
 
             'focusin .list .result button' : function(ev) {
@@ -58,7 +68,7 @@ define([
 
                     //_.delay(function(model) {
 
-                        EventDispatcher.trigger('truthupdate', {  panels: 'details', details: locid });
+                        EventDispatcher.trigger('truthupdate', {  panels: 'details,back-to-results', details: locid });
 //backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } 
                     //}, 400, this.model);
                     
@@ -75,9 +85,23 @@ define([
 
         initialize: function() {
 
+            var titlesByMode;
+
             Base.prototype.initialize.call(this);
 
-            this.model.set({ results: [] });
+            titlesByMode = {  
+
+                building: 'All Buildings (results)',
+
+                parking: 'Parking (results)',
+
+                commencement: 'Commencement (results)',
+
+                accessibility: 'Accessibility (results)',
+
+            };
+
+            this.model.set({ results: [], titles: titlesByMode });
 
             EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
 
@@ -91,12 +115,31 @@ define([
 
                     searchboxdisable: changedAttrs.searchboxdisable || this.model.get('searchboxdisable'),
 
-                    filter: changedAttrs.filter || this.model.get('filter')
+                    filter: changedAttrs.filter || this.model.get('filter'),
+
+                    mode: changedAttrs.mode || this.model.get('mode')
 
                 });
 
                 // No need to re-render. The panel is forced close every time so will re-render before opening.
                 if (changedAttrs.query) this.getResults();
+
+            }, this);
+
+            EventDispatcher.on('searchbox:keyup', function() {
+
+                var PanelManager = this.manager;
+
+                if (!PanelManager) return;
+
+                console.log('results panel', this.state());
+
+                //if (this.state() === 'open') return this.render();
+
+                // Helps when input captured during a animation
+                if (this.state() === 'close') return PanelManager.openPanels([ this ]);
+
+                this.render();
 
             }, this);
 
@@ -114,6 +157,29 @@ define([
 
             // Let the panel re-render via Base's pre open call
             //if (this.state() === 'open') this.render();
+
+        },
+
+        handleOpenPreState: function(model, state) {
+
+            var label, mode, titlesByMode;
+
+            if (state !== 'openPre') return;
+
+            label = this.model.get('primarylabel');
+
+            mode = this.model.get('mode');
+
+            titlesByMode = this.model.get('titles');
+
+            titlesByMode[mode] = label;
+debugger;
+            // Remember the primarylabel for the current mode. Used with back to list links.
+            this.model.set('titles', titlesByMode);
+            
+            this.render();
+            
+            return state;
 
         },
 

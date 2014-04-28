@@ -48,16 +48,16 @@ define([
 
         this.createPanel('results', ResultsView);
 
-        this.createPanel('commencement');
+        this.createPanel('commencement', undefined, { title: 'Commencement' });
 
-        this.createPanel('parking');
+        this.createPanel('parking', undefined, { title: 'Parking' });
 
         this.createPanel('admin-location', AdminLocationView);
 
         this.createPanel('admin-add-locations', AdminAddLocationsView);
 
         // Secondary Panels
-        this.createPanel('accessibility'); 
+        this.createPanel('accessibility', undefined, { title: 'Accessibility' }); 
 
         this.createPanel('directions', DirectionsView); 
 
@@ -76,6 +76,8 @@ define([
         this.createPanel('back-to');
 
         this.createPanel('back-to-parking');
+
+        this.createPanel('back-to-results');
 
         this.init = true;
 
@@ -106,7 +108,7 @@ define([
                        })
 
                        .value();
- debugger;
+
         return panels; //_.filter(this.panels, function(panel) { return _.contains(ids, panel.id); } );
 
     };
@@ -139,11 +141,14 @@ define([
 
     };
 
-    PanelManager.prototype.createPanel = function(id, constructor) {
+    PanelManager.prototype.createPanel = function(id, constructor, options) {
 
         var Constructor = constructor || BaseView,
 
             panel = new Constructor({ id: id, model: new Datastore.Model() });
+
+        // Custom attributes
+        _.extend(panel, options);
 
         // An reference to the PanelManager just in case
         panel.manager = this;
