@@ -33,6 +33,7 @@ and (max-device-width : 480px) {
 				.form-group {
 					#searchbox {
 						max-width: 320px;
+						display: none;
 					}
 				}
 			}
