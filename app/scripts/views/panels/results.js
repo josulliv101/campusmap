@@ -97,7 +97,7 @@ define([
 
                 commencement: 'Commencement (results)',
 
-                accessibility: 'Accessibility (results)',
+                accessibility: 'Accessibility (results)'
 
             };
 

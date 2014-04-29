@@ -616,7 +616,16 @@ $gutter: 8px;
 
 		/* States */
 
-		.panel-details { z-index: 9999; @include panelfade(); }
+		.panel-details { 
+
+			z-index: 9999; 
+
+			@include panelfade(); 
+
+			.panel-bd {
+				height: 150px;
+			}
+		}
 
 		.panel-depts-offices { 
 

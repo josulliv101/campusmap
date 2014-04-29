@@ -51,6 +51,8 @@
 						    height: 20px;
 						    width: 20px;
 						    @include noshadow();
+						    border-radius: 0;
+						    opacity: 1;
 						}					
 					}
 					&.accessible-assistance {
@@ -63,6 +65,8 @@
 						    height: 20px;
 						    width: 20px;
 						    @include noshadow();
+						    border-radius: 0;
+						    opacity: 1;
 						}					
 					}
 					&.accessible-restroom {
@@ -75,6 +79,8 @@
 						    height: 20px;
 						    width: 20px;
 						    @include noshadow();
+						    border-radius: 0;
+						    opacity: 1;
 						}					
 					}
 
@@ -86,6 +92,7 @@
 								width: 40px;
 								background-size: 40px 20px;
 								border-radius: 0;
+								opacity: 1;
 							}
 							/* Icon is wider so adjust text bg */
 							.bd {
@@ -99,7 +106,8 @@
 								background-image: url("../../app/images/icons/accessibility/accessibility2_3@2x.png");
 								width: 40px;
 								background-size: 40px 20px;
-								border-radius: 0;						
+								border-radius: 0;
+								opacity: 1;					
 							}
 							/* Icon is wider so adjust text bg */
 							.bd {

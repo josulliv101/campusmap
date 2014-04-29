@@ -18,7 +18,7 @@ define([
 
         view.$el.css({ overflow: 'hidden', top: '0px' }); // top: '-50px'
 
-        return view.$el.fadeIn(200);
+        return view.$el.fadeIn(450);
 
     };
 
@@ -27,7 +27,7 @@ define([
 
         view.$el.css('overflow', 'hidden');
 
-        return view.$el.fadeOut(200);
+        return view.$el.fadeOut(150);
 
     };
 

@@ -60,7 +60,7 @@
 
             'app': './scripts/app',
 
-            'transition': './scripts/transitions/transitionCSS',
+            'transition': './scripts/transitions/transitionBase',
 
             'config': './scripts/config',
 

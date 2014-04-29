@@ -122,8 +122,14 @@ define([
 
             if (_.isObject(loc)) EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
 
+            else {
+
+                EventDispatcher.trigger('truthupdate', { details: '', panels: '', query: null, backto: null, primarylabel: null });
+
+            }
+            // Comment for now. Causes flicker in IE
             // Remove focus from searchbox so default text is displayed
-            DomManager.unfocusAll();
+            //DomManager.unfocusAll();
 
         });
 

@@ -70,12 +70,15 @@ define([
 
             attrsAll = _.clone(location.attributes);
 
+            // Make sure the persisting fns exist. may be pointing to jsonp datastore and not parse.com datastore
+            if (!location || !location.set || !location.save) return;
+
             _.each(omitKeys, function(key) {
 
                 location.set(key, null, { silent: true });
 
             });
-//debugger;
+
             location.save(inputObj)
 
                     .then(function() {
