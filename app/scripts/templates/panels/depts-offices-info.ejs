@@ -1,0 +1,14 @@
+<div class="panel-bd panel-secondary">
+	<div class="bd spacing">
+		<h3 class="subhead">${model.name}</h3>
+		<ul class="list">
+			<% if (model.locwithin) { %> <li>${model.locwithin}</li><% } %>
+			<% if (model.phone) { %> <li>${model.phone}</li><% } %>
+			<% if (model.email) { %> <li><a class="link external" href="mailto:${model.email}">${model.email}</a></li><% } %>
+			<% if (model.website) { %> <li><a class="link external" target="_blank" href="${model.website}">Visit the website &gt;</a></li><% } %>
+		</ul>
+		<div class='footer'>
+			<button class="btn-close" data-campusmap='panels:details'>close</button>
+		</div>
+	</div>
+</div>

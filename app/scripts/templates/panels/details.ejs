@@ -43,15 +43,23 @@
 		</aside>
 	</div>
 	<div class="panel-content panel-depts-offices">
-		<div class="panel-bd full <% if (model.location.occupants && model.location.occupants.length === 1) { %>single<% } %>">
+		<div class="panel-bd full <% if (model.location.occupants && model.location.occupants.length === 1) { %>single<% } else { %>bare<% } %>">
 			<div class="bd spacing ">
-				<% if (model.location.occupants && model.location.occupants.length === 1) { %>
-					<h4 class="heavy">${model.location.occupants[0].name}</h4>
-					<ul>
-						<% if (model.location.occupants[0].locwithin) { %> <li>${model.location.occupants[0].locwithin}</li><% } %>
-						<% if (model.location.occupants[0].phone) { %>     <li>${model.location.occupants[0].phone}</li><% } %>
-						<% if (model.location.occupants[0].email) { %>     <li><a class="link email" href="mailto:${model.location.occupants[0].email}">${model.location.occupants[0].email}</a></li><% } %>
-						<% if (model.location.occupants[0].website) { %>   <li><a class="link external" href="${model.location.occupants[0].website}">Visit the website &gt;</a></li><% } %>
+				<% if (model.location.occupants && model.location.occupants.length === 1) { 
+					var occupant = model.location.occupants[0];
+				%>
+					<h4 class="heavy">${occupant.name}</h4>
+					<ul class="list">
+						<% if (occupant.locwithin) { %> <li>${occupant.locwithin}</li><% } %>
+						<% if (occupant.phone) { %> <li>${occupant.phone}</li><% } %>
+						<% if (occupant.email) { %> <li><a class="link external" href="mailto:${occupant.email}">${occupant.email}</a></li><% } %>
+						<% if (occupant.website) { %> <li><a class="link external" target="_blank" href="${occupant.website}">Visit the website &gt;</a></li><% } %>
+					</ul>
+				<% } else { %>
+					<ul class="list striped">
+					<% _.each(model.location.occupants, function(occupant, index) { %>
+						<li class="item"><button data-index='${index}' data-campusmap='panels:details,depts-offices-info'>${occupant.name}</button></li>
+					<% }); %>
 					</ul>
 				<% } %>
 			</div>

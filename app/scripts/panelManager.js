@@ -16,11 +16,13 @@ define([
 
     , 'scripts/views/panels/results'
 
+    , 'scripts/views/panels/depts-offices-info'
+
     , 'scripts/views/panels/admin-location'
 
     , 'scripts/views/panels/admin-add-locations' 
 
-], function ($, _, Datastore, Transition, BaseView, DetailsView, DirectionsView, ResultsView, AdminLocationView, AdminAddLocationsView) { 
+], function ($, _, Datastore, Transition, BaseView, DetailsView, DirectionsView, ResultsView, DeptsOfficesInfoView, AdminLocationView, AdminAddLocationsView) { 
 
     var instance;
 
@@ -77,6 +79,8 @@ define([
 
         this.createPanel('settings');
 
+        this.createPanel('depts-offices-info', DeptsOfficesInfoView);
+        
         this.createPanel('back-to');
 
         this.createPanel('back-to-parking');

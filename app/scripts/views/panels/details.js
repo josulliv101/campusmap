@@ -29,6 +29,25 @@ define([
 
             },
 
+            'click .panel-depts-offices .item button': function(ev) {
+
+                var $el = $(ev.currentTarget), 
+
+                    index = parseInt($el.data('index')),
+
+                    location = this.model.get('location'),
+
+                    occupants = location.occupants,
+
+                    occupant = occupants && occupants[index];
+
+                console.log(occupants && occupants[index]);
+
+                if (_.isObject(occupant)) EventDispatcher.trigger('truthupdate', { occupant : occupant });
+
+            },
+
+
             'mouseover .panel-details': _.once(function(ev) {
 
 /*                _.delay(this.showHint, 500);
@@ -122,6 +141,18 @@ define([
             
             }
 
+            if (json.model.location.occupants) {
+
+                json.model.location.occupants = _.sortBy(json.model.location.occupants, function(occupant) { return occupant.name ; });
+
+                // Format all the phone #s
+                _.each(json.model.location.occupants, function(occupant) {
+
+                    occupant.phone && (occupant.phone = this.formatPhone(occupant.phone));
+
+                }, this);
+            }
+debugger;
             return json;
 
         },
@@ -142,12 +173,6 @@ define([
             this.render();
             
             return state;
-
-        },
-
-        formatPhone: function(digits) {
-
-            return digits.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
 
         },
 

@@ -133,9 +133,9 @@ define([
 
         state: function() { return this.model.get('state'); },
 
-        render: function() {
+        render: function(json) {
 
-            var json = this.toJSON();
+            var json = json || this.toJSON();
 
             if (!this.template) return this;
 
@@ -148,6 +148,12 @@ define([
         getTitle: function(/* args */) {
 
             return _.isFunction(this.title) ? this.title.apply(this, arguments) : this.title;
+
+        },
+
+        formatPhone: function(digits) {
+
+            return digits.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
 
         }
 
