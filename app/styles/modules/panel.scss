@@ -295,6 +295,9 @@ $gutter: 8px;
 				/*display: none;*/
 				height: 100%;
 				background: #eee;
+				width: 150px;
+				padding: 12px;
+				@include borderbox();
 
 			}
 		}

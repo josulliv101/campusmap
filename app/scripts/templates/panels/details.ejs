@@ -39,6 +39,12 @@
 		<aside class="<% if (!model.location.thumbnail) { %>no-thumb<% } %>">
 			<% if (model.location.thumbnail) { %>
 				<img class="thumb" src="./app/images/thumbs/${model.location.thumbnail}" />
+			<% } else { %>
+				<!--
+				<p><strong>Visitor Parking</strong></p>
+				<p><a class="link external" data-campusmap="panels:details|details:p-dowling-garage">Dowling Parking Garage</a></p>
+				<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">All Visitor Parking Options</a></p>
+				-->
 			<% } %>
 		</aside>
 	</div>
