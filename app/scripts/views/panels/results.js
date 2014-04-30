@@ -173,9 +173,6 @@ define([
             titlesByMode = this.model.get('titles');
 
             titlesByMode[mode] = label;
-
-            // Remember the primarylabel for the current mode. Used with back to list links.
-            this.model.set('titles', titlesByMode);
             
             this.render();
             

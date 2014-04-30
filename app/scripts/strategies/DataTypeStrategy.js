@@ -121,6 +121,8 @@ define([
 
 //// Refactor ////
 
+        if (val === '') model.primarylabel = null;
+
         // Add the Back To panel whenever results displayed for Parking
         if (val === 'results' && (model.parking === true || theTruth.get('parking') === true)) val = val + ',back-to-parking';
 
@@ -131,8 +133,7 @@ define([
         attr[key] = PanelManager.getPanelsById( val );
 
         // When a panel change occurs, update the primary label if not explicitly set
-        if (!model.primarylabel && attr[key][0]) model.primarylabel = attr[key][0].getTitle && attr[key][0].getTitle(model.mode);
-
+        //if (!model.primarylabel && attr[key][0]) model.primarylabel = attr[key][0].getTitle && attr[key][0].getTitle(model.mode);
 
         _.extend(model, attr);
 
@@ -218,8 +219,11 @@ define([
         if (key !== 'mode') return;
 
         // Reset
-        _.extend(model, { parking: false, commencement: false, building: false, accessibility: false });
+        _.extend(model, { parking: false, commencement: false, building: false, accessibility: false, search: false });
         
+        // Use the default primary label when in search mode
+        if (val === 'search')  model.primarylabel = null;
+
         model[val] = true;
 
         return  val;

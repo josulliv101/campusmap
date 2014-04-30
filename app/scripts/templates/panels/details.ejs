@@ -48,8 +48,8 @@
 				<% if (model.location.occupants && model.location.occupants.length === 1) { 
 					var occupant = model.location.occupants[0];
 				%>
-					<h4 class="heavy">${occupant.name}</h4>
 					<ul class="list">
+						<% if (occupant.name) { %> <li><strong>${occupant.name}</strong></li><% } %>
 						<% if (occupant.locwithin) { %> <li>${occupant.locwithin}</li><% } %>
 						<% if (occupant.phone) { %> <li>${occupant.phone}</li><% } %>
 						<% if (occupant.email) { %> <li><a class="link external" href="mailto:${occupant.email}">${occupant.email}</a></li><% } %>

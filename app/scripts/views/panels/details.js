@@ -152,7 +152,7 @@ define([
 
                 }, this);
             }
-debugger;
+
             return json;
 
         },

@@ -71,6 +71,8 @@ define([
                 , centeroffset: { x: 0, y: 0 }
 
                 , filter: 'all'
+
+                , mode: 'search'
                           
             }
 
