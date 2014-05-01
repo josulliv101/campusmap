@@ -37,7 +37,7 @@ define([
                 EventDispatcher.trigger('truthupdate', { hover: locid });
 
             },
-
+/*
             'mouseover .list .result button' : function(ev) {
 
                 var locid =  $(ev.currentTarget).data('locationid');
@@ -54,7 +54,7 @@ define([
 
                 EventDispatcher.trigger('truthupdate', { hover: null });
 
-            },
+            },*/
 
             'click .list .result button' : function(ev) {
 
@@ -153,7 +153,7 @@ define([
                 results = Filter.filter(q, locations, Filter.getFilter(model.get('filter')));
 //.first(5)
 
-            model.set({ results: results });
+            model.set({ results: _.map(results, function(loc) { return loc.toJSON(); }) });
 
             // Let the panel re-render via Base's pre open call
             //if (this.state() === 'open') this.render();
@@ -191,15 +191,25 @@ define([
 
                                   .sortBy('name')
 
+                                  .each(function(result) { 
+
+                                    if (result.resultMatch.attr === 'name') return result.label = result.name;
+
+                                    if (result.resultMatch.attr === 'address1') return result.label = result.name + "<span>(" + result.resultMatch.val + ")</span>";
+
+                                    if (result.resultMatch.attr === 'keywords') return result.label = result.name + "<span>(" + result.resultMatch.val + ")</span>";
+                                     
+                                   })
+
                                   // Highlight letters matching query
                                   .each(function(result) {
 
                                     var expr = "(^|[ -/]+)(" + query + ")";
 
-                                    if (_.isEmpty(result.name)) return;
+                                    if (_.isEmpty(result.label)) return;
 
                                     // Only replace first match - insensitive to case
-                                    result.name = result.name.replace(new RegExp(expr, "i"), "$1<em>$2</em>");
+                                    result.label = result.label.replace(new RegExp(expr, "i"), "$1<em>$2</em>");
 
                                   })
 

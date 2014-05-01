@@ -348,6 +348,7 @@ $gutter: 8px;
 			.list {
 				li {
 					margin-bottom: 6px;
+					color: #333;
 				}
 			}
 		}
@@ -598,6 +599,15 @@ $gutter: 8px;
 							font-style: normal;
 						}
 
+						span {
+							color: #999;
+							padding-left: 6px;
+							font-size: 11px;
+							em {
+								color: #777;
+							}
+						}
+
 						&:hover, &:focus {
 							background: #ddd;
 							&:after {
@@ -608,7 +618,7 @@ $gutter: 8px;
 						.btn-details {
 							position: absolute;
 							top: 5px;
-							right: 5px;
+							right: 11px;
 							line-height: 22px;
 							font-size: 11px;
 							text-align: center;
@@ -659,6 +669,7 @@ $gutter: 8px;
 							}
 						}
 						.list {
+							margin-top: 1px;
 							height: 150px;
 							overflow-x: hidden;
 							overflow-y: auto;

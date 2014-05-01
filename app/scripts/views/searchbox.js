@@ -31,7 +31,7 @@ define([
             'focusin #searchbox': function() {
 
                 // Set val to empty string to clear value in input. Set it to null to show placeholder text.
-                EventDispatcher.trigger('truthupdate', { primarylabel: '', filter: 'name' });
+                EventDispatcher.trigger('truthupdate', { primarylabel: '', filter: 'default' });
 
             },
 
@@ -47,7 +47,7 @@ define([
 
                 var q = $(ev.currentTarget).val(),
 
-                    args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'name', query: q };
+                    args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'default', query: q };
 console.log('keyup  #searchbox', q);
                 EventDispatcher.trigger('truthupdate', args);
 

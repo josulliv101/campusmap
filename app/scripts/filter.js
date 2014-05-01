@@ -19,7 +19,9 @@
             // Canned filters
             filters_ = {
 
-                all: function() { return true; }
+                all: function() { return true; },
+
+                default: ['keywords', 'address1', 'name']//function() { return true; }
 
             },
 
@@ -38,7 +40,15 @@
 
                         words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and', 'the', 'an', 'at', 'for'], word); }).value();
 
-                        return _.exists(val) && _.some(words, function(word) { return word.indexOf(query_.term) === 0; }); //val.indexOf(query_.term) > -1; 
+                        return _.exists(val) && _.some(words, function(word) { 
+
+                            var isMatch = word.indexOf(query_.term) === 0; 
+
+                            if (isMatch === true) _.setAttr(loc, { resultMatch: { val: _.getAttr(loc, attr), attr: attr, word: word } });
+
+                            return isMatch;
+
+                        }); 
 
                     };
 

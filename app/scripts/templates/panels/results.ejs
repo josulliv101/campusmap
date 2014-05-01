@@ -5,7 +5,7 @@
 		</div>
 		<ul class="list list-results striped">
 			<% _.each(model.results, function(result) { %>
-			<li class="result"><button data-locationid="${result.locationid}" data-campusmap="center:${result.latlng}">${result.name}<label class="btn-lite btn-details">Details</label></button></li>
+			<li class="result"><button data-locationid="${result.locationid}" data-campusmap="center:${result.latlng}">${result.label}<label class="btn-lite btn-details">Details</label></button></li>
 			<% }) %>
 		</ul>
 	</div>
