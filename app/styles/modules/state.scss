@@ -12,6 +12,17 @@
 				color: #fff;
 			}		
 		}
+		#results {
+			.result {
+				button {
+					span {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+	&.search {		
 	}
 	&.parking {
 		#nav-primary {
@@ -19,6 +30,15 @@
 				background: #446D9A;
 				color: #fff;
 			}		
+		}
+		#results {
+			.result {
+				button {
+					span {
+						display: none !important;
+					}
+				}
+			}
 		}
 		#map-canvas {
 
@@ -37,6 +57,15 @@
 				background: #446D9A;
 				color: #fff;
 			}		
+		}
+		#results {
+			.result {
+				button {
+					span {
+						display: none !important;
+					}
+				}
+			}
 		}
 		#map-canvas {
 			.label-tile {

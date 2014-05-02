@@ -193,23 +193,41 @@ define([
 
                                   .each(function(result) { 
 
-                                    if (result.resultMatch.attr === 'name') return result.label = result.name;
+                                    if (!result.resultMatch || result.resultMatch.attr === 'name') return result.label = result.name;
 
-                                    if (result.resultMatch.attr === 'address1') return result.label = result.name + "<span>(" + result.resultMatch.val + ")</span>";
+                                    if (result.resultMatch.attr === 'address1' || result.resultMatch.attr === 'keywords') return result.label = result.name + "<span>(" + result.resultMatch.val + ")</span>";
 
-                                    if (result.resultMatch.attr === 'keywords') return result.label = result.name + "<span>(" + result.resultMatch.val + ")</span>";
-                                     
+                                    if (result.resultMatch.attr === 'tags') {
+
+                                        var label = _.chain(result.resultMatch.val.split(","))
+
+                                                     .map(function(tag) { return _.trim(tag); })
+
+                                                     .sortBy()
+
+                                                     .filter(function(tag) { return tag.toLowerCase().indexOf(query.toLowerCase()) === 0 || tag.toLowerCase().indexOf(" " + query.toLowerCase()) > 0; })
+
+                                                     //.first()
+
+                                                     .value()
+
+                                                     .join(", ");
+
+                                        return result.label = result.name + "<span>(" + label + ")</span>";
+
+                                    }
+
                                    })
 
                                   // Highlight letters matching query
                                   .each(function(result) {
 
-                                    var expr = "(^|[ -/]+)(" + query + ")";
+                                    var expr = "(^|[ -/ ]+)(" + query + ")";
 
                                     if (_.isEmpty(result.label)) return;
 
                                     // Only replace first match - insensitive to case
-                                    result.label = result.label.replace(new RegExp(expr, "i"), "$1<em>$2</em>");
+                                    result.label = result.label.replace(new RegExp(expr, "ig"), "$1<em>$2</em>");
 
                                   })
 

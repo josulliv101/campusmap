@@ -122,14 +122,14 @@ define([
 //// Refactor ////
 
         if (val === '') model.primarylabel = null;
-
+/*
         // Add the Back To panel whenever results displayed for Parking
         if (val === 'results' && (model.parking === true || theTruth.get('parking') === true)) val = val + ',back-to-parking';
 
         if (val === 'results' && (model.commencement === true || theTruth.get('commencement') === true)) val = val + ',back-to';
 
         if (val === 'results' && (model.accessibility === true || theTruth.get('accessibility') === true)) val = val + ',back-to-accessibility';
-
+*/
         attr[key] = PanelManager.getPanelsById( val );
 
         // When a panel change occurs, update the primary label if not explicitly set

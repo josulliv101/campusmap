@@ -21,7 +21,25 @@
 
                 all: function() { return true; },
 
-                default: ['keywords', 'address1', 'name']//function() { return true; }
+                tag_exact: function(loc) {    
+
+                    var tags = _.getAttr(loc, 'tags'), t;
+
+                    if (_.isEmpty(tags)) return;
+
+                    t =   _.chain(tags.split(","))
+
+                             .map(function(tag) { return _.trim(tag); })
+
+                             .filter(function(tag) { return tag.toLowerCase() === query_.term.toLowerCase(); })
+
+                             .value();
+
+                    return !_.isEmpty(t); 
+
+                },
+
+                default: ['tags', 'keywords', 'address1', 'name']//function() { return true; }
 
             },
 
