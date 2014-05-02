@@ -39,7 +39,7 @@
 
                 },
 
-                default: ['tags', 'keywords', 'address1', 'name']//function() { return true; }
+                defaultFilter: ['tags', 'keywords', 'address1', 'name']//function() { return true; }
 
             },
 

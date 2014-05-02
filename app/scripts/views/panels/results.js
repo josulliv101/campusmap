@@ -153,7 +153,7 @@ define([
                 results = Filter.filter(q, locations, Filter.getFilter(model.get('filter')));
 //.first(5)
 
-            model.set({ results: _.map(results, function(loc) { return loc.toJSON(); }) });
+            model.set({ results: _.map(results, function(loc) { return _.isFunction(loc.toJSON) ? loc.toJSON() : loc; }) });
 
             // Let the panel re-render via Base's pre open call
             //if (this.state() === 'open') this.render();

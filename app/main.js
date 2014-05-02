@@ -70,7 +70,7 @@
 
             'parsecom': 'http://www.parsecdn.com/js/parse-1.2.9.min',
 
-            'datastore': './scripts/datastore/datastore-parsecom', // datastore-injected datastore-jsonp datastore-parsecom
+            'datastore': './scripts/datastore/datastore-jsonp', // datastore-injected datastore-jsonp datastore-parsecom
 
             'datainterface': './scripts/datastore/datastore-interface',
 
