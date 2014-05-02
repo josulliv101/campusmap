@@ -18,7 +18,7 @@ define([
 
         events: {
 
-            'click .panel-details': function(ev) {
+/*            'click .panel-details': function(ev) {
 
                 if (ev.target && ev.target.nodeName.toLowerCase() !== 'button') {
 
@@ -27,7 +27,7 @@ define([
 
                 }
 
-            },
+            },*/
 
             'click .panel-depts-offices .item button': function(ev) {
 

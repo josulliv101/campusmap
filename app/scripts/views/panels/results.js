@@ -68,7 +68,7 @@ define([
 
                     //_.delay(function(model) {
 
-                        EventDispatcher.trigger('truthupdate', {  panels: 'details,back-to-results', details: locid });
+                        EventDispatcher.trigger('truthupdate', {  panels: 'details', details: locid });// ,back-to-results
 //backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } 
                     //}, 400, this.model);
                     

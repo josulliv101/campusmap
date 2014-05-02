@@ -20,8 +20,6 @@ $gutter: 8px;
 		font-size: 12px;
 
 		@include shadow();
-
-		
 		
 		&[style*="display: block"] {
 			
@@ -341,6 +339,14 @@ $gutter: 8px;
 
 			}
 
+		}
+
+		&#popular-tags {
+			.tag {
+				line-height: 20px;
+				margin-bottom: 10px;
+				margin-left: 0;
+			}
 		}
 
 		&#depts-offices-info {
