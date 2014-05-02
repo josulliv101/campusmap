@@ -39,5 +39,20 @@
 			display: none;
 		}
 
-	}	
+	}
 }
+.nav-mobile {
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	z-index: 9999;
+	ul {
+		li {
+			display: inline-block;
+			button {
+				font-size: 12px;
+				height: 30px;
+			}
+		}
+	}
+}	

@@ -22,21 +22,89 @@ and (max-device-width : 480px) {
 /* Styles */  
 
 #app {
+	#campusmap {
+		#controls-zoom {
+			top: auto;
+			bottom: 22px;
+		}
+	}
+	padding: 0;
+	.navs {
+		display: none;
+	}
 	#container-searchbox {
-		min-width: auto;
-		max-width: 80%;
-		width: 80%;
-		top: 0;
-		left: 0;
+		min-width: 96%;
+		max-width: 450px;
+		width: 96%;
+		top: -200px; /*1%;*/
+		left: 2%;
+		padding: 0;
+		overflow: hidden;
 		& > form {
 		    .panel {
 				.form-group {
 					#searchbox {
-						max-width: 320px;
-						display: none;
+						max-width: 100%;
+						width: 100%;
+						display: block;
 					}
 				}
 			}
+		}
+		#container-panels {
+			.panel {
+				&#details {
+					.panels-contents {
+						min-height: 140px;
+						.panel-content {
+							min-height: 140px;
+							width: 100%;
+						}
+						.panel-details {
+							.panel-bd {
+								height: 140px;
+							}
+							.addr {
+								font-size: 12px;
+								font-weight: 700;
+							}
+							.more-info {
+								font-size: 11px;
+							}
+						}
+						.panel-imagery {
+							.wide-shot {
+								/*position: relative;
+								left: -70px;*/
+							}
+						}
+					}
+					aside {
+						
+					}
+				}
+			}
+		}
+	}
+	.nav-mobile {
+		opacity: 1;
+		-webkit-transition: opacity .4s .7s linear;
+			-moz-transition: opacity .4s .7s linear;
+				-o-transition: opacity .4s .7s linear;
+					-ms-transform: opacity .4s .7s linear;
+						transition: opacity .4s .7s linear;
+	}
+	&.searchbox-open {
+		#container-searchbox {
+			top: 1%;
+		}
+		.nav-mobile {
+			opacity: 0;
+			-webkit-transition: opacity .1s 0 linear;
+				-moz-transition: opacity .1s 0 linear;
+					-o-transition: opacity .1s 0 linear;
+						-ms-transform: opacity .1s 0 linear;
+							transition: opacity .1s 0 linear;
 		}
 	}
 }
@@ -46,14 +114,78 @@ and (max-device-width : 480px) {
   
 /* Smartphones (landscape) ----------- */  
 @media only screen   
+and (min-width : 480px) {  
+	
+	#app {
+		#container-searchbox {
+			min-width: 320px;
+			width: 100%;
+			#container-panels {
+				&#details {
+					.panel-bd {
+						min-width: 100%;
+					}
+					aside {
+						 display: block;
+					}
+				}
+			}
+		}
+	}
+
+} 
+
+/* Smartphones (landscape) ----------- */  
+@media only screen   
 and (min-width : 321px) {  
-/* Styles */  
+	
+	#app {
+		#container-searchbox {
+			min-width: 320px;
+			#container-panels {
+				.panel {
+					.panel-imagery {
+						.wide-shot {
+							position: relative;
+							left: 0;
+						}
+					}
+					aside {
+						 
+					}
+				}
+			}
+		}
+	}
+
 }  
   
 /* Smartphones (portrait) ----------- */  
 @media only screen   
 and (max-width : 320px) {  
-/* Styles */  
+
+	#app {
+		#container-searchbox {
+			#container-panels {
+				.panel {
+					.panel-imagery {
+						.wide-shot {
+							position: relative;
+							left: -70px;
+						}
+					}
+					.panel-depts-offices {
+						.panel-bd {
+							display: block;
+						}
+					}
+					aside {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }  
   
 /* iPads (portrait and landscape) ----------- */  

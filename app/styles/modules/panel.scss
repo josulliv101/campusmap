@@ -343,7 +343,7 @@ $gutter: 8px;
 
 				&.panel-depts-offices { 
 
-						z-index: 9998; 
+						z-index: 99; 
 
 						@include panelfade();
 
@@ -436,6 +436,9 @@ $gutter: 8px;
 				line-height: 20px;
 				margin-bottom: 10px;
 				margin-left: 0;
+				margin-right: 6px;
+				height: auto;
+				font-size: 12px;
 			}
 		}
 
