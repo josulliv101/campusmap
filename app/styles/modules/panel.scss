@@ -431,6 +431,25 @@ $gutter: 8px;
 
 		}
 
+		&#menu-mobile {
+			.panel-bd {
+				display: block;
+				min-width: 100px;
+				.menu-mobile {
+					li {
+						float: left;
+						width: 48%;
+						margin: 1% 0 1% 1.5%;
+						button {
+							width: 100%;
+							font-size: 14px;
+							height: 40px;
+						}
+					}
+				}					
+			}
+		}
+
 		&#popular-tags {
 			.tag {
 				line-height: 20px;

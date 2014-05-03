@@ -79,6 +79,10 @@ define([
 
         this.createPanel('settings');
 
+        this.createPanel('menu-mobile');
+
+        this.createPanel('blank');
+
         this.createPanel('depts-offices-info', DeptsOfficesInfoView);
         
         this.createPanel('back-to');

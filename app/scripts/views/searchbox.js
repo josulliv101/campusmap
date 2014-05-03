@@ -90,6 +90,8 @@ console.log('keyup  #searchbox', q);
 
                 this.listenTo(this.model, 'change:backto', this.refreshBackTo);
 
+                this.listenTo(this.model, 'change:mode', this.refreshModeTitle);
+
             }
 
             // Don't use event delegation here to avoid issue where focus event fires in an unexpected way
@@ -111,6 +113,19 @@ console.log('keyup  #searchbox', q);
             this.$el.append(html);
 
             return this;
+
+        },
+
+        refreshModeTitle: function(model, mode) {
+
+            var label = " ";
+
+            if (mode === 'parking' || mode === 'accessibility' || mode === 'commencement') label = mode;
+
+            $('#mode').html(_.capitaliseFirstLetter(label));
+
+            // Disable input when location is shown (shows more appropriate cursor)
+            //this.refreshSearchboxDisabled(model, _.isObject(model.get('details')));
 
         },
 

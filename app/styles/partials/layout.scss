@@ -33,6 +33,10 @@ body {
 
 	position: relative;
 	
+	#mode {
+		display: none;
+	}
+
 	#container-searchbox, #controls-zoom {
 		opacity: 1;
 

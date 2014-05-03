@@ -22,6 +22,19 @@ and (max-device-width : 480px) {
 /* Styles */  
 
 #app {
+	#mode {
+	    position: absolute;
+	    right: 12px;
+	    top: 10px;
+	    z-index: 99;
+		display: block;
+		background: #fff;
+		background: rgba(255,255,255,.8);
+	    color: #333333;
+	    padding: 4px 8px;
+	    font-size: 14px;
+	    letter-spacing: .06em;
+	}
 	#campusmap {
 		#controls-zoom {
 			top: auto;
@@ -36,7 +49,7 @@ and (max-device-width : 480px) {
 		min-width: 96%;
 		max-width: 450px;
 		width: 96%;
-		top: -200px; /*1%;*/
+		top: -110%; /*1%;*/
 		left: 2%;
 		padding: 0;
 		overflow: hidden;
@@ -88,23 +101,14 @@ and (max-device-width : 480px) {
 	}
 	.nav-mobile {
 		opacity: 1;
-		-webkit-transition: opacity .4s .7s linear;
-			-moz-transition: opacity .4s .7s linear;
-				-o-transition: opacity .4s .7s linear;
-					-ms-transform: opacity .4s .7s linear;
-						transition: opacity .4s .7s linear;
+		display: block;
 	}
 	&.searchbox-open {
 		#container-searchbox {
 			top: 1%;
 		}
 		.nav-mobile {
-			opacity: 0;
-			-webkit-transition: opacity .1s 0 linear;
-				-moz-transition: opacity .1s 0 linear;
-					-o-transition: opacity .1s 0 linear;
-						-ms-transform: opacity .1s 0 linear;
-							transition: opacity .1s 0 linear;
+
 		}
 	}
 }

@@ -145,6 +145,10 @@ define([
 
         trim: function(str) {
             return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        },
+
+        capitaliseFirstLetter: function(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
         }
 
     });
