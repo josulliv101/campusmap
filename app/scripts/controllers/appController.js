@@ -72,6 +72,8 @@ define([
         // Forward on params. Handy for { silent: true } option
         this.theTruth.set(changedAttrs, options);
 
+//console.log('this.theTruth', this.theTruth);
+
     };
 
     AppController.prototype.handleTruthChange = function(model) { 

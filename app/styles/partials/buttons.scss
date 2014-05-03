@@ -64,6 +64,39 @@ button {
 
 }
 
+.btn-nav {
+    background: #565152;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    height: 40px;
+    width: 36px;
+    &:hover {
+		.menu-line {
+			background: #ccc;
+		}
+	}
+	.menu-line {
+		&:first-child {
+			margin-top: 4px;
+		}
+	    background: #eee;
+	    border-radius: 50px;
+	    display: block;
+	    height: 4px;
+	    margin: 0 auto 4px;
+	    width: 20px;
+
+	}
+	&.btn-search {
+		background: #565152 url('../../app/images/icons/search.png') no-repeat center center;
+		background-size: 22px 22px;
+		&:hover {
+			background-image: url('../../app/images/icons/searchxccc.png');
+		}
+	}
+}
+
 .btn-backto {
 	border: none;
 	background: none;

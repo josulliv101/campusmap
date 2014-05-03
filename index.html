@@ -28,7 +28,7 @@
                 <li class="parking"><a href="#" data-campusmap='panels:parking|searchboxdisable:true|forceclosepanels:true|mode:parking|primarylabel:Parking'>Parking</a></li>
                 <li class="accessibility"><a href="#" data-campusmap='mode:accessibility|panels:accessibility|searchboxdisable:true|forceclosepanels:true|primarylabel:Accessibility'>Accessibility</a></li>
                 <li class="commencement"><a href="#" data-campusmap='mode:commencement|panels:commencement,commencement-more|searchboxdisable:true|forceclosepanels:true|primarylabel:Commencement'>Commencement</a></li>
-                <li class="clearmode"><a class="muted" href="#" data-campusmap='details:|panels:|mode:search|filter:name|searchboxdisable:true'>[ clear ]</a></li>
+                <li class="clearmode"><a class="muted" href="#" data-campusmap='details:|panels:|mode:search|filter:name|searchboxdisable:false'>[ clear ]</a></li>
             </ul>
             <ul id="nav-secondary" class="nav">
                 <li id="list-featured"><a href="#" data-campusmap='query:#featured,querytype:tag,cmd:Results'>Featured Locations</a></li>
@@ -40,8 +40,8 @@
         </div>
         <div class="nav-mobile">
             <ul>
-                <li><button data-campusmap='panels:menu-mobile|searchboxdisable:true|forceclosepanels:true|primarylabel:Menu'>menu</button></li>
-                <li><button data-campusmap='panels:blank'>search</button></li>
+                <li><button class="mobile btn-nav btn-more" data-campusmap='panels:menu-mobile|searchboxdisable:true|forceclosepanels:true|primarylabel:Menu'><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></button></li>
+                <li><button class="mobile btn-nav btn-search" data-campusmap='panels:blank'></button></li>
             </ul>
         </div>
         <div id="mode"></div>

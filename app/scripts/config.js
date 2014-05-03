@@ -70,7 +70,7 @@ define([
 
                 , centeroffset: { x: 0, y: 0 }
 
-                , filter: 'all'
+                , filter: 'defaultFilter'
 
                 , mode: 'search'
                           
