@@ -29,7 +29,7 @@ body {
 	
 	@include borderbox(); /* Help push map down */
 
-	padding-top: 40px;
+	padding-top: 36px;
 
 	position: relative;
 	
@@ -55,7 +55,7 @@ body {
 		overflow: hidden; /* hidden : so the shadows aren't cut off */
 		z-index: 999;
 		top: 52px; /* Take navbar into account */
-		left: 12px;
+		left: 6px;
 		padding: 0 6px 6px; /* Give shadow room instead of getting cut off by overflow hidden */
 		width: 48%;
 		min-width: 450px;

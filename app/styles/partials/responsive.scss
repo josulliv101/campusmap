@@ -111,6 +111,14 @@ and (max-device-width : 480px) {
 
 		}
 	}
+	&.btn-on, &.btn-off {
+		width: 44px;
+	}
+	.label-on-off {
+	    font-size: 11px;
+	    width: 150px;
+	    font-weight: 700;
+	}
 }
 
 
@@ -160,10 +168,31 @@ and (min-width : 321px) {
 				}
 			}
 		}
+		&.btn-on, &.btn-off {
+			height: 32px;
+		}
 	}
 
 }  
   
+
+/* Remove template */  
+@media only screen   
+and (max-width : 660px) {  
+	
+	#page, .container, .interior-wrapper, #content {
+		height: 100% !important;
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+	#header, .section-nav, #footer, .interior-wrapper > h1, .interior-wrapper > .separator {
+		display: none !important;
+	}
+	.container {
+		width: 100% !important;
+	}
+}  
+
 /* Smartphones (portrait) ----------- */  
 @media only screen   
 and (max-width : 320px) {  
@@ -197,6 +226,11 @@ and (max-width : 320px) {
 and (min-device-width : 768px)   
 and (max-device-width : 1024px) {  
 /* Styles */  
+
+	#app, #campusmap, #map-canvas { 
+		min-height: 640px;
+	}
+
 }  
 
 /* Desktop (portrait and landscape) ----------- */  

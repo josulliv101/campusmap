@@ -8,8 +8,8 @@
 	&.building {
 		#nav-primary {
 			.building {
-				background: #446D9A;
-				color: #fff;
+				/*background: #446D9A;
+				color: #fff;*/
 			}		
 		}
 		#results {
@@ -391,6 +391,83 @@
 						}
 					}
 				}
+			}
+		}
+	}
+
+	/* Settings */
+	&.high-contrast-labels {
+		#map-canvas {
+			.label-tile {
+				.location {
+					.bd {
+						.txt {
+							background: #eee;
+							background: rgba(248,248,248,.8);
+							opacity: .9;
+							@include shadow();
+						}
+					}
+					&.details {
+						.bd {
+							.txt {
+								opacity: 1 !important;
+								background: #fff;
+								background: rgba(255,255,255,1) !important;
+							}
+						}
+					}
+				}
+			}
+		}
+		.highcontrastlabels {
+			.btn-on {
+				text-decoration: underline;
+				color: #6699cc;	
+				opacity: 1;			
+			}
+			.btn-off {
+				text-decoration: none;
+				color: #666;	
+				opacity: .65;			
+			}
+		}
+	}
+	&.large-labels {
+		#map-canvas {
+			.label-tile {
+				.location {
+					.bd {
+						.txt {
+							top: -5px;
+							left: 6px;
+							font-size: 18px;
+							padding: 4px 6px;
+						}
+					}
+					&.emphasis5 {
+						.bd {
+							.txt {
+								top: -8px;
+								left: 10px;
+								font-size: 24px;
+								padding: 8px 6px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.largelabels {
+			.btn-on {
+				text-decoration: underline;
+				color: #6699cc;		
+				opacity: 1;		
+			}
+			.btn-off {
+				text-decoration: none;
+				color: #666;
+				opacity: .65;		
 			}
 		}
 	}
