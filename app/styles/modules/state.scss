@@ -27,7 +27,7 @@
 	&.parking {
 		#nav-primary {
 			.parking {
-				background: #446D9A;
+				background: #336699;
 				color: #fff;
 			}		
 		}
@@ -54,7 +54,7 @@
 	&.accessibility {
 		#nav-primary {
 			.accessibility {
-				background: #446D9A;
+				background: #336699;
 				color: #fff;
 			}		
 		}
@@ -151,7 +151,7 @@
 	&.commencement {
 		#nav-primary {
 			.commencement {
-				background: #446D9A;
+				background: #336699;
 				color: #fff;
 			}		
 		}
@@ -423,13 +423,18 @@
 		.highcontrastlabels {
 			.btn-on {
 				text-decoration: underline;
-				color: #6699cc;	
+				color: #fff;
+				background: #6699cc;
 				opacity: 1;			
 			}
 			.btn-off {
 				text-decoration: none;
 				color: #666;	
-				opacity: .65;			
+				opacity: 1;
+				background: #dedede;
+				&:hover {
+					background: #bbb;
+				}			
 			}
 		}
 	}
@@ -461,13 +466,18 @@
 		.largelabels {
 			.btn-on {
 				text-decoration: underline;
-				color: #6699cc;		
+				color: #fff;
+				background: #6699cc;	
 				opacity: 1;		
 			}
 			.btn-off {
 				text-decoration: none;
 				color: #666;
-				opacity: .65;		
+				background: #dedede;
+				opacity: 1;
+				&:hover {
+					background: #bbb;
+				}		
 			}
 		}
 	}

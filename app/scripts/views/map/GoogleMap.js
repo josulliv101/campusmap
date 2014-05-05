@@ -215,6 +215,13 @@ define([
 
     GoogleMapView.prototype.setCenter = function(latlng) {
 
+        var offset = this.centeroffset || { x: 0, y: 0 };
+ 
+        if (!latlng) return;
+
+        // Offset it
+        latlng = MapUtils.offsetLatLngByPixels(latlng, this.map.getZoom(), offset);
+
         this.map.panTo(latlng);
 
     };

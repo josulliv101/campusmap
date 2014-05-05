@@ -2,7 +2,7 @@
 	<div class="bd spacing">
 		<h3 class="subhead">Contact Information</h3>
 		<ul class="list">
-			<% if (model.name) { %> <li><strong>${model.name}</strong></li><% } %>
+			<% if (model.name) { %> <li class="title"><strong>${model.name}</strong></li><% } %>
 			<% if (model.locwithin) { %> <li>${model.locwithin}</li><% } %>
 			<% if (model.phone) { %> <li>${model.phone}</li><% } %>
 			<% if (model.email) { %> <li><a class="link external" href="mailto:${model.email}">${model.email}</a></li><% } %>

@@ -97,6 +97,14 @@ define([
 
     };
 
+    MapHandleTruthChangeStrategy.prototype.handleCenterOffset = function(model, val, key, viz) {
+
+        if (key !== 'centeroffset') return;
+
+        viz.centeroffset = val;
+
+    };
+
     MapHandleTruthChangeStrategy.prototype.dispatch = _.dispatch( 
 
         MapHandleTruthChangeStrategy.prototype.handleMapType,
@@ -117,7 +125,9 @@ define([
 
         MapHandleTruthChangeStrategy.prototype.panelTransitionDone,
 
-        MapHandleTruthChangeStrategy.prototype.handleAdminMarker
+        MapHandleTruthChangeStrategy.prototype.handleAdminMarker,
+
+        MapHandleTruthChangeStrategy.prototype.handleCenterOffset
 
     );
 

@@ -17,14 +17,14 @@
 					<p class="addr addr2">${model.location.address2}</p>
 				<% } %>
 				<p class="addr">Medford, MA 02155</p>
-				<div class="more-info">
+				<div class="more-info"><p>
 					<% if (model.location.phone) { %>
-						<p><label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a></p>
+						<label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a>
 					<% } %>
-
+					<% if (model.location.website && model.location.phone) { %> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <% } %>
 					<% if (model.location.website) { %>
-						<p><a target="_blank" href="http://{model.location.website}">Visit the website &gt;</a></p>
-					<% } %>
+						<a target="_blank" href="http://${model.location.website}">Visit the website &gt;</a>
+					<% } %></p>
 				</div>
 				<div class="btns">
 					<% if (model.location.accessibility || model.location.accessibilerestroom) { %>
@@ -40,11 +40,11 @@
 			<% if (model.location.thumbnail) { %>
 				<img class="thumb" src="./app/images/thumbs/${model.location.thumbnail}" />
 			<% } else { %>
-				<!--
-				<p><strong>Visitor Parking</strong></p>
-				<p><a class="link external" data-campusmap="panels:details|details:p-dowling-garage">Dowling Parking Garage</a></p>
-				<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">All Visitor Parking Options</a></p>
-				-->
+				
+				<p class="title"><strong>Looking For Visitor Parking?</strong></p>
+				<p><a class="link external" href="#" data-campusmap="panels:details|details:p-dowling-garage|center:42.408843,-71.118311">Dowling Parking Garage</a></p>
+				<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More Visitor / Guest Parking Options</a></p>
+				
 			<% } %>
 		</aside>
 	</div>

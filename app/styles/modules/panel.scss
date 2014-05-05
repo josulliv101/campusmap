@@ -101,7 +101,7 @@ $gutter: 8px;
 
 				.more-info {
 
-					margin-top: 1.0em;
+					margin-top: 16px;
 
 					p {
 						color: #999;
@@ -176,9 +176,9 @@ $gutter: 8px;
 
 					right: 12px;
 
-					color: #565152;
+					color: #777;
 
-					font-size: 11px;
+					font-size: 12px;
 
 					letter-spacing: .06em;
 				}
@@ -292,10 +292,24 @@ $gutter: 8px;
 				
 				/*display: none;*/
 				height: 100%;
-				background: #eee;
+				background: #aaa;
 				width: 150px;
 				padding: 12px;
 				@include borderbox();
+				@include thumbareafade();
+				.title {
+					margin-top: 4px;
+					color:#fff;
+					font-size: 13px;
+					letter-spacing: .08em;
+					line-height: 17px;
+				}
+				a {
+					&.link {
+						color: #f8f8f8;
+						letter-spacing: .04em;
+					}
+				}
 
 			}
 		}
@@ -365,16 +379,17 @@ $gutter: 8px;
 									overflow-x: hidden;
 									overflow-y: auto;
 									.item {
-										line-height: 24px;
+										line-height: 32px;
 										border-bottom: 1px #eee solid;
 										button {
 											width: 100%;
-											height: 24px;
+											height: 32px;
 											text-align: left;
 											background: none;
 											border: none;
+											font-size: 13px;
 											&:hover, &:focus {
-												background: #ddd;
+												background: #dddcdc;
 												&:after {
 												 content: " \003E ";
 												}
@@ -453,9 +468,9 @@ $gutter: 8px;
 		&#popular-tags {
 			.tag {
 
-			    background: none repeat scroll 0 0 #f8f8f8;
+			    background: none repeat scroll 0 0 #eee;
 			    border: 1px #ccc solid;;
-			    color: #6699CC;
+			    color: #3172AE;
 			    font-size: 14px;
 			    height: auto;
 			    line-height: 24px;
@@ -465,7 +480,7 @@ $gutter: 8px;
 			    padding: 2px 6px;
 			    border-radius: 4px;
 			    &:hover, &:focus {
-			    	border-color: #999;
+			    	border-color: #bbb;
 			    	text-decoration: underline;
 			    }
 			}
@@ -477,6 +492,10 @@ $gutter: 8px;
 				li {
 					margin-bottom: 6px;
 					color: #333;
+					&.title {
+						font-size: 13px;
+						letter-spacing: .04em;
+					}
 				}
 			}
 		}
@@ -715,7 +734,7 @@ $gutter: 8px;
 						border: none;
 						background: none;
 						padding: 0 16px;
-						font-size:14px;
+						font-size:13px;
 						letter-spacing: .04em;
 						line-height: 32px;
 						text-align: left;
@@ -737,7 +756,7 @@ $gutter: 8px;
 						}
 
 						&:hover, &:focus {
-							background: #ddd;
+							background: #dddcdc; /*#ddd;*/
 							&:after {
 							 content: " \003E ";
 							}
