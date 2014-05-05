@@ -8,24 +8,28 @@
 </div>
 <div class="panels-contents">
 	<div class="panel-content panel-details">
-		<div class="panel-bd <% if (!model.location.thumbnail) { %>fullzz<% } %>">
+		<div class="panel-bd <% if (!model.location.thumbnail) { %>full<% } %>">
 			<div class="bd spacing ">
-				<% if (model.location.address1) { %>
-					<p class="addr">${model.location.address1}</p>
-				<% } %>
-				<% if (model.location.address2) { %>
-					<p class="addr addr2">${model.location.address2}</p>
-				<% } %>
-				<p class="addr">Medford, MA 02155</p>
-				<div class="more-info"><p>
-					<% if (model.location.phone) { %>
-						<label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a>
+				<% if (!model.location.addressalt) { %>
+					<% if (model.location.address1) { %>
+						<p class="addr">${model.location.address1}</p>
 					<% } %>
-					<% if (model.location.website && model.location.phone) { %> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <% } %>
-					<% if (model.location.website) { %>
-						<a target="_blank" href="http://${model.location.website}">Visit the website &gt;</a>
-					<% } %></p>
-				</div>
+					<% if (model.location.address2) { %>
+						<p class="addr addr2">${model.location.address2}</p>
+					<% } %>
+					<p class="addr">Medford, MA 02155</p>
+					<div class="more-info"><p>
+						<% if (model.location.phone) { %>
+							<label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a>
+						<% } %>
+						<% if (model.location.website && model.location.phone) { %> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <% } %>
+						<% if (model.location.website) { %>
+							<a target="_blank" href="http://${model.location.website}">Visit the website &gt;</a>
+						<% } %></p>
+					</div>
+				<% } else { %>
+					<div class="address-alt">${model.location.addressalt}</div>
+				<% } %>
 				<div class="btns">
 					<% if (model.location.accessibility || model.location.accessibilerestroom) { %>
 						<button data-campusmap='panels:details,details-accessibility+' title="Toggle Accessibility Details">Accessibility</button> 
@@ -41,7 +45,7 @@
 				<img class="thumb" src="./app/images/thumbs/${model.location.thumbnail}" />
 			<% } else { %>
 				
-				<p class="title"><strong>Looking For Visitor Parking?</strong></p>
+				<p class="title"><strong>Visitor Parking</strong></p>
 				<p><a class="link external" href="#" data-campusmap="panels:details|details:p-dowling-garage|center:42.408843,-71.118311">Dowling Parking Garage</a></p>
 				<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More Visitor / Guest Parking Options</a></p>
 				

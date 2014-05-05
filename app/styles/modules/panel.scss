@@ -91,14 +91,14 @@ $gutter: 8px;
 
 			vertical-align: top;
 
-			padding: 16px 12px $gutter;
+			padding: 16px 12px $gutter 12px;
 
 			@include borderbox();
 
 			.bd {
 				
 				/*height: 100%;*/
-
+				/*padding-right: 120px;  Leave room for the aside */
 				.more-info {
 
 					margin-top: 16px;
@@ -129,6 +129,7 @@ $gutter: 8px;
 						&.addr2 {
 							font-size: 12px;
 							color: #999;
+							line-height: 18px;
 						}
 
 					}
@@ -136,10 +137,6 @@ $gutter: 8px;
 
 
 				}
-
-				
-				
-
 			}
 
 			.btns {
@@ -289,25 +286,30 @@ $gutter: 8px;
 			}
 
 			&.no-thumb {
-				
+				font-family: Verdana,Arial,Helvetica,sans-serif;
 				/*display: none;*/
 				height: 100%;
 				background: #aaa;
 				width: 150px;
-				padding: 12px;
+				padding: 6px 12px;
+				line-height: 16px;
 				@include borderbox();
 				@include thumbareafade();
-				.title {
-					margin-top: 4px;
-					color:#fff;
-					font-size: 13px;
-					letter-spacing: .08em;
-					line-height: 17px;
+				
+				p {
+					margin-bottom: 12px;
+					font-size: 11px;
+					&.title {
+						margin-top: 9px;
+						color:#fff;
+						font-size: 12px;
+					
+					}
 				}
 				a {
 					&.link {
 						color: #f8f8f8;
-						letter-spacing: .04em;
+						
 					}
 				}
 
@@ -352,6 +354,10 @@ $gutter: 8px;
 
 					.panel-bd {
 						height: 150px;
+						padding-right: 160px;
+						.address-alt {
+							line-height: 16px;
+						}
 					}
 				}
 
@@ -495,6 +501,7 @@ $gutter: 8px;
 					&.title {
 						font-size: 13px;
 						letter-spacing: .04em;
+						margin-top: 6px;
 					}
 				}
 			}
@@ -622,8 +629,8 @@ $gutter: 8px;
 					&:nth-child(2n+1) {
 						margin-right: 0;
 					}
-					&.ceromony-locations button {
-						background: url("../../app/images/icons/commencement/graduation-ceromony-small.png") no-repeat 12px center;
+					&.ceremony-locations button {
+						background: url("../../app/images/icons/commencement/graduation-ceremony-small.png") no-repeat 12px center;
 					}
 					&.shuttle button {
 						background: url("../../app/images/icons/commencement/shuttle.png") no-repeat 12px center;
