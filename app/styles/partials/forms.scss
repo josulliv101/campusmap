@@ -3,52 +3,55 @@
 /* ==========================================================================
    Forms
    ========================================================================== */
-
-.input-sharelink {
-	/*padding: 6px;
-	font-size: 14px;*/
-	color: #565152;
-}
-
-input {
-	margin-bottom: 6px;
-	padding: 3px;
-	color: #666;
-	@include borderbox();
-}
-
-.input-state {
-	max-width: 30px;
-	margin-left: 3px;
-}
-
-.non-street-accessible {
-	position: relative;
-	left: 36px;
-	top: 27px;
-	color: #565152;
-}
-
-.input-info {
-	margin-bottom: 16px;
-}
-
-.directions-options {
-	margin: 0 0 12px 2px;
-}
-
-.direction-desinations {
-	
-	.radio {
+#app {
 		
+	.input-sharelink {
+		/*padding: 6px;
+		font-size: 14px;*/
 		color: #565152;
-		letter-spacing: .04em;
-		margin-left: 24px;
+	}
 
-		&:first-child {
+	input {
+		margin-bottom: 6px;
+		padding: 3px;
+		color: #666;
+		@include borderbox();
+	}
 
-			margin-left: 0;
+	.input-state {
+		max-width: 30px;
+		margin-left: 3px;
+	}
 
+	.non-street-accessible {
+		position: relative;
+		left: 36px;
+		top: 27px;
+		color: #565152;
+	}
+
+	.input-info {
+		margin-bottom: 16px;
+	}
+
+	.directions-options {
+		margin: 0 0 12px 2px;
+	}
+
+	.direction-desinations {
+		
+		.radio {
+			
+			color: #565152;
+			letter-spacing: .04em;
+			margin-left: 24px;
+
+			&:first-child {
+
+				margin-left: 0;
+
+			}
 		}
 	}
+		
 }

@@ -186,9 +186,9 @@ define([
 
         }
 
-        if (_.contains(loc.tagItems, 'graduation-ceromony'))  {
+        if (_.contains(loc.tagItems, 'graduation-ceremony'))  {
 
-            classes.push('graduation-ceromony');
+            classes.push('graduation-ceremony');
 
             //classes.push('emphasis5');
 

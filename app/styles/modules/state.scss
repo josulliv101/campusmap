@@ -177,7 +177,27 @@
 				border: 1px #ccc none;
 
 				.location {
+
+					/* Hide some locs that are causing conflicts */
+					&#m019d, &#m019e { /* Leir Hall, Remis Court */
+						display: none;
+					}
+
+					/* A bit smaller labels */
+
+					&#m195, &#m019b, &#m019c, &#distlerhall, &#m019 { /* Granoff music Center, Balch Arena, Cohen Aud, Distler Performance, Aidekman Arts Center  */
+						.txt {
+							font-size: 11px !important;
+						}
+					}
+					&#m019 { /* Aidekman Arts Center  */
+						.txt {
+							font-size: 14px !important;
+						}
+					}
+
 					&.commencement {
+
 						display: block;
 
 						&.food-service {
@@ -193,6 +213,7 @@
 								border: none;
 								background-color: transparent;
 								border-radius: 0;
+								background-size: 24px 24px;
 							}
 						}
 
@@ -209,6 +230,7 @@
 								border: none;
 								background-color: transparent;
 								border-radius: 0;
+								background-size: 24px 24px;
 							}
 						}
 
@@ -225,6 +247,7 @@
 								border: none;
 								background-color: transparent;
 								border-radius: 0;
+								background-size: 24px 24px;
 							}
 						}
 
@@ -241,6 +264,7 @@
 								border: none;
 								background-color: transparent;
 								border-radius: 0;
+								background-size: 24px 24px;
 							}
 						}
 						&.restroom-disabled {
@@ -256,6 +280,7 @@
 								border: none;
 								background-color: transparent;
 								border-radius: 0;
+								background-size: 24px 24px;
 							}
 						}
 					}
@@ -272,6 +297,7 @@
 							border: none;
 							background-color: transparent;
 							border-radius: 0;
+							background-size: 24px 24px;
 						}
 					}
 					&.first-aid {
@@ -302,9 +328,10 @@
 							height: 24px;
 							border: none;
 							background-color: transparent;
-							top: -2px;
+							/*top: -2px;*/
 							left: 0;
 							border-radius: 0;
+							background-size: 24px 24px;
 						}
 					}
 					&.graduation-ceremony {

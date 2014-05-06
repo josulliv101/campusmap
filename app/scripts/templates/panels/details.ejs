@@ -22,7 +22,7 @@
 						<% if (model.location.phone) { %>
 							<label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a>
 						<% } %>
-						<% if (model.location.website && model.location.phone) { %> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <% } %>
+						<% if (model.location.website && model.location.phone) { %> | <% } %>
 						<% if (model.location.website) { %>
 							<a target="_blank" href="http://${model.location.website}">Visit the website &gt;</a>
 						<% } %></p>

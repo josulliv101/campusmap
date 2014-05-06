@@ -53,7 +53,7 @@ $gutter: 8px;
 					padding: 0;
 					&.admin-edit {
 						float: right;
-						display: none;
+						display: block;
 					}
 					button {
 						border: none;
@@ -102,7 +102,7 @@ $gutter: 8px;
 				.more-info {
 
 					margin-top: 16px;
-
+					font-size: 11px;
 					p {
 						color: #999;
 						margin-bottom: 5px;
@@ -112,6 +112,9 @@ $gutter: 8px;
 						color: #666;
 					}
 
+				}
+				.list {
+					width: 400px;
 				}
 
 				p {
@@ -164,6 +167,8 @@ $gutter: 8px;
 				padding-top: 22px;
 
 				padding-right: 64px;
+
+				display: block;
 				
 				.subhead {
 					
@@ -175,9 +180,9 @@ $gutter: 8px;
 
 					color: #777;
 
-					font-size: 12px;
+					font-size: 11px;
 
-					letter-spacing: .06em;
+					 
 				}
 
 				h3 {
@@ -188,7 +193,7 @@ $gutter: 8px;
 
 					font-weight: 400;
 
-					letter-spacing: .06em;
+					 
 
 				}
 
@@ -335,6 +340,8 @@ $gutter: 8px;
 
 				max-width: 400px;
 
+				width: 100%; /* IE */
+
 				z-index: 899;
 
 				/* @include panelfade();keep or change to gradient of gray? */
@@ -415,7 +422,7 @@ $gutter: 8px;
 					@include panelfade(); 
 					.wide-shot {
 						position: relative;
-						left: -25px;
+						/*left: -25px;*/
 					}
 				}
 			}
@@ -479,15 +486,21 @@ $gutter: 8px;
 			}
 		}
 
+		&#settings {
+			.panel-bd {
+				width: 400px;
+			}
+		}
+
 		&#popular-tags {
 			.tag {
 
 			    background: none repeat scroll 0 0 #eee;
 			    border: 1px #ccc solid;;
 			    color: #3172AE;
-			    font-size: 14px;
+			    font-size: 12px;
 			    height: auto;
-			    line-height: 24px;
+			    line-height: 18px;
 			    margin-bottom: 10px;
 			    margin-left: 0;
 			    margin-right: 6px;
@@ -502,13 +515,18 @@ $gutter: 8px;
 
 		&#depts-offices-info {
 			height: 143px;
+			.panel-bd {
+				&.panel-secondary {
+					padding-right: 12px;
+				}
+			}
 			.list {
 				li {
 					margin-bottom: 9px;
 					color: #333;
 					&.title {
 						font-size: 13px;
-						letter-spacing: .04em;
+						
 						margin-top: 6px;
 					}
 				}
@@ -697,6 +715,7 @@ $gutter: 8px;
 						display: block;
 						text-align: center;
 						color: #6699cc;
+						font-size: 10px;
 						&:hover {
 							color: #666;
 						}
@@ -736,9 +755,10 @@ $gutter: 8px;
 			}
 
 			.list {
-				max-height: 166px;
+				max-height: 320px;
 				overflow-y: auto;
 				overflow-x: hidden;
+
 				li {
 					
 					border-top: 1px #eee solid;
@@ -750,7 +770,7 @@ $gutter: 8px;
 						background: none;
 						padding: 0 16px;
 						font-size:13px;
-						letter-spacing: .04em;
+						/*letter-spacing: .04em;*/
 						line-height: 32px;
 						text-align: left;
 
