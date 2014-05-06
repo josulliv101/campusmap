@@ -58,8 +58,8 @@ body {
 		left: 6px;
 		padding: 0 6px 6px; /* Give shadow room instead of getting cut off by overflow hidden */
 		width: 48%;
-		min-width: 450px;
-		max-width: 450px;
+		min-width: 400px;
+		max-width: 400px;
 		
 		& > form {
 			
@@ -78,7 +78,7 @@ body {
 						padding: 6px 12px;
 						margin: 0;
 						width: 100%;
-						letter-spacing: .1em;
+						letter-spacing: .04em;
 						font-weight: 400;
 						font-size: 18px;
 						/*max-width: 406px;*/

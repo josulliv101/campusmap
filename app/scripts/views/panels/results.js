@@ -68,7 +68,7 @@ define([
 
                     //_.delay(function(model) {
 
-                        EventDispatcher.trigger('truthupdate', {  panels: 'details', details: locid });// ,back-to-results
+                        EventDispatcher.trigger('truthupdate', { details: locid, panels: 'details' });// ,back-to-results
 //backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } 
                     //}, 400, this.model);
                     
@@ -78,6 +78,9 @@ define([
                     this.$('.active').removeClass('active');
 
                     $li.addClass('active');
+
+                    // Supress forcing the shut the results panel
+                    EventDispatcher.trigger('truthupdate', { details: locid, suppressforceclose: _.uniqueId('suppressforceclose_') });
 
                 }/* */
             }
@@ -155,6 +158,7 @@ define([
 
             model.set({ results: _.map(results, function(loc) { return _.isFunction(loc.toJSON) ? loc.toJSON() : loc; }) });
 
+
             // Let the panel re-render via Base's pre open call
             //if (this.state() === 'open') this.render();
 
@@ -175,6 +179,8 @@ define([
             titlesByMode[mode] = label;
             
             this.render();
+
+
             
             return state;
 

@@ -83,7 +83,7 @@ $gutter: 8px;
 
 			width: 100%;
 
-			min-width: 450px;
+			min-width: 400px;
 
 			height: auto; /* 150px */
 
@@ -291,7 +291,7 @@ $gutter: 8px;
 				height: 100%;
 				background: #aaa;
 				width: 150px;
-				padding: 6px 12px;
+				padding: 6px 12px 6px 16px;
 				line-height: 16px;
 				@include borderbox();
 				@include thumbareafade();
@@ -332,6 +332,8 @@ $gutter: 8px;
 				left: 0;
 
 				min-height: 150px;
+
+				max-width: 400px;
 
 				z-index: 899;
 
@@ -375,7 +377,7 @@ $gutter: 8px;
 									}
 									ul {
 										li {
-											margin-bottom: 6px;
+											margin-bottom: 9px;
 										}
 									}
 								}
@@ -409,9 +411,12 @@ $gutter: 8px;
 
 				&.panel-imagery { 
 
-					z-index: 9998; 
+					z-index: 98; 
 					@include panelfade(); 
-
+					.wide-shot {
+						position: relative;
+						left: -25px;
+					}
 				}
 			}
 		}
@@ -420,6 +425,9 @@ $gutter: 8px;
 			.panels-contents {
 				.panel-details {
 					z-index: 9999;
+				}
+				.panel-depts-offices {
+					z-index: 90;
 				}
 			}
 		}
@@ -496,7 +504,7 @@ $gutter: 8px;
 			height: 143px;
 			.list {
 				li {
-					margin-bottom: 6px;
+					margin-bottom: 9px;
 					color: #333;
 					&.title {
 						font-size: 13px;
@@ -685,7 +693,7 @@ $gutter: 8px;
 					padding: 6px 10px;
 
 					a {
-						width: 120px;
+						width: 100px;
 						display: block;
 						text-align: center;
 						color: #6699cc;
@@ -695,7 +703,7 @@ $gutter: 8px;
 					}
 
 					img {
-						max-width: 120px;
+						max-width: 100px;
 						height: auto;
 						@include shadow();
 						display: block;
@@ -728,7 +736,7 @@ $gutter: 8px;
 			}
 
 			.list {
-				max-height: 240px;
+				max-height: 166px;
 				overflow-y: auto;
 				overflow-x: hidden;
 				li {

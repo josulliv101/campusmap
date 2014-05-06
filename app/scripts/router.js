@@ -35,6 +35,15 @@ define([
 
             _.extend(this, this.defaults, options);
 
+            EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
+
+                console.log('router');
+
+                // Removes any url # attrs when page loads
+                 this.navigate('', { trigger: false });
+
+            }, this);
+
         },
 
         start: function(options) {

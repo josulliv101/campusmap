@@ -179,6 +179,9 @@ define([
 
                       .value();
 
+        // Don't include any locations that are currently hidden
+        if ( location && $('#' + _.getAttr(location, 'locationid')).is(":visible") === false) location = undefined;
+
         // Just in case
         mouse = null; mouseoffset = null;
 
@@ -251,6 +254,8 @@ define([
     };
 
     GoogleMapView.prototype.handleSearchboxCollisons = function(dimensions, zoom, latlng) {
+
+        if (!latlng) return;
 
         var bounds = this.map.getBounds(), z = this.map.getZoom(),
 

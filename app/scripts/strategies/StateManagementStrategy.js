@@ -87,16 +87,17 @@ define([
 
                           .value();
 
+
         // Do silently?
         EventDispatcher.trigger('truthupdate', _.extend({ 
 
-            forceclosepanels: true
+            forceclosepanels: !_.has(model.changedAttributes(), 'suppressforceclose')
 
             //, panels: _.isObject(val) ? 'details' : ''
 
             , detailsnavbar: navbar
 
-        }, _.isObject(val) ? {  primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
+        }, _.isObject(val) && model.get('panels')[0].id === 'details' ? {  primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
 
 //panels: 'details',
         // Hack to get the navbar state to be correct on first display

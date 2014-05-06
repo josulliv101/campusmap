@@ -132,6 +132,8 @@ define([
 */
         attr[key] = PanelManager.getPanelsById( val );
 
+        if (val === 'details' && _.isObject(model.details)) model.primarylabel = _.getAttr(model.details, 'name');
+
         // When a panel change occurs, update the primary label if not explicitly set
         //if (!model.primarylabel && attr[key][0]) model.primarylabel = attr[key][0].getTitle && attr[key][0].getTitle(model.mode);
 

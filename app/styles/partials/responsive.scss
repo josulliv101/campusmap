@@ -47,7 +47,7 @@ and (max-device-width : 480px) {
 	}
 	#container-searchbox {
 		min-width: 96%;
-		max-width: 450px;
+		max-width: 400px;
 		width: 96%;
 		top: -110%; /*1%;*/
 		left: 2%;
@@ -159,7 +159,7 @@ and (min-width : 321px) {
 					.panel-imagery {
 						.wide-shot {
 							position: relative;
-							left: 0;
+							
 						}
 					}
 					aside {
