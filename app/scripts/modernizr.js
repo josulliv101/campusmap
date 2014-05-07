@@ -1,1 +1,1 @@
-define('modernizr', function () { return window.Modernizr });
+define('modernizr', function () { return window.Modernizr; });

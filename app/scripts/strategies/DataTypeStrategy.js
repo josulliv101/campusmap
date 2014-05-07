@@ -1,19 +1,19 @@
 define([
 
-    'underscore'
+    'jquery'
+
+    , 'underscore'
 
     , 'config'
 
-    , 'scripts/panelManager'
-
     , '_mixins'
 
-], function(_, Config) {
+], function($, _, Config) {
 
     'use strict';
 
 
-    function DataTypeStrategy(_, Config, PanelManager) {
+    function DataTypeStrategy(_, Config) {
 
         this.type = 'truthhandler';
 

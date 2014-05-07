@@ -53,7 +53,7 @@ console.log('handleTruthChange sbcontroller 2', panels);
             }
 
             $.when.apply(null, PM.openPanels(panels)).done(_.throttle(function() { 
-console.log('panels open done')
+
                 //if (!_.isEmpty(panels)) {
 
                     EventDispatcher.trigger('truthupdate', { paneltransitiondone: _.uniqueId('panelsopen_') }, { silent: false });

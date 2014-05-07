@@ -133,9 +133,9 @@ define([
 
         state: function() { return this.model.get('state'); },
 
-        render: function(json) {
+        render: function(jsn) {
 
-            var json = json || this.toJSON();
+            var json = jsn || this.toJSON();
 
             if (!this.template) return this;
 

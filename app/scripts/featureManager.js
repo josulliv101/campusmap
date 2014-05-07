@@ -6,10 +6,7 @@ define([
 
 ], function (_, FeatureDetector) { 
 
-    var getViewportSize_ = _.dispatch( isMobile, isTablet, isDesktop ),
-
-        getVizPath_ = _.dispatch(  isVizForced, isVizDirectory, isVizMap );//isVizForced,
-
+    var getViewportSize_, getVizPath_;
 
     function parseQueryString_( queryString ) {
 
@@ -139,6 +136,10 @@ console.log('modules.animation', modules.animation);
 
     }
 
+    getViewportSize_ = _.dispatch( isMobile, isTablet, isDesktop );
+
+    getVizPath_ = getVizPath_ = _.dispatch(  isVizForced, isVizDirectory, isVizMap );
+
 	return {
 
         // The first one that returns a value is the viewport size
@@ -165,5 +166,5 @@ console.log('modules.animation', modules.animation);
 
         }
 
-	} 
+	};
 });
