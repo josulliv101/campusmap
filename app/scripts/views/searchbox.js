@@ -8,7 +8,9 @@ define([
 
     'templates',
 
-    'eventdispatcher'
+    'eventdispatcher',
+
+    '_mixins'
 
 ], function($, _, Datastore, JST, EventDispatcher) {
 
