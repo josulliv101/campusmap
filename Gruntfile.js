@@ -109,10 +109,12 @@ module.exports = function (grunt) {
     requirejs: {
       compile: {
         options: {
-          name: 'config',
+          //name: 'config',
+          dir: "app/scripts/",
           mainConfigFile: 'app/main.js',
-          out: '<%= concat.dist.dest %>'
+          //out: '<%= concat.dist.dest %>'
           , optimize: 'none'
+          , modules: [{ name: 'config' }]
         }
       }
     },
