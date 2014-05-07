@@ -109,12 +109,11 @@ module.exports = function (grunt) {
     requirejs: {
       compile: {
         options: {
-          //name: 'config',
-          dir: "app/scripts/",
+          name: 'widget',
           mainConfigFile: 'app/main.js',
-          //out: '<%= concat.dist.dest %>'
+          out: '<%= concat.dist.dest %>'
           , optimize: 'none'
-          , modules: [{ name: 'config' }]
+          , paths: []
         }
       }
     },
@@ -127,8 +126,8 @@ module.exports = function (grunt) {
       production: {
         options: {
           keepalive: true,
-          port: 80,
-          host: '0.0.0.0',
+          //port: 80,
+          //host: '0.0.0.0',
           middleware: function (connect, options) {
             return [
               // rewrite requirejs to the compiled version
@@ -165,8 +164,9 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'jasmine', 'clean', 'createDefaultTemplate', 'jst', 'compass:dist', 'requirejs', 'concat', 'uglify']);
+  grunt.registerTask('build', ['clean', 'createDefaultTemplate', 'jst', 'compass:dist', 'requirejs', 'concat', 'uglify']);
   grunt.registerTask('server', ['connect:development']);
-  grunt.registerTask('server:prod', ['default', 'connect:production']);
+  grunt.registerTask('server:prod', ['connect:production']);
   grunt.registerTask('test', ['createDefaultTemplate', 'jst', 'jasmine', 'clean', 'compass:dist']);
 
 };

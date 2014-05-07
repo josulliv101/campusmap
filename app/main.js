@@ -60,6 +60,8 @@
 
             'app': './scripts/app',
 
+            'widget': './scripts/widgets/widgets',
+
             'transition': './scripts/transitions/transitionBase',
 
             'config': './scripts/config',

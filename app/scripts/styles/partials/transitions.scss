@@ -1,0 +1,399 @@
+
+/* ==========================================================================
+   Transitions
+   ========================================================================== */
+
+$showDuration: .65s;
+$hideDuration: .85s;
+
+@keyframes slideOut {
+    0% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+
+    100% {
+
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+@keyframes slideOut-secondary {
+    0% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+
+    100% {
+
+      -webkit-transform: translateY(-1100%);
+       -moz-transform: translateY(-1100%);
+        -ms-transform: translateY(-1100%);
+         -o-transform: translateY(-1100%);
+            transform: translateY(-1100%) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+@keyframes slideIn {
+
+    0% {
+
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,1) rotateX(0deg);
+    }
+
+    100% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+/* Tier 2 panels need slightly tweaked animation */
+@keyframes slideIn-secondary {
+
+    0% {
+
+      -webkit-transform: translateY(-1500%);
+       -moz-transform: translateY(-1500%);
+        -ms-transform: translateY(-1500%);
+         -o-transform: translateY(-1500%);
+            transform: translateY(-1500%) scale(1,1) rotateX(0deg);
+    }
+
+    100% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+@-webkit-keyframes slideOut /* Safari and Chrome */
+{
+    0% {
+      
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+    }
+
+    100% {
+
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,.8) rotateX(70deg);
+
+    }
+}
+
+@-webkit-keyframes slideOut-secondary /* Safari and Chrome */
+{
+    0% {
+      
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+    }
+
+    100% {
+
+      -webkit-transform: translateY(-1500%);
+       -moz-transform: translateY(-1500%);
+        -ms-transform: translateY(-1500%);
+         -o-transform: translateY(-1500%);
+            transform: translateY(-1500%) scale(1,.8) rotateX(70deg);
+
+    }
+}
+
+
+
+@-webkit-keyframes slideIn /* Safari and Chrome */
+{
+    0% {
+
+      -webkit-transform: translateY(-200%);
+       -moz-transform: translateY(-200%);
+        -ms-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%) scale(1,.8) rotateX(70deg);
+    }
+    100% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+/* Tier 2 panels need slightly tweaked animation */
+@-webkit-keyframes slideIn-secondary /* Safari and Chrome */
+{
+    0% {
+
+      -webkit-transform: translateY(-1100%);
+       -moz-transform: translateY(-1100%);
+        -ms-transform: translateY(-1100%);
+         -o-transform: translateY(-1100%);
+            transform: translateY(-1100%) scale(1,1) rotateX(0deg);
+    }
+    100% {
+
+      -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0) scale(1,1) rotateX(0deg);
+
+    }
+}
+
+
+
+@keyframes fadeIn {
+
+    0% {
+      
+      opacity: 0;
+
+    }
+    100% {
+
+      opacity: 1;
+
+    }
+}
+
+@keyframes fadeOut {
+
+    0% {
+      
+      opacity: 1;
+
+    }
+
+    100% {
+
+ 
+      opacity: 0;
+
+    }
+}
+
+@-webkit-keyframes fadeIn {
+
+    0% {
+      
+      opacity: 0;
+
+    }
+    100% {
+
+      opacity: 1;
+
+    }
+}
+
+@-webkit-keyframes fadeOut {
+
+    0% {
+
+      opacity: 1;
+
+    }
+
+    100% {
+
+      opacity: 0;
+
+    }
+}
+
+#container-panels {
+
+  .panel {
+    
+    &.show {
+
+      -webkit-animation: slideIn $showDuration;
+      animation: slideIn $showDuration;
+  
+      // animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
+      // -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
+
+      &:nth-child(1) {
+
+        // animation-timing-function: linear;
+        // -webkit-animation-timing-function: linear; /* Safari and Chrome 0.95s */
+
+      }
+
+      &#commencement-more, &#back-to, &#back-to-accessibility, &#back-to-parking, &#back-to-results, &#select-destination, &#sharelink, &#directions {
+        z-index: -1;
+        -webkit-animation: slideIn-secondary $showDuration;
+        animation: slideIn-secondary $showDuration;
+
+        animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
+      }
+
+      &:nth-child(3) {}      
+
+    }
+
+    &.hide {
+
+      -webkit-animation: slideOut $hideDuration;
+      animation: slideOut $hideDuration;
+
+      // animation-timing-function: ease-out;
+      // -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
+  
+      &#commencement-more, &#back-to, &#back-to-accessibility, &#back-to-parking, &#back-to-results, &#select-destination, &#sharelink, &#directions {
+        z-index: -1;
+        -webkit-animation: slideOut-secondary $showDuration;
+        animation: slideOut-secondary $showDuration;
+
+        animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-out; /* Safari and Chrome 0.95s */
+      }
+
+      &:nth-child(1) {
+        
+        // animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400);
+        // -webkit-animation-timing-function: cubic-bezier(0.530, 0.005, 0.640, 0.400); /* Safari and Chrome 0.95s */
+
+      }
+
+      &:nth-child(2) {}
+
+      &:nth-child(3) {}      
+
+    }
+
+
+
+    &.bd-active-details {
+      
+      .panel-details { 
+
+         -webkit-transform: translateX(0);
+         -moz-transform: translateX(0);
+         -ms-transform: translateX(0);
+          -o-transform: translateX(0);
+             transform: translateX(0);
+        
+
+
+      }
+
+      .panel-depts-offices, .panel-imagery {
+
+        display: block;
+
+         -webkit-transform: translateX(100%);
+         -moz-transform: translateX(100%);
+         -ms-transform: translateX(100%);
+          -o-transform: translateX(100%);
+             transform: translateX(100%);
+        
+        
+      }
+
+    }
+
+    &.bd-active-depts-offices {
+
+      
+      .panel-depts-offices { 
+
+         -webkit-transform: translateX(0);
+         -moz-transform: translateX(0);
+         -ms-transform: translateX(0);
+         -o-transform: translateX(0);
+             transform: translateX(0);
+        
+
+      }
+
+      .panel-details { 
+
+         -webkit-transform: translateX(-100%);
+         -moz-transform: translateX(-100%);
+         -ms-transform: translateX(-100%);
+          -o-transform: translateX(-100%);
+             transform: translateX(-100%);
+        
+      }
+
+      .panel-imagery { 
+
+         -webkit-transform: translateX(100%);
+         -moz-transform: translateX(100%);
+         -ms-transform: translateX(100%);
+          -o-transform: translateX(100%);
+             transform: translateX(100%);
+        
+
+      }
+
+    }
+
+    &.bd-active-imagery {
+      
+      .panel-imagery { transform: translateX(0); }
+
+      .panel-details, .panel-depts-offices {
+
+        display: block;
+
+         -webkit-transform: translateX(-100%);
+         -moz-transform: translateX(-100%);
+         -ms-transform: translateX(-100%);
+          -o-transform: translateX(-100%);
+             transform: translateX(-100%);
+
+        
+        
+      }
+    }
+  }
+}
+
+ 

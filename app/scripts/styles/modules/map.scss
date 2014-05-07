@@ -1,0 +1,570 @@
+@import "./partials/base";
+
+/* ==========================================================================
+   Map Module
+   ========================================================================== */
+
+$animate: .2s;
+
+$green: #5c7557;
+$greentxt: #30432b;
+
+$lite: #fff;
+
+#campusmap {
+	#controls-zoom {
+		position: absolute;
+		top: 52px;
+		right: 12px;
+		z-index: 999;
+		border-radius: 4px;
+
+		button {
+			background: #565152;
+			width: 36px;
+			height: 36px;
+			border: 1px #999 solid;
+			text-align: center;
+			font-size: 20px;
+			display: block;
+			color: #ccc;
+			border-radius: 0;
+			margin: 0;
+
+			-webkit-transition: all 0.25s ease-in-out;
+			-moz-transition: all 0.25s ease-in-out;
+			-o-transition: all 0.25s ease-in-out;
+			transition: all 0.25s ease-in-out;
+
+			&:hover {
+				background: #444;
+				color: #fff;
+			}
+			&.plus {/*
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;*/
+				border-bottom-style: none;
+			}
+
+			&.minus {/*
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;*/
+				border-top-style: none;
+			}
+		}
+	}
+}
+
+#map-canvas {
+	
+	height: 100%;
+
+	color: #333;
+
+	/**** Label Tile ****/
+
+	.label-tile {
+
+		position: relative;
+
+		width: 256px;
+
+		height: 256px;
+
+		border: 1px #ccc none;
+
+		.location {
+
+			position: absolute;
+
+			width: auto;
+
+			background: rgba(0, 0, 0, 0);
+
+			color: #311905;
+
+			margin: -8px 0 0 -8px; 
+
+			z-index: 998;
+
+			.bd {
+
+				position: relative;
+
+				top: 0;
+
+				left: 0;
+
+				z-index: 998;
+
+				display: block;
+
+				padding: 0 4px 0 18px; /* Adjust for icon's 16px width */
+				
+				@include animate($animate); /* When hidden and displayed on hover */
+
+				/* Text Area */
+
+				.txt {
+
+			        position: relative;
+
+			        display: block;
+
+			        width: auto;
+
+			        /*min-width: 80px;*/
+
+			        top: -2px;
+
+			        left: 4px; /* Put a little space between icon and txt label*/
+
+			        background: transparent;
+
+			        opacity: .96;
+
+			        white-space: nowrap;
+
+			        line-height: 16px;
+
+			        border-style: solid;
+
+			        border-color: transparent;
+
+			        border-width: 0px;
+
+			        border-radius: 1px;
+
+			        vertical-align: top;
+
+			        padding: 2px 3px; /*0 2px 0 0;*/
+
+			        letter-spacing: .05em;
+
+			        font-size: 14px;
+
+			        /* test 
+
+						top: -5px;
+
+						left: 10px;
+
+						font-size: 19px;
+
+						padding: 6px;
+*/
+			        @include animate($animate);
+
+			        @include textshadow();
+
+				}
+
+			}
+
+		    /* Icons */
+
+		    .icon {
+
+		      position: relative; /* For z-index */
+
+		      display: block;
+
+		      float: left;
+
+		      z-index: 999;
+
+		      top: 1px;
+
+		      left: 1px;
+
+		      width: 5px;
+
+		      height: 5px;
+
+		      opacity: .7;
+
+		      border-radius: 50%;
+
+		      /*border: 4px #3172AE solid;  565152 9b7458  */
+
+		      border: 5px #936c4c solid;
+
+		      line-height: 16px;
+
+		      background-size: 16px 16px;
+
+		      background-color: #936c4c;
+/*
+		      background-image: url("../../app/images/icons/map/circle@2x.png");  marker-icon-2x.png circle@2x.png circle_outline_center.png */
+
+		      background-repeat: no-repeat;
+
+		      vertical-align: text-top;
+
+		      @include shadow();
+
+		      @include animate($animate);
+
+		    }
+
+			&.closeby {
+
+				.icon {
+/*
+					background-color: #6699cc;
+*/
+				}
+
+			}
+
+			&.commencement {
+				display: none;
+				&#m019 { /* Aidekman Arts Center  */
+					display: block;
+				}
+			}
+
+			&.emphasis1, &.emphasis2, &.emphasis3 {
+				
+				.icon {
+					
+					background: #b7a08d; /*#bbb;565152*/
+
+					border: 5px #b7a08d solid;
+
+					top: 2px;
+
+					left: 1px;
+					
+					width: 5px;
+
+					height: 5px;
+
+					@include noshadow();
+
+					/*
+					top: 3px;
+
+					left: 3px;
+
+					width: 3px;
+
+					height: 3px;
+
+					opacity: 1;
+
+
+					border-width: 2px;
+
+					border-radius: 0;
+
+					background: #aaa;
+
+					border-color: #aaa;
+
+					@include noshadow();
+*/
+				}
+
+				.bd {
+
+					opacity: 0;
+
+					display: none;
+
+					.txt {
+
+						/*font-size: 12px;*/
+
+					}
+
+				}
+
+			}
+/*
+			&.emphasis1, &.emphasis2, &.emphasis3 {
+
+				.icon {
+
+					display: none;
+
+				}
+
+			}
+*/
+			&.emphasis5 {
+
+				.icon {
+
+					width: 7px;
+
+					height: 7px;
+
+					border: 7px #936c4c solid;
+
+					top: -1px;
+
+					opacity: .9;
+
+				}
+
+				.bd {
+
+					padding: 0 4px 0 16px;
+
+					.txt {
+						
+						top: -5px;
+
+						left: 10px;
+
+						font-size: 19px;
+
+						padding: 6px;
+
+					}
+
+				}
+
+			}
+
+			&.details {
+
+				.icon {
+
+					/*opacity: 1 !important;*/
+
+					display: block !important;
+					
+					background-color: #fff;
+
+					/*border-color: #3172AE;*/
+
+					border-radius: 0 !important;
+
+					@include shadow();
+
+				}
+
+				.bd {
+
+					opacity: 1 !important;
+
+					display: block !important;
+
+					.txt {
+
+						/*color: #3172AE !important;*/
+
+						background: #fff !important;
+
+						opacity: 1;
+
+						@include shadow();
+
+					}
+
+				}
+
+				&.emphasis1, &.emphasis2, &.emphasis3 {
+					/*
+					.icon {
+
+						background-color: #3172AE;
+
+					}
+
+					&.hover {
+
+						.icon {
+
+							background-color: #3172AE;
+
+						}
+
+
+					}
+					*/
+
+				}
+
+			}
+
+			&.hover {
+
+				/*color: #000 !important;*/
+
+				z-index: 9999 !important;
+
+				.icon {
+
+					background-color: #fff;
+
+				}
+
+				.bd {
+
+					opacity: 1 !important;
+
+					display: block !important;
+
+					.txt {
+
+						background: #fff;
+
+						opacity: 1;
+
+						@include shadow();
+
+					}
+
+				}
+
+				&.emphasis1, &.emphasis2, &.emphasis3 {
+					/*
+					.icon {
+
+						background-color: #aaa;
+
+					}
+*/
+				}
+
+			}
+
+			/* Parking */
+			&.parking {
+				display: none;
+				&#p-dowling-garage {
+					display: block;
+				}
+				.bd {
+					.txt {
+						color: #336699;
+					}
+				}
+				.icon {
+					background-image: url("../../app/images/icons/parking.png");
+					background-color: transparent;
+					width: 16px;
+					height: 16px;
+					border: none;
+				}
+			}
+
+			/* Fields */
+			&.field, &.lawn {
+				.bd {
+					.txt {
+						color: $greentxt;
+						opacity: .88;
+					}
+				}
+				.icon {
+					background-color: $green;
+					border-color: $green;
+					
+					&:hover {
+						background-color: $lite;
+					}
+				}
+			}
+		}
+	}
+}
+
+.zoomed-out { /* below level 15 */
+	
+	.label-tile {
+
+		display: none !important;
+
+	}
+
+}
+
+.zoom-16 {
+	
+	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
+
+		.bd {
+
+			display: none !important;
+
+		}
+
+	}
+
+	.emphasis1, .emphasis2, .emphasis3 {
+
+		.icon {
+
+			display: none !important;
+
+		}
+
+	}
+
+}
+
+.zoom-17 {
+	
+	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
+
+		.bd {
+
+			display: none !important;
+
+		}
+
+	}
+
+	.emphasis1, .emphasis2, .emphasis3 {
+
+		.icon {
+
+			display: none !important;
+
+		}
+
+	}
+
+}
+
+.zoomed-in { /* above level 17 */
+	
+	.label-tile {
+
+		display: block !important;
+
+	}
+
+	.icon {
+
+		display: block !important;
+
+	}
+
+}
+
+.zoom-15 {
+	
+	.emphasis1, .emphasis2, .emphasis3, .emphasis4 {
+
+		display: none !important;
+
+	}
+
+	.icon {
+
+		border: 1px #9b7458 solid !important;
+
+	}
+
+	.bd {
+
+		display: none !important;
+
+	}
+
+}

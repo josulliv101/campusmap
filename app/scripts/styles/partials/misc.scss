@@ -1,0 +1,17 @@
+#external-resources {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 11px;
+	a {
+		&:hover {
+			color: #CA790F;
+		}
+	}
+}
+.interior-wrapper {
+	&> h1 {
+		color: #333333;
+	    font-size: 13px;
+	    font-weight: bold;
+	    padding-bottom: 7px;
+	}
+}

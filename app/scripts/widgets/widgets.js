@@ -7,7 +7,13 @@ define([
 
     , 'app'
 
-], function(_, Datastore, App) {
+    , 'scripts/views/map/GoogleMap'
+
+    , 'scripts/views/searchbox'
+
+    , 'scripts/config'
+
+], function(_, Datastore, App, GoogleMapView, SearchboxView, Config) {
 
     'use strict';
 
@@ -15,25 +21,13 @@ define([
 
     function campusmap_(appDom, mapDom, settings) {
 
-        require([
+        var searchboxView = new SearchboxView({ model: Datastore.factory.model() }).render().$el.appendTo(appDom),
 
-            'scripts/views/map/GoogleMap', 
+            mapView = new GoogleMapView({ el: mapDom, model: Datastore.factory.model() }),
 
-            'scripts/views/searchbox', 
+            app = new App(appDom, settings, Config.defaults.theTruth, mapView);
 
-            'scripts/config'
-
-            ], function (GoogleMapView, SearchboxView, Config) {
-
-            var searchboxView = new SearchboxView({ model: Datastore.factory.model() }).render().$el.appendTo(appDom),
-
-                mapView = new GoogleMapView({ el: mapDom, model: Datastore.factory.model() }),
-
-                app = new App(appDom, settings, Config.defaults.theTruth, mapView);
-
-            app.init();
-
-        });
+        app.init();
 
     }
  

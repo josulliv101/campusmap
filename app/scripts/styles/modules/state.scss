@@ -1,0 +1,512 @@
+@import "./partials/base";
+
+/* ==========================================================================
+   State Module
+   ========================================================================== */
+
+#app {
+	&.building {
+		#nav-primary {
+			.building {
+				/*background: #446D9A;
+				color: #fff;*/
+			}		
+		}
+		#results {
+			.result {
+				button {
+					span {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+	&.search {		
+	}
+	&.parking {
+		#nav-primary {
+			.parking {
+				background: #0b5090;
+				color: #fff;
+			}		
+		}
+		#results {
+			.result {
+				button {
+					span {
+						display: none !important;
+					}
+				}
+			}
+		}
+		#map-canvas {
+
+			.label-tile {
+				.location {
+					&.parking {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	&.accessibility {
+		#nav-primary {
+			.accessibility {
+				background: #0b5090;
+				color: #fff;
+			}		
+		}
+		#results {
+			.result {
+				button {
+					span {
+						display: none !important;
+					}
+				}
+			}
+		}
+		#map-canvas {
+			.label-tile {
+				.location {
+					&.accessible-full {
+						.icon {
+							top: -1px;
+							background-image: url("../../app/images/icons/accessibility/accessibility1@2x.png");
+						    background-color: rgba(0, 0, 0, 0);
+						    background-size: 20px 20px;
+						    border: medium none;
+						    height: 20px;
+						    width: 20px;
+						    @include noshadow();
+						    border-radius: 0;
+						    opacity: 1;
+						}					
+					}
+					&.accessible-assistance {
+						.icon {
+							top: -1px;
+							background-image: url("../../app/images/icons/accessibility/accessibility2@2x.png");
+							background-color: rgba(0, 0, 0, 0);
+						    background-size: 20px 20px;
+						    border: medium none;
+						    height: 20px;
+						    width: 20px;
+						    @include noshadow();
+						    border-radius: 0;
+						    opacity: 1;
+						}					
+					}
+					&.accessible-restroom {
+						.icon {
+							top: -1px;
+							background-image: url("../../app/images/icons/accessibility/accessibility3@2x.png");
+							background-color: rgba(0, 0, 0, 0);
+						    background-size: 20px 20px;
+						    border: medium none;
+						    height: 20px;
+						    width: 20px;
+						    @include noshadow();
+						    border-radius: 0;
+						    opacity: 1;
+						}					
+					}
+
+					&.accessible-full {
+						&.accessible-restroom {
+							.icon {
+								top: -1px;
+								background-image: url("../../app/images/icons/accessibility/accessibility1_3@2x.png");
+								width: 40px;
+								background-size: 40px 20px;
+								border-radius: 0;
+								opacity: 1;
+							}
+							/* Icon is wider so adjust text bg */
+							.bd {
+								padding-left: 36px;
+							}
+						}
+					}
+					&.accessible-assistance {
+						&.accessible-restroom {
+							.icon {
+								background-image: url("../../app/images/icons/accessibility/accessibility2_3@2x.png");
+								width: 40px;
+								background-size: 40px 20px;
+								border-radius: 0;
+								opacity: 1;					
+							}
+							/* Icon is wider so adjust text bg */
+							.bd {
+								padding-left: 36px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.commencement {
+		#nav-primary {
+			.commencement {
+				background: #0b5090;
+				color: #fff;
+			}		
+		}
+		#results {
+			.result{
+				&.active {
+					.btn-details {
+						display: none !important;
+					}
+				}
+			}
+		}
+		#map-canvas {
+
+			.label-tile {
+
+				position: relative;
+
+				width: 256px;
+
+				height: 256px;
+
+				border: 1px #ccc none;
+
+				.location {
+
+					/* Hide some locs that are causing conflicts */
+					&#m019d, &#m019e { /* Leir Hall, Remis Court */
+						display: none;
+					}
+
+					/* A bit smaller labels */
+
+					&#m195, &#m019b, &#m019c, &#distlerhall, &#m019 { /* Granoff music Center, Balch Arena, Cohen Aud, Distler Performance, Aidekman Arts Center  */
+						.txt {
+							font-size: 11px !important;
+						}
+					}
+					&#m019 { /* Aidekman Arts Center  */
+						.txt {
+							font-size: 14px !important;
+						}
+					}
+
+					&.commencement {
+
+						display: block;
+
+						&.food-service {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/food-service.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+								border-radius: 0;
+								background-size: 24px 24px;
+							}
+						}
+
+						&.shuttle {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/shuttle.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+								border-radius: 0;
+								background-size: 24px 24px;
+							}
+						}
+
+						&.disabled-dropoff {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/disabled-dropoff.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+								border-radius: 0;
+								background-size: 24px 24px;
+							}
+						}
+
+						&.restroom {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/restroom.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+								border-radius: 0;
+								background-size: 24px 24px;
+							}
+						}
+						&.restroom-disabled {
+							.bd {
+								.txt {
+									left: 16px;
+								}
+							}
+							.icon {
+								background-image: url("../../app/images/icons/commencement/restroom-disabled.png");
+								width: 24px;
+								height: 24px;
+								border: none;
+								background-color: transparent;
+								border-radius: 0;
+								background-size: 24px 24px;
+							}
+						}
+					}
+					&.web-viewing-area {
+						.bd {
+							.txt {
+								left: 16px;
+							}
+						}
+						.icon {
+							background-image: url("../../app/images/icons/commencement/web-viewing-area.png");
+							width: 24px;
+							height: 24px;
+							border: none;
+							background-color: transparent;
+							border-radius: 0;
+							background-size: 24px 24px;
+						}
+					}
+					&.first-aid {
+						.bd {
+							.txt {
+								left: 16px;
+							}
+						}
+						.icon {
+							background-image: url("../../app/images/icons/commencement/first-aid.png");
+							width: 24px;
+							height: 24px;
+							border: none;
+							background-color: transparent;
+							border-radius: 0;
+						}
+					}
+					&.info-booth {
+						.bd {
+							padding-left: 32px;
+							.txt {
+								left: 16px;
+							}
+						}
+						.icon {
+							background-image: url("../../app/images/icons/commencement/info-booth.png");
+							width: 24px;
+							height: 24px;
+							border: none;
+							background-color: transparent;
+							/*top: -2px;*/
+							left: 0;
+							border-radius: 0;
+							background-size: 24px 24px;
+						}
+					}
+					&.graduation-ceremony {
+						opacity: 1 !important;
+						display: block !important;
+						.bd {
+							opacity: 1 !important;
+							display: block !important;
+							padding-left: 29px;
+							.txt {
+								 left: 6px;
+							}
+						}
+						.icon {
+							background-image: url("../../app/images/icons/commencement/graduation-ceremony.png");
+							width: 36px;
+							height: 36px;
+							border: none;
+							border-radius: 0;
+							background-color: rgba(0,0,0,0);
+							top: -8px;
+							left: -8px;
+							background-size: 36px 36px;
+							@include noshadow();
+						}
+						&.emphasis5 {
+							.bd {
+								opacity: 1 !important;
+								display: block !important;
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+	&.parking, &.commencement, &.accessibility {
+		.navs #nav-primary.nav {
+			.clearmode {
+				display: inline-block;
+			}		
+		}
+	}
+	.searchbox {
+		&.show-backto {
+			.btn-backto, .divider-backto {
+				display: block !important;
+			}
+		}
+	}
+	&.streetview {
+		#container-searchbox, #controls-zoom {
+			opacity: 0;
+			-webkit-transition: all .2s linear;
+				-moz-transition: all .2s linear;
+					-o-transition: all .2s linear;
+						-ms-transform: all .2s linear;
+							transition: all .2s linear;
+		}
+	}
+	&.searchbox-open {
+
+		#container-searchbox {
+
+			.panel {
+				
+				#searchbox {
+
+					font-weight: 700;
+
+				}
+				
+				.btn {
+
+					&.search {
+
+						background-image: url("../../app/images/icons/x@2x.png");
+
+						&:hover {
+
+						  background-image: url("../../app/images/icons/x-lite@2x.png");
+
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/* Settings */
+	&.high-contrast-labels {
+		#map-canvas {
+			.label-tile {
+				.location {
+					.bd {
+						.txt {
+							background: #eee;
+							background: rgba(248,248,248,.8);
+							opacity: .9;
+							@include shadow();
+						}
+					}
+					&.details {
+						.bd {
+							.txt {
+								opacity: 1 !important;
+								background: #fff;
+								background: rgba(255,255,255,1) !important;
+							}
+						}
+					}
+				}
+			}
+		}
+		.highcontrastlabels {
+			.btn-on {
+				text-decoration: underline;
+				color: #fff;
+				background: #6699cc;
+				opacity: 1;			
+			}
+			.btn-off {
+				text-decoration: none;
+				color: #666;	
+				opacity: 1;
+				background: #dedede;
+				&:hover {
+					background: #bbb;
+				}			
+			}
+		}
+	}
+	&.large-labels {
+		#map-canvas {
+			.label-tile {
+				.location {
+					.bd {
+						.txt {
+							top: -5px;
+							left: 6px;
+							font-size: 18px;
+							padding: 4px 6px;
+						}
+					}
+					&.emphasis5 {
+						.bd {
+							.txt {
+								top: -8px;
+								left: 10px;
+								font-size: 24px;
+								padding: 8px 6px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.largelabels {
+			.btn-on {
+				text-decoration: underline;
+				color: #fff;
+				background: #6699cc;	
+				opacity: 1;		
+			}
+			.btn-off {
+				text-decoration: none;
+				color: #666;
+				background: #dedede;
+				opacity: 1;
+				&:hover {
+					background: #bbb;
+				}		
+			}
+		}
+	}
+}
+

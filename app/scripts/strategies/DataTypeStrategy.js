@@ -4,7 +4,7 @@ define([
 
     , 'underscore'
 
-    , 'config'
+    , 'scripts/config'
 
     , '_mixins'
 

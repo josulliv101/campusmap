@@ -1,0 +1,55 @@
+
+/* ==========================================================================
+   Utils
+   ========================================================================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.pull-left {
+    float: left;
+}
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.striped > li:nth-child(2n+1) {
+    background-color: #f8f8f8;
+}
+
+.block {
+  display: block;
+}
+
+.divider {
+    
+    padding: 0 6px;
+
+    color: #ddd;
+
+}
+
+.bare {
+    margin: 0 !important;
+    padding: 0 !important;
+}

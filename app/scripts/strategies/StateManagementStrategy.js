@@ -2,7 +2,7 @@ define([
 
     'underscore'
 
-    , 'config'
+    , 'scripts/config'
 
     , 'scripts/domManager'
 
