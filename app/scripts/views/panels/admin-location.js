@@ -85,8 +85,6 @@ define([
 
                         location.set(attrsAll, { silent: true });
 
-                        console.log('saved');
-
                     });
 
         },

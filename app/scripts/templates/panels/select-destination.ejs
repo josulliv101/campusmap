@@ -2,17 +2,17 @@
 	<div class="bd spacing">
 		<h3 class="subhead">Select a Destination</h3>
 		<p class="bare"><strong class="heavy">Where to?</strong></p>
-		<div class="directions-options">
-			<button class="btn-large" data-campusmap='panels:details,directions'><label>${model.location.name}</label></button>
-			<button class="btn-large" data-campusmap='panels:details,directions'><label>Dowling Parking Garage</label></button>
+		<div class="directions-options ${model.location.locationid}">
+			<button class="btn-large to-a" data-campusmap='panels:details,directions|directionsto:${model.location.locationid}'><label>${model.location.name}</label></button>
+			<button class="btn-large to-b" data-campusmap='panels:details,directions|directionsto:p-dowling-garage'><label>Dowling Parking Garage</label></button>
 		</div>
 		 
 		<div class='footer'>
 			<a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More on Visitor Parking</a>
 			<span class="divider">|</span>
-			<a class="link external" target="_blank" href="http://www.mbta.com">MBTA.com</a>
+			<a class="link external" target="_blank" href="http://www.mbta.com">MBTA</a>
 			<span class="divider">|</span> 
-			<a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/shuttle-services-2/">Tufts Shuttle Tracker</a>
+			<a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/shuttle-services-2/">Shuttle Tracker</a>
 			<button class="btn-close" data-campusmap='panels:details'>close</button>
 		</div>
 	</div>

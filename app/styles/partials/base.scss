@@ -30,27 +30,31 @@ input[type="text"]:disabled {
 
 }
 
-a {
+#app {
+	a {
 
-	text-decoration: none;
+		text-decoration: none;
 
-	color: #333;
-	&:focus, &:active {
-		outline: #eee;
-		text-decoration: underline;
-	}
-	&:hover {
-		color: #fff;
-		text-decoration: underline;
+		color: #333;
+		&:focus, &:active {
+			outline: #eee;
+			text-decoration: underline;
+		}
+		&:hover {
+			color: #fff;
+			text-decoration: underline;
 
-	}
+		}
 
-	&.link {
-
-		color: #6699cc;
-
-	}
+		&.link, &.external, &.internal {
+			color: #6699cc;
+			&:hover {
+				color: #6699cc;
+			}
+		}
+	}	
 }
+
 
 @mixin shadow() {
 	-webkit-box-shadow: 0px 2px 3px 2px rgba(0,0,0,.11);

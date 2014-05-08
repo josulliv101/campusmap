@@ -77,8 +77,6 @@ define([
 
         google.maps.event.addListener(this.map, 'mousemove', function (ev) { // _.throttle()
 
-            //console.log('mousemove');
-
             var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
             EventDispatcher.trigger('truthupdate', { hover: loc });
@@ -88,20 +86,14 @@ define([
         // Make sure unwanted mousemove events aren't triggered during a map drag
         google.maps.event.addListener(this.map, 'dragstart', function (ev) { 
 
-            console.log('dragstart');
-
             google.maps.event.clearListeners(this, 'mousemove');
 
         });
 
         google.maps.event.addListener(this.map, 'dragend', function (ev) { 
 
-            console.log('dragend');
-
             // Add mousemove listener back
             google.maps.event.addListener(this, 'mousemove', function (ev) { // _.throttle()
-
-                //console.log('mousemove');
 
                 var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
@@ -248,8 +240,6 @@ define([
             $loc.removeClass().addClass( DomManager.getLocationClassNames(loc) );
 
         }, this);
-
-        console.log('refreshLabelCss');
 
     };
 

@@ -117,8 +117,6 @@ define([
 
         var modules = {};
 
-        console.log('q', q);
-
         if (q !== undefined) modules = parseQueryString_(q) || {};
 
         if (modules.animation) return modules;
@@ -127,10 +125,6 @@ define([
         if (modules.animation === undefined && Modernizr.cssanimations === true) modules.animation = 'animationCSS';
 
         else modules.animation = 'animation';
-
-console.log('modules.animation', modules.animation);
-
-        console.log('modules', modules, Modernizr.cssanimations );
 
         return modules;
 
@@ -154,8 +148,6 @@ console.log('modules.animation', modules.animation);
         setPathsMap: function(require) {
 
             var mappings = getOverrides_();
-
-            console.log('mappings', mappings.animation);
 
             require.config({
 

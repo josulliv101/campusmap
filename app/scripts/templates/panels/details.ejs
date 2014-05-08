@@ -12,19 +12,21 @@
 			<div class="bd spacing ">
 				<% if (!model.location.addressalt) { %>
 					<% if (model.location.address1) { %>
-						<p class="addr">${model.location.address1}</p>
+						<p class="addr addr1">${model.location.address1}</p>
 					<% } %>
 					<% if (model.location.address2) { %>
 						<p class="addr addr2">${model.location.address2}</p>
 					<% } %>
-					<p class="addr">Medford, MA 02155</p>
+					<% if (model.location.city) { %><p class="addr city">${model.location.city}, MA 
+						<% if (model.location.city === 'Somerville') { %>02144<% } else { %>02155<% } %></p>
+					<% } %>
 					<div class="more-info"><p>
 						<% if (model.location.phone) { %>
-							<label class="sr-only">Phone</label><a href="tel:${model.location.phone}">${model.location.phone}</a>
+							<label class="sr-only">Phone</label><a class="link phone external" href="tel:${model.location.phone}">${model.location.phone}</a>
 						<% } %>
 						<% if (model.location.website && model.location.phone) { %> | <% } %>
 						<% if (model.location.website) { %>
-							<a target="_blank" href="http://${model.location.website}">Visit the website &gt;</a>
+							<a class="link external" target="_blank" href="${model.location.website}">Visit the website &gt;</a>
 						<% } %></p>
 					</div>
 				<% } else { %>

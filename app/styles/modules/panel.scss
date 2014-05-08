@@ -16,7 +16,7 @@ $gutter: 8px;
 		overflow: hidden;
 		margin: 6px 0;
 
-		background: url("/app/images/bg/paper.png") #f8f8f8;
+		background: #f8f8f8; /* url("/app/images/bg/paper.png")  */
 		font-size: 12px;
 
 		@include shadow();
@@ -53,7 +53,7 @@ $gutter: 8px;
 					padding: 0;
 					&.admin-edit {
 						float: right;
-						display: block;
+						display: none;
 					}
 					button {
 						border: none;
@@ -107,11 +107,14 @@ $gutter: 8px;
 						color: #999;
 						margin-bottom: 5px;
 					}
-
 					a {
 						color: #666;
+						&.link {
+							&.phone {
+								color: #565152 !important;
+							}						
+						}
 					}
-
 				}
 				.list {
 					width: 400px;
@@ -128,17 +131,15 @@ $gutter: 8px;
 						font-size: 16px;
 
 						letter-spacing: .06em;
-
+						&.addr1 {
+							line-height: 20px;
+						}
 						&.addr2 {
 							font-size: 12px;
 							color: #999;
 							line-height: 18px;
 						}
-
 					}
-
-
-
 				}
 			}
 
@@ -174,7 +175,7 @@ $gutter: 8px;
 					
 					position: absolute;
 
-					top: 7px;
+					top: 6px;
 
 					right: 12px;
 
@@ -244,6 +245,9 @@ $gutter: 8px;
 
 					a {
 						color: #6699cc;
+						&.link {
+							font-size: 11px;
+						}
 					}
 
 					button {
@@ -306,14 +310,14 @@ $gutter: 8px;
 					font-size: 11px;
 					&.title {
 						margin-top: 9px;
-						color:#fff;
+						color:#fff !important;
 						font-size: 12px;
 					
 					}
 				}
 				a {
 					&.link {
-						color: #f8f8f8;
+						color: #f8f8f8 !important;
 						
 					}
 				}
@@ -453,6 +457,18 @@ $gutter: 8px;
 			}
 		}
 
+		&#commencement-more {
+			ul {
+				margin-top: 12px;
+				&.list {
+					li {
+						font-size: 13px;
+						line-height: 24px;
+					}					
+				}
+			}				
+		}
+
 		&#secondary {
 			z-index: -1;
 		}
@@ -492,7 +508,41 @@ $gutter: 8px;
 			}
 		}
 
+		&#select-destination {
+			.panel-bd {
+				&.panel-secondary {
+					padding-right: 54px !important;
+				}
+			}
+			.p-dowling-garage {
+				.to-b {
+					display: none;
+				}
+			}
+			.m023 {
+				.to-a {
+					display: none;
+				}
+			}
+		}
+
+		&#directions {
+			.non-street-accessible {
+				top: 8px;
+			}
+			.msg {
+				margin-bottom: 12px;
+			}
+			#googlemap-link {
+				display: none;
+			}
+			.lbl-google {
+				line-height: 16px;
+			}
+		}
+
 		&#popular-tags {
+			padding-top: 9px;
 			.tag {
 
 			    background: none repeat scroll 0 0 #eee;
@@ -521,6 +571,7 @@ $gutter: 8px;
 				}
 			}
 			.list {
+				min-height: 97px;
 				li {
 					margin-bottom: 9px;
 					color: #333;
@@ -635,6 +686,7 @@ $gutter: 8px;
 					button {
 						width: 100%;
 						text-align: left;
+						 
 						height: 62px;
 						padding-left: 54px;	
 					    font-size: 11px;

@@ -50,7 +50,7 @@ define([
                 var q = $(ev.currentTarget).val(),
 
                     args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'defaultFilter', query: q };
-console.log('keyup  #searchbox', q);
+
                 EventDispatcher.trigger('truthupdate', args);
 
                 // Announce keyup event, results panel is listening
@@ -66,8 +66,6 @@ console.log('keyup  #searchbox', q);
                 ev.preventDefault();
 
                 EventDispatcher.trigger('truthupdate', _.extend(attrs, { backto: null }));
-
-                console.log('backto attrs', attrs);
 
             }
         },
@@ -148,8 +146,6 @@ console.log('keyup  #searchbox', q);
 
         refreshResultsPanel: function(model, query) {
 
-            console.log('query', query);
-
             //EventDispatcher.trigger('truthupdate', { panels: !_.isEmpty(query) ? 'results' : '' }); 
             
         },
@@ -168,8 +164,6 @@ console.log('keyup  #searchbox', q);
 
             // Show the btn
             this.$el.addClass(classname);
-
-            console.log('backto', attrs);
             
         },
 

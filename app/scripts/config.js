@@ -28,7 +28,7 @@ define([
 
                 data: {
 
-                    jsonp: './app/data/data.json'
+                    jsonp: '../app/data/data.json'
 
                 }
 

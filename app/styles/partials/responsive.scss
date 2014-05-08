@@ -21,107 +21,106 @@ and (min-device-width : 320px)
 and (max-device-width : 480px) {  
 /* Styles */  
 
-#app {
-	#mode {
-	    position: absolute;
-	    right: 12px;
-	    top: 10px;
-	    z-index: 99;
-		display: block;
-		background: #fff;
-		background: rgba(255,255,255,.8);
-	    color: #333333;
-	    padding: 4px 8px;
-	    font-size: 14px;
-	    letter-spacing: .06em;
-	}
-	#campusmap {
-		#controls-zoom {
-			top: auto;
-			bottom: 22px;
+/*
+	#app {
+		#mode {
+		    position: absolute;
+		    right: 12px;
+		    top: 10px;
+		    z-index: 99;
+			display: block;
+			background: #fff;
+			background: rgba(255,255,255,.8);
+		    color: #333333;
+		    padding: 4px 8px;
+		    font-size: 14px;
+		    letter-spacing: .06em;
 		}
-	}
-	padding: 0;
-	.navs {
-		display: none;
-	}
-	#container-searchbox {
-		min-width: 96%;
-		max-width: 400px;
-		width: 96%;
-		top: -110%; /*1%;*/
-		left: 2%;
+		#campusmap {
+			#controls-zoom {
+				top: auto;
+				bottom: 22px;
+			}
+		}
 		padding: 0;
-		overflow: hidden;
-		& > form {
-		    .panel {
-				.form-group {
-					#searchbox {
-						max-width: 100%;
-						width: 100%;
-						display: block;
-					}
-				}
-			}
+		.navs {
+			display: none;
 		}
-		#container-panels {
-			.panel {
-				&#details {
-					.panels-contents {
-						min-height: 140px;
-						.panel-content {
-							min-height: 140px;
-							width: 100%;
-						}
-						.panel-details {
-							.panel-bd {
-								height: 140px;
-							}
-							.addr {
-								font-size: 12px;
-								font-weight: 700;
-							}
-							.more-info {
-								font-size: 11px;
-							}
-						}
-						.panel-imagery {
-							.wide-shot {
-								/*position: relative;
-								left: -70px;*/
-							}
-						}
-					}
-					aside {
-						
-					}
-				}
-			}
-		}
-	}
-	.nav-mobile {
-		opacity: 1;
-		display: block;
-	}
-	&.searchbox-open {
 		#container-searchbox {
-			top: 1%;
+			min-width: 96%;
+			max-width: 400px;
+			width: 96%;
+			top: -110%; 
+			left: 2%;
+			padding: 0;
+			overflow: hidden;
+			& > form {
+			    .panel {
+					.form-group {
+						#searchbox {
+							max-width: 100%;
+							width: 100%;
+							display: block;
+						}
+					}
+				}
+			}
+			#container-panels {
+				.panel {
+					&#details {
+						.panels-contents {
+							min-height: 140px;
+							.panel-content {
+								min-height: 140px;
+								width: 100%;
+							}
+							.panel-details {
+								.panel-bd {
+									height: 140px;
+								}
+								.addr {
+									font-size: 12px;
+									font-weight: 700;
+								}
+								.more-info {
+									font-size: 11px;
+								}
+							}
+							.panel-imagery {
+								.wide-shot {
+									
+								}
+							}
+						}
+						aside {
+							
+						}
+					}
+				}
+			}
 		}
 		.nav-mobile {
+			opacity: 1;
+			display: block;
+		}
+		&.searchbox-open {
+			#container-searchbox {
+				top: 1%;
+			}
+			.nav-mobile {
 
+			}
+		}
+		&.btn-on, &.btn-off {
+			width: 44px;
+		}
+		.label-on-off {
+		    font-size: 11px;
+		    width: 150px;
+		    font-weight: 700;
 		}
 	}
-	&.btn-on, &.btn-off {
-		width: 44px;
-	}
-	.label-on-off {
-	    font-size: 11px;
-	    width: 150px;
-	    font-weight: 700;
-	}
-}
-
-
+*/
 }  
   
 /* Smartphones (landscape) ----------- */  
@@ -179,7 +178,7 @@ and (min-width : 321px) {
 /* Remove template */  
 @media only screen   
 and (max-width : 660px) {  
-	
+	/*
 	#page, .container, .interior-wrapper, #content {
 		height: 100% !important;
 		padding: 0 !important;
@@ -191,13 +190,14 @@ and (max-width : 660px) {
 	.container {
 		width: 100% !important;
 	}
+	*/
 }  
 
 /* Smartphones (portrait) ----------- */  
 @media only screen   
 and (max-width : 320px) {  
-
-	#app {
+ mobile responsive on hold
+	#app {/*
 		#container-searchbox {
 			#container-panels {
 				.panel {
@@ -217,10 +217,11 @@ and (max-width : 320px) {
 					}
 				}
 			}
-		}
+		}*/
 	}
 }  
-  
+ 
+
 /* iPads (portrait and landscape) ----------- */  
 @media only screen   
 and (min-device-width : 768px)   

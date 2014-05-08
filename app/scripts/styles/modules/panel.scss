@@ -16,7 +16,7 @@ $gutter: 8px;
 		overflow: hidden;
 		margin: 6px 0;
 
-		background: url("/app/images/bg/paper.png") #f8f8f8;
+		background: #f8f8f8;
 		font-size: 12px;
 
 		@include shadow();
@@ -128,7 +128,9 @@ $gutter: 8px;
 						font-size: 16px;
 
 						letter-spacing: .06em;
-
+						&.addr1 {
+							line-height: 20px;
+						}
 						&.addr2 {
 							font-size: 12px;
 							color: #999;
@@ -492,7 +494,19 @@ $gutter: 8px;
 			}
 		}
 
+		&#directions {	
+			.msg {
+				margin-bottom: 32px;
+			}
+			.go-directions {
+				margin-left: 40px;
+			}
+		}
+
 		&#popular-tags {
+			.panel-bd {
+				padding-top: 6px;
+			}
 			.tag {
 
 			    background: none repeat scroll 0 0 #eee;
