@@ -1,0 +1,388 @@
+{
+	"campus": {
+		"name": "Grafton",
+		"uid":	"grafton",
+		"lat" :	 42.245691,
+		"lng" :	 -71.678152,
+		"zoom" : 17,
+		"city" : "Grafton",
+		"state" : "MA",
+		"zip" : "01536",
+		"locationdata" : { 
+			"children" : [							{ "label" : "Miscellaneous",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 
+								"children" : [
+									
+									{ "label" : "Tufts University", "fid" : "tufts-grafton-campus.png", "hideinnav" : 1, "hideinsearch" : 1, "image" : "tufts-grafton-campus.png",   "addr1" : "Medford, MA", "parkinguid" : "Parking-1", 					
+										"map" : { "lat" : 42.246051, "lng" : -71.678799, "icon" : { "type" : "labelIcon", "width" : 100, "height" : 45, "source" : "assets/images/tufts-grafton-campus.png" } } }
+									]},
+				{ "label" : "Academic Building",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 					"children" : [
+						{ "label" : "1 Ridge Road Faculty Offices", "fid" : "G017",          "addr1" : "1 Ridge Road", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.245802, "lng" : -71.679481, "polygon" : "679481,245802 679535,245687 679419,245656 679366,245771 679481,245802"} },						
+						{ "label" : "31 Wildlife Drive Offices", "fid" : "G051",          "addr1" : "31 Wildlife Drive", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.243895, "lng" : -71.680317, "polygon" : "680317,243895 680196,243861 680151,243949 680272,243985 680317,243895"} },						
+						{ "label" : "54 Willard Road Faculty Offices", "fid" : "G014", "wireless" : 1, "directionsoverride" : "42.246987,-71.675808",   "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "addr1" : "54 Willard Street", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.247138, "lng" : -71.675468, "polygon" : "675468,247138 675411,247055 675211,247131 675273,247212 675468,247138"} },						
+						{ "label" : "Agnes Varis Campus Center", "fid" : "G016", "image" : "avcc005.jpg",  "wireless" : 1,      "tags" : "Elmes Cafe, dining, Varis Auditorium",    "addr1" : "5 Jumbo's Path", "parkinguid" : "Parking-26", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.246531, "lng" : -71.679458, "polygon" : "679636,24659 679784,246302 679682,246251 679554,246383 679535,24638 679608,246225 679392,246171 679312,246356 679359,246369 679299,24651 679416,246539 67943,246503 679577,246539 679563,246571 679636,24659"} },						
+						{ "label" : "Alpha Psi Student Center", "fid" : "G008",          "addr1" : "2 Captain O'Brien Road", "parkinguid" : "Parking-20", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.247182, "lng" : -71.675693, "polygon" : "675693,247182 67564,247105 675527,247145 675579,247221 675693,247182"} },						
+						{ "label" : "Amelia Peabody Pavillion", "fid" : "G022", "wireless" : 1,  "addr1" : "37 Wildlife Drive", "parkinguid" : "Parking-17", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244228, "lng" : -71.679841, "polygon" : "679841,244228 679993,243922 679623,243819 679478,244131 679841,244228"} },						
+						{ "label" : "Bernice Barbour Wildlife Medicine Building", "fid" : "G045", "image" : "wildlife.jpg",  "wireless" : 1,    "shortname" : "Wildlife Medicine Building",      "addr1" : "50 Willard Street", "parkinguid" : "Parking-20", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.246779, "lng" : -71.6749, "polygon" : "6749,246779 674422,246596 6744,246621 674337,246547 673922,246754 67401,246846 674332,246691 674348,246712 674823,246889 6749,246779"} },						
+						{ "label" : "Biotech Transfer Center & Laboratory Support", "fid" : "G021",  "wireless" : 1,    "shortname" : "Laboratory Support Building",      "addr1" : "21 Wildlife Drive", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244317, "lng" : -71.680173, "polygon" : "680173,244317 680322,244027 680165,24398 680123,244061 680074,244048 680007,244177 680058,244192 680021,244276 680173,244317"} },						
+						{ "label" : "Building 18", "fid" : "G018",        "directionsoverride" : "42.245921,-71.679751",   "addr1" : "5 Ridge Road", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244747, "lng" : -71.680196, "polygon" : "680196,244747 679927,244672 679646,245275 679902,245345 680196,244747"} },						
+						{ "label" : "Building 19", "fid" : "G019",          "addr1" : "19 Wildlife Drive", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244172, "lng" : -71.681695, "polygon" : "681695,244172 681575,24414 681649,243951 681492,243913 681412,244102 681327,24408 681274,244197 681349,244217 681281,244377 681434,244419 681512,244252 68164,244286 681695,244172"} },						
+						{ "label" : "Building 23", "fid" : "G023",          "addr1" : "39 Wildlife Drive", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244069, "lng" : -71.67916, "polygon" : "67916,244069 678991,244023 678869,244282 679031,244328 67916,244069"} },						
+						{ "label" : "Center for Animals and Public Policy", "fid" : "G005",  "wireless" : 2,    "shortname" : "Animals and Public Policy",      "addr1" : "10 Captain O'Brien Road", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 
+							"occupants" : [
+								{ "name" : "Department of Environmental and Population Health", "website" : "http://www.tufts.edu/vet/faculty_research/enviropop.html" }
+							],					
+							"map" : { "lat" : 42.247518, "lng" : -71.674796, "polygon" : "674796,247518 674742,247436 674623,24748 674681,247561 674796,247518"} },						
+						{ "label" : "Central Services / Campus Police", "fid" : "G015",   "wireless" : 1, "directionsoverride" : "42.246572,-71.678656",   "addr1" : "7 Jumbo's Path", "parkinguid" : "Parking-22", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 
+							"occupants" : [
+								{ "name" : "Facilities Department - Grafton Campus", "website" : "http://www.tufts.edu/central/facilities/grafton/index.html", "phone" : "(508) 839-7921" },
+								{ "name" : "Financial Aid - Cummings School of Veterinary Medicine", "website" : "http://www.tufts.edu/vet/admissions/financial.html", "phone" : "(508) 839-7920" },
+								{ "name" : "Human Resources Grafton", "website" : "http://www.tufts.edu/vet/jobs/", "phone" : "(508) 839-7975" },
+								{ "name" : "Department of Public and Environmental Safety", "website" : "http://publicsafety.tufts.edu/?pid=1", "phone" : "(508) 839-5303" },
+								{ "name" : "Purchasing Department", "website" : "http://finance.tufts.edu/purchasing/?pid=6", "phone" : "(508) 839-7974" }
+							],					
+							"map" : { "lat" : 42.246814, "lng" : -71.679072, "polygon" : "679072,246814 679119,24672 679023,246689 678973,246783 679072,246814"} },						
+						{ "label" : "David McGrath Teaching Laboratory", "fid" : "G026", "image" : "teaching-lab2.jpg",  "wireless" : 1,    "shortname" : "Teaching Laboratory",      "addr1" : "1 Cornfield Lane", "parkinguid" : "Parking-24", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.246155, "lng" : -71.680997, "polygon" : "680997,246155 681191,245803 680905,245722 680822,245882 680712,245851 680613,246051 680997,246155"} },						
+						{ "label" : "Development and Alumni Relations", "fid" : "G007",   "wireless" : 1,  "shortname" : "Development & Alumni Relations",      "addr1" : "6 Captain O'Brien Road", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 
+							"occupants" : [
+								{ "name" : "Office of Corporate and Foundation Relations", "website" : "http://cfr.tufts.edu/?pid=21", "phone" : "(508) 887-4867" }
+							],					
+							"map" : { "lat" : 42.247289, "lng" : -71.675174, "polygon" : "675174,247289 675005,247348 675054,247424 675221,247367 675174,247289"} },						
+						{ "label" : "Franklin M. Loew Veterinary Education Center", "fid" : "G002", "image" : "loew.jpg",  "wireless" : 1,    "shortname" : "Loew Veterinary Education Center",   "tags" : "Hamilburg Lecture Hall, The Webster Veterinary Library",    "addr1" : "3 Library Circle", "parkinguid" : "Parking-17", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 
+							"occupants" : [
+								{ "name" : "Webster Veterinary Library", "website" : "http://www.library.tufts.edu/vet/", "phone" : "(508) 839-7957" }
+							],					
+							"map" : { "lat" : 42.248003, "lng" : -71.681157, "polygon" : "681157,248003 681112,247849 680727,247911 680777,248066 681157,248003"} },						
+						{ "label" : "Grain Feed Storage Building", "fid" : "G010",          "addr1" : "12 Yorkshire Lane", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.240565, "lng" : -71.686727, "polygon" : "686727,240565 686548,240565 686548,240738 686724,240738 686727,240565"} },						
+						{ "label" : "Henry & Lois Foster Hospital for Small Animals", "fid" : "G040", "image" : "sah.jpg",  "wireless" : 1,    "shortname" : "Hospital for Small Animals",      "addr1" : "55 Willard Street", "parkinguid" : "Parking-21", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.246719, "lng" : -71.67695, "polygon" : "67695,246719 677561,246695 677538,24645 676643,246486 676659,246627 676933,246618 67695,246719"} },						
+						{ "label" : "Hospital for Large Animals", "fid" : "G035", "image" : "lah.jpg",  "wireless" : 1, "tags" : "Varis Lecture Hall", "addr1" : "53 Willard Street", "parkinguid" : "Parking-22", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 
+							"occupants" : [
+								{ "name" : "Department of Clinical Sciences", "website" : "http://www.tufts.edu/vet/faculty_research/departments.html", "phone" : "(508) 839-5302" }
+							],					
+							"map" : { "lat" : 42.246441, "lng" : -71.677535, "polygon" : "677535,246441 677519,24627 677826,246259 677823,246149 678046,246145 678015,245731 677699,24574 677722,246021 677377,246036 677362,24589 676719,245922 676724,245986 676603,245993 676631,246315 676645,24648 677535,246441"} },						
+						{ "label" : "Jean Mayer Administration Building", "fid" : "G001", "image" : "administration.jpg",  "wireless" : 1,    "shortname" : "Administration Building",   "tags" : "Kohnstamm Conference Room",    "addr1" : "201 Westboro Road", "parkinguid" : "Parking-17", "accessibility" : { "level" : 2, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "city" : "North Grafton", "zip" : "01536", 
+							"occupants" : [
+								{ "name" : "Office of the Dean for Academic Affairs", "website" : "http://www.tufts.edu/vet/facpages/warner_a.html", "phone" : "(508) 887-4200" },
+								{ "name" : "Department of Biomedical Sciences", "website" : "http://www.tufts.edu/vet/biomed/index.html" },
+								{ "name" : "Office of the Dean of Cummings School of Veterinary Medicine", "website" : "http://provost.tufts.edu/1174149600661/Provost-Page-prov2w_1174149601250.html" },
+								{ "name" : "Foster Hospital for Small Animals", "website" : "http://www.tufts.edu/vet/sah/", "phone" : "(508) 839-5395" },
+								{ "name" : "Hospital for Large Animals", "website" : "http://www.tufts.edu/vet/lah/index.html", "phone" : "(508) 839-5395" },
+								{ "name" : "Student Services - Cummings School of Veterinary Medicine", "website" : "http://www.tufts.edu/vet/", "phone" : "(508) 839-5302" },
+								{ "name" : "University Information Technology", "website" : "http://uit.tufts.edu/?pid=1", "phone" : "(508) 839-8777" },
+								{ "name" : "Public Relations for Grafton", "website" : "http://www.tufts.edu/vet/", "phone" : "(508) 839-7910" },
+								{ "name" : "Office of Development and Alumni Relations", "website" : "http://www.tufts.edu/vet/alumni/", "phone" : "(508) 839-7905" }
+							],					
+							"map" : { "lat" : 42.247819, "lng" : -71.678486, "polygon" : "678486,247819 678497,247655 67797,247626 677958,24779 678486,247819"} },						
+						{ "label" : "Luke and Lilly Lerner Spay/Neuter Clinic", "fid" : "G035b",     "shortname" : "Lerner Spay/Neuter Clinic",      "addr1" : "Willard Street", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.246424, "lng" : -71.677835, "polygon" : "677835,246424 677824,246266 677533,246277 677548,246438 677835,246424"} },						
+						{ "label" : "New England Regional Biosafety Laboratory", "fid" : "G055", "image" : "rbl.jpg",     "shortname" : "Regional Biosafety Laboratory",   "tags" : "RBL",    "addr1" : "3 Discovery Drive", "parkinguid" : "Parking-31", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.24415, "lng" : -71.684741, "polygon" : "684741,24415 684833,244206 684694,244335 684885,244444 685022,24432 685121,244379 685292,244228 684917,243993 684741,24415"} },						
+						{ "label" : "Veterinary Diagnostic & Investigational Labs", "fid" : "G020",  "wireless" : 1,    "shortname" : "Diagnostic & Investigational Labs",      "addr1" : "20 Wildlife Drive", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.243726, "lng" : -71.681215, "polygon" : "681215,243726 680831,243624 680884,2435 680616,243427 680517,243666 681155,243841 681215,243726"} }						
+						]},
+				{ "label" : "Label Icon",  "visible" : 0, "includeInCatchAll" : 0,  "includeInNav" : 0,					"children" : [
+						{ "label" : "Horse Paddocks", "fid" : "label-paddoc",  "hideinnav" : 1,  "hideinsearch" : 1, "image" : "horse-paddocks.png",      "addr1" : "Willard Street", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.246414, "lng" : -71.67636,  "icon" : { "type" : "labelIcon", "width" : 53, "height" : 30, "source" : "assets/images/icons/horse-paddocks.png" } } },						
+						{ "label" : "Phelps Athletic Field", "fid" : "g-phelps", "hideinnav" : 1, "hideinsearch" : 1, "image" : "phelps.png",     "descr" : "Includes tennis courts, a baseball diamond and a basketball court.",     "addr1" : "Wildlife Drive", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.245278, "lng" : -71.679225, "icon" : { "type" : "labelIcon", "width" : 53, "height" : 30, "source" : "assets/images/icons/phelps.png" } } }						
+						]},
+				{ "label" : "Other",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 					"children" : [
+						{ "label" : "Beef Cattle Instructional Barn", "fid" : "G030",       "tags" : "Barn 11",    "addr1" : "20 Nickerson Lane", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.243525, "lng" : -71.67713, "polygon" : "67713,243525 677119,243698 677514,243712 677525,24354 67713,243525"} },						
+						{ "label" : "Eagle Flight Cage", "fid" : "G048",        "directionsoverride" : "42.247015,-71.675861",   "addr1" : "52 Willard Street", "parkinguid" : "Parking-20", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.247184, "lng" : -71.674644, "polygon" : "674644,247184 674588,24711 674262,247246 674323,247321 674644,247184"} },						
+						{ "label" : "Equine Housing I", "fid" : "G025",          "addr1" : "17 Jumbo's Path", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.245463, "lng" : -71.675925, "polygon" : "675925,245463 675784,245514 675972,245816 676112,245769 675925,245463"} },						
+						{ "label" : "Equine Housing II", "fid" : "G042",          "addr1" : "19 Jumbo's Path", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.245663, "lng" : -71.675802, "polygon" : "675802,245663 675747,245679 675717,245623 67564,245641 675666,245695 675593,245714 67564,245806 675848,245744 675802,245663"} },						
+						{ "label" : "Farm Machinery Shop", "fid" : "G034",          "addr1" : "10 Nickerson Lane", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244462, "lng" : -71.677253, "polygon" : "677253,244462 677113,244404 676871,244737 677013,24479 677253,244462"} },						
+						{ "label" : "Flight Cage", "fid" : "G048b",        "directionsoverride" : "42.245985,-71.679761",   "addr1" : "4 Ridge Road", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.245582, "lng" : -71.680087, "polygon" : "680087,245582 680129,245485 680045,245464 679999,245561 680087,245582"} },						
+						{ "label" : "Hay Storage Barn", "fid" : "G046",          "addr1" : "13 Nickerson Lane", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.24439, "lng" : -71.677677, "polygon" : "677677,24439 677462,244307 677392,244404 677604,24449 677677,24439"} },						
+						{ "label" : "Locust Barn", "fid" : "G004", "image" : "locust-barn.jpg",          "addr1" : "207 Westboro Road", "parkinguid" : "Parking-17", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.248081, "lng" : -71.675454, "polygon" : "675454,248081 675376,24795 675246,247992 675326,248121 675454,248081"} },						
+						{ "label" : "Poultry Instructional Barn", "fid" : "G024",          "addr1" : "9 Nickerson Lane", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244827, "lng" : -71.677181, "polygon" : "677181,244827 677128,244895 677401,245014 67746,244943 677181,244827"} },						
+						{ "label" : "Salt & Sand Shelter", "fid" : "G037",          "addr1" : "21 Jumbo's Path", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.245566, "lng" : -71.675754, "polygon" : "675754,245566 675716,245504 675648,245524 675688,245586 675754,245566"} },						
+						{ "label" : "Sheep Instructional Barn", "fid" : "G027",          "addr1" : "8 Nickerson Lane", "parkinguid" : "Parking-22", "city" : "North Grafton", "zip" : "01536", 					
+							"map" : { "lat" : 42.244829, "lng" : -71.676984, "polygon" : "676984,244829 676879,244784 676694,245031 676799,245074 676984,244829"} }						
+						]},
+				{ "label" : "Parking",  "visible" : 1, "includeInCatchAll" : 1,
+					"children" : [
+						{ "label" : "Visitor", "code" : "v", "children" : [						
+							{ "label" : "Animal Hospitals Parking", "type" : "parking", "fid" : "p-jumbos",  "uid" : "Parking-22",  							  
+							  "codes" : "f,v",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Jumbo's Path", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.24626, "lng" : -71.678525 } },												
+							{ "label" : "Campus Center Parking", "type" : "parking", "fid" : "g-agnesparki",  "uid" : "Parking-26",  							  
+							  "codes" : "s,v",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "5 Jumbo's Path", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.246453, "lng" : -71.68007 } },												
+							{ "label" : "Hospital for Small Animals Parking 1", "type" : "parking", "fid" : "p-smal-front",  "uid" : "Parking-20",  							  
+							  "codes" : "f,v",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "55 Willard Street", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.246885, "lng" : -71.676344 } },												
+							{ "label" : "Hospital for Small Animals Parking 2", "type" : "parking", "fid" : "p-smal-besid",  "uid" : "Parking-21",  							  
+							  "codes" : "v",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "55 Willard Street", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.246874, "lng" : -71.677401 } },												
+							{ "label" : "Veterinary Teaching Laboratory Parking", "type" : "parking", "fid" : "p-david",  "uid" : "Parking-24", 
+							  "more" : "There's also a small parking area next to this lot which has parking for Faculty/Staff.", 							  
+							  "codes" : "v,s",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Wildlife Drive", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.24531, "lng" : -71.68114 } }							
+						
+						
+						] },				
+						{ "label" : "Faculty/Staff", "code" : "f", "children" : [						
+							{ "label" : "Administration Building Parking", "type" : "parking", "fid" : "p-jean",  "uid" : "Parking-17",  							  
+							  "codes" : "f,s",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "201 Westboro Road", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.247611, "lng" : -71.677809 } },												
+							{ "label" : "Animal Hospitals Parking", "type" : "parking", "fid" : "p-jumbos",  "uid" : "Parking-22B",  							  
+							  "codes" : "f,v",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Jumbo's Path", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.24626, "lng" : -71.678525 } },												
+							{ "label" : "Hospital for Small Animals Parking 1", "type" : "parking", "fid" : "p-smal-front",  "uid" : "Parking-20B",  							  
+							  "codes" : "f,v",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "55 Willard Street", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.246885, "lng" : -71.676344 } },												
+							{ "label" : "Jumbo's Path Parking Lot", "type" : "parking", "fid" : "p-jumbopath",  "uid" : "Parking-23",  							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Jumbo's Path", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.245377, "lng" : -71.677675 } },												
+							{ "label" : "Loew Building Parking", "type" : "parking", "fid" : "p-loew",  "uid" : "Parking-16",  							  
+							  "codes" : "s,f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "3 Library Circle", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.248335, "lng" : -71.681124 } },												
+							{ "label" : "Nickerson Lane Parking Faculty/Staff", "type" : "parking", "fid" : "g-nlfaculty",  "uid" : "Parking-28",  							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Nickerson Lane", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.244654, "lng" : -71.677272 } },												
+							{ "label" : "Parking by Captain O'Brien Road", "type" : "parking", "fid" : "p-capt",  "uid" : "Parking-18",  							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Captin O'Brien Road", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.247449, "lng" : -71.674923 } },												
+							{ "label" : "RBL Parking", "type" : "parking", "fid" : "p-rbl",  "uid" : "Parking-31",  							  
+							  "codes" : "f,s",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "3 Discovery Drive", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.244487, "lng" : -71.685181 } },												
+							{ "label" : "Ridge Road Faculty Offices Parking", "type" : "parking", "fid" : "g-rrparking",  "uid" : "Parking-29",  							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Ridge Road", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.245695, "lng" : -71.679257 } },												
+							{ "label" : "Wildlife Drive Parking 1", "type" : "parking", "fid" : "p-pavillion",  "uid" : "Parking-25",  							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "37 Wildlife Drive", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.243602, "lng" : -71.679944 } },												
+							{ "label" : "Wildlife Drive Parking 2", "type" : "parking", "fid" : "g-wdp2",  "uid" : "Parking-30",  							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Wildlife Drive", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.244438, "lng" : -71.680641 } },												
+							{ "label" : "Wildlife Drive Side Faculty/Staff Parking Lot", "type" : "parking", "fid" : "g-wildlifefs",  "uid" : "Parking-32",  							  
+							  "codes" : "f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Wildlife Drive", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.244756, "lng" : -71.681258 } },												
+							{ "label" : "Wildlife Medicine Building Parking", "type" : "parking", "fid" : "p-barbour",  "uid" : "Parking-19",  							  
+							  "codes" : "s,f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Lower Valley Road", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.246571, "lng" : -71.675035 } }							
+						
+						
+						] },								
+						{ "label" : "Student", "code" : "s", "children" : [						
+							{ "label" : "Administration Building Parking", "type" : "parking", "fid" : "p-jean",  "uid" : "Parking-17B",  							  
+							  "codes" : "f,s",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "201 Westboro Road", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.247611, "lng" : -71.677809 } },												
+							{ "label" : "Campus Center Parking", "type" : "parking", "fid" : "g-agnesparki",  "uid" : "Parking-26B",  							  
+							  "codes" : "s,v",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "5 Jumbo's Path", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.246453, "lng" : -71.68007 } },												
+							{ "label" : "Loew Building Parking", "type" : "parking", "fid" : "p-loew",  "uid" : "Parking-16B",  							  
+							  "codes" : "s,f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "3 Library Circle", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.248335, "lng" : -71.681124 } },												
+							{ "label" : "Nickerson Lane Parking Students", "type" : "parking", "fid" : "g-nlstudents",  "uid" : "Parking-27",  							  
+							  "codes" : "s",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Nickerson Lane", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.245008, "lng" : -71.676953 } },												
+							{ "label" : "RBL Parking", "type" : "parking", "fid" : "p-rbl",  "uid" : "Parking-31B",  							  
+							  "codes" : "f,s",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "3 Discovery Drive", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.244487, "lng" : -71.685181 } },												
+							{ "label" : "Veterinary Teaching Laboratory Parking", "type" : "parking", "fid" : "p-david",  "uid" : "Parking-24B", 
+							  "more" : "There's also a small parking area next to this lot which has parking for Faculty/Staff.", 							  
+							  "codes" : "v,s",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Wildlife Drive", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.24531, "lng" : -71.68114 } },												
+							{ "label" : "Wildlife Medicine Building Parking", "type" : "parking", "fid" : "p-barbour",  "uid" : "Parking-19B",  							  
+							  "codes" : "s,f",
+							  							  
+							  							  
+							  							  
+							  "addr1" : "Lower Valley Road", "city" : "North Grafton", "zip" : "01536", 					 
+							  "map" : { "lat" : 42.246571, "lng" : -71.675035 } }							
+						
+						
+						] }				
+					]
+				}
+			]
+		},
+		"styles" : {
+			"polygon" : {
+				"stroke" : { "color" : "0x666666", "alpha" : 0.5, "thickness" : 0.5 }, 
+				"strokehover" : { "color" : "0x6699CC", "alpha" : 0.9, "thickness" : 0.5 }, 
+				"fill" : { "color" : "0xDDDDDD", "alpha" : 1 }, 
+				"fillhover" : { "color" : "0xC4DEF9", "alpha" : 1 }
+			},
+			"marker" : { },
+			"link" : { "color" : "#6699cc" }
+		},
+		"ui" : {
+			"searchbox" : { "inputbox_min_characters" : 2}
+		},
+		"labels" : {
+			"pdfs" : { "main" : "Printable Maps", "popup" : "Printable Maps - PDF Format" },
+			"wireless" : { "main" : "Wireless Internet Access", "full" : "Full Coverage", "partial" : "Partial Coverage" },
+			"search" : { "main" : "Search", "sub" : "By Name, Keyword or Address", "textbox" : " Locate buildings on campus", "button" : ">" },
+			"infobox" : { "main" : "Directions, PDFs & more &gt;&gt;" },
+			"popupbox" : { 
+				"print" :  { "main" : "Print" },
+				"details" : { 
+					"main" : "Details", "website" : "Visit the Website", "phone" : "Main Phone", "gps" : "GPS Coordinates", 
+					"parking" : { "main" : "Parking", "visitor" : "View Closest Visitor Parking On Campus &gt;&gt;", "height" : 40 },
+					"directions" : { "main" : "Directions", "driving" : "Driving Directions To This Location &gt;&gt;", 
+						"html" : "<br/><a target='_blank' href='http://www.tufts.edu/vet/tcsvm_campus_map.pdf'><font color=\"#6699cc\">Download PDF of Campus Buildings & Parking Lots >></font></a>",
+						"height" : 60
+					},
+					"officesdepts" : { "main" : "Offices & Departments", "sub" : "View Offices & Departments&nbsp;>>" },
+					"link" : { "main" : "Link Directly To This Location", "sub" : "Get Link", "hint" : "Copy & Paste This Link Into Your Browser" }
+				 },
+				"officesdepts" : { "main" : "Offices & Departments", "website" : "Visit the Website" },
+				"accessibility" : { "main" : "Accessibility" },
+				"directions" : {
+					"main" : "Get Directions",
+					"label1" : "Where are you coming from?",
+					"label2" : "Select a Destination",
+					"label3" : "Find Local Transportation",
+					"warning" : "Both a city &amp; a state are required.",
+					"textbox1" : "address",
+					"textbox2" : "city",
+					"textbox3" : "MA",
+					"button" : "Get Directions",
+					"website" : "Visit the Website"
+				}
+			 },
+			 "navigation" : {
+			 	"all" : "All Buildings",
+			 	"officesdepts" : "Offices & Departments",
+			 	"parking" : "Parking"
+			 }
+		},
+		"icons" : {
+			"print" : "print.png",
+			"wireless-full" : "wireless_full.png",
+			"wireless-partial" : "wireless_partial.png",
+			"parking" : {
+				"visitor" : "v.png",
+				"facultystaff" : "f.png",
+				"resident" : "r.png",
+				"commuter" : "c.png",
+				"student" : "s.png",
+				"none" : "x.png"
+			}
+		}
+	}
+}
+
+

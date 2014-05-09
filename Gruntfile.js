@@ -164,7 +164,7 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'jasmine', 'clean', 'createDefaultTemplate', 'jst', 'compass:dist', 'requirejs', 'concat', 'uglify']);
-  grunt.registerTask('build', ['clean', 'createDefaultTemplate', 'jst', 'compass:dist', 'requirejs', 'concat', 'uglify']);
+  grunt.registerTask('build', ['requirejs', 'concat', 'uglify']);
   grunt.registerTask('server', ['connect:development']);
   grunt.registerTask('server:prod', ['connect:production']);
   grunt.registerTask('test', ['createDefaultTemplate', 'jst', 'jasmine', 'clean', 'compass:dist']);
