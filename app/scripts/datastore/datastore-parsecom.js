@@ -18,10 +18,10 @@ define([
     console.info('Datastore Parse.com');
 
     // Joe Account
-    Parse.initialize("50A3Vx6JKSbeINjTrYH87uwRZWRvTsOShHnHImME", "V3huNugdDBVz8wPyXLXGfR9qn7n5QqM6bCZRP0OF");
+    //Parse.initialize("50A3Vx6JKSbeINjTrYH87uwRZWRvTsOShHnHImME", "V3huNugdDBVz8wPyXLXGfR9qn7n5QqM6bCZRP0OF");
 
     // Tufts Account
-    //Parse.initialize("nfmwDYABTXjDPTOmfBvz89Fe3i7Sv8lp426R2Fzu", "2wMHizUh1Y73nMjmHDIdIJVMd7aUPI7V4r1eUSTh");
+    Parse.initialize("nfmwDYABTXjDPTOmfBvz89Fe3i7Sv8lp426R2Fzu", "2wMHizUh1Y73nMjmHDIdIJVMd7aUPI7V4r1eUSTh");
 
     //// Private ////
 
@@ -37,7 +37,7 @@ define([
 
     // Wrap the Parse.com in a jquery deferred obj for consistency
     function fetch_(campusid) {
-
+ 
         var dfd = $.Deferred(), query;
         
         query = new Parse.Query('Campus')
@@ -67,7 +67,11 @@ define([
 
                     campusmap: map,
 
-                    locations: locations
+                    locations: locations,
+
+                    center: map.get('latlng'),
+
+                    zoom: map.get('zoom')
 
                 });
 

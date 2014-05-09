@@ -508,5 +508,21 @@
 			}
 		}
 	}
+
+	&.admin {
+		#container-panels {
+			.panel {
+				.navbar {
+					ul {
+						li {
+							&.admin-edit {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
