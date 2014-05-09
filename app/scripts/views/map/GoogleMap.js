@@ -59,6 +59,9 @@ define([
 
         google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
 
+            // Workaround to make the default text appear in searchbox.
+            $('.panel-search .search').trigger('click');
+
             google.maps.event.addListener(streetview, 'visible_changed', function() {
 
                 // Css flag gets set root dom of app

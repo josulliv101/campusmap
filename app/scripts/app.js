@@ -48,8 +48,11 @@ define([
     // A manual init call makes for nice insertion point for spies when testing
     App.prototype.init = function() {
 
+        // A campus id is required
+        if (!this.settings.campus) return;
+
         // Grab the data, then begin.
-        $.when( this.fetch() )
+        $.when( this.fetch(this.settings.campus) )
 
             .done(this.start)
 

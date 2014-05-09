@@ -1,4 +1,4 @@
-/*! campusmap - v0.0.0 - 2014-05-07
+/*! campusmap - v0.0.0 - 2014-05-08
 * Copyright (c) 2014 Joe Sullivan; Licensed MIT */
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.
@@ -24439,8 +24439,11 @@ define('app',[
     // A manual init call makes for nice insertion point for spies when testing
     App.prototype.init = function() {
 
+        // A campus id is required
+        if (!this.settings.campus) return;
+
         // Grab the data, then begin.
-        $.when( this.fetch() )
+        $.when( this.fetch(this.settings.campus) )
 
             .done(this.start)
 
@@ -24605,6 +24608,9 @@ define('scripts/views/map/GoogleMap',[
         });
 
         google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
+
+            // Workaround to make the default text appear in searchbox.
+            $('.panel-search .search').trigger('click');
 
             google.maps.event.addListener(streetview, 'visible_changed', function() {
 
@@ -25022,7 +25028,7 @@ define('scripts/views/searchbox',[
             html = this.template(json);
 
             this.$el.append(html);
-
+            
             return this;
 
         },

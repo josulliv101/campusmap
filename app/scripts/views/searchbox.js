@@ -111,7 +111,7 @@ define([
             html = this.template(json);
 
             this.$el.append(html);
-
+            
             return this;
 
         },

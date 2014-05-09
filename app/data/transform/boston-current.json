@@ -1,0 +1,232 @@
+{
+	"campus": {
+		"name": "Boston",
+		"uid":	"boston",
+		"lat" :	 42.3497,
+		"lng" :	 -71.06275,
+		"zoom" : 17,
+		"city" : "Boston",
+		"state" : "MA",
+		"zip" : "02111",
+		"locationdata" : { 
+			"children" : [							{ "label" : "Miscellaneous",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 
+								"children" : [
+									
+									{ "label" : "Tufts University", "fid" : "tufts-health_sciences.png", "hideinnav" : 1, "hideinsearch" : 1, "image" : "tufts-health_sciences.png",   "addr1" : "Medford, MA", "parkinguid" : "Parking-1", 					
+										"map" : { "lat" : 42.34999, "lng" : -71.0632, "icon" : { "type" : "labelIcon", "width" : 100, "height" : 45, "source" : "assets/images/tufts-health_sciences.png" } } }
+									]},
+				{ "label" : "Academic Building",  "visible" : 1, "includeInCatchAll" : 1,  "includeInNav" : 0, 					"children" : [
+						{ "label" : "35 Kneeland Street", "fid" : "B012",   "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 42.34976, "lng" : -71.0645}  }, "tags" : "CTSI",    "addr1" : "35 Kneeland Street", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Clinical Skills and Simulation Center - CSSC", "website" : "http://www.tufts.edu/med/about/offices/oea/clinicalskillsandsimulationcenter/index.html", "phone" : "(617) 636-2401", "locwithin" : "3rd floor" },
+								{ "name" : "Tufts Clinical and Translational Science Institute", "website" : "http://www.tuftsctsi.org", "email" : "info@tuftsctsi.org", "phone" : "(617) 636-CTSI", "locwithin" : "7th - 11th Floors" }
+							],					
+							"map" : { "lat" : 42.350372, "lng" : -71.061764, "polygon" : "062185,350741 061692,350614 061689,350556 061764,35037 061979,350428 062295,350529 062293,35059"} },						
+						{ "label" : "75 Kneeland Street", "fid" : "B923",    "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  },      "addr1" : "75 Kneeland Street", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Tufts Medical Center Publications", "website" : "http://www.tuftsmedicalcenter.org/Giving/Publications", "phone" : "(617) 636-5139" },
+								{ "name" : "Dental Materials", "website" : "http://dental.tufts.edu/1186664481565/TUSDM-Page-dental2w_1186664482587.html", "phone" : "(617) 636-6828" },
+								{ "name" : "Academic Services", "website" : "http://dental.tufts.edu/", "phone" : "(617) 636-6828", "locwithin" : "7th Floor" },
+								{ "name" : "Office of Alumni Relations and Development - Dental", "website" : "http://dental.tufts.edu/1175090438731/TUSDM-Page-dental2ws_1176988223986.html", "phone" : "(617) 636-3475", "locwithin" : "St. 900" },
+								{ "name" : "Office of Continuing Education - Medical", "website" : "http://www.tufts.edu/med/about/offices/oce/", "phone" : "(617) 636-6579", "locwithin" : "11th Floor" },
+								{ "name" : "Office of Development & Alumni Relations - School of Medicine", "website" : "http://medical.alumni.tufts.edu/", "phone" : "(617) 636-6770", "locwithin" : "St. 900" },
+								{ "name" : "Tufts Center for the Study of Drug Development", "website" : "http://csdd.tufts.edu", "email" : "csdd@tufts.edu", "phone" : "(617) 636-2170", "locwithin" : "Suite 1100" },
+								{ "name" : "Office of the Vice Provost, Research Administration Office, Proposal Department", "website" : "http://researchadmin.tufts.edu/?pid=21&c=86", "phone" : "(617) 636-6550", "locwithin" : "Ste. 950" }
+							],					
+							"map" : { "lat" : 42.350118, "lng" : -71.060968, "polygon" : "060968,350057 060968,349981 060504,349882 060378,350198 06038,350273 060831,350404"} },						
+						{ "label" : "Biomedical Research & Public Health Building  - Arnold Wing", "fid" : "B005",    "accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  },  "shortname" : "Arnold Wing",  "addr1" : "116 Harrison Avenue", "city" : "Boston", "zip" : "02111", 					
+							"map" : { "lat" : 42.350592, "lng" : -71.061485, "polygon" : "061574,350322 061574,350259 061306,350202 061212,350424 061215,350483 06148,350548"} },						
+						{ "label" : "Arthur M. Sackler Center for Medical Education", "fid" : "B011", "accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, "image" : "sackler.jpg",  "wireless" : 1,  "website" : "http://sackler.tufts.edu",  "phone" : "(617) 636-7000",  "shortname" : "Arthur Sackler Center",      "addr1" : "145 Harrison Avenue", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Hirsch Health Sciences Library", "website" : "http://www.library.tufts.edu/hsl/", "phone" : "(617) 636-6705", "locwithin" : "4th Floor" },
+								{ "name" : "Administration - Sackler  School of Graduate Biomedical Sciences", "website" : "http://www.tufts.edu/sackler/about/administration.html", "phone" : "(617) 636-6767", "locwithin" : "Ste. 813" },
+								{ "name" : "Administration - School of Medicine", "website" : "http://www.tufts.edu/med/about/programs/phpd/administration.html", "phone" : "(617) 636-2700" },
+								{ "name" : "Auxiliary Services", "website" : "http://www.tufts.edu/med", "phone" : "(617) 636-7000" },
+								{ "name" : "Office of Educational Affairs - School of Medicine", "website" : "http://www.tufts.edu/med/about/offices/oea/index.html", "phone" : "(617) 636-6934", "locwithin" : "Ste. 321" },
+								{ "name" : "Office of Financial Aid - School of Medicine", "website" : "http://www.tufts.edu/med/about/offices/finaid/", "phone" : "(617) 636-6574", "locwithin" : "8th Floor" },
+								{ "name" : "Office of Student Affairs - School of Medicine", "website" : "http://www.tufts.edu/med/about/studentresources/index.html", "phone" : "(617) 636-6564", "locwithin" : "4th Floor" }
+							],					
+							"map" : { "lat" : 42.350368, "lng" : -71.062422, "polygon" : "062505,350352 062639,350178 062641,350116 062577,350091 062564,350049 062148,349882 062102,34989 061974,349843 061925,349948 061928,350009 062046,350061 062016,350112 062019,35014 06243,350315 06243,350322"} },						
+						{ "label" : "Biomedical Research & Public Health Building - M&V Wing", "fid" : "B003", "accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  },  "image" : "B003.jpg",  "wireless" : 2,      "tags" : "M&V Building, M and V Building, MV Building, Medical & Vet Building",  "shortname" : "M & V Wing",  "addr1" : "136 Harrison Avenue", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Educational Affairs", "website" : "http://www.tufts.edu/med/about/offices/oea/", "phone" : "(617) 636-6934", "locwithin" : "Room 321" },
+								{ "name" : "Department of Neuroscience", "website" : "http://www.tufts.edu/med/about/programs/academicdepartments/neuroscience.html", "phone" : "(617) 636-3642", "locwithin" : "Ste. 209" },
+								{ "name" : "Department of Molecular Biology and Microbiology", "website" : "http://www.tufts.edu/med/microbiology/index.html", "phone" : "(617) 636-6750", "locwithin" : "4th Floor" },
+								{ "name" : "Division of Laboratory Animal Medicine", "website" : "http://viceprovost.tufts.edu/?pid=18&c=49", "phone" : "(617) 636-2899", "more" : "Note: this location is the mailing address." },
+								{ "name" : "Office of Corporate and Foundation Relations", "website" : "http://cfr.tufts.edu/?pid=24", "phone" : "(617) 636-0977", "locwithin" : "St. 900" },
+								{ "name" : "Department of Anatomy and Cellular Biology", "website" : "http://www.tufts.edu/med/anatomy/", "phone" : "(617) 636-6685", "locwithin" : "5th Floor" },
+								{ "name" : "Department of Ophthalmology", "website" : "http://www.tufts.edu/med/about/programs/academicdepartments/ophthalmology.html", "phone" : "(617) 636-7000" },
+								{ "name" : "Department of Pathology", "website" : "http://www.tufts.edu/med/about/programs/academicdepartments/pathology.html", "phone" : "(617) 636-6710", "locwithin" : "8th Floor" },
+								{ "name" : "Department of Physiology", "website" : "http://www.tufts.edu/med/about/programs/academicdepartments/physiology.html", "phone" : "(617) 636-6739", "locwithin" : "Rm. 701" },
+								{ "name" : "Office of Information Technology", "website" : "http://www.tufts.edu/med/about/offices/oit/index.html", "email" : "oit@tufts.edu", "phone" : "(617) 636-0331", "locwithin" : "Ste. 248" },
+								{ "name" : "Program in Pharmacology and Experimental Therapeutics", "website" : "http://www.tufts.edu/sackler/pharmacology/program.html", "phone" : "(617) 636-6897", "locwithin" : "2nd Floor, Rm. 207" },
+								{ "name" : "School of Medicine", "website" : "http://www.tufts.edu/med", "phone" : "(617) 636-7000" },
+								{ "name" : "Admissions - School of Medicine", "website" : "http://www.tufts.edu/med/admissions/", "phone" : "(617) 636-0935", "locwithin" : "1st Floor" },
+								{ "name" : "Public Safety - Boston", "website" : "http://publicsafety.tufts.edu", "phone" : "(617) 636-6610", "locwithin" : "1st Floor" }
+							],					
+							"map" : { "lat" : 42.349865, "lng" : -71.061783, "polygon" : "061783,349815 061786,349752 061311,349563 061198,349837 061201,349896 061327,349958 061432,349995 061687,350055"} },						
+						{ "label" : "Jaharis Family Center for Biomedical and Nutrition Sciences", "fid" : "B008", "accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, "image" : "jaharis.jpg",  "wireless" : 1,  "website" : "http://nutrition.tufts.edu",   "shortname" : "Jaharis Building",   "tags" : "Gerald J. and Dorothy R. Friedman School of Nutrition Science and Policy",    "addr1" : "150 Harrison Avenue", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Instruction - Nutrition", "website" : "http://nutrition.tufts.edu/", "phone" : "(617) 636-3737", "locwithin" : "1st Floor" },
+								{ "name" : "Development and Alumni Relations - Nutrition", "website" : "http://alumni.nutrition.tufts.edu/?pid=13", "phone" : "(617) 636-2940", "locwithin" : "2nd Floor" },
+								{ "name" : "Nutrition / Infection Unit", "website" : "http://www.tufts.edu/med/nutrition-infection/", "phone" : "(617) 636-3811", "locwithin" : "2nd Floor" },
+								{ "name" : "Student Services - Nutrition", "website" : "http://nutrition.tufts.edu/1172048107859/Nutrition-Page-nl2w_1177953851912.html", "phone" : "(617) 636-3737", "locwithin" : "1st Floor" },
+								{ "name" : "Department of Neurology", "website" : "http://www.tufts.edu/med/about/programs/academicdepartments/neurology.html", "phone" : "(617) 636-7000" },
+								{ "name" : "John Hancock Center for Physical Activity and Nutrition", "website" : "http://jhcpan.nutrition.tufts.edu/", "phone" : "(617) 636-3737", "locwithin" : "2nd Floor" },
+								{ "name" : "International Programs", "website" : "http://nutrition.tufts.edu/", "phone" : "(617) 636-3737", "locwithin" : "2nd Floor" },
+								{ "name" : "Agriculture, Food and Environment Program - AFE", "website" : "http://nutrition.tufts.edu/1174562918439/Nutrition-Page-nl2w_1177953852962.html", "phone" : "(617) 636-3737", "locwithin" : "1st Floor" }
+							],					
+							"map" : { "lat" : 42.349409, "lng" : -71.061982, "polygon" : "061982,349347 061982,349268 061483,349161 061343,349482 061346,34952 061552,349603 061555,34965 061807,349754"} },						
+						{ "label" : "Jean Mayer USDA Human Nutrition Research Center on Aging", "fid" : "B010", "accessibility" : { "level" : 2, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  }, "image" : "hnrca.jpg",  "wireless" : 2,  "website" : "http://hnrc.tufts.edu/",  "phone" : "(617) 556-3000",  "shortname" : "HNRCA Building",   "tags" : "HNRCA",    "addr1" : "711 Washington Street", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Bone Metabolism Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109687080.html", "phone" : "(617) 556-3064", "locwithin" : "13th Floor" },
+								{ "name" : "University Public Relations - Boston", "website" : "http://universityrelations.tufts.edu/?pid=111&c=19", "phone" : "(617) 636-6586" },
+								{ "name" : "Nutrition Evaluation Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109686721/HNRCA-Page-hnrca2w_1192109687021.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Biological Sciences", "website" : "http://nutrition.tufts.edu/", "phone" : "(617) 636-3737" },
+								{ "name" : "Laboratory for Nutrition and Vision Research", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688533.html", "phone" : "(617) 556-3155", "locwithin" : "6th Floor" },
+								{ "name" : "Body Composition Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109687061.html", "phone" : "(617) 556-3217", "locwithin" : "8th Floor" },
+								{ "name" : "Vitamin K Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688640.html", "phone" : "(617) 556-3150", "locwithin" : "7th Floor" },
+								{ "name" : "Lipid Metabolism Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688310.html", "phone" : "(617) 556-3100", "locwithin" : "6th Floor" },
+								{ "name" : "Core/Service Support", "website" : "http://www.hnrc.tufts.edu/", "phone" : "(617) 556-3000" },
+								{ "name" : "Nutrition and Cancer Biology Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688349.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Scientific Computing", "website" : "http://www.hnrc.tufts.edu/", "phone" : "(617) 556-3345", "locwithin" : "9th Floor" },
+								{ "name" : "Antioxidant Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109687040.html", "phone" : "(617) 556-3125", "locwithin" : "5th Floor" },
+								{ "name" : "Nutritional Epidemiology Program", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688274.html", "phone" : "(617) 556-3320", "locwithin" : "9th Floor" },
+								{ "name" : "Carotenoids and Health Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109687099.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Nutritional Immunology Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688495.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Metabolic Research Unit", "website" : "http://www.hnrc.tufts.edu/1192109686721/HNRCA-Page-hnrca2w_1192109686745.html", "phone" : "(617) 556-3042", "locwithin" : "12th Floor" },
+								{ "name" : "Nutrition and Genomics Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688473.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Mineral Bioavailability Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688329.html", "phone" : "(617) 556-3195", "locwithin" : "8th Floor" },
+								{ "name" : "Energy Metabolism Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109687656.html", "phone" : "(617) 556-3000", "locwithin" : "6th Floor" },
+								{ "name" : "Vascular Biology Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688571.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Obesity and Metabolism Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688552.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Dietary Assessment and Epidemiology Research Program", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109687246.html", "phone" : "(617) 556-3000", "locwithin" : "9th Floor" },
+								{ "name" : "Vitamins & Carcinogen Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688621.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Comparative Biology Unit", "website" : "http://www.hnrc.tufts.edu/1192109686721/HNRCA-Page-hnrca2w_1192109686729.html", "phone" : "(617) 556-3200", "locwithin" : "4th Floor" },
+								{ "name" : "Cardiovascular Nutrition Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109687123.html", "phone" : "(617) 556-3000" },
+								{ "name" : "Nutrition, Exercise, Physiology & Sarcopenia Laboratory", "website" : "http://www.hnrc.tufts.edu/1192109687036/HNRCA-Page-hnrca2ws_1192109688454.html", "phone" : "(617) 556-3075", "locwithin" : "13th Floor" }
+							],					
+							"map" : { "lat" : 42.350731, "lng" : -71.0638, "polygon" : "063918,350418 063543,350352 063409,350566 063409,350675 06343,350907 063655,350937 063784,350731 063787,350642 063886,350485 063886,350469"} },						
+						{ "label" : "Posner Hall", "fid" : "B002",  "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "wireless" : 2,      "tags" : "dorm",    "addr1" : "200 Harrison Avenue", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Administration - Nutrition", "website" : "http://nutrition.tufts.edu/", "phone" : "(617) 636-2700", "locwithin" : "4th Floor" },
+								{ "name" : "Department of Public & Environmental Safety - Risk Management", "website" : "http://publicsafety.tufts.edu/risk_ins/", "phone" : "(617) 636-3615" },
+								{ "name" : "Boston Facilities", "website" : "http://www.tufts.edu/central/facilities/boston/residential.html", "phone" : "(617) 636-3535", "locwithin" : "1st Floor" },
+								{ "name" : "CTRC Administration", "website" : "http://www.tuftsmedicalcenter.org/Research/GCRC/admin", "phone" : "(617) 636-2700", "locwithin" : "4th Floor" },
+								{ "name" : "Department of Construction Management", "website" : "http://construction.tufts.edu/?pid=25&c=40", "phone" : "(617) 636-2722", "locwithin" : "Basement" },
+								{ "name" : "Department of Public and Environmental Safety", "website" : "http://publicsafety.tufts.edu/risk_ins/", "phone" : "(617) 636-6610" },
+								{ "name" : "Human Resources", "website" : "http://hr.tufts.edu/", "phone" : "(617) 636-6600", "locwithin" : "3rd Floor" },
+								{ "name" : "Office of Sponsored Programs Accounting", "website" : "http://finance.tufts.edu/spa/", "phone" : "(617) 636-6560", "locwithin" : "2nd Floor" },
+								{ "name" : "Purchasing Department", "website" : "http://finance.tufts.edu/purchasing/?pid=6", "phone" : "(617) 556-3362" }
+							],					
+							"map" : { "lat" : 42.348259, "lng" : -71.062371, "polygon" : "062373,348243 062373,348221 062258,348197 062161,348425 061957,348382 062041,348172 062041,348148 061912,34812 061687,348673 061687,348693 061821,348723 061904,348521 062231,348592"} },						
+						{ "label" : "Biomedical Research & Public Health Building - South Cove Wing", "fid" : "B006",   "accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  },  "shortname" : "South Cove Wing",   "addr1" : "55 Kneeland Street", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Tufts Medical Center Cancer Center", "website" : "http://160.109.101.132/cancercenter/", "phone" : "(617) 636-5000" }
+							],					
+							"map" : { "lat" : 42.350154, "lng" : -71.061086, "polygon" : "061215,350483 061306,350263 061303,3502 061086,35015 060992,350374 060992,350435"} },						
+						{ "label" : "Biomedical Research & Public Health Building - Stearns Wing", "fid" : "B004",   "accessibility" : { "level" : 1, "restroom" : 1, "parking" : { "lat" : 0, "lng" : 0}  },   "shortname" : "Stearns Wing",  "addr1" : "120 Harrison Avenue", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Department of Biochemistry", "website" : "http://www.tufts.edu/med/biochemistry/", "phone" : "(617) 636-6867", "locwithin" : "704c" }
+							],					
+							"map" : { "lat" : 42.350368, "lng" : -71.061574, "polygon" : "061434,349932 061319,350202 061322,350265 061574,35032 061705,349999"} },						
+						{ "label" : "Tufts University School of Dental Medicine", "fid" : "B001",  "accessibility" : { "level" : 1, "restroom" : 0, "parking" : { "lat" : 0, "lng" : 0}  }, "image" : "B001.jpg",  "wireless" : 2,  "website" : "http://dental.tufts.edu",  "phone" : "(617) 636-6828",  "shortname" : "School of Dental Medicine",      "addr1" : "1 Kneeland Street", "city" : "Boston", "zip" : "02111", 
+							"occupants" : [
+								{ "name" : "Clinics and Patient Care", "website" : "http://dental.tufts.edu/1175090438731/TUSDM-Page-dental2ws_1176988224004.html", "phone" : "(617) 636-6828", "locwithin" : "1st, 3rd & 8th Floor" },
+								{ "name" : "Department of Research Administration", "website" : "http://dental.tufts.edu/1176988223995/TUSDM-Page-dental2w_1186664548938.html", "phone" : "(617) 636-4099", "locwithin" : "rm. 605" },
+								{ "name" : "Pediatric Dentistry", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056457738.html", "phone" : "(617) 636-6971", "locwithin" : "8th Floor" },
+								{ "name" : "Office of Student Affairs", "website" : "http://dental.tufts.edu/1186407772094/TUSDM-Page-dental2w_1186407772166.html", "phone" : "(617) 636-6543", "locwithin" : "7th Floor" },
+								{ "name" : "Periodontology", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056456045.html", "phone" : "(617) 636-6531", "locwithin" : "2nd Floor" },
+								{ "name" : "Tufts Dental Associates", "website" : "http://dental.tufts.edu/1176988224004/TUSDM-Page-dental2w_1185977825405.html", "phone" : "(617) 636-6678" },
+								{ "name" : "Endodontics", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056455941.html", "phone" : "(617) 636-6828", "locwithin" : "4th Floor" },
+								{ "name" : "Oral and Maxillofacial Pathology", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056456372.html", "phone" : "(617) 636-6510", "locwithin" : "Rm. 646" },
+								{ "name" : "Division of Geriatric Dentistry", "website" : "http://dental.tufts.edu/1186056458091/TUSDM-Page-dental2ws_1186234236463.html", "phone" : "(617) 636-6828" },
+								{ "name" : "Orthodontics", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056456580.html", "phone" : "(617) 636-6887", "locwithin" : "2nd Floor" },
+								{ "name" : "Department of Public Health and Community Service", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2ws_1186056458091.html", "phone" : "(617) 636-6828", "locwithin" : "7th Floor" },
+								{ "name" : "Division of Oral Diagnosis and Treatment Planning", "website" : "http://dental.tufts.edu/1186056456149/TUSDM-Page-dental2w_1186234234384.html", "phone" : "(617) 636-6828", "locwithin" : "3rd Floor" },
+								{ "name" : "Biological Science Research", "website" : "http://dental.tufts.edu/", "locwithin" : "6th Floor" },
+								{ "name" : "Division of Prosthodontics", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056457987.html", "phone" : "(617) 636-6585", "locwithin" : "4th Floor" },
+								{ "name" : "Continuing Education - Dental", "website" : "http://dental.tufts.edu/1175090438731/TUSDM-Page-dental2ws_1176988223977.html", "phone" : "(617) 636-6629", "locwithin" : "Rm. 1126" },
+								{ "name" : "Oral and Maxillofacial Surgery", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056456476.html", "phone" : "(617) 636-6828", "locwithin" : "5th Floor" },
+								{ "name" : "Department of General Dentistry", "website" : "http://dental.tufts.edu/1176295338376/TUSDM-Page-dental2w_1186056456149.html", "phone" : "(617) 636-6814", "locwithin" : "Rm. 320" },
+								{ "name" : "Academic Affairs - Dental", "website" : "http://dental.tufts.edu/1186407772094/TUSDM-Page-dental2w_1186407772132.html", "phone" : "(617) 636-6666" },
+								{ "name" : "Administration - Dental", "website" : "http://dental.tufts.edu/", "phone" : "(617) 636-6828", "locwithin" : "7th Floor" },
+								{ "name" : "Faculty Dental Practice", "website" : "http://dental.tufts.edu/1176988224004/TUSDM-Page-dental2w_1185977825405.html", "phone" : "(617) 636-6678", "locwithin" : "8th Floor" }
+							],					
+							"map" : { "lat" : 42.350904, "lng" : -71.062837, "polygon" : "062776,35015 063111,3502 063111,350273 062955,350842 062604,350814 062601,350745 062649,350558 062695,350562 062706,350529 06269,350527 06269,350457"} }						
+						]},
+				{ "label" : "Other2",  "visible" : 0, "includeInCatchAll" : 0,  "includeInNav" : 0, 					"children" : [
+						{ "label" : "Public Parking Garage", "fid" : "p001",  "image" : "garage.png",  "descr" : "<font size='11' face='Verdana'><b>Public Parking Garage</b><br/>For more details on parking visit the </font><font  size='11' face='Verdana' color='#6699cc'><a target='_blank' href='http://publicsafety.tufts.edu/adminsvc/?pid=2'>Public Safety website</a></font>.",  "tags" : "visitor parking",    "addr1" : "274 Tremont Street", "city" : "Boston", "zip" : "02111", 					
+							"map" : { "lat" : 42.34987, "lng" : -71.06492, "icon" : { "type" : "clickLabelIcon", "width" : 53, "height" : 30, "source" : "assets/images/icons/garage.png" } } },						
+						{ "label" : "Tufts Medical Center and Floating Hospital for Children", "fid" : "BNEMC",      "descr" : "<b>Tufts Medical Center & Floating Hospital for Children</b><br/>For more information please visit <font color='#6699cc'><a target='_blank' href='http://www.tuftsmedicalcenter.org/AboutUs/Directions'>tuftsmedicalcenter.org</a></font>.",  "tags" : "NEMC",    "addr1" : "", "city" : "", "zip" : "02111", 					
+							"map" : { "lat" : 42.348943, "lng" : -71.063502, "polygon" : "063596,348903 0635,348887 063497,348818 063623,348404 063956,348457 063956,348528 063827,348947 063803,348941 063763,349064 063779,349064 063779,349141 063698,349409 063744,34946 064396,349565 064396,349617 064288,350015 064315,350015 064345,350019 06501,350241 06501,350322 064894,350699 06461,350657 06461,350578 064656,350435 064693,350443 064707,350398 064742,3504 064669,35037 064661,350338 064683,350305 064685,350273 064632,350263 064616,350277 064498,350219 064374,350184 064369,35016 064261,350122 064256,350108 064299,350027 06428,350021 064224,350007 064251,350041 064248,350108 064237,350116 064237,350148 064229,350156 064227,350186 064093,350247 063677,349775 06346,349742 063374,350049 063336,350045 063282,350225 063124,3502 063111,3502 063108,350273 062773,350225 06277,35015 062802,350156 062808,350144 062451,349991 062448,34995 062413,349934 062459,349859 062497,349874 062641,34969 062623,349672 062531,349771 062446,349807 062357,349805 062266,349765 062247,349789 062194,349777 062151,349865 061995,349807 062,349756 062164,349357 062159,349331 062175,349298 062236,349282 062287,349302 062293,349315 062574,349446 062596,349436 062682,34948 062682,349494 062945,349615 062963,349607 063044,349639 063055,349627 063017,349589 063001,34953 063006,34948 063049,34944 063143,349413 063221,349432 063248,349444 06339,349371 063398,349345 063122,349298 063116,349313 062945,349528 062548,349355 062553,349315 06266,349193 062644,349189 06255,349173 062542,349195 062451,349294 062236,349197 062422,348721 063049,348885 063046,348927 062953,349127 062987,349143 062995,349212 063028,349054 063041,349056 063076,348963 063559,349034"} }						
+						]}
+			]
+		},
+		"styles" : {
+			"polygon" : {
+				"stroke" : { "color" : "0x6699CC", "alpha" : 0.0, "thickness" : 0.5 }, 
+				"strokehover" : { "color" : "0x333333", "alpha" : 0.0, "thickness" : 0.5 }, 
+				"fill" : { "color" : "0x0656FF", "alpha" : 0.2 }, 
+				"fillhover" : { "color" : "0xDC143C", "alpha" : 0.4 }
+			},
+			"marker" : { },
+			"link" : { "color" : "#6699cc" }
+		},
+		"ui" : {
+			"searchbox" : { "inputbox_min_characters" : 2}
+		},
+		"labels" : {
+			"pdfs" : { "main" : "Printable Maps", "popup" : "Printable Maps - PDF Format" },
+			"wireless" : { "main" : "Wireless Internet Access", "full" : "Full Coverage", "partial" : "Partial Coverage" },
+			"search" : { "main" : "Search", "sub" : "By Name, Keyword or Address", "textbox" : " Locate buildings on campus", "button" : ">" },
+			"infobox" : { "main" : "Directions, PDFs & more &gt;&gt;" },
+			"popupbox" : { 
+				"print" :  { "main" : "Print" },
+				"details" : { 
+					"main" : "Details", "website" : "Visit the Website", "phone" : "Main Phone", "gps" : "GPS Coordinates", 
+					"parking" : { "main" : "Parking", "visitor" : "View Closest Visitor Parking On Campus &gt;&gt;", "height" : 40 },
+					"directions" : { "main" : "Directions", "driving" : "Driving Directions To This Location &gt;&gt;", 
+						"html" : "<br/><a target='_blank' href='http://campusmaps.tufts.edu/docs/boston-accessibilitymap.pdf'><font color=\"#6699cc\">Download PDF of Campus Buildings & Parking >></font></a>",
+						"height" : 60
+					},
+					"officesdepts" : { "main" : "Offices & Departments", "sub" : "View Offices & Departments&nbsp;>>" },
+					"link" : { "main" : "Link Directly To This Location", "sub" : "Get Link", "hint" : "Copy & Paste This Link Into Your Browser" }
+				 },
+				"officesdepts" : { "main" : "Offices & Departments", "website" : "Visit the Website" },
+				"accessibility" : { "main" : "Accessibility" },
+				"directions" : {
+					"main" : "Get Directions",
+					"label1" : "Where are you coming from?",
+					"label2" : "Select a Destination",
+					"label3" : "Find Local Transportation",
+					"warning" : "Both a city &amp; a state are required.",
+					"textbox1" : "address",
+					"textbox2" : "city",
+					"textbox3" : "MA",
+					"button" : "Get Directions",
+					"website" : "Visit the Website"
+				}
+			 },
+			 "navigation" : {
+			 	"all" : "All Buildings",
+			 	"officesdepts" : "Offices & Departments",
+			 	"parking" : "Parking"
+			 }
+		},
+		"icons" : {
+			"print" : "print.png",
+			"wireless-full" : "wireless_full.png",
+			"wireless-partial" : "wireless_partial.png",
+			"parking" : {
+				"visitor" : "v.png",
+				"facultystaff" : "f.png",
+				"resident" : "r.png",
+				"commuter" : "c.png",
+				"none" : "x.png"
+			}
+		}
+	}
+}
+
+
