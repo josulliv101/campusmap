@@ -45,8 +45,6 @@ define([
 
         _.each(all, function(loc) { _.setAttr(loc, { isCloseBy: (_.contains(closeby, loc)) }); });
 
-        console.log('closeby locs', closeby.length);
-
         EventDispatcher.trigger('truthupdate', { locationscloseby: closeby });
 
         return  val;
@@ -103,8 +101,6 @@ define([
         // Hack to get the navbar state to be correct on first display
         EventDispatcher.trigger('delegateTruth', { detailsnavbar: navbar });
 
-        console.info('detailsLocation', val);
-
         return  val;
 
     };
@@ -151,10 +147,10 @@ define([
     StateManagementStrategy.prototype.panelTransitionDone = function(model, val, key, MapUtils) {
 
 /*        if (key !== 'paneltransitiondone') return;
-console.log('panelTransitionDone', val, key);
+
         // Reset
         if (val === true) {
-            console.log('panelTransitionDone true', val, key);
+
             EventDispatcher.trigger('truthupdate', { paneltransitiondone: null }, { silent: true });
 
         }*/

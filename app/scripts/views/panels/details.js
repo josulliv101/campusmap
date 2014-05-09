@@ -27,7 +27,7 @@ define([
 
                 }
 
-            },/*,back-to-results*/
+            },
 
             'click .panel-depts-offices .item button': function(ev) {
 
@@ -40,8 +40,6 @@ define([
                     occupants = location.occupants,
 
                     occupant = occupants && occupants[index];
-
-                console.log(occupants && occupants[index]);
 
                 if (_.isObject(occupant)) EventDispatcher.trigger('truthupdate', { occupant : occupant });
 

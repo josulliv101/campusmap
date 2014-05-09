@@ -32,7 +32,7 @@
                 <li><a href="#" data-campusmap='panels:popular-tags|searchboxdisable:true|primarylabel:Popular Tags'>Popular Tags</a></li>
                 <li><a href="#" data-campusmap='panels:printable-maps|searchboxdisable:true|primarylabel:Printable Maps'>Printable Maps</a></li>
                 <li><a href="#" data-campusmap='panels:settings|searchboxdisable:true|primarylabel:Settings'>Settings</a></li>
-                <!--<li><a href="#" data-campusmap='panels:|details:|primarylabel:|searchboxdisable:false'>Search</a></li>-->
+                <!--<li><a href="#" data-campusmap='panels:admin-main|primarylabel:Admin|searchboxdisable:true'>Admin</a></li>-->
             </ul>
         </div>
         <div class="nav-mobile">
@@ -66,12 +66,14 @@
 
                 new Widgets.Campusmap(elApp, elMap, {
 
-                    zoom: 18
+                    campus: 'medford'
+ 
+                    , zoom: 18
 
                     , center: '42.406898, -71.120596'
 
                     , panels: ''
-
+ 
                 });
 
             });

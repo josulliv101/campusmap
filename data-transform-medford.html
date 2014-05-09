@@ -14,23 +14,19 @@
 	<script type="text/javascript">
 		$(function() {
 
-			var campus = "boston";
+			var campus = "medford";
 
 			$.ajax({
 
-				url: "./app/data/transform/" + campus + "-current.json"
+				url: "./app/data/transform/" + campus + "-parsecom-export.json"
 
 			}).done(function( data ) {
 
+				var locations = _.first(data).maps[0].locations;
+
 				if ( console && console.log ) {
 
-					var data = _.chain(data.campus.locationdata.children)
-
-								.map(function(group) { return group.children; })
-
-								.flatten()
-
-								.reject(function(loc) { return loc.map === undefined; })
+					var data = _.chain(locations)
 
 								.map(transform)
 
@@ -48,9 +44,9 @@
 
 					campus: campus,
 
-					locationid: model.fid,
+					locationid: model.locationid,
 
-					name: model.label,
+					name: model.name,
 
 					tags: model.tags,
 
@@ -58,26 +54,23 @@
 
 					website: model.website,
 
-					address1: model.addr1,
+					address1: model.address1,
 
-					address2: model.addr2,
+					address2: model.address2,
+
+					emphasis: model.emphasis,
 
 					city: model.city,
 
 					zip: model.zip,
 
-					latlng: model.map.lat + ',' + model.map.lng,
+					latlng: model.latlng,
 
-					accessibility: model.accessibility && model.accessibility.level,
+					accessibility: model.accessibility,
 
-					accessibilityrestroom: model.accessibility && model.accessibility.restroom,
+					accessibilityrestroom: model.accessibilityrestroom,
 
-					occupants: _.map(model.occupants, function(occ) { 
-
-									// Only grab phone digits
-									return _.extend(occ, { phone: occ.phone && occ.phone.replace(new RegExp("[^0-9]", "ig"), "")}); 
-
-								})
+					occupants: model.occupants
 				};
 
 			}

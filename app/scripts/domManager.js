@@ -35,8 +35,6 @@ define([
 
             var data = $(this).data('campusmap');
 
-            console.log('data-campusmap', _.stringToObject(data));
-
             // In case the element happens to be a link
             ev.preventDefault();
 

@@ -32,8 +32,6 @@ define([
 
                 var locid =  $(ev.currentTarget).data('locationid');
 
-                console.log('mouseover', locid);
-
                 EventDispatcher.trigger('truthupdate', { hover: locid });
 
             },
@@ -42,15 +40,11 @@ define([
 
                 var locid =  $(ev.currentTarget).data('locationid');
 
-                console.log('mouseover', locid);
-
                 EventDispatcher.trigger('truthupdate', { hover: locid });
 
             },
 
             'mouseout .list .result button' : function(ev) {
-
-                console.log('mouseout');
 
                 EventDispatcher.trigger('truthupdate', { hover: null });
 
@@ -134,8 +128,6 @@ define([
                 var PanelManager = this.manager;
 
                 if (!PanelManager) return;
-
-                console.log('results panel', this.state());
 
                 //if (this.state() === 'open') return this.render();
 

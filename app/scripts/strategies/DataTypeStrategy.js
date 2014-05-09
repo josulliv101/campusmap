@@ -99,7 +99,7 @@ define([
 
         var attr = {}, locations;
 
-        if (key !== 'details' || !_.isString(val)) return;
+        if ((key !== 'details' && key !== 'directionsto') || !_.isString(val)) return;
 
         locations = theTruth.get('locations');
 

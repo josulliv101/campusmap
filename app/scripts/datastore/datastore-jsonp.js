@@ -29,12 +29,12 @@ define([
 
     fns_ = DataInterface.initialize(campuses_);
 
-    campuses_.url = Config.env.paths.data.jsonp;
-    
-
-    function fetch_() {
+    function fetch_(campusid) {
 
         var dfd = $.Deferred();
+
+        // Pointer to static json file with a single campus's data
+        campuses_.url = (Config.env.paths.data.jsonp).replace("%campus%", campusid);
 
         // Only want defaults settings returned, not all data. use custom deferred instead of the fetch's return value
         campuses_.fetch({ 
@@ -59,7 +59,11 @@ define([
 
                     campusmap: map,
 
-                    locations: locations
+                    locations: locations,
+
+                    center: map.latlng,
+
+                    zoom: map.zoom
 
                 });
 

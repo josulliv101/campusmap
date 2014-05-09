@@ -10,7 +10,7 @@ define([
 
     'use strict';
 
-    var cssFlags = ['search', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted'];
+    var cssFlags = ['search', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted', 'admin'];
 
     function CssFlagStrategy() {
 
@@ -31,8 +31,6 @@ define([
     CssFlagStrategy.prototype.handleZoomChange = function(model, val, key, classname) {
 
         if (key !== 'zoom') return;
-
-        console.log('zoom');
 
         DomManager.$root.removeClass("zoomed-out zoomed-in zoom-15 zoom-16 zoom-17 zoom-18 zoom-19 zoom-20");
 

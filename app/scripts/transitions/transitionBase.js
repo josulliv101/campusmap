@@ -71,8 +71,6 @@ define([
     
     TransitionBase.prototype.openPre_ = function(view) {
 
-        console.log('TransitionBase.openPre', view.model);
-
         view.model.set('state', 'openPre');
 
         this.doAnimationOpen_(view);
@@ -82,8 +80,6 @@ define([
     // Stub -- defined in constructor so this keyword behaves when unit testing
     TransitionBase.prototype.open = function(view, position) {
 
-        console.log('TransitionBase.open', this);
-
         if (!view || !view.model) return;
 
         if (_.exists(position)) view.$el.css('z-index', 999-(position || 0));
@@ -91,8 +87,6 @@ define([
         if (this.isOpen_(view)) return;
 
         if (view.$el.hasClass('animating')) {
-
-          console.log('open animation in progress');
 
           return false; 
 
@@ -111,8 +105,6 @@ define([
 
     TransitionBase.prototype.openPost_ = function(view) {
 
-        console.log('TransitionBase.openPost_', view.model);
-
         view.model.set('state', 'openPost');
 
         view.model.set('state', 'open');
@@ -125,11 +117,7 @@ define([
 
     TransitionBase.prototype.closePre_ = function(view) {
 
-        console.log('TransitionBase.closePre_', view.model);
-
         view.model.set('state', 'closePre');
-
-        console.log('this.doAnimationClose_', this.doAnimationClose_);
         
         this.doAnimationClose_(view);
 
@@ -142,8 +130,6 @@ define([
         if (this.isClosed_(view)) return;
 
         if (view.$el.hasClass('animating')) {
-
-          console.log('close animation in progress');
 
           return false; 
 
@@ -161,8 +147,6 @@ define([
     };
 
     TransitionBase.prototype.closePost_ = function(view) {
-
-        console.log('TransitionBase.closePost_', view.model);
 
         view.model.set('state', 'closePost');
 

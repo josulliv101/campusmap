@@ -10,15 +10,15 @@
 					<img src="./app/images/icons/accessibility2@2x.png" /> Accessible with Assistance
 				<% } %>
 				</li>
-				<% if (model.location.accessiblerestroom === 1) { %>
-					<li><img src="./app/images/icons/accessibility1@2x.png" /> Accessible Restroom</li>
+				<% if (model.location.accessibilityrestroom === 1) { %>
+					<li><img src="./app/images/icons/accessibilityrestroom@2x.png" /> Accessible Restroom</li>
 				<% } %>
 			</ul>
 			<div class='footer'>
 		<% } else { %>
 			<div class='footer no-content'>
 		<% } %>
-			<a href="#">Office of Equal Opportunity Website</a> <span class="divider">|</span> <a href="#">Accessibility Map (pdf)</a>
+			<a class="link external" href="http://oeo.tufts.edu/">Office of Equal Opportunity</a> <span class="divider">|</span> <a class="link external" href="#">Accessibility Map (pdf)</a>
 			<button class="btn-close" data-campusmap='panels:details'>close</button>
 		</div>
 	</div>

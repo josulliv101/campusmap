@@ -26,7 +26,7 @@ define([
     SearchboxController.prototype.handleTruthChangeSB = function(changedAttributes) {
 
         var PM, deferredsClosePanels, panels = changedAttributes.panels, self = this;
-console.log('handleTruthChange sbcontroller', changedAttributes);
+
         // Looking for panels attr only
         if (!panels || this.transition === true) return;
 
@@ -35,7 +35,7 @@ console.log('handleTruthChange sbcontroller', changedAttributes);
         this.transition = true;
 
         deferredsClosePanels = PM.closePanels(panels, changedAttributes.forceclosepanels);
-console.log('handleTruthChange sbcontroller 2', panels);
+
         // First, close any open panels
         $.when.apply(null, deferredsClosePanels)
 

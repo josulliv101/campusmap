@@ -71,7 +71,7 @@ button {
 		
 		height: 17px;
 
-		line-height: 17px;
+		line-height: 16px;
 
 		font-size: 11px;
 
@@ -155,12 +155,14 @@ button {
 .btn-directions {
 	
 	margin-bottom: 9px;
+	margin-left: 0;
 	
 }
 
 .btn-large {
-	
-
+	label {
+		cursor: pointer;
+	}
 }
 
 .label-on-off {

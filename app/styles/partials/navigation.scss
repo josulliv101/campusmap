@@ -21,6 +21,7 @@
 			a {
 				padding: 0 13px;
 				line-height: 36px;
+				color: #fff;
 			}
 			.clearmode {
 				display: none;
@@ -121,8 +122,8 @@
 			}
 			a {
 				color: #6699cc;
-						&:hover {
-					color: #CA790F;
+				&:hover {
+					color: #CA790F !important;
 				}
 			}
 

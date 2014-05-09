@@ -1,18 +1,19 @@
 <div class="panel-bd panel-secondary">
 	<div class="bd spacing">
-		<h3 class="subhead">Get Directions | <a data-campusmap="panels:details,select-destination" class="link internal" href="#">Back</a></h3>
+		<h3 class="subhead">To ${model.directionsto.name} | <a data-campusmap="panels:details,select-destination" class="link internal" href="#">Back</a></h3>
 		<div class="input-info clearfix">
-			<p class="span-50 bare pull-left">
-				<strong class="heavy">Where are you coming from?</strong><br/>
-				<input class="full" type="text" value="" placeholder="address"/>
-				<input class="span-80" type="text" value="" placeholder="city"/>
-				<input class="span-20 input-state" type="text" value="MA"/>
+			<div><strong class="heavy">Where are you coming from?</strong></div>
+			<p class="span-60 bare pull-left">
+				<input class="span-80" type="text" value="" placeholder="address" id="input-addr1"/>
+				<input class="span-80" type="text" value="" placeholder="city" id="input-city"/>
+				<input class="span-20 input-state" type="text" value="MA" id="input-state"/>
 			</p>
-			<p class="span-50 bare pull-left non-street-accessible">
-
+			<div class="span-40 bare pull-left go-directions non-street-accessible">
+				<div class="msg">&nbsp;</div>
 				<button class="btn-large btn-directions">Get Directions</button> 
-				<label class="block small muted"><em>Directions provided by <a target="_blank" class="muted" href="http://maps.google.com">Google Inc.</a></em></label>
-			</p>
+				<a id="googlemap-link" target="_blank" href="#"><span>google maps link</span></a>
+				<label class="block small muted lbl-google"><em>Directions provided by <a class="link external" target="_blank" class="muted" href="http://maps.google.com">Google Inc.</a></em></label>
+			</div>
 		</div>
 
 		<div class='footer'>

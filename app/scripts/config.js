@@ -28,7 +28,7 @@ define([
 
                 data: {
 
-                    jsonp: './app/data/data.json'
+                    jsonp: '../app/data/data-%campus%.json'
 
                 }
 
@@ -54,6 +54,8 @@ define([
 
                 , panelanimations: false
 
+                , panels: ''
+
                 , parking: false
 
                 , accessibility: false
@@ -73,6 +75,8 @@ define([
                 , filter: 'defaultFilter'
 
                 , mode: 'search'
+
+                , zoom: 15
                           
             }
 

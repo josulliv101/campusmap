@@ -67,8 +67,6 @@ define([
 
         }, this);
 
-        console.log('refreshTileCache', MapUtils.getTileCache());
-
     };
 
     MapController.prototype.trigger = _.bind(EventDispatcher.trigger, EventDispatcher);

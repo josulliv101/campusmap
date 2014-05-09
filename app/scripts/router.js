@@ -37,8 +37,6 @@ define([
 
             EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
 
-                console.log('router');
-
                 // Removes any url # attrs when page loads
                  this.navigate('', { trigger: false });
 
@@ -70,8 +68,6 @@ define([
                 qs = 'campusid=' + qs;
 
             }
-
-            console.log('qs', qs);
 
             return qs;
 

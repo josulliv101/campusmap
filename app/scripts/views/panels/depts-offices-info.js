@@ -18,8 +18,6 @@ define([
 
             'click .btn-directions': function(ev) {
 
-                console.log('directions');
-
             }
         },
 

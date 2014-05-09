@@ -48,8 +48,11 @@ define([
     // A manual init call makes for nice insertion point for spies when testing
     App.prototype.init = function() {
 
+        // A campus id is required
+        if (!this.settings.campus) return;
+
         // Grab the data, then begin.
-        $.when( this.fetch() )
+        $.when( this.fetch(this.settings.campus) )
 
             .done(this.start)
 
@@ -62,7 +65,8 @@ define([
     App.prototype.start = function(data) {
 
         // The truth is born (almost) -- app config settings, passed-in settings, and settings from fetched data all are now combined.
-        var settings = _.defaults(this.settings, data);
+        //var settings = _.defaults(this.settings, data);
+        var settings = _.extend(this.settings, data);
 
         // Parse route and add attributes to settings
         new Router( { settings: settings } ).start();

@@ -275,8 +275,6 @@ define([
 
       tileCache[key].push(loc);
 
-//console.log('tileCache', tileCache);
-
       // Give the loc a reference by zoom
       _.getAttr(loc, 'tileCache') || (_.setAttr(loc, { tileCache: {} }));
 
