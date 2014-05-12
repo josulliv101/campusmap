@@ -41,6 +41,8 @@ define([
 
                 location: {},
 
+                campus: {},
+
                 pageurl: Config.env.pageurl
 
             }, { silent: true });
@@ -59,6 +61,16 @@ define([
                 this.location = changedAttrs.details || {};
 
                 this.model.set({ location: this.location.toJSON ? this.location.toJSON() : this.location });
+
+            }, this);
+
+            EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
+
+                if (!changedAttrs.campus) return;
+
+                this.campus = changedAttrs.campus || {};
+debugger;
+                this.model.set({ campus: this.campus.toJSON ? this.campus.toJSON() : this.campus });
 
             }, this);
 

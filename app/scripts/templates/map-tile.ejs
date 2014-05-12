@@ -5,7 +5,7 @@
 				<div class='icon' style=''></div>
 				<div class='bd'>
 					<div class='txt'>
-						${loc.name}
+						<% if (loc.multilinename) { %>${loc.multilinename}<% } else { %>${loc.name}<% } %>
 					</div>
 				</div>
 			</div>

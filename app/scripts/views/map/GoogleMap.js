@@ -119,7 +119,7 @@ define([
 
             else {
 
-                EventDispatcher.trigger('truthupdate', { details: '', panels: '', query: null, backto: null, primarylabel: null });
+                //EventDispatcher.trigger('truthupdate', { details: '', panels: '', query: null, backto: null, primarylabel: null });
 
             }
             // Comment for now. Causes flicker in IE

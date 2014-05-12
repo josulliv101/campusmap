@@ -4,10 +4,6 @@ define([
 
     , 'underscore'
 
-    //, 'scripts/config'
-
-    //, 'scripts/moduleManager'
-
     , 'eventdispatcher'
 
     , 'templates'
@@ -110,7 +106,7 @@ define([
     // Html for each label tile
     DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {
 
-        var html, $div;
+        var html, $div, fnMultilines = this.toMultiLines;
 
         _.each(models, function(model) { 
 
@@ -118,13 +114,45 @@ define([
 
         }, this);
 
-        html = this.labelTileTemplate({ locations: _.map(models, function(model) { return model.toJSON ? model.toJSON() : model; }) });
+        html = this.labelTileTemplate({ locations: _.map(models, function(model) { 
+
+                var json = model.toJSON ? model.toJSON() : model;
+                
+                json.multilinename = _.map(fnMultilines(json.name, 22), function(line) { return line; }).join("<br/>");
+
+                return json; 
+
+            })
+
+        });
 
         $div = $(html);
 
         return $div[0];
 
     };
+
+    DomManager.prototype.toMultiLines = function(txt, maxcharacters) {
+
+        var words, lines = [], j = 0;
+
+        maxcharacters || (maxcharacters = 32);
+
+        words = txt.split(" ");
+
+        for (var n = 0; n < words.length; n++) {
+
+            lines[j] || (lines[j] = "");
+
+            lines[j] = lines[j] + words[n] + " ";
+
+            if (lines[j].length > maxcharacters) j++;
+
+        }
+
+        return lines;
+
+    }
 
 
     DomManager.prototype.getLocationClassNames = function(loc) {

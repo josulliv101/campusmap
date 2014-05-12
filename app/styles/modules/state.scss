@@ -422,6 +422,21 @@
 		}
 	}
 
+	/* Campuses */
+	&.boston {
+		#map-canvas {
+			.label-tile {
+				.location {
+					.bd {
+						.txt {
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	/* Settings */
 	&.high-contrast-labels {
 		#map-canvas {
