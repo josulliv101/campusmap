@@ -635,6 +635,9 @@ $gutter: 8px;
 					&.parking-no-sticker button {
 						background: url("../../app/images/icons/parking/x.png") no-repeat 12px center;
 					}
+					&.parking-student button {
+						background: url("../../app/images/icons/parking/s.png") no-repeat 12px center;
+					}
 				}
 			}
 		}
