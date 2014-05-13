@@ -69,7 +69,7 @@ define([
                 if (!changedAttrs.campus) return;
 
                 this.campus = changedAttrs.campus || {};
-debugger;
+
                 this.model.set({ campus: this.campus.toJSON ? this.campus.toJSON() : this.campus });
 
             }, this);

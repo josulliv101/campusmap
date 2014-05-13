@@ -46,11 +46,14 @@
 			<% if (model.location.thumbnail) { %>
 				<img class="thumb" src="./app/images/thumbs/${model.location.thumbnail}" />
 			<% } else { %>
-				
-				<p class="title"><strong>Visitor Parking</strong></p>
-				<p><a class="link external" href="#" data-campusmap="panels:details|details:p-dowling-garage|center:42.408843,-71.118311">Dowling Parking Garage</a></p>
-				<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More Visitor / Guest Parking Options</a></p>
-				
+				<% if (model.campus.campusid === 'medford') { %>
+					<p class="title"><strong>Visitor Parking</strong></p>
+					<p><a class="link external" href="#" data-campusmap="panels:details|details:p-dowling-garage|center:42.408843,-71.118311">Dowling Parking Garage</a></p>
+					<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More Visitor / Guest Parking Options</a></p>
+				<% } else if (model.campus.campusid === 'grafton') { %>
+					<p class="title"><strong>Parking</strong></p>
+					<p><a class="link external" data-campusmap="panels:parking|searchboxdisable:true|forceclosepanels:true|mode:parking|primarylabel:Parking" href="#">Find parking on campus for Visitors, Faculty/Staff, and Students.</a></p>
+				<% } %>
 			<% } %>
 		</aside>
 	</div>
