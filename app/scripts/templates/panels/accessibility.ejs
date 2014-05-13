@@ -6,7 +6,7 @@
 
 			<li class="item-menu accessible-assistance"><button data-campusmap='panels:results|filter:tag_exact|query:accessible-assistance|primarylabel:Accessible with Assistance|searchboxdisable:true|forceclosepanels:true|mode:accessibility'>Accessible with Assistance</button></li>
 
-			<% if (model.campus.campusid === 'medford') { %>
+			<% if (model.campus.campusid === 'medford' || model.campus.campusid === 'boston') { %>
 			<li class="item-menu accessible-restroom"><button data-campusmap='panels:results|filter:tag_exact|query:accessible-restroom|primarylabel:Accessible Restrooms|searchboxdisable:true|forceclosepanels:true|mode:accessibility'>Accessible Restrooms</button></li>
 			<% } %>
 		</ul>

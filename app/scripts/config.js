@@ -172,7 +172,7 @@ define([
                             "stylers": [{
                                 "visibility": "on"
                             }, {
-                                "lightness": 46
+                                "lightness": 23
                             }]
                         },
 
@@ -182,7 +182,7 @@ define([
                             "stylers": [{
                                 "visibility": "on"
                             }, {
-                                "lightness": 20
+                                "lightness": 10
                             }]
                         },
 

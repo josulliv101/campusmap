@@ -35,7 +35,7 @@ define(['../../scripts/datastore/datastore-jsonp'], function (DatastoreJSONP) {
 
       it('fetches data.', function () {
 
-        var dfd = DatastoreJSONP.fetch();
+        var dfd = DatastoreJSONP.fetch('medford');
 
         waitsFor(function() {
 

@@ -1,4 +1,4 @@
-/*! campusmap - v0.0.0 - 2014-05-08
+/*! campusmap - v0.0.0 - 2014-05-13
 * Copyright (c) 2014 Joe Sullivan; Licensed MIT */
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.
@@ -20365,7 +20365,7 @@ define('scripts/config',[
 
                 data: {
 
-                    jsonp: '../app/data/data.json'
+                    jsonp: '../app/data/data-%campus%.json'
 
                 }
 
@@ -20391,6 +20391,8 @@ define('scripts/config',[
 
                 , panelanimations: false
 
+                , panels: ''
+
                 , parking: false
 
                 , accessibility: false
@@ -20410,6 +20412,8 @@ define('scripts/config',[
                 , filter: 'defaultFilter'
 
                 , mode: 'search'
+
+                , zoom: 15
                           
             }
 
@@ -20505,7 +20509,7 @@ define('scripts/config',[
                             "stylers": [{
                                 "visibility": "on"
                             }, {
-                                "lightness": 46
+                                "lightness": 23
                             }]
                         },
 
@@ -20515,7 +20519,7 @@ define('scripts/config',[
                             "stylers": [{
                                 "visibility": "on"
                             }, {
-                                "lightness": 20
+                                "lightness": 10
                             }]
                         },
 
@@ -20696,12 +20700,12 @@ define('datastore',[
 
     fns_ = DataInterface.initialize(campuses_);
 
-    campuses_.url = Config.env.paths.data.jsonp;
-    
-
-    function fetch_() {
+    function fetch_(campusid) {
 
         var dfd = $.Deferred();
+
+        // Pointer to static json file with a single campus's data
+        campuses_.url = (Config.env.paths.data.jsonp).replace("%campus%", campusid);
 
         // Only want defaults settings returned, not all data. use custom deferred instead of the fetch's return value
         campuses_.fetch({ 
@@ -20726,7 +20730,11 @@ define('datastore',[
 
                     campusmap: map,
 
-                    locations: locations
+                    locations: locations,
+
+                    center: map.latlng,
+
+                    zoom: map.zoom
 
                 });
 
@@ -20788,9 +20796,15 @@ __p += '\r\n\t\t\t<div class=\'location ' +
 ((__t = (loc.offsety)) == null ? '' : __t) +
 'px; left: ' +
 ((__t = (loc.offsetx)) == null ? '' : __t) +
-'px\'>\r\n\t\t\t\t<div class=\'icon\' style=\'\'></div>\r\n\t\t\t\t<div class=\'bd\'>\r\n\t\t\t\t\t<div class=\'txt\'>\r\n\t\t\t\t\t\t' +
-((__t = (loc.name)) == null ? '' : __t) +
-'\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t';
+'px\'>\r\n\t\t\t\t<div class=\'icon\' style=\'\'></div>\r\n\t\t\t\t<div class=\'bd\'>\r\n\t\t\t\t\t<div class=\'txt\'>\r\n\t\t\t\t\t\t';
+ if (loc.multilinename) { ;
+__p +=
+((__t = (loc.multilinename)) == null ? '' : __t);
+ } else { ;
+__p +=
+((__t = (loc.name)) == null ? '' : __t);
+ } ;
+__p += '\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t';
  }); ;
 __p += '\r\n\t</div>\r\n</div>';
 
@@ -20800,9 +20814,14 @@ return __p
 
 this["JST"]["app/scripts/templates/panels/accessibility.ejs"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="panel-bd bare">\r\n\t<div class="bd spacing">\r\n\t\t<ul class="menu-accessibility">\r\n\r\n\t\t\t<li class="item-menu accessible-full"><button data-campusmap=\'panels:results|filter:tag_exact|query:accessible-full|primarylabel:Fully Accessible|searchboxdisable:true|forceclosepanels:true|mode:accessibility\'>Fully Accessible</button></li>\r\n\r\n\t\t\t<li class="item-menu accessible-assistance"><button data-campusmap=\'panels:results|filter:tag_exact|query:accessible-assistance|primarylabel:Accessible with Assistance|searchboxdisable:true|forceclosepanels:true|mode:accessibility\'>Accessible with Assistance</button></li>\r\n\r\n\t\t\t<li class="item-menu accessible-restroom"><button data-campusmap=\'panels:results|filter:tag_exact|query:accessible-restroom|primarylabel:Accessible Restrooms|searchboxdisable:true|forceclosepanels:true|mode:accessibility\'>Accessible Restrooms</button></li>\r\n\r\n\t\t</ul>\r\n\t</div>\r\n</div>\r\n<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>';
+__p += '<div class="panel-bd bare">\r\n\t<div class="bd spacing">\r\n\t\t<ul class="menu-accessibility">\r\n\r\n\t\t\t<li class="item-menu accessible-full"><button data-campusmap=\'panels:results|filter:tag_exact|query:accessible-full|primarylabel:Fully Accessible|searchboxdisable:true|forceclosepanels:true|mode:accessibility\'>Fully Accessible</button></li>\r\n\r\n\t\t\t<li class="item-menu accessible-assistance"><button data-campusmap=\'panels:results|filter:tag_exact|query:accessible-assistance|primarylabel:Accessible with Assistance|searchboxdisable:true|forceclosepanels:true|mode:accessibility\'>Accessible with Assistance</button></li>\r\n\r\n\t\t\t';
+ if (model.campus.campusid === 'medford' || model.campus.campusid === 'boston') { ;
+__p += '\r\n\t\t\t<li class="item-menu accessible-restroom"><button data-campusmap=\'panels:results|filter:tag_exact|query:accessible-restroom|primarylabel:Accessible Restrooms|searchboxdisable:true|forceclosepanels:true|mode:accessibility\'>Accessible Restrooms</button></li>\r\n\t\t\t';
+ } ;
+__p += '\r\n\t\t</ul>\r\n\t</div>\r\n</div>\r\n<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>';
 
 }
 return __p
@@ -20978,7 +20997,11 @@ __p += '\r\n\t\t\t</ul>\r\n\t\t\t<div class=\'footer\'>\r\n\t\t';
  } else { ;
 __p += '\r\n\t\t\t<div class=\'footer no-content\'>\r\n\t\t';
  } ;
-__p += '\r\n\t\t\t<a class="link external" href="http://oeo.tufts.edu/">Office of Equal Opportunity</a> <span class="divider">|</span> <a class="link external" href="#">Accessibility Map (pdf)</a>\r\n\t\t\t<button class="btn-close" data-campusmap=\'panels:details\'>close</button>\r\n\t\t</div>\r\n\t</div>\r\n</div>';
+__p += '\r\n\t\t\t<a class="link external" href="http://oeo.tufts.edu/">Office of Equal Opportunity</a> \r\n\t\t\t';
+ if (model.campus.campusid === 'medford') { ;
+__p += '\r\n\t\t\t<span class="divider">|</span> <a class="link external" target="_blank" href="http://campusmaps.tufts.edu/docs/medford-accessibilitymap.pdf">Accessibility Map (pdf)</a>\r\n\t\t\t';
+ } ;
+__p += '\r\n\t\t\t<button class="btn-close" data-campusmap=\'panels:details\'>close</button>\r\n\t\t</div>\r\n\t</div>\r\n</div>';
 
 }
 return __p
@@ -21069,7 +21092,15 @@ __p += '\r\n\t\t\t\t<img class="thumb" src="../app/images/thumbs/' +
 ((__t = (model.location.thumbnail)) == null ? '' : __t) +
 '" />\r\n\t\t\t';
  } else { ;
-__p += '\r\n\t\t\t\t\r\n\t\t\t\t<p class="title"><strong>Visitor Parking</strong></p>\r\n\t\t\t\t<p><a class="link external" href="#" data-campusmap="panels:details|details:p-dowling-garage|center:42.408843,-71.118311">Dowling Parking Garage</a></p>\r\n\t\t\t\t<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More Visitor / Guest Parking Options</a></p>\r\n\t\t\t\t\r\n\t\t\t';
+__p += '\r\n\t\t\t\t';
+ if (model.campus.campusid === 'medford') { ;
+__p += '\r\n\t\t\t\t\t<p class="title"><strong>Visitor Parking</strong></p>\r\n\t\t\t\t\t<p><a class="link external" href="#" data-campusmap="panels:details|details:p-dowling-garage|center:42.408843,-71.118311">Dowling Parking Garage</a></p>\r\n\t\t\t\t\t<p><a target="_blank" class="link external" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More Visitor / Guest Parking Options</a></p>\r\n\t\t\t\t';
+ } else if (model.campus.campusid === 'grafton') { ;
+__p += '\r\n\t\t\t\t\t<p class="title"><strong>Parking</strong></p>\r\n\t\t\t\t\t<p><a class="link external" data-campusmap="panels:parking|searchboxdisable:true|forceclosepanels:true|mode:parking|primarylabel:Parking" href="#">Find parking on campus for Visitors, Faculty/Staff, and Students.</a></p>\r\n\t\t\t\t';
+ } else if (model.campus.campusid === 'boston') { ;
+__p += '\r\n\t\t\t\t\t<p class="title"><strong>Parking</strong></p>\r\n\t\t\t\t\t<p><a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/parking-services/boston-campus-parking-services-63/">For more details on parking visit the <strong>Public Safety website</strong></a>.</p>\r\n\t\t\t\t';
+ } ;
+__p += '\r\n\t\t\t';
  } ;
 __p += '\r\n\t\t</aside>\r\n\t</div>\r\n\t<div class="panel-content panel-depts-offices">\r\n\t\t<div class="panel-bd full ';
  if (model.location.occupants && model.location.occupants.length === 1) { ;
@@ -21171,9 +21202,16 @@ return __p
 
 this["JST"]["app/scripts/templates/panels/parking.ejs"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="panel-bd bare">\r\n\t<div class="bd spacing">\r\n\t\t<ul class="menu-parking">\r\n\t\t\t<li class="item-menu parking-visitor"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-visitor|primarylabel:Visitor Parking|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Visitor Parking</button></li>\r\n\r\n\t\t\t<li class="item-menu parking-faculty-staff"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-faculty-staff|primarylabel:Faculty/Staff|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Faculty/Staff</button></li>\r\n\r\n\t\t\t<li class="item-menu parking-resident"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-resident|primarylabel:Resident|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Resident</button></li>\r\n\r\n\t\t\t<li class="item-menu parking-commuter"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-commuter|primarylabel:Commuter Student|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Commuter Student</button></li>\r\n\r\n\t\t\t<li class="item-menu parking-no-sticker"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-no-sticker|primarylabel:No Sticker|searchboxdisable:true|forceclosepanels:true|mode:parking\'>No Sticker</button></li>\r\n<!--\r\n\t\t\t<li class="item-menu parking-help"><button style="font-size:12px;color:#999;" data-campusmap=\'panels:results,back-to|filter:tag_exact|query:parking-no-sticker|primarylabel:No Sticker|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Note: Lorem ipsum dolorem lorem ipsum dolorem lorem ipsum dolorem</button></li>-->\r\n\r\n\t\t</ul>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>';
+__p += '<div class="panel-bd bare">\r\n\t<div class="bd spacing">\r\n\t\t<ul class="menu-parking">\r\n\t\t\t<li class="item-menu parking-visitor"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-visitor|primarylabel:Visitor Parking|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Visitor Parking</button></li>\r\n\r\n\t\t\t<li class="item-menu parking-faculty-staff"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-faculty-staff|primarylabel:Faculty/Staff|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Faculty/Staff</button></li>\r\n\r\n\t\t\t';
+ if (model.campus.campusid === 'medford') { ;
+__p += '\r\n\t\t\t<li class="item-menu parking-resident"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-resident|primarylabel:Resident|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Resident</button></li>\r\n\r\n\t\t\t<li class="item-menu parking-commuter"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-commuter|primarylabel:Commuter Student|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Commuter Student</button></li>\r\n\r\n\t\t\t<li class="item-menu parking-no-sticker"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-no-sticker|primarylabel:No Sticker|searchboxdisable:true|forceclosepanels:true|mode:parking\'>No Sticker</button></li>\r\n\r\n\t\t\t';
+ } else if (model.campus.campusid === 'grafton') { ;
+__p += '\r\n\r\n\t\t\t<li class="item-menu parking-student"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-student|primarylabel:Student|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Student</button></li>\r\n\r\n\t\t\t';
+ } ;
+__p += '\r\n\r\n\t\t</ul>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>';
 
 }
 return __p
@@ -21191,9 +21229,18 @@ return __p
 
 this["JST"]["app/scripts/templates/panels/printable-maps.ejs"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="panel-bd">\r\n\t<div class="bd spacing">\r\n\t\t<h3 class="subhead sr-only">Printable Maps</h3>\r\n\t\t<ul class="list-pdfs">\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf">Campus Map</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf"><img src="../app/images/pdfs/pdf_campusmap_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf">Parking</a>\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf"><img src="../app/images/pdfs/pdf_parking_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf">Driving Directions</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf"><img src="../app/images/pdfs/pdf_directions_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf">Accessibility</a>\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf"><img src="../app/images/pdfs/pdf_accessibility_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf">Commencement</a>\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf"><img src="../app/images/pdfs/pdf_commencement_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>';
+__p += '<div class="panel-bd">\r\n\t<div class="bd spacing">\r\n\t\t<h3 class="subhead sr-only">Printable Maps</h3>\r\n\t\t';
+ if (model.campus.campusid === 'medford') { ;
+__p += '\r\n\t\t<ul class="list-pdfs medford">\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf">Campus Map</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf"><img src="../app/images/pdfs/pdf_campusmap_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf">Parking</a>\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf"><img src="../app/images/pdfs/pdf_parking_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf">Driving Directions</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf"><img src="../app/images/pdfs/pdf_directions_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf">Accessibility</a>\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf"><img src="../app/images/pdfs/pdf_accessibility_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf">Commencement</a>\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf"><img src="../app/images/pdfs/pdf_commencement_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t';
+ } else if (model.campus.campusid === 'grafton') { ;
+__p += '\r\n\t\t<div class="grafton clearfix">\r\n\t\t\t<p class="title"><a class="link external" target="_blank" href="http://www.tufts.edu/vet/tcsvm_campus_map.pdf">Download a PDF of the Grafton Campus</a></p>\r\n\t\t\t<a class="thumb" target="_blank" href="http://www.tufts.edu/vet/tcsvm_campus_map.pdf"><img src="../app/images/pdfs/pdf_campusmap_grafton_150.png" /></a>\r\n\t\t\t<p class="bd">The Cummings School of Veterinary Medicine is located along Route 30 (Westboro Road) in North Grafton Massachusetts.</p>\r\n\r\n\t\t\t<p class="bd">For more information on general directions to the campus visit the <a class="link external" target="_blank" href="http://vet.tufts.edu/directions.html">website</a>.</p>\r\n\t\t</div>\r\n\t\t';
+ } else if (model.campus.campusid === 'boston') { ;
+__p += '\r\n\t\t<div class="boston clearfix">\r\n\t\t\t<p class="title"><a class="link external" target="_blank" href="http://campusmaps.tufts.edu/docs/boston-accessibilitymap.pdf">Download a PDF of the Tufts Boston Campus</a></p>\r\n\t\t\t<a class="thumb" target="_blank" href="http://campusmaps.tufts.edu/docs/boston-accessibilitymap.pdf"><img src="../app/images/pdfs/pdf_campusmap_boston2_150.png" /></a>\r\n\t\t\t<p class="bd">Tufts Boston campus includes the School of Medicine, the School of Dental Medicine, Sackler School of Graduate Biomedical Sciences, Jean Mayer USDA Human Nutrition Research Center on Aging, and The Gerald J. and Dorothy R. Friedman School of Nutrition Science and Policy. </p>\r\n\t\t</div>\r\n\t\t';
+ } ;
+__p += '\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>';
 
 }
 return __p
@@ -21236,7 +21283,8 @@ return __p
 
 this["JST"]["app/scripts/templates/panels/select-destination.ejs"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="panel-bd panel-secondary">\r\n\t<div class="bd spacing">\r\n\t\t<h3 class="subhead">Select a Destination</h3>\r\n\t\t<p class="bare"><strong class="heavy">Where to?</strong></p>\r\n\t\t<div class="directions-options ' +
 ((__t = (model.location.locationid)) == null ? '' : __t) +
@@ -21244,7 +21292,17 @@ __p += '<div class="panel-bd panel-secondary">\r\n\t<div class="bd spacing">\r\n
 ((__t = (model.location.locationid)) == null ? '' : __t) +
 '\'><label>' +
 ((__t = (model.location.name)) == null ? '' : __t) +
-'</label></button>\r\n\t\t\t<button class="btn-large to-b" data-campusmap=\'panels:details,directions|directionsto:p-dowling-garage\'><label>Dowling Parking Garage</label></button>\r\n\t\t</div>\r\n\t\t \r\n\t\t<div class=\'footer\'>\r\n\t\t\t<a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More on Visitor Parking</a>\r\n\t\t\t<span class="divider">|</span>\r\n\t\t\t<a class="link external" target="_blank" href="http://www.mbta.com">MBTA</a>\r\n\t\t\t<span class="divider">|</span> \r\n\t\t\t<a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/shuttle-services-2/">Shuttle Tracker</a>\r\n\t\t\t<button class="btn-close" data-campusmap=\'panels:details\'>close</button>\r\n\t\t</div>\r\n\t</div>\r\n</div>';
+'</label></button>\r\n\r\n\t\t\t';
+ if (model.campus.campusid === 'medford') { ;
+__p += '\r\n\t\t\t<button class="btn-large to-b" data-campusmap=\'panels:details,directions|directionsto:p-dowling-garage\'><label>Dowling Parking Garage</label></button>\r\n\t\t\t';
+ } else if (model.campus.campusid === 'grafton') { ;
+__p += '\r\n\t\t\t<button class="btn-large to-b" data-campusmap=\'panels:details,directions|directionsto:p-grafton2\'><label>Campus Center Parking Lot</label></button>\r\n\t\t\t';
+ } ;
+__p += '\r\n\t\t\t\r\n\t\t\t\r\n\t\t</div>\r\n\t\t \r\n\t\t<div class=\'footer\'>\r\n\t\t\t';
+ if (model.campus.campusid === 'medford') { ;
+__p += '\r\n\t\t\t<a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/parking-services/visitor-parking-58/">More on Visitor Parking</a>\r\n\t\t\t<span class="divider">|</span>\r\n\t\t\t<a class="link external" target="_blank" href="http://www.mbta.com">MBTA</a>\r\n\t\t\t<span class="divider">|</span> \r\n\t\t\t<a class="link external" target="_blank" href="http://publicsafety.tufts.edu/adminsvc/shuttle-services-2/">Shuttle Tracker</a>\r\n\t\t\t';
+ } ;
+__p += '\r\n\t\t\t<button class="btn-close" data-campusmap=\'panels:details\'>close</button>\r\n\t\t</div>\r\n\t</div>\r\n</div>';
 
 }
 return __p
@@ -21298,10 +21356,6 @@ define('scripts/domManager',[
     'jquery'
 
     , 'underscore'
-
-    //, 'scripts/config'
-
-    //, 'scripts/moduleManager'
 
     , 'eventdispatcher'
 
@@ -21405,7 +21459,7 @@ define('scripts/domManager',[
     // Html for each label tile
     DomManager.prototype.getLabelTile = function(id, ownerDocument, models) {
 
-        var html, $div;
+        var html, $div, fnMultilines = this.toMultiLines;
 
         _.each(models, function(model) { 
 
@@ -21413,13 +21467,45 @@ define('scripts/domManager',[
 
         }, this);
 
-        html = this.labelTileTemplate({ locations: _.map(models, function(model) { return model.toJSON ? model.toJSON() : model; }) });
+        html = this.labelTileTemplate({ locations: _.map(models, function(model) { 
+
+                var json = model.toJSON ? model.toJSON() : model;
+                
+                json.multilinename = _.map(fnMultilines(json.name, 22), function(line) { return line; }).join("<br/>");
+
+                return json; 
+
+            })
+
+        });
 
         $div = $(html);
 
         return $div[0];
 
     };
+
+    DomManager.prototype.toMultiLines = function(txt, maxcharacters) {
+
+        var words, lines = [], j = 0;
+
+        maxcharacters || (maxcharacters = 32);
+
+        words = txt.split(" ");
+
+        for (var n = 0; n < words.length; n++) {
+
+            lines[j] || (lines[j] = "");
+
+            lines[j] = lines[j] + words[n] + " ";
+
+            if (lines[j].length > maxcharacters) j++;
+
+        }
+
+        return lines;
+
+    }
 
 
     DomManager.prototype.getLocationClassNames = function(loc) {
@@ -21731,6 +21817,8 @@ define('scripts/views/panels/Base',[
 
                 location: {},
 
+                campus: {},
+
                 pageurl: Config.env.pageurl
 
             }, { silent: true });
@@ -21749,6 +21837,16 @@ define('scripts/views/panels/Base',[
                 this.location = changedAttrs.details || {};
 
                 this.model.set({ location: this.location.toJSON ? this.location.toJSON() : this.location });
+
+            }, this);
+
+            EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
+
+                if (!changedAttrs.campus) return;
+
+                this.campus = changedAttrs.campus || {};
+
+                this.model.set({ campus: this.campus.toJSON ? this.campus.toJSON() : this.campus });
 
             }, this);
 
@@ -22401,6 +22499,8 @@ define('scripts/views/panels/depts-offices-info',[
         toJSON: function() {
 
             var json = this.model.get('occupant');
+
+            json.phone && (json.phone = this.formatPhone(json.phone));
 
             return { model: json };
 
@@ -23253,7 +23353,7 @@ define('strategies/CssFlagStrategy',[
 
     
 
-    var cssFlags = ['search', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted'];
+    var cssFlags = ['search', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted', 'admin', 'boston', 'grafton', 'medford'];
 
     function CssFlagStrategy() {
 
@@ -24456,7 +24556,8 @@ define('app',[
     App.prototype.start = function(data) {
 
         // The truth is born (almost) -- app config settings, passed-in settings, and settings from fetched data all are now combined.
-        var settings = _.defaults(this.settings, data);
+        //var settings = _.defaults(this.settings, data);
+        var settings = _.extend(this.settings, data);
 
         // Parse route and add attributes to settings
         new Router( { settings: settings } ).start();

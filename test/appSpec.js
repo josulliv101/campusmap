@@ -17,7 +17,7 @@ define([
 
       spyOn(App.prototype, 'fetch').andReturn({ campus: 'medford' });
 
-      app = new App(el, { fakeSettings: true }, { fakeConfigSettings: true });
+      app = new App(el, { fakeSettings: true, campus: 'medford' }, { fakeConfigSettings: true });
 
       app.controller = new FakeController();
 

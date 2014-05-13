@@ -43,6 +43,8 @@ define([
 
             var json = this.model.get('occupant');
 
+            json.phone && (json.phone = this.formatPhone(json.phone));
+
             return { model: json };
 
         }

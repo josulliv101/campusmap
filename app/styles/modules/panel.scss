@@ -503,6 +503,7 @@ $gutter: 8px;
 		}
 
 		&#settings {
+			padding-bottom: 16px;
 			.panel-bd {
 				width: 400px;
 			}
@@ -672,6 +673,9 @@ $gutter: 8px;
 					&.parking-no-sticker button {
 						background: url("../../app/images/icons/parking/x.png") no-repeat 12px center;
 					}
+					&.parking-student button {
+						background: url("../../app/images/icons/parking/s.png") no-repeat 12px center;
+					}
 				}
 			}
 		}
@@ -754,7 +758,7 @@ $gutter: 8px;
 		}
 
 		&#printable-maps {
-			.grafton {
+			.grafton, .boston {
 				.title {
 					margin-bottom: 16px;
 				}

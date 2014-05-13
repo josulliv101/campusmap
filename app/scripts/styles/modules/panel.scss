@@ -489,6 +489,7 @@ $gutter: 8px;
 		}
 
 		&#settings {
+			padding-bottom: 16px;
 			.panel-bd {
 				width: 400px;
 			}
@@ -637,7 +638,7 @@ $gutter: 8px;
 					}
 					&.parking-student button {
 						background: url("../../app/images/icons/parking/s.png") no-repeat 12px center;
-					}
+					} 
 				}
 			}
 		}

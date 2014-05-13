@@ -219,7 +219,7 @@ $lite: #fff;
 
 			&.commencement {
 				display: none;
-				&#m019 { /* Aidekman Arts Center  */
+				&#m019, &.emphasis4, &.emphasis5 { /* Aidekman Arts Center  */
 					display: block;
 				}
 			}
@@ -314,13 +314,15 @@ $lite: #fff;
 
 					.txt {
 						
-						top: -5px;
+						top: -8px;
 
 						left: 10px;
 
 						font-size: 19px;
 
 						padding: 6px;
+
+						line-height: 22px;
 
 					}
 
