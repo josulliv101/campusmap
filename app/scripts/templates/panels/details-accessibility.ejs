@@ -18,7 +18,10 @@
 		<% } else { %>
 			<div class='footer no-content'>
 		<% } %>
-			<a class="link external" href="http://oeo.tufts.edu/">Office of Equal Opportunity</a> <span class="divider">|</span> <a class="link external" href="#">Accessibility Map (pdf)</a>
+			<a class="link external" href="http://oeo.tufts.edu/">Office of Equal Opportunity</a> 
+			<% if (model.campus.campusid === 'medford') { %>
+			<span class="divider">|</span> <a class="link external" target="_blank" href="http://campusmaps.tufts.edu/docs/medford-accessibilitymap.pdf">Accessibility Map (pdf)</a>
+			<% } %>
 			<button class="btn-close" data-campusmap='panels:details'>close</button>
 		</div>
 	</div>

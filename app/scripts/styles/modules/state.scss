@@ -422,6 +422,16 @@
 		}
 	}
 
+	&.grafton {
+		.#accessibility {
+			.menu-accessibility {
+				.item-menu {
+					width: 50%;
+				}
+			}
+		}
+	}
+
 	/* Settings */
 	&.high-contrast-labels {
 		#map-canvas {

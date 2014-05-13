@@ -28,9 +28,15 @@
 		<div class="grafton clearfix">
 			<p class="title"><a class="link external" target="_blank" href="http://www.tufts.edu/vet/tcsvm_campus_map.pdf">Download a PDF of the Grafton Campus</a></p>
 			<a class="thumb" target="_blank" href="http://www.tufts.edu/vet/tcsvm_campus_map.pdf"><img src="./app/images/pdfs/pdf_campusmap_grafton_150.png" /></a>
-			<p>The Cummings School of Veterinary Medicine is located along Route 30 (Westboro Road) in North Grafton Massachusetts.</p>
+			<p class="bd">The Cummings School of Veterinary Medicine is located along Route 30 (Westboro Road) in North Grafton Massachusetts.</p>
 
-			<p>For more information on general directions to the campus visit the <a target="_blank" href="http://vet.tufts.edu/directions.html">website</a>.</p>
+			<p class="bd">For more information on general directions to the campus visit the <a class="link external" target="_blank" href="http://vet.tufts.edu/directions.html">website</a>.</p>
+		</div>
+		<% } else if (model.campus.campusid === 'boston') { %>
+		<div class="boston clearfix">
+			<p class="title"><a class="link external" target="_blank" href="http://campusmaps.tufts.edu/docs/boston-accessibilitymap.pdf">Download a PDF of the Tufts Health Sciences Campus</a></p>
+			<a class="thumb" target="_blank" href="http://campusmaps.tufts.edu/docs/boston-accessibilitymap.pdf"><img src="./app/images/pdfs/pdf_campusmap_boston2_150.png" /></a>
+			<p class="bd">Tufts Boston campus includes the School of Medicine, the School of Dental Medicine, Sackler School of Graduate Biomedical Sciences, Jean Mayer USDA Human Nutrition Research Center on Aging, and The Gerald J. and Dorothy R. Friedman School of Nutrition Science and Policy. </p>
 		</div>
 		<% } %>
 		<div class='footer'><button class="btn-close" data-campusmap='panels:|details:'>close</button></div>
