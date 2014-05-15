@@ -10,7 +10,7 @@ define([
 
     'use strict';
 
-    var cssFlags = ['search', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted', 'admin', 'boston', 'grafton', 'medford'];
+    var cssFlags = ['search', 'show-results-help', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted', 'admin', 'boston', 'grafton', 'medford'];
 
     function CssFlagStrategy() {
 

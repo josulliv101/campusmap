@@ -164,7 +164,7 @@ $gutter: 8px;
 			&.panel-secondary {
 				
 				height: auto;
-
+				max-height: 152px;
 				padding-top: 22px;
 
 				padding-right: 64px;
@@ -240,6 +240,8 @@ $gutter: 8px;
 				.footer {
 					
 					margin: 14px 0 2px;
+
+					min-height: 24px;
 
 					color: #999;
 
@@ -402,11 +404,13 @@ $gutter: 8px;
 										border-bottom: 1px #eee solid;
 										button {
 											width: 100%;
-											height: 32px;
+											line-height: 16px;
 											text-align: left;
 											background: none;
 											border: none;
 											font-size: 13px;
+											padding: 9px 16px;
+											height: auto;
 											&:hover, &:focus {
 												background: #dddcdc;
 												&:after {
@@ -503,7 +507,8 @@ $gutter: 8px;
 		}
 
 		&#settings {
-			padding-bottom: 16px;
+			padding-bottom: 0px;
+			margin-bottom: 0;
 			.panel-bd {
 				width: 400px;
 			}
@@ -565,20 +570,23 @@ $gutter: 8px;
 		}
 
 		&#depts-offices-info {
-			height: 143px;
+			height: 152px;
 			.panel-bd {
 				&.panel-secondary {
 					padding-right: 12px;
+					.list {
+						width: 380px;
+					}
 				}
 			}
 			.list {
-				min-height: 97px;
+				min-height: 102px;
 				li {
 					margin-bottom: 9px;
 					color: #333;
 					&.title {
 						font-size: 13px;
-						
+						line-height: 18px;
 						margin-top: 6px;
 					}
 				}
@@ -586,6 +594,7 @@ $gutter: 8px;
 		}
 
 		&#accessibility {
+			height: 84px;
 			.menu-accessibility {
 				.item-menu {
 					float: left;
@@ -626,6 +635,17 @@ $gutter: 8px;
 					}
 				}
 			}
+			.footer {
+				border-top: #dedede 1px solid;
+			    background: #EEEEEE;
+			    min-height: 22px;
+			    width: 100%;
+			    button {
+			    	&.btn-close {
+			    		bottom: 3px;
+			    	}
+			    }
+			}
 		}
 
 		&#parking {
@@ -639,7 +659,7 @@ $gutter: 8px;
 						width: 100%;
 						text-align: left;
 						height: 62px;
-						padding-left: 54px;	
+						padding-left: 50px;	
 					    font-size: 11px;
 					    font-weight: 400;
 					    letter-spacing: 0.06em;
@@ -839,16 +859,16 @@ $gutter: 8px;
 						height: 100%;
 						border: none;
 						background: none;
-						padding: 0 16px;
+						padding: 9px 66px 9px 16px;
 						font-size:13px;
 						/*letter-spacing: .04em;*/
-						line-height: 32px;
+						line-height: 16px;
 						text-align: left;
 
-
-						em { /* Highlight query match */
-							color: #000;
-							text-decoration: underline;
+ 
+						em {  
+							/*color: #000;
+							text-decoration: underline;*/
 							font-style: normal;
 						}
 
@@ -859,23 +879,27 @@ $gutter: 8px;
 							em {
 								color: #777;
 							}
+							display: none;
 						}
-
+						&:after {
+							 content: " \00a0\00a0 ";
+							}
 						&:hover, &:focus {
 							background: #dddcdc; /*#ddd;*/
 							&:after {
-							 content: " \003E ";
+							 content: " \003E";
 							}
 						}
 
 						.btn-details {
 							position: absolute;
-							top: 5px;
-							right: 11px;
+							top: 6px;
+							right: 5px;
 							line-height: 22px;
 							font-size: 11px;
 							text-align: center;
 							display: none;
+
 						}
 					}
 
@@ -883,6 +907,7 @@ $gutter: 8px;
 						button {
 							.btn-details {
 								display: inline-block;
+								cursor: pointer;
 							}
 						}
 					}

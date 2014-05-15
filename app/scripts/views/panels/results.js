@@ -193,7 +193,7 @@ define([
 
                                     if (!result.resultMatch || result.resultMatch.attr === 'name') return result.label = result.name;
 
-                                    if (result.resultMatch.attr === 'address1' || result.resultMatch.attr === 'keywords') return result.label = result.name + "<span>(" + result.resultMatch.val + ")</span>";
+                                    if (result.resultMatch.attr === 'dept-offices' || result.resultMatch.attr === 'address1' || result.resultMatch.attr === 'keywords') return result.label = result.name + " <span>(" + result.resultMatch.val + ")</span>";
 
                                     if (result.resultMatch.attr === 'tags') {
 

@@ -39,7 +39,38 @@
 
                 },
 
-                defaultFilter: ['tags', 'keywords', 'address1', 'name']//function() { return true; }
+                defaultFilter: [
+
+                    // Filter matching departments & offices
+                    function(loc) { 
+
+                        var occupants = _.getAttr(loc, 'occupants'), names;
+
+                        if (!occupants) return false;
+
+                        names =    _.chain(occupants)
+
+                                    .map(function(occupant) { return _.trim(occupant.name); })
+
+                                    .filter(function(name) { 
+
+                                        if ( name.match(new RegExp("(^| )" + query_.term, "ig")) ) return true;
+
+                                    })
+
+                                    .value();
+
+                        if (names.length > 0) {
+
+                            _.setAttr(loc, { resultMatch: { val: names.join(", "), attr: "dept-offices", word: "test" } });
+
+                            return true;
+
+                        }; 
+
+                        return false;
+
+                    }, 'tags', 'keywords', 'address1', 'name']//function() { return true; }
 
             },
 
@@ -56,7 +87,22 @@
 
                         if (!val) return false;
 
-                        words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and', 'the', 'an', 'at', 'for'], word); }).value();
+                        // A match was already found so return
+                        if (_.getAttr(loc, 'resultMatch')) return false;
+
+                        words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and','an', 'at', 'for'], word); }).value();
+
+                        // Check if the query term contains a space
+                        if (query_.term.indexOf(" ") > 0) {
+
+                            if ( val.match(new RegExp("(^| )" + query_.term, "ig")) ) {
+
+                                _.setAttr(loc, { resultMatch: { val: _.getAttr(loc, attr), attr: attr  } });
+
+                                return true;
+
+                            }
+                        }
 
                         return _.exists(val) && _.some(words, function(word) { 
 
@@ -100,9 +146,12 @@
             _.isArray(filters) || (filters = [ filters ]);
 
             // Update query object term
-            query_.term = q && q.toLowerCase();
+            query_.term = q && _.trim(q.toLowerCase());
 
             fns = filterParamsToFns_(filters);
+
+            // Reset the results match text
+            _.each(locations, function(loc) { _.setAttr(loc, { resultMatch: null }); });
 
             // Apply the filters
             _.each(fns, function(fn, index) { locs[index] = _.filter(locations, fn); });

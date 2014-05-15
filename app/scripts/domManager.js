@@ -138,7 +138,7 @@ define([
 
         maxcharacters || (maxcharacters = 32);
 
-        words = txt.split(" ");
+        words = _.isString(txt) ? txt.split(" ") : [];
 
         for (var n = 0; n < words.length; n++) {
 

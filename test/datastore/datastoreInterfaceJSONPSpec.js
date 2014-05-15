@@ -30,29 +30,6 @@ define(['../../scripts/datastore/datastore-jsonp'], function (DatastoreJSONP) {
 
     });
 
-
-    describe('Fetching', function () {
-
-      it('fetches data.', function () {
-
-        var dfd = DatastoreJSONP.fetch('medford');
-
-        waitsFor(function() {
-
-          return dfd.state() === 'resolved';
-
-        }, "fetch data", 5000);
-
-        runs(function () {
-
-          expect(DatastoreJSONP.getCampusList().models.length).toBeGreaterThan(0);
-
-        });
-
-      });
-
-    });
-
   });
 
 });

@@ -20,14 +20,28 @@ ul {
 
 }
 
+input[disabled] {
+	background-color:#fff;
+	color: #333 !important;
+	opacity: 1;
+}
+
 input[type="text"]:disabled {
 
 	background-color:#fff;
 
-	color: #333;
+	color: #333 !important;
 
 	opacity: 1;
 
+}
+
+input[type="text"][disabled] {
+	background-color:#fff;
+
+	color: #333 !important;
+
+	opacity: 1;
 }
 
 #app {

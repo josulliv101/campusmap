@@ -126,6 +126,39 @@ define(['_mixins', '../scripts/filter', 'backbone'], function (_, Filter, Backbo
 
       });
 
+      it('should return results if a space is in the search term (Ballou H)', function () {
+
+        var results = Filter.filter('Ballou H', locsCollection.models, 'name');
+
+        expect(results).toBeDefined();
+
+        expect(results.length).toEqual(1);
+
+
+      });
+
+      it('should return results if a space is in the search term but in the middle of the string (George str)', function () {
+
+        var results = Filter.filter('George str', locsCollection.models, 'name');
+
+        expect(results).toBeDefined();
+
+        expect(results.length).toEqual(1);
+
+
+      });
+
+      it('should not return results if multiple words but does not start a word or begin phrase (eorge Str)', function () {
+
+        var results = Filter.filter('0 george Str', locsCollection.models, 'name');
+
+        expect(results).toBeDefined();
+
+        expect(results.length).toEqual(0);
+
+
+      });
+
     });
 
   });

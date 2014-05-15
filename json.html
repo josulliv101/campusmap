@@ -3,6 +3,16 @@
 <head>
     <title>Retrieve JSON from Parse.com</title>
 
+    <style type="text/css">
+
+	    #json {
+	    	width: 100%;
+	    	min-width: 600px;
+	    	min-height: 500px;
+	    }
+
+    </style>
+
 </head>
 
 <body>  
@@ -10,6 +20,7 @@
   <div class="campuses">
     <form role="form">
       <div>
+      	<div>Select a Campus</div>
         <select class="form-control" id="campus">
           <option value="boston">Boston</option>
           <option value="grafton">Grafton</option>
@@ -34,29 +45,33 @@
       </div>
       <div>
         <button type="button" id="get-data" class="btn btn-default">Get Data</button>
+        <label id="locationCount"></label>
       </div>
     </form>
   </div>
+  <textarea id="json"></textarea>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min.js"></script>
 	<script src="//www.parsecdn.com/js/parse-1.2.9.min.js"></script>
 	 
 	<script type="text/javascript">
-		$(function() {
+	
+	$(function() {
 
-			var query, campusid, utils;
+	  var query, campusid, utils;
 
       utils = {
 
-          filter: filter
+          filter: filter // Reference to the filter function below
 
       };
 
       _.mixin(_.str.exports());
 
-			Parse.initialize("nfmwDYABTXjDPTOmfBvz89Fe3i7Sv8lp426R2Fzu", "2wMHizUh1Y73nMjmHDIdIJVMd7aUPI7V4r1eUSTh");
+      // Parse id & app key
+	  Parse.initialize("nfmwDYABTXjDPTOmfBvz89Fe3i7Sv8lp426R2Fzu", "2wMHizUh1Y73nMjmHDIdIJVMd7aUPI7V4r1eUSTh");
 
       $("body").on( "click", "#get-data", function() {
         
@@ -81,22 +96,7 @@
                     
                     error: handleError
 
-                 });
-/*
-        new Parse.Query('Location')
-
-                 .equalTo("campus", campus)
-
-                 .limit(1000) // Default is 100, max is 1000
-
-                 .find({
-                  
-                    success: handleSuccess,
-                    
-                    error: handleError
-
-                 });
-*/                 
+                 });                
       }
 
       function filter(list) {
@@ -104,8 +104,6 @@
         var tagsExclude = convertTxtToItems( $("#tagExclude").val() ),
 
             tagsInclude = convertTxtToItems( $("#tagInclude").val() );
-
-        console.log('filter before', list.length);
 
         return _.chain(list)
 
@@ -130,66 +128,64 @@
                 .value();
       }
 
-			function handleError() {
+	function handleError() {
 
-				console.log('handleError');
+		alert('Error');
 
-			}
+	}
 
-			function handleSuccess(results) {
+	function handleSuccess(results) {
 
-        var campus = _.first(results), // The campus
+	    var campus = _.first(results), // The campus
 
-            map = campus && _.first(campus.get('maps')), // The map
+	        map = campus && _.first(campus.get('maps')), // The map
 
-            locations = utils.filter(map && map.get('locations')),
+	        locations = utils.filter(map && map.get('locations')),
 
-            json;
+	        json;
 
-        if (!(campus && map)) return;
+	    if (!(campus && map)) return;
 
-        //map.fetch()
+		json = campus.toJSON();
 
-        //.then(function() {
+		json.maps[0] = map.toJSON();
 
-          json = campus.toJSON();
+		json.maps[0].locations = _.map(locations, function(loc) { 
 
-          json.maps[0] = map.toJSON();
-
-          json.maps[0].locations = _.map(locations, function(loc) { return loc.toJSON(); });
-
-          //console.log('map json', map.toJSON());
-
-          console.log('filter after', locations.length);
-
-          console.log('json', JSON.stringify(json));
-
-        //});
-
-			}
-
-      function convertTxtToItems(txt) {
-
-        txt || (txt = '');
-
-        return _.chain(txt.split(','))
-
-                .map(function(item) { return _.trim(item); })
-
-                .reject(function(item) { return _.isEmpty(txt); })
-
-                .value();
-
-      }
-
-
-      function trim(txt) {
-
-        return _.trim(txt);
-
-      }
+			// Omit some admin related columns
+			return _.omit(loc.toJSON(), 'createdAt', 'updatedAt', 'objectId', 'mapid'); 
 
 		});
+
+		$('#locationCount').text(json.maps[0].locations.length + " locations found.");
+
+		// Expects the json data wrapped in a cb function
+		$("#json").val("cb([" + JSON.stringify(json) + "])");
+
+	}
+
+	function convertTxtToItems(txt) {
+
+		txt || (txt = '');
+
+		return _.chain(txt.split(','))
+
+		        .map(function(item) { return _.trim(item); })
+
+		        .reject(function(item) { return _.isEmpty(txt); })
+
+		        .value();
+
+	}
+
+
+	function trim(txt) {
+
+		return _.trim(txt);
+
+	}
+
+});
 	</script>
 </body>
 </html>

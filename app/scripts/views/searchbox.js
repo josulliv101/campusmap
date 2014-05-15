@@ -49,7 +49,7 @@ define([
 
                 var q = $(ev.currentTarget).val(),
 
-                    args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'defaultFilter', query: q };
+                    args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'defaultFilter', query: q, 'show-results-help': true };
 
                 EventDispatcher.trigger('truthupdate', args);
 

@@ -22,6 +22,22 @@
 			}
 		}
 	}
+	&.show-results-help {
+		#results {
+			.result {
+				button {
+					em { /* Highlight query match */
+						color: #000;
+						text-decoration: underline;
+						font-style: normal;
+					}
+					span {
+						 display: inline !important;
+					}
+				}
+			}
+		}
+	}
 	&.building {
 		#nav-primary {
 			.building {
@@ -33,7 +49,7 @@
 			.result {
 				button {
 					span {
-						display: none !important;
+						 
 					}
 				}
 			}
@@ -52,7 +68,7 @@
 			.result {
 				button {
 					span {
-						display: none !important;
+						 
 					}
 				}
 			}
@@ -79,7 +95,7 @@
 			.result {
 				button {
 					span {
-						display: none !important;
+						 
 					}
 				}
 			}
@@ -176,7 +192,7 @@
 			.result{
 				&.active {
 					.btn-details {
-						display: none !important;
+						 
 					}
 				}
 			}
@@ -582,6 +598,37 @@
 				&:hover {
 					background: #bbb;
 				}		
+			}
+		}
+	}
+
+	&.large-labels {
+		&.boston {
+			#map-canvas {
+				.label-tile {
+					.location {
+						.bd {
+							.txt {
+								top: -5px;
+								left: 6px;
+								font-size: 15px;
+								padding: 4px 6px;
+								line-height: 20px;
+							}
+						}
+						&.emphasis5 {
+							.bd {
+								.txt {
+									top: -12px;
+									left: 10px;
+									font-size: 18px;
+									padding: 8px 6px;
+									line-height: 26px;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
