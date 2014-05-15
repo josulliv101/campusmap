@@ -1,4 +1,4 @@
-/*! campusmap - v0.0.0 - 2014-05-13
+/*! campusmap - v0.0.0 - 2014-05-14
 * Copyright (c) 2014 Joe Sullivan; Licensed MIT */
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.
@@ -21043,16 +21043,12 @@ __p += '\r\n\t\t\t\t\t\t<p class="addr addr2">' +
 '</p>\r\n\t\t\t\t\t';
  } ;
 __p += '\r\n\t\t\t\t\t';
- if (model.location.city) { ;
+ if (model.location.city && model.location.zip) { ;
 __p += '<p class="addr city">' +
 ((__t = (model.location.city)) == null ? '' : __t) +
-', MA \r\n\t\t\t\t\t\t';
- if (model.location.city === 'Somerville') { ;
-__p += '02144';
- } else { ;
-__p += '02155';
- } ;
-__p += '</p>\r\n\t\t\t\t\t';
+', MA ' +
+((__t = (model.location.zip)) == null ? '' : __t) +
+'</p>\r\n\t\t\t\t\t';
  } ;
 __p += '\r\n\t\t\t\t\t<div class="more-info"><p>\r\n\t\t\t\t\t\t';
  if (model.location.phone) { ;
@@ -25098,6 +25094,11 @@ define('scripts/views/searchbox',[
 
             EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
+            // Text longer than this number is considered long text. Add css flag for it so text font-size can be decresed.
+            this.longtxt = 40;
+
+            this.extralongtxt = 50;
+
             if (this.model) {
 
                 this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
@@ -25148,6 +25149,19 @@ define('scripts/views/searchbox',[
         },
 
         refreshPrimaryLabel: function(model, label) {
+
+            var classname;
+
+            // Reset
+            this.$el.removeClass('longtext extralongtext');
+
+            if (_.isString(label)) {
+
+                classname = label.length > this.extralongtxt ? 'extralongtext' : (label.length > this.longtxt ? 'longtext' : '');
+                
+                this.$el.addClass(classname);
+
+            }
 
             this.$('#searchbox, .label-primary').val(label);
 

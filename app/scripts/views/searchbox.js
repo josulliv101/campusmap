@@ -80,6 +80,11 @@ define([
 
             EventDispatcher.on('delegateTruth', this.handleTruthChange);
 
+            // Text longer than this number is considered long text. Add css flag for it so text font-size can be decresed.
+            this.longtxt = 40;
+
+            this.extralongtxt = 50;
+
             if (this.model) {
 
                 this.listenTo(this.model, 'change:primarylabel', this.refreshPrimaryLabel);
@@ -130,6 +135,19 @@ define([
         },
 
         refreshPrimaryLabel: function(model, label) {
+
+            var classname;
+
+            // Reset
+            this.$el.removeClass('longtext extralongtext');
+
+            if (_.isString(label)) {
+
+                classname = label.length > this.extralongtxt ? 'extralongtext' : (label.length > this.longtxt ? 'longtext' : '');
+                
+                this.$el.addClass(classname);
+
+            }
 
             this.$('#searchbox, .label-primary').val(label);
 

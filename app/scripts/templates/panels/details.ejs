@@ -17,8 +17,7 @@
 					<% if (model.location.address2) { %>
 						<p class="addr addr2">${model.location.address2}</p>
 					<% } %>
-					<% if (model.location.city) { %><p class="addr city">${model.location.city}, MA 
-						<% if (model.location.city === 'Somerville') { %>02144<% } else { %>02155<% } %></p>
+					<% if (model.location.city && model.location.zip) { %><p class="addr city">${model.location.city}, MA ${model.location.zip}</p>
 					<% } %>
 					<div class="more-info"><p>
 						<% if (model.location.phone) { %>

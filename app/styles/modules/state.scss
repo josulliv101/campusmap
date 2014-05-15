@@ -5,6 +5,23 @@
    ========================================================================== */
 
 #app {
+	.searchbox {
+		&.longtext, &.extralongtext {
+			#searchbox {
+				height: 34px;
+			}
+		}
+		&.longtext {
+			#searchbox {
+				font-size: 14px !important; /* So long location names fit */
+			}
+		}
+		&.extralongtext {
+			#searchbox {
+				font-size: 11px !important; /* So long location names fit */
+			}
+		}
+	}
 	&.building {
 		#nav-primary {
 			.building {
