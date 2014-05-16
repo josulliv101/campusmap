@@ -38,7 +38,7 @@ define([
             EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
 
                 // Removes any url # attrs when page loads
-                 this.navigate('', { trigger: false });
+                //this.navigate('', { trigger: false });
 
             }, this);
 

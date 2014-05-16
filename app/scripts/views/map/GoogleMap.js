@@ -60,7 +60,8 @@ define([
         google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
 
             // Workaround to make the default text appear in searchbox.
-            $('.panel-search .search').trigger('click');
+            //$('.panel-search .search').trigger('click');
+            //EventDispatcher.trigger('truthupdate', { primarylabel: null });
 
             google.maps.event.addListener(streetview, 'visible_changed', function() {
 
@@ -115,11 +116,11 @@ define([
 
             ev.stop();
 
-            if (_.isObject(loc)) EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
+            if (_.isObject(loc)) EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, detailsnavbar: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
 
             else {
 
-                EventDispatcher.trigger('truthupdate', { details: '', panels: '', query: null, backto: null, primarylabel: null, searchboxdisable: false });
+                EventDispatcher.trigger('truthupdate', { detailsnavbar: null, details: '', panels: '', query: null, backto: null, primarylabel: null, searchboxdisable: false });
 
             }
             // Comment for now. Causes flicker in IE
@@ -248,7 +249,7 @@ define([
 
     GoogleMapView.prototype.handleSearchboxCollisons = function(dimensions, zoom, latlng) {
 
-        if (!latlng) return;
+        if (!latlng || !this.map.getBounds()) return;
 
         var bounds = this.map.getBounds(), z = this.map.getZoom(),
 

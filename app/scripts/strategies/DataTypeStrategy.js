@@ -101,7 +101,11 @@ define([
 
         if ((key !== 'details' && key !== 'directionsto') || !_.isString(val)) return;
 
-        locations = theTruth.get('locations');
+        theTruth.get('detailsnavbar') || (model.detailsnavbar = Config.models.detailsnavbar);
+
+        //theTruth.get('detailsnavbarstate') || (model.detailsnavbarstate = _.first(Config.models.detailsnavbar).id);
+
+        locations = theTruth.get('locations') || model.locations;
 
         attr[key] = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
 
@@ -231,6 +235,64 @@ define([
         return  val;
 
     };
+
+    // Convert s from url # to needed state
+    DataTypeStrategy.prototype.stateFromRouter = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        var attr = {}, reset;
+
+        if (key !== 's') return;
+
+        reset = { parking: false, commencement: false, accessibility: false };
+
+        attr[val] = true;
+
+        // val = commencement | parking | accessibility | pdf
+        _.extend(model, reset, attr, { 
+
+                panels: PanelManager.getPanelsById( val ) || [], 
+
+                mode: val,
+
+                primarylabel: _.capitaliseFirstLetter(val)
+
+            });
+
+        return val;
+
+    };
+
+    // Convert fid to needed state
+    DataTypeStrategy.prototype.fidFromRouter = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        var attr = {}, locations, loc;
+
+        if (key !== 'fid') return;
+
+        locations = theTruth.get('locations') || model.locations;
+
+        loc = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
+
+        // only update if there's a found location
+        if (loc) _.extend(model, { 
+
+            details: loc,
+
+            panels: PanelManager.getPanelsById( 'details' ),
+
+            center: _.getAttr(loc, 'latlng'),
+
+            detailsnavbar: Config.models.detailsnavbar,
+
+            detailsnavbarstate: ''
+
+        });
+
+        DataTypeStrategy.prototype.stringToLatLng.apply(this, arguments);
+
+        return loc;
+
+    };
     
     DataTypeStrategy.prototype.detailsChange = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
@@ -239,14 +301,14 @@ define([
         if (key !== 'details' || _.isEmpty(val)) return;
 
         // Only proceed if the location is the same - want to advance the navbar to next item
-        if (theTruth.get('details') !== val) return;
+        if (theTruth.get('details') && theTruth.get('details').locationid !== val.locationid) return;
 
         // No change in searchbox height width
         //model.paneltransitiondone = null;
 
-        navbar = theTruth.get('detailsnavbar');
+        navbar = theTruth.get('detailsnavbar') || Config.models.detailsnavbar;
 
-        navbarstate = theTruth.get('detailsnavbarstate');
+        navbarstate = theTruth.get('detailsnavbarstate') || _.first(navbar).id;
 
         //navitemCurrent = _.find( navbar , function(navitem) { return navitem.id === navbarstate; });
 
@@ -299,6 +361,12 @@ define([
 
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
 
+        // Location id passed from #
+        DataTypeStrategy.prototype.fidFromRouter,
+
+        // State passed in from #. 
+        DataTypeStrategy.prototype.stateFromRouter,
+
         DataTypeStrategy.prototype.modeChange,
 
         DataTypeStrategy.prototype.stringToBoolean,
@@ -326,6 +394,8 @@ define([
         DataTypeStrategy.prototype.backTo,
 
         DataTypeStrategy.prototype.panelTransitionDone
+
+        
 
     );
 
