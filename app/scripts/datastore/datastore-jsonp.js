@@ -50,8 +50,8 @@ define([
                 var campus = campuses.at(0),
 
                     map = campus.get('maps')[0],
-// to be deleted
-                    locations = map.locations; //[{"name":"Ballou Hall","id":"m029","locationid":"m029","panoramas":[{"type":"photo","heading":200,"latlng":"42.407795,-71.119896","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-1.png"},{"type":"photo","heading":95,"latlng":"42.407411,-71.120771","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-2.png"},{"type":"photo","heading":20,"latlng":"42.407054,-71.120411","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-3.png"},{"type":"photo","heading":60,"latlng":"42.407043,-71.120878","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-4.png"},{"heading":300,"latlng":"42.407201,-71.120881","panoid":"M77AaZ5uueTV-s_-Npbbbg","pitch":15,"zoom":1}, {"heading":50,"latlng":"42.40742,-71.12046","pitch":10,"zoom":1},{"heading":60,"latlng":"42.40724,-71.11981","pitch":15,"zoom":1}],"thumbnail":"ballouhall-th.png","urlphoto":"ballouhall.png","label-position":"top","address1":"1 The Green","emphasis":2,"mapid":"medford-main","state":"MA","country":"United States","latlng":"42.407435,-71.120122"}];
+
+                    locations = map.locations; 
 
                 dfd.resolve({ 
 

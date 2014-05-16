@@ -70,7 +70,7 @@
 
                         return false;
 
-                    }, 'tags', 'keywords', 'address1', 'name']//function() { return true; }
+                    }, 'tags', 'keywords', 'address1', 'name'] 
 
             },
 
@@ -86,9 +86,6 @@
                         val = _.getAttr(loc, attr) && _.getAttr(loc, attr).toLowerCase();
 
                         if (!val) return false;
-
-                        // A match was already found so return
-                        if (_.getAttr(loc, 'resultMatch')) return false;
 
                         words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and','an', 'at', 'for'], word); }).value();
 

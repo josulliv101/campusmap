@@ -86,7 +86,6 @@ define([
                           .value();
 
 
-        // Do silently?
         EventDispatcher.trigger('truthupdate', _.extend({ 
 
             forceclosepanels: !_.has(model.changedAttributes(), 'suppressforceclose')
@@ -97,7 +96,6 @@ define([
 
         }, _.isObject(val) && model.get('panels')[0].id === 'details' ? {  primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
 
-//panels: 'details',
         // Hack to get the navbar state to be correct on first display
         EventDispatcher.trigger('delegateTruth', { detailsnavbar: navbar });
 
@@ -144,21 +142,6 @@ define([
 
     };
 
-    StateManagementStrategy.prototype.panelTransitionDone = function(model, val, key, MapUtils) {
-
-/*        if (key !== 'paneltransitiondone') return;
-
-        // Reset
-        if (val === true) {
-
-            EventDispatcher.trigger('truthupdate', { paneltransitiondone: null }, { silent: true });
-
-        }*/
-
-        return  val;
-
-    };
-
 
     StateManagementStrategy.prototype.dispatch = _.dispatch( 
 
@@ -172,9 +155,7 @@ define([
 
         StateManagementStrategy.prototype.panels,
 
-        StateManagementStrategy.prototype.forceClosePanels,
-
-        StateManagementStrategy.prototype.panelTransitionDone
+        StateManagementStrategy.prototype.forceClosePanels
 
     );
 

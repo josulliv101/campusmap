@@ -163,7 +163,7 @@ define([
 
         tags = _.getAttr(loc, 'tags');
 
-//// Refactor This ////
+        //// Refactor ////
 
         // Don't want to change tags string attr -- needed as string for persistance.
         if (_.isString(tags)) loc.tagItems = loc.tagItems || _.chain(_.getAttr(loc, 'tags').split(',')).map(_.trim).value();
@@ -208,15 +208,11 @@ define([
 
             classes.push('first-aid');
 
-            //classes.push('emphasis5');
-
         }
 
         if (_.contains(loc.tagItems, 'graduation-ceremony'))  {
 
             classes.push('graduation-ceremony');
-
-            //classes.push('emphasis5');
 
         }
 
@@ -224,15 +220,11 @@ define([
 
             classes.push('info-booth');
 
-            //classes.push('emphasis5');
-
         }
 
         if (_.contains(loc.tagItems, 'web viewing area'))  {
 
             classes.push('web-viewing-area');
-
-            //classes.push('emphasis5');
 
         }
 

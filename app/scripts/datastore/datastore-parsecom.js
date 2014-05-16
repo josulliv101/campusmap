@@ -17,9 +17,6 @@ define([
 
     console.info('Datastore Parse.com');
 
-    // Joe Account
-    //Parse.initialize("50A3Vx6JKSbeINjTrYH87uwRZWRvTsOShHnHImME", "V3huNugdDBVz8wPyXLXGfR9qn7n5QqM6bCZRP0OF");
-
     // Tufts Account
     Parse.initialize("nfmwDYABTXjDPTOmfBvz89Fe3i7Sv8lp426R2Fzu", "2wMHizUh1Y73nMjmHDIdIJVMd7aUPI7V4r1eUSTh");
 
@@ -27,7 +24,6 @@ define([
 
     var campuses_ = new Parse.Collection(),
 
-        // To do: campuses have no data yet, this needs to move.
         maps_ = new Parse.Collection(),
 
         fns_ = DataInterface.initialize(campuses_, maps_),
@@ -114,7 +110,5 @@ define([
         factory: { model: model_ }
 
     });
-
-    // , Factory: { model: function(attrs) { return new Backbone.Model(attrs); }}
 
 });

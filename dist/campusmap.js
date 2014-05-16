@@ -1,4 +1,4 @@
-/*! campusmap - v0.0.0 - 2014-05-14
+/*! campusmap - v0.0.0 - 2014-05-16
 * Copyright (c) 2014 Joe Sullivan; Licensed MIT */
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.
@@ -20247,7 +20247,38 @@ define('_mixins',[
 
                 },
 
-                defaultFilter: ['tags', 'keywords', 'address1', 'name']//function() { return true; }
+                defaultFilter: [
+
+                    // Filter matching departments & offices
+                    function(loc) { 
+
+                        var occupants = _.getAttr(loc, 'occupants'), names;
+
+                        if (!occupants) return false;
+
+                        names =    _.chain(occupants)
+
+                                    .map(function(occupant) { return _.trim(occupant.name); })
+
+                                    .filter(function(name) { 
+
+                                        if ( name.match(new RegExp("(^| )" + query_.term, "ig")) ) return true;
+
+                                    })
+
+                                    .value();
+
+                        if (names.length > 0) {
+
+                            _.setAttr(loc, { resultMatch: { val: names.join(", "), attr: "dept-offices", word: "test" } });
+
+                            return true;
+
+                        }; 
+
+                        return false;
+
+                    }, 'tags', 'keywords', 'address1', 'name'] 
 
             },
 
@@ -20264,7 +20295,19 @@ define('_mixins',[
 
                         if (!val) return false;
 
-                        words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and', 'the', 'an', 'at', 'for'], word); }).value();
+                        words = _.chain(val.split(' ')).reject(function(word) { return _.contains(['and','an', 'at', 'for'], word); }).value();
+
+                        // Check if the query term contains a space
+                        if (query_.term.indexOf(" ") > 0) {
+
+                            if ( val.match(new RegExp("(^| )" + query_.term, "ig")) ) {
+
+                                _.setAttr(loc, { resultMatch: { val: _.getAttr(loc, attr), attr: attr  } });
+
+                                return true;
+
+                            }
+                        }
 
                         return _.exists(val) && _.some(words, function(word) { 
 
@@ -20308,9 +20351,12 @@ define('_mixins',[
             _.isArray(filters) || (filters = [ filters ]);
 
             // Update query object term
-            query_.term = q && q.toLowerCase();
+            query_.term = q && _.trim(q.toLowerCase());
 
             fns = filterParamsToFns_(filters);
+
+            // Reset the results match text
+            _.each(locations, function(loc) { _.setAttr(loc, { resultMatch: null }); });
 
             // Apply the filters
             _.each(fns, function(fn, index) { locs[index] = _.filter(locations, fn); });
@@ -20629,14 +20675,6 @@ define('datainterface',[
 
     'underscore'
 
-    //, '_mixins'
-
-    //, 'backbone'
-
-    //, 'strategies/StrategyManager'
-
-    //'eventdispatcher'
-
 ], function(_) {
 
     
@@ -20721,8 +20759,8 @@ define('datastore',[
                 var campus = campuses.at(0),
 
                     map = campus.get('maps')[0],
-// to be deleted
-                    locations = map.locations; //[{"name":"Ballou Hall","id":"m029","locationid":"m029","panoramas":[{"type":"photo","heading":200,"latlng":"42.407795,-71.119896","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-1.png"},{"type":"photo","heading":95,"latlng":"42.407411,-71.120771","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-2.png"},{"type":"photo","heading":20,"latlng":"42.407054,-71.120411","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-3.png"},{"type":"photo","heading":60,"latlng":"42.407043,-71.120878","pitch":20,"zoom":1,"photo":"./app/images/streetview/ballouhall-4.png"},{"heading":300,"latlng":"42.407201,-71.120881","panoid":"M77AaZ5uueTV-s_-Npbbbg","pitch":15,"zoom":1}, {"heading":50,"latlng":"42.40742,-71.12046","pitch":10,"zoom":1},{"heading":60,"latlng":"42.40724,-71.11981","pitch":15,"zoom":1}],"thumbnail":"ballouhall-th.png","urlphoto":"ballouhall.png","label-position":"top","address1":"1 The Green","emphasis":2,"mapid":"medford-main","state":"MA","country":"United States","latlng":"42.407435,-71.120122"}];
+
+                    locations = map.locations; 
 
                 dfd.resolve({ 
 
@@ -20821,7 +20859,7 @@ __p += '<div class="panel-bd bare">\r\n\t<div class="bd spacing">\r\n\t\t<ul cla
  if (model.campus.campusid === 'medford' || model.campus.campusid === 'boston') { ;
 __p += '\r\n\t\t\t<li class="item-menu accessible-restroom"><button data-campusmap=\'panels:results|filter:tag_exact|query:accessible-restroom|primarylabel:Accessible Restrooms|searchboxdisable:true|forceclosepanels:true|mode:accessibility\'>Accessible Restrooms</button></li>\r\n\t\t\t';
  } ;
-__p += '\r\n\t\t</ul>\r\n\t</div>\r\n</div>\r\n<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>';
+__p += '\r\n\t\t</ul>\r\n\t</div>\r\n</div>\r\n<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:|searchboxdisable:false|primarylabel:null\'>close</button></div>';
 
 }
 return __p
@@ -21068,7 +21106,7 @@ __p += '\r\n\t\t\t\t\t\t\t<a class="link external" target="_blank" href="' +
 ((__t = (model.location.website)) == null ? '' : __t) +
 '">Visit the website &gt;</a>\r\n\t\t\t\t\t\t';
  } ;
-__p += '</p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t';
+__p += '</p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class="share-link">\r\n\t\t\t\t\t\t<p><a class="link external" href="#" data-campusmap="panels:details,sharelink">Share a link to this location &gt;</a></p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t';
  } else { ;
 __p += '\r\n\t\t\t\t\t<div class="address-alt">' +
 ((__t = (model.location.addressalt)) == null ? '' : __t) +
@@ -21207,7 +21245,7 @@ __p += '\r\n\t\t\t<li class="item-menu parking-resident"><button data-campusmap=
  } else if (model.campus.campusid === 'grafton') { ;
 __p += '\r\n\r\n\t\t\t<li class="item-menu parking-student"><button data-campusmap=\'panels:results|filter:tag_exact|query:parking-student|primarylabel:Student|searchboxdisable:true|forceclosepanels:true|mode:parking\'>Student</button></li>\r\n\r\n\t\t\t';
  } ;
-__p += '\r\n\r\n\t\t</ul>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>';
+__p += '\r\n\r\n\t\t</ul>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:|searchboxdisable:false|primarylabel:null\'>close</button></div>\r\n\t</div>\r\n</div>';
 
 }
 return __p
@@ -21217,7 +21255,7 @@ this["JST"]["app/scripts/templates/panels/popular-tags.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="panel-bd">\r\n\t<div class="bd spacing">\r\n\t\t<p>\t\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:athletics|searchboxdisable:true|forceclosepanels:true|primarylabel:Athletics\'>athletics</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:atm|searchboxdisable:true|forceclosepanels:true|primarylabel:Atm\'>atm</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:coffee|searchboxdisable:true|forceclosepanels:true|primarylabel:Coffee\'>coffee</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:dining|searchboxdisable:true|forceclosepanels:true|primarylabel:Dining\'>dining</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:engineering|searchboxdisable:true|forceclosepanels:true|primarylabel:Engineering\'>engineering</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:field|searchboxdisable:true|forceclosepanels:true|primarylabel:Field\'>field</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:fletcher|searchboxdisable:true|forceclosepanels:true|primarylabel:Fletcher\'>fletcher</button>\r\n\t\t\t\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:library|searchboxdisable:true|forceclosepanels:true|primarylabel:Library\'>library</button>\r\n\t\t\t\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:greek|searchboxdisable:true|forceclosepanels:true|primarylabel:Greek\'>greek</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:residence|searchboxdisable:true|forceclosepanels:true|primarylabel:Residence\'>residence</button>\r\n\r\n\t\t\t\r\n\t\t</p>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>';
+__p += '<div class="panel-bd">\r\n\t<div class="bd spacing">\r\n\t\t<p>\t\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:athletics|searchboxdisable:true|forceclosepanels:true|primarylabel:Athletics|show-results-help:false\'>athletics</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:atm|searchboxdisable:true|forceclosepanels:true|primarylabel:Atm|show-results-help:false\'>atm</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:coffee|searchboxdisable:true|forceclosepanels:true|primarylabel:Coffee|show-results-help:false\'>coffee</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:dining|searchboxdisable:true|forceclosepanels:true|primarylabel:Dining|show-results-help:false\'>dining</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:engineering|searchboxdisable:true|forceclosepanels:true|primarylabel:Engineering|show-results-help:false\'>engineering</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:field|searchboxdisable:true|forceclosepanels:true|primarylabel:Field|show-results-help:false\'>field</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:fletcher|searchboxdisable:true|forceclosepanels:true|primarylabel:Fletcher|show-results-help:false\'>fletcher</button>\r\n\t\t\t\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:library|searchboxdisable:true|forceclosepanels:true|primarylabel:Library|show-results-help:false\'>library</button>\r\n\t\t\t\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:greek|searchboxdisable:true|forceclosepanels:true|primarylabel:Greek|show-results-help:false\'>greek</button>\r\n\r\n\t\t\t<button class="tag" href="#" data-campusmap=\'panels:results|filter:tag_exact|query:residence|searchboxdisable:true|forceclosepanels:true|primarylabel:Residence|show-results-help:false\'>residence</button>\r\n\r\n\t\t\t\r\n\t\t</p>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:|searchboxdisable:false|primarylabel:null\'>close</button></div>\r\n\t</div>\r\n</div>';
 
 }
 return __p
@@ -21230,13 +21268,13 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="panel-bd">\r\n\t<div class="bd spacing">\r\n\t\t<h3 class="subhead sr-only">Printable Maps</h3>\r\n\t\t';
  if (model.campus.campusid === 'medford') { ;
-__p += '\r\n\t\t<ul class="list-pdfs medford">\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf">Campus Map</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf"><img src="../app/images/pdfs/pdf_campusmap_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf">Parking</a>\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf"><img src="../app/images/pdfs/pdf_parking_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf">Driving Directions</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf"><img src="../app/images/pdfs/pdf_directions_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf">Accessibility</a>\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf"><img src="../app/images/pdfs/pdf_accessibility_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf">Commencement</a>\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf"><img src="../app/images/pdfs/pdf_commencement_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t';
+__p += '\r\n\t\t<ul class="list-pdfs medford">\r\n\t\t\t<li id="medford-campus">\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf">Campus Map</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map.pdf"><img src="../app/images/pdfs/pdf_campusmap_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li id="medford-parking">\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf">Parking</a>\r\n\t\t\t\t<a target="_blank" href="http://publicsafety.tufts.edu/adminsvc/files/Medford-Parking-Map2013FINAL-2.pdf"><img src="../app/images/pdfs/pdf_parking_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li id="medford-directions">\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf">Driving Directions</a>\r\n\t\t\t\t<a target="_blank" href="/docs/Tufts_Medford-Som_Map_Dir.pdf"><img src="../app/images/pdfs/pdf_directions_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li id="medford-accessibility">\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf">Accessibility</a>\r\n\t\t\t\t<a target="_blank" href="/docs/medford-accessibilitymap.pdf"><img src="../app/images/pdfs/pdf_accessibility_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t\t<li id="medford-commencement">\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf">Commencement</a>\r\n\t\t\t\t<a target="_blank" href="http://commencement.tufts.edu/wp-content/uploads/ceremony-map2.pdf"><img src="../app/images/pdfs/pdf_commencement_medford_150.png" /></a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t';
  } else if (model.campus.campusid === 'grafton') { ;
 __p += '\r\n\t\t<div class="grafton clearfix">\r\n\t\t\t<p class="title"><a class="link external" target="_blank" href="http://www.tufts.edu/vet/tcsvm_campus_map.pdf">Download a PDF of the Grafton Campus</a></p>\r\n\t\t\t<a class="thumb" target="_blank" href="http://www.tufts.edu/vet/tcsvm_campus_map.pdf"><img src="../app/images/pdfs/pdf_campusmap_grafton_150.png" /></a>\r\n\t\t\t<p class="bd">The Cummings School of Veterinary Medicine is located along Route 30 (Westboro Road) in North Grafton Massachusetts.</p>\r\n\r\n\t\t\t<p class="bd">For more information on general directions to the campus visit the <a class="link external" target="_blank" href="http://vet.tufts.edu/directions.html">website</a>.</p>\r\n\t\t</div>\r\n\t\t';
  } else if (model.campus.campusid === 'boston') { ;
 __p += '\r\n\t\t<div class="boston clearfix">\r\n\t\t\t<p class="title"><a class="link external" target="_blank" href="http://campusmaps.tufts.edu/docs/boston-accessibilitymap.pdf">Download a PDF of the Tufts Boston Campus</a></p>\r\n\t\t\t<a class="thumb" target="_blank" href="http://campusmaps.tufts.edu/docs/boston-accessibilitymap.pdf"><img src="../app/images/pdfs/pdf_campusmap_boston2_150.png" /></a>\r\n\t\t\t<p class="bd">Tufts Boston campus includes the School of Medicine, the School of Dental Medicine, Sackler School of Graduate Biomedical Sciences, Jean Mayer USDA Human Nutrition Research Center on Aging, and The Gerald J. and Dorothy R. Friedman School of Nutrition Science and Policy. </p>\r\n\t\t</div>\r\n\t\t';
  } ;
-__p += '\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>';
+__p += '\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:|searchboxdisable:false|primarylabel:null\'>close</button></div>\r\n\t</div>\r\n</div>';
 
 }
 return __p
@@ -21308,7 +21346,7 @@ this["JST"]["app/scripts/templates/panels/settings.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="panel-bd">\r\n\t<div class="bd spacing">\r\n\t\t<h3 class="sr-only subhead">Settings</h3>\r\n\t\t<div class="largelabels">\r\n\t\t\t<label class="label-on-off">Large Map Labels:</label>\r\n\t\t\t<button class="btn btn-off btn-large-label" data-campusmap="large-labels:false">off</button>\r\n\t\t\t<button class="btn btn-on btn-large-label" data-campusmap="large-labels:true">on</button>\r\n\t\t</div>\r\n\t\t<div class="highcontrastlabels">\r\n\t\t\t<label class="label-on-off">High-contrast Map Labels:</label>\r\n\t\t\t<button class="btn btn-off btn-high-contrast" data-campusmap="high-contrast-labels:false">off</button>\r\n\t\t\t<button class="btn btn-on btn-high-contrast" data-campusmap="high-contrast-labels:true">on</button>\r\n\t\t</div>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:\'>close</button></div>\r\n\t</div>\r\n</div>\r\n';
+__p += '<div class="panel-bd">\r\n\t<div class="bd spacing">\r\n\t\t<h3 class="sr-only subhead">Settings</h3>\r\n\t\t<div class="largelabels">\r\n\t\t\t<label class="label-on-off">Large Map Labels:</label>\r\n\t\t\t<button class="btn btn-off btn-large-label" data-campusmap="large-labels:false">off</button>\r\n\t\t\t<button class="btn btn-on btn-large-label" data-campusmap="large-labels:true">on</button>\r\n\t\t\t<br/><br/><br/>\r\n\t\t</div>\r\n\t\t<div class="highcontrastlabels">\r\n\t\t\t<label class="label-on-off">High-contrast Map Labels:</label>\r\n\t\t\t<button class="btn btn-off btn-high-contrast" data-campusmap="high-contrast-labels:false">off</button>\r\n\t\t\t<button class="btn btn-on btn-high-contrast" data-campusmap="high-contrast-labels:true">on</button>\r\n\t\t</div>\r\n\t\t<br style="clear:both;"/>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:|details:|searchboxdisable:false|primarylabel:null\'>close</button></div>\r\n\t</div>\r\n</div>\r\n';
 
 }
 return __p
@@ -21320,9 +21358,9 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="panel-bd panel-secondary">\r\n\t<div class="bd spacing">\r\n\t\t<h3 class="subhead">Share a Link</h3>\r\n\t\t<p class="bare">\r\n\t\t\t<strong class="heavy">Send a Link Directly To ' +
 ((__t = (model.location.name)) == null ? '' : __t) +
-'</strong><br/>\r\n\t\t\t<input class="full input-sharelink" type="text" value="' +
-((__t = (model.pageurl)) == null ? '' : __t) +
-'#locationid=' +
+'</strong><br/>\r\n\t\t\t<input class="full input-sharelink" type="text" value="http://campusmaps.tufts.edu/' +
+((__t = (model.location.campus)) == null ? '' : __t) +
+'/#fid=' +
 ((__t = (model.location.locationid)) == null ? '' : __t) +
 '" onClick="this.setSelectionRange(0, this.value.length)" />\r\n\t\t</p>\r\n\t\t<p><em>Copy/Paste the url above.</em></p>\r\n\t\t<div class=\'footer\'><button class="btn-close" data-campusmap=\'panels:details\'>close</button></div>\r\n\t</div>\r\n</div>';
 
@@ -21338,7 +21376,7 @@ __p += '<div id="container-searchbox">\r\n\t<form role="search">\r\n\t\t<div cla
 ((__t = ( model.primarylabel )) == null ? '' : __t) +
 '</label>\r\n\t\t\t\t<input id="searchbox" type="text" value="' +
 ((__t = ( model.primarylabel )) == null ? '' : __t) +
-'" class="form-control" autocomplete="off"  />\r\n\t\t\t</div>\r\n\t\t\t<button class="btn btn-backto">\r\n\t\t\t\t<span class="lbl">Back</span>\r\n\t\t\t\t<span class="sr-only">Back</span>\r\n\t\t\t</button>\r\n\t\t\t<span class="divider divider-backto">|</span>\r\n\t\t\t<button class="btn btn-default search" type="submit">\r\n\t\t\t\t<span class="search"></span>\r\n\t\t\t\t<span class="sr-only">Search</span> \r\n\t\t\t</button>\r\n\t\t</div>\r\n\t</form>\r\n\t<div id="container-panels"></div>\r\n</div>';
+'" class="form-control" autocomplete="off" style="color: #333;" />\r\n\t\t\t</div>\r\n\t\t\t<button class="btn btn-backto">\r\n\t\t\t\t<span class="lbl">Back</span>\r\n\t\t\t\t<span class="sr-only">Back</span>\r\n\t\t\t</button>\r\n\t\t\t<span class="divider divider-backto">|</span>\r\n\t\t\t<button class="btn btn-default search" type="submit">\r\n\t\t\t\t<span class="search"></span>\r\n\t\t\t\t<span class="sr-only">Search</span> \r\n\t\t\t</button>\r\n\t\t</div>\r\n\t</form>\r\n\t<div id="container-panels"></div>\r\n</div>';
 
 }
 return __p
@@ -21487,7 +21525,7 @@ define('scripts/domManager',[
 
         maxcharacters || (maxcharacters = 32);
 
-        words = txt.split(" ");
+        words = _.isString(txt) ? txt.split(" ") : [];
 
         for (var n = 0; n < words.length; n++) {
 
@@ -21512,7 +21550,7 @@ define('scripts/domManager',[
 
         tags = _.getAttr(loc, 'tags');
 
-//// Refactor This ////
+        //// Refactor ////
 
         // Don't want to change tags string attr -- needed as string for persistance.
         if (_.isString(tags)) loc.tagItems = loc.tagItems || _.chain(_.getAttr(loc, 'tags').split(',')).map(_.trim).value();
@@ -21557,15 +21595,11 @@ define('scripts/domManager',[
 
             classes.push('first-aid');
 
-            //classes.push('emphasis5');
-
         }
 
         if (_.contains(loc.tagItems, 'graduation-ceremony'))  {
 
             classes.push('graduation-ceremony');
-
-            //classes.push('emphasis5');
 
         }
 
@@ -21573,15 +21607,11 @@ define('scripts/domManager',[
 
             classes.push('info-booth');
 
-            //classes.push('emphasis5');
-
         }
 
         if (_.contains(loc.tagItems, 'web viewing area'))  {
 
             classes.push('web-viewing-area');
-
-            //classes.push('emphasis5');
 
         }
 
@@ -22000,7 +22030,8 @@ define('scripts/views/panels/details',[
 
             'mouseover .panel-details': _.once(function(ev) {
 
-/*                _.delay(this.showHint, 500);
+/* Hide for now
+                _.delay(this.showHint, 500);
 
                 _.delay(this.hideHint, 20000);
 */
@@ -22250,7 +22281,7 @@ define('scripts/views/panels/results',[
                 EventDispatcher.trigger('truthupdate', { hover: locid });
 
             },
-/*
+/* Removed for now for better performance on hovers
             'mouseover .list .result button' : function(ev) {
 
                 var locid =  $(ev.currentTarget).data('locationid');
@@ -22275,12 +22306,7 @@ define('scripts/views/panels/results',[
 
                 if ($li.hasClass('active')) {
 
-                    //_.delay(function(model) {
-
-                        EventDispatcher.trigger('truthupdate', { details: locid, panels: 'details' });// ,back-to-results
-//backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } 
-                    //}, 400, this.model);
-                    
+                    EventDispatcher.trigger('truthupdate', { details: locid, panels: 'details' });// ,back-to-results
 
                } else {
 
@@ -22291,7 +22317,7 @@ define('scripts/views/panels/results',[
                     // Supress forcing the shut the results panel
                     EventDispatcher.trigger('truthupdate', { details: locid, suppressforceclose: _.uniqueId('suppressforceclose_') });
 
-                }/* */
+                }
             }
         },
 
@@ -22344,8 +22370,6 @@ define('scripts/views/panels/results',[
 
                 if (!PanelManager) return;
 
-                //if (this.state() === 'open') return this.render();
-
                 // Helps when input captured during a animation
                 if (this.state() === 'close') return PanelManager.openPanels([ this ]);
 
@@ -22361,13 +22385,8 @@ define('scripts/views/panels/results',[
 
                 // Convert models to json
                 results = Filter.filter(q, locations, Filter.getFilter(model.get('filter')));
-//.first(5)
 
             model.set({ results: _.map(results, function(loc) { return _.isFunction(loc.toJSON) ? loc.toJSON() : loc; }) });
-
-
-            // Let the panel re-render via Base's pre open call
-            //if (this.state() === 'open') this.render();
 
         },
 
@@ -22387,8 +22406,6 @@ define('scripts/views/panels/results',[
             
             this.render();
 
-
-            
             return state;
 
         },
@@ -22408,7 +22425,7 @@ define('scripts/views/panels/results',[
 
                                     if (!result.resultMatch || result.resultMatch.attr === 'name') return result.label = result.name;
 
-                                    if (result.resultMatch.attr === 'address1' || result.resultMatch.attr === 'keywords') return result.label = result.name + "<span>(" + result.resultMatch.val + ")</span>";
+                                    if (result.resultMatch.attr === 'dept-offices' || result.resultMatch.attr === 'address1' || result.resultMatch.attr === 'keywords') return result.label = result.name + " <span>(" + result.resultMatch.val + ")</span>";
 
                                     if (result.resultMatch.attr === 'tags') {
 
@@ -22419,8 +22436,6 @@ define('scripts/views/panels/results',[
                                                      .sortBy()
 
                                                      .filter(function(tag) { return tag.toLowerCase().indexOf(query.toLowerCase()) === 0 || tag.toLowerCase().indexOf(" " + query.toLowerCase()) > 0; })
-
-                                                     //.first()
 
                                                      .value()
 
@@ -22445,7 +22460,6 @@ define('scripts/views/panels/results',[
                                   })
 
                                   .value();
-            
             return json;
 
         }
@@ -22469,9 +22483,6 @@ define('scripts/views/panels/depts-offices-info',[
 
         events: {
 
-            'click .btn-directions': function(ev) {
-
-            }
         },
 
         initialize: function() {
@@ -22674,7 +22685,7 @@ define('scripts/views/panels/admin-location',[
 
             EventDispatcher.trigger('truthupdate', { adminmarker: '' });
 
-        }/**/
+        }
 
     });
 });
@@ -23349,7 +23360,8 @@ define('strategies/CssFlagStrategy',[
 
     
 
-    var cssFlags = ['search', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted', 'admin', 'boston', 'grafton', 'medford'];
+    // Recognized <Boolean> attributes that get converted to css flags on dom
+    var cssFlags = ['search', 'show-results-help', 'commencement', 'building', 'streetview', 'searchbox-open', 'satellite', 'panel-animations', 'large-labels', 'high-contrast-labels', 'accessibility', 'parking', 'mapstyle-inverted', 'admin', 'boston', 'grafton', 'medford'];
 
     function CssFlagStrategy() {
 
@@ -23516,11 +23528,13 @@ define('strategies/DataTypeStrategy',[
 
         if ((key !== 'details' && key !== 'directionsto') || !_.isString(val)) return;
 
-        locations = theTruth.get('locations');
+        theTruth.get('detailsnavbar') || (model.detailsnavbar = Config.models.detailsnavbar);
+
+        locations = theTruth.get('locations') || model.locations;
 
         attr[key] = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
 
-        // only update if there's a found location
+        // Only update if there's a found location
         if (attr[key]) _.extend(model, attr);
 
         return  attr[key];
@@ -23534,23 +23548,11 @@ define('strategies/DataTypeStrategy',[
         
         if (key !== 'panels' || !_.isString(val)) return;
 
-//// Refactor ////
-
         if (val === '') model.primarylabel = null;
-/*
-        // Add the Back To panel whenever results displayed for Parking
-        if (val === 'results' && (model.parking === true || theTruth.get('parking') === true)) val = val + ',back-to-parking';
 
-        if (val === 'results' && (model.commencement === true || theTruth.get('commencement') === true)) val = val + ',back-to';
-
-        if (val === 'results' && (model.accessibility === true || theTruth.get('accessibility') === true)) val = val + ',back-to-accessibility';
-*/
         attr[key] = PanelManager.getPanelsById( val );
 
         if (val === 'details' && _.isObject(model.details)) model.primarylabel = _.getAttr(model.details, 'name');
-
-        // When a panel change occurs, update the primary label if not explicitly set
-        //if (!model.primarylabel && attr[key][0]) model.primarylabel = attr[key][0].getTitle && attr[key][0].getTitle(model.mode);
 
         _.extend(model, attr);
 
@@ -23596,7 +23598,7 @@ define('strategies/DataTypeStrategy',[
 
         attr[key] = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
 
-        // only update if there's a found location
+        // Only update if there's a found location
         if (attr[key]) _.extend(model, attr);
 
         return  attr[key];
@@ -23609,10 +23611,6 @@ define('strategies/DataTypeStrategy',[
         var attr = {}, panel;
 
         if (key !== 'backto' || !_.isString(val)) return;
-
-        //attr[key] = { panels: theTruth.get('panels'), label: val };
-
-        //if (attr[key]) _.extend(model, attr);
         
         return  attr[key];
 
@@ -23646,33 +23644,100 @@ define('strategies/DataTypeStrategy',[
         return  val;
 
     };
+
+    DataTypeStrategy.prototype.tilesloaded = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        if (key !== 'tilesloaded') return;
+
+        if (_.isEmpty( theTruth.get('panels') )) model.primarylabel = Config.labels.primary;
+
+        return  val;
+
+    };
+
+    // Convert s from url # to needed state
+    DataTypeStrategy.prototype.stateFromRouter = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        var attr = {}, reset;
+
+        if (key !== 's') return;
+
+        reset = { parking: false, commencement: false, accessibility: false };
+
+        attr[val] = true;
+
+        // val = commencement | parking | accessibility | pdf
+        _.extend(model, reset, attr, { 
+
+                panels: PanelManager.getPanelsById( val ) || [], 
+
+                mode: val,
+
+                primarylabel: _.capitaliseFirstLetter(val)
+
+            });
+
+        return val;
+
+    };
+
+    // Convert fid to needed state
+    DataTypeStrategy.prototype.fidFromRouter = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        var attr = {}, locations, loc;
+
+        if (key !== 'fid') return;
+
+        locations = theTruth.get('locations') || model.locations;
+
+        loc = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
+
+        // Only update if there's a found location
+        if (loc) _.extend(model, { 
+
+            details: loc,
+
+            panels: PanelManager.getPanelsById( 'details' ),
+
+            center: _.getAttr(loc, 'latlng'),
+
+            detailsnavbar: Config.models.detailsnavbar,
+
+            detailsnavbarstate: ''
+
+        });
+
+        DataTypeStrategy.prototype.stringToLatLng.apply(this, arguments);
+
+        return loc;
+
+    };
     
     DataTypeStrategy.prototype.detailsChange = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
         var navbar, navbarstate, nextItem;
 
-        if (key !== 'details' || _.isEmpty(val)) return;
+        if (key !== 'details') return; 
+
+        if (!theTruth) return;
+
+        if (theTruth.get && !theTruth.get('details') && val) return;
 
         // Only proceed if the location is the same - want to advance the navbar to next item
-        if (theTruth.get('details') !== val) return;
+        if (theTruth.get('details') && theTruth.get('details').locationid !== val.locationid) return;
 
-        // No change in searchbox height width
-        //model.paneltransitiondone = null;
+        navbar = theTruth.get('detailsnavbar') || Config.models.detailsnavbar;
 
-        navbar = theTruth.get('detailsnavbar');
-
-        navbarstate = theTruth.get('detailsnavbarstate');
-
-        //navitemCurrent = _.find( navbar , function(navitem) { return navitem.id === navbarstate; });
+        navbarstate = theTruth.get('detailsnavbarstate') || (!_.isEmpty(navbar) && _.first(navbar).id);
 
         // Set a default navbar state
-        if (_.isEmpty(navbarstate)) model.detailsnavbarstate = _.first(navbar).id;
+        if (_.isEmpty(navbarstate)) model.detailsnavbarstate = !_.isEmpty(navbar) && _.first(navbar).id;
 
         // The navbar should already have correct items hidden since we're dealing with changes to the same loc
         nextItem = _.getNext( _.reject(navbar, function(navitem) { return navitem.hide && navitem.hide === true; }), navbarstate );
 
         // Update the Truth with appropriate navbar state
-        model.detailsnavbarstate = nextItem.id;
+        model.detailsnavbarstate = nextItem && nextItem.id;
 
         return  val;
 
@@ -23693,26 +23758,26 @@ define('strategies/DataTypeStrategy',[
                         var latlng = _.getAttr(loc, 'latlng');
 
                         if (_.isString(latlng)) {
+
                             loc.latlngObj = DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager);
-                            //_.setAttr(loc, { 
 
-                                // Pass in fake model so latlng is not automatically updated on model attr
-                                //latlng: DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager)
-
-                            //});
                         }
 
                      })
 
                      .value();
 
-        // Not needed _.extend(model, attr);
-
         return  val;
 
     };
 
     DataTypeStrategy.prototype.dispatch = _.dispatch( 
+
+        // Location id passed from #
+        DataTypeStrategy.prototype.fidFromRouter,
+
+        // State passed in from #. 
+        DataTypeStrategy.prototype.stateFromRouter,
 
         DataTypeStrategy.prototype.modeChange,
 
@@ -23739,6 +23804,8 @@ define('strategies/DataTypeStrategy',[
         DataTypeStrategy.prototype.hoverLocationChange,
 
         DataTypeStrategy.prototype.backTo,
+
+        DataTypeStrategy.prototype.tilesloaded,
 
         DataTypeStrategy.prototype.panelTransitionDone
 
@@ -23837,7 +23904,6 @@ define('strategies/StateManagementStrategy',[
                           .value();
 
 
-        // Do silently?
         EventDispatcher.trigger('truthupdate', _.extend({ 
 
             forceclosepanels: !_.has(model.changedAttributes(), 'suppressforceclose')
@@ -23848,7 +23914,6 @@ define('strategies/StateManagementStrategy',[
 
         }, _.isObject(val) && model.get('panels')[0].id === 'details' ? {  primarylabel: _.getAttr(val, 'name'), searchboxdisable: true }  : {}));
 
-//panels: 'details',
         // Hack to get the navbar state to be correct on first display
         EventDispatcher.trigger('delegateTruth', { detailsnavbar: navbar });
 
@@ -23895,21 +23960,6 @@ define('strategies/StateManagementStrategy',[
 
     };
 
-    StateManagementStrategy.prototype.panelTransitionDone = function(model, val, key, MapUtils) {
-
-/*        if (key !== 'paneltransitiondone') return;
-
-        // Reset
-        if (val === true) {
-
-            EventDispatcher.trigger('truthupdate', { paneltransitiondone: null }, { silent: true });
-
-        }*/
-
-        return  val;
-
-    };
-
 
     StateManagementStrategy.prototype.dispatch = _.dispatch( 
 
@@ -23923,9 +23973,7 @@ define('strategies/StateManagementStrategy',[
 
         StateManagementStrategy.prototype.panels,
 
-        StateManagementStrategy.prototype.forceClosePanels,
-
-        StateManagementStrategy.prototype.panelTransitionDone
+        StateManagementStrategy.prototype.forceClosePanels
 
     );
 
@@ -24236,14 +24284,9 @@ define('scripts/controllers/mapController',[
 
         MapUtils.resetCache();
 
-        //locations = _.map(locations, function(loc) { return loc.toJSON ? loc.toJSON() : loc; });
-
         _.each(locations, function(loc) {
 
             var tileOffset;
-
-            // Label may be a <String> -- force it into a boolean value
-            //if (!!loc.label !== true) return;
 
             // The latLngToTileOffset function caches the return value for future use
             tileOffset = MapUtils.latLngToTileOffset(_.getAttr(loc, 'latlng'), this.theTruthJSON.zoom);
@@ -24315,11 +24358,7 @@ define('scripts/controllers/searchboxController',[
 
             $.when.apply(null, PM.openPanels(panels)).done(_.throttle(function() { 
 
-                //if (!_.isEmpty(panels)) {
-
-                    EventDispatcher.trigger('truthupdate', { paneltransitiondone: _.uniqueId('panelsopen_') }, { silent: false });
-
-                //}
+                EventDispatcher.trigger('truthupdate', { paneltransitiondone: _.uniqueId('panelsopen_') }, { silent: false });
 
                 self.transition = false;
 
@@ -24375,7 +24414,7 @@ define('scripts/router',[
             EventDispatcher.on('delegateTruth', function(changedAttrs, previousAttrs) { 
 
                 // Removes any url # attrs when page loads
-                 this.navigate('', { trigger: false });
+                //this.navigate('', { trigger: false });
 
             }, this);
 
@@ -24552,7 +24591,6 @@ define('app',[
     App.prototype.start = function(data) {
 
         // The truth is born (almost) -- app config settings, passed-in settings, and settings from fetched data all are now combined.
-        //var settings = _.defaults(this.settings, data);
         var settings = _.extend(this.settings, data);
 
         // Parse route and add attributes to settings
@@ -24707,7 +24745,7 @@ define('scripts/views/map/GoogleMap',[
         google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
 
             // Workaround to make the default text appear in searchbox.
-            $('.panel-search .search').trigger('click');
+            EventDispatcher.trigger('truthupdate', { tilesloaded: true });
 
             google.maps.event.addListener(streetview, 'visible_changed', function() {
 
@@ -24743,7 +24781,7 @@ define('scripts/views/map/GoogleMap',[
         google.maps.event.addListener(this.map, 'dragend', function (ev) { 
 
             // Add mousemove listener back
-            google.maps.event.addListener(this, 'mousemove', function (ev) { // _.throttle()
+            google.maps.event.addListener(this, 'mousemove', function (ev) { 
 
                 var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
@@ -24754,7 +24792,7 @@ define('scripts/views/map/GoogleMap',[
         });
 
         // Name the cb function for debug
-        google.maps.event.addListener(this.map, 'click', function mapClickHandler(ev) { // _.throttle()
+        google.maps.event.addListener(this.map, 'click', function mapClickHandler(ev) {
           
             var loc = view.underLatLng_(ev.latLng, this.getZoom()),
 
@@ -24766,12 +24804,9 @@ define('scripts/views/map/GoogleMap',[
 
             else {
 
-                EventDispatcher.trigger('truthupdate', { details: '', panels: '', query: null, backto: null, primarylabel: null });
+                EventDispatcher.trigger('truthupdate', { detailsnavbar: null, details: '', panels: '', query: null, backto: null, primarylabel: null, searchboxdisable: false });
 
             }
-            // Comment for now. Causes flicker in IE
-            // Remove focus from searchbox so default text is displayed
-            //DomManager.unfocusAll();
 
         });
 
@@ -24793,11 +24828,6 @@ define('scripts/views/map/GoogleMap',[
         mouse = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom),
 
         mouseoffset = mouse.offset;
-
-        // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
-        //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
-
-
 
         // Only target locations within 1 tile length in any direction
         location =   _.chain( MapUtils.getCloseByLocationsFromTileCache(mouse.tile, mouse.zoom) )
@@ -24895,9 +24925,11 @@ define('scripts/views/map/GoogleMap',[
 
     GoogleMapView.prototype.handleSearchboxCollisons = function(dimensions, zoom, latlng) {
 
-        if (!latlng) return;
+        if (!latlng || !this.map.getBounds()) return;
 
-        var bounds = this.map.getBounds(), z = this.map.getZoom(),
+        //// Refactor ////
+
+        var ll1, ll2, y, bounds = this.map.getBounds(), z = this.map.getZoom(),
 
             center = this.map.getCenter(),
 
@@ -24914,10 +24946,10 @@ define('scripts/views/map/GoogleMap',[
             searchboxBounds = new google.maps.LatLngBounds(swAdjusted, neAdjusted),
 
             isCollision = searchboxBounds.contains(new google.maps.LatLng(latlng.lat, latlng.lng));
-// clean up here
-var ll1 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(swAdjusted), zoom);
-var ll2 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latlng.lat, latlng.lng)), zoom);
-var y = ll1.y - ll2.y;
+            // clean up here
+            ll1 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(swAdjusted), zoom);
+            ll2 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latlng.lat, latlng.lng)), zoom);
+            y = ll1.y - ll2.y;
 
             if (isCollision === true) {
 
@@ -24927,18 +24959,6 @@ var y = ll1.y - ll2.y;
 
                 }, 400);
             }
-/*
-  var rectangle = new google.maps.Rectangle({
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35,
-    map: this.map,
-    bounds: searchboxBounds
-  });*/
- 
-        //debugger;
 
     };
 
@@ -24986,24 +25006,6 @@ var y = ll1.y - ll2.y;
 
         // Re-renders Labels Tile Overlay
         this.map.overlayMapTypes.insertAt(0, this.labelLayer);
-
-        //this.refreshLabelCss(locations);
-        // to be deleted - development only
-      /*  
-        _.each(this.labelLayer.locations, function(loc) { 
-
-          var marker = new google.maps.Marker({
-
-              position: _.getAttr(loc, 'latlng'),
-
-              map: this.map,
-
-              title: _.getAttr(loc, 'name')
-
-          });
-
-        }, this);
-        */
 
     };
 
@@ -25063,7 +25065,7 @@ define('scripts/views/searchbox',[
 
                 var q = $(ev.currentTarget).val(),
 
-                    args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'defaultFilter', query: q };
+                    args = { panels: (_.isEmpty(q) ? '' : 'results'), filter: 'defaultFilter', query: q, 'show-results-help': true };
 
                 EventDispatcher.trigger('truthupdate', args);
 
@@ -25143,9 +25145,6 @@ define('scripts/views/searchbox',[
 
             $('#mode').html(_.capitaliseFirstLetter(label));
 
-            // Disable input when location is shown (shows more appropriate cursor)
-            //this.refreshSearchboxDisabled(model, _.isObject(model.get('details')));
-
         },
 
         refreshPrimaryLabel: function(model, label) {
@@ -25164,9 +25163,6 @@ define('scripts/views/searchbox',[
             }
 
             this.$('#searchbox, .label-primary').val(label);
-
-            // Disable input when location is shown (shows more appropriate cursor)
-            //this.refreshSearchboxDisabled(model, _.isObject(model.get('details')));
 
         },
 
@@ -25205,8 +25201,6 @@ define('scripts/views/searchbox',[
             if (this.model) this.model.set(changedAttrs, { silent: false }); 
 
         },
-
-        //// Event Handling ////
 
         handleBtnClick: function(ev) {
 

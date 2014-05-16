@@ -168,7 +168,7 @@ define([
 
             EventDispatcher.trigger('truthupdate', { adminmarker: '' });
 
-        }/**/
+        }
 
     });
 });

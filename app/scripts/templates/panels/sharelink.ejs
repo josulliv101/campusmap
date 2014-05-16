@@ -3,7 +3,7 @@
 		<h3 class="subhead">Share a Link</h3>
 		<p class="bare">
 			<strong class="heavy">Send a Link Directly To ${model.location.name}</strong><br/>
-			<input class="full input-sharelink" type="text" value="${model.pageurl}#locationid=${model.location.locationid}" onClick="this.setSelectionRange(0, this.value.length)" />
+			<input class="full input-sharelink" type="text" value="http://campusmaps.tufts.edu/${model.location.campus}/#fid=${model.location.locationid}" onClick="this.setSelectionRange(0, this.value.length)" />
 		</p>
 		<p><em>Copy/Paste the url above.</em></p>
 		<div class='footer'><button class="btn-close" data-campusmap='panels:details'>close</button></div>

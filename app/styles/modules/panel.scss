@@ -108,13 +108,17 @@ $gutter: 8px;
 						margin-bottom: 5px;
 					}
 					a {
-						color: #666;
+						
 						&.link {
 							&.phone {
 								color: #565152 !important;
 							}						
 						}
 					}
+				}
+				.share-link {
+					margin-top: 10px;
+					font-size: 11px;
 				}
 				.list {
 					width: 400px;

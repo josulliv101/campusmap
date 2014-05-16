@@ -51,14 +51,9 @@ define([
 
         MapUtils.resetCache();
 
-        //locations = _.map(locations, function(loc) { return loc.toJSON ? loc.toJSON() : loc; });
-
         _.each(locations, function(loc) {
 
             var tileOffset;
-
-            // Label may be a <String> -- force it into a boolean value
-            //if (!!loc.label !== true) return;
 
             // The latLngToTileOffset function caches the return value for future use
             tileOffset = MapUtils.latLngToTileOffset(_.getAttr(loc, 'latlng'), this.theTruthJSON.zoom);

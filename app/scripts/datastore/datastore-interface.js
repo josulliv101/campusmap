@@ -2,14 +2,6 @@ define([
 
     'underscore'
 
-    //, '_mixins'
-
-    //, 'backbone'
-
-    //, 'strategies/StrategyManager'
-
-    //'eventdispatcher'
-
 ], function(_) {
 
     'use strict';

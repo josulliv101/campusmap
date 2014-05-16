@@ -16,9 +16,6 @@ define([
 
         events: {
 
-            'click .btn-directions': function(ev) {
-
-            }
         },
 
         initialize: function() {

@@ -129,9 +129,6 @@ define([
 
             $('#mode').html(_.capitaliseFirstLetter(label));
 
-            // Disable input when location is shown (shows more appropriate cursor)
-            //this.refreshSearchboxDisabled(model, _.isObject(model.get('details')));
-
         },
 
         refreshPrimaryLabel: function(model, label) {
@@ -150,9 +147,6 @@ define([
             }
 
             this.$('#searchbox, .label-primary').val(label);
-
-            // Disable input when location is shown (shows more appropriate cursor)
-            //this.refreshSearchboxDisabled(model, _.isObject(model.get('details')));
 
         },
 
@@ -191,8 +185,6 @@ define([
             if (this.model) this.model.set(changedAttrs, { silent: false }); 
 
         },
-
-        //// Event Handling ////
 
         handleBtnClick: function(ev) {
 

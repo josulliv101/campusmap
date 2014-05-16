@@ -48,7 +48,8 @@ define([
 
             'mouseover .panel-details': _.once(function(ev) {
 
-/*                _.delay(this.showHint, 500);
+/* Hide for now
+                _.delay(this.showHint, 500);
 
                 _.delay(this.hideHint, 20000);
 */

@@ -35,7 +35,7 @@ define([
                 EventDispatcher.trigger('truthupdate', { hover: locid });
 
             },
-/*
+/* Removed for now for better performance on hovers
             'mouseover .list .result button' : function(ev) {
 
                 var locid =  $(ev.currentTarget).data('locationid');
@@ -60,12 +60,7 @@ define([
 
                 if ($li.hasClass('active')) {
 
-                    //_.delay(function(model) {
-
-                        EventDispatcher.trigger('truthupdate', { details: locid, panels: 'details' });// ,back-to-results
-//backto: { searchboxdisable: model.get('searchboxdisable'), panels: 'results', label: 'back to list', primarylabel: model.get('primarylabel') } 
-                    //}, 400, this.model);
-                    
+                    EventDispatcher.trigger('truthupdate', { details: locid, panels: 'details' });// ,back-to-results
 
                } else {
 
@@ -76,7 +71,7 @@ define([
                     // Supress forcing the shut the results panel
                     EventDispatcher.trigger('truthupdate', { details: locid, suppressforceclose: _.uniqueId('suppressforceclose_') });
 
-                }/* */
+                }
             }
         },
 
@@ -129,8 +124,6 @@ define([
 
                 if (!PanelManager) return;
 
-                //if (this.state() === 'open') return this.render();
-
                 // Helps when input captured during a animation
                 if (this.state() === 'close') return PanelManager.openPanels([ this ]);
 
@@ -146,13 +139,8 @@ define([
 
                 // Convert models to json
                 results = Filter.filter(q, locations, Filter.getFilter(model.get('filter')));
-//.first(5)
 
             model.set({ results: _.map(results, function(loc) { return _.isFunction(loc.toJSON) ? loc.toJSON() : loc; }) });
-
-
-            // Let the panel re-render via Base's pre open call
-            //if (this.state() === 'open') this.render();
 
         },
 
@@ -172,8 +160,6 @@ define([
             
             this.render();
 
-
-            
             return state;
 
         },
@@ -205,8 +191,6 @@ define([
 
                                                      .filter(function(tag) { return tag.toLowerCase().indexOf(query.toLowerCase()) === 0 || tag.toLowerCase().indexOf(" " + query.toLowerCase()) > 0; })
 
-                                                     //.first()
-
                                                      .value()
 
                                                      .join(", ");
@@ -230,7 +214,6 @@ define([
                                   })
 
                                   .value();
-            
             return json;
 
         }

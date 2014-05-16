@@ -54,11 +54,7 @@ define([
 
             $.when.apply(null, PM.openPanels(panels)).done(_.throttle(function() { 
 
-                //if (!_.isEmpty(panels)) {
-
-                    EventDispatcher.trigger('truthupdate', { paneltransitiondone: _.uniqueId('panelsopen_') }, { silent: false });
-
-                //}
+                EventDispatcher.trigger('truthupdate', { paneltransitiondone: _.uniqueId('panelsopen_') }, { silent: false });
 
                 self.transition = false;
 

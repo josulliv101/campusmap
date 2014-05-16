@@ -103,13 +103,11 @@ define([
 
         theTruth.get('detailsnavbar') || (model.detailsnavbar = Config.models.detailsnavbar);
 
-        //theTruth.get('detailsnavbarstate') || (model.detailsnavbarstate = _.first(Config.models.detailsnavbar).id);
-
         locations = theTruth.get('locations') || model.locations;
 
         attr[key] = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
 
-        // only update if there's a found location
+        // Only update if there's a found location
         if (attr[key]) _.extend(model, attr);
 
         return  attr[key];
@@ -173,7 +171,7 @@ define([
 
         attr[key] = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
 
-        // only update if there's a found location
+        // Only update if there's a found location
         if (attr[key]) _.extend(model, attr);
 
         return  attr[key];
@@ -303,16 +301,16 @@ define([
 
         navbar = theTruth.get('detailsnavbar') || Config.models.detailsnavbar;
 
-        navbarstate = theTruth.get('detailsnavbarstate') || _.first(navbar).id;
+        navbarstate = theTruth.get('detailsnavbarstate') || (!_.isEmpty(navbar) && _.first(navbar).id);
 
         // Set a default navbar state
-        if (_.isEmpty(navbarstate)) model.detailsnavbarstate = _.first(navbar).id;
+        if (_.isEmpty(navbarstate)) model.detailsnavbarstate = !_.isEmpty(navbar) && _.first(navbar).id;
 
         // The navbar should already have correct items hidden since we're dealing with changes to the same loc
         nextItem = _.getNext( _.reject(navbar, function(navitem) { return navitem.hide && navitem.hide === true; }), navbarstate );
 
         // Update the Truth with appropriate navbar state
-        model.detailsnavbarstate = nextItem.id;
+        model.detailsnavbarstate = nextItem && nextItem.id;
 
         return  val;
 

@@ -65,7 +65,6 @@ define([
     App.prototype.start = function(data) {
 
         // The truth is born (almost) -- app config settings, passed-in settings, and settings from fetched data all are now combined.
-        //var settings = _.defaults(this.settings, data);
         var settings = _.extend(this.settings, data);
 
         // Parse route and add attributes to settings
