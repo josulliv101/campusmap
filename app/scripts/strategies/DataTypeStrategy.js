@@ -236,6 +236,16 @@ define([
 
     };
 
+    DataTypeStrategy.prototype.tilesloaded = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
+
+        if (key !== 'tilesloaded') return;
+
+        if (_.isEmpty( theTruth.get('panels') )) model.primarylabel = Config.labels.primary;
+
+        return  val;
+
+    };
+
     // Convert s from url # to needed state
     DataTypeStrategy.prototype.stateFromRouter = function(model, val, key, Datastore, PanelManager, DomManager, theTruth) {
 
@@ -392,6 +402,8 @@ define([
         DataTypeStrategy.prototype.hoverLocationChange,
 
         DataTypeStrategy.prototype.backTo,
+
+        DataTypeStrategy.prototype.tilesloaded,
 
         DataTypeStrategy.prototype.panelTransitionDone
 

@@ -61,7 +61,7 @@ define([
 
             // Workaround to make the default text appear in searchbox.
             //$('.panel-search .search').trigger('click');
-            //EventDispatcher.trigger('truthupdate', { primarylabel: null });
+            EventDispatcher.trigger('truthupdate', { tilesloaded: true });
 
             google.maps.event.addListener(streetview, 'visible_changed', function() {
 
