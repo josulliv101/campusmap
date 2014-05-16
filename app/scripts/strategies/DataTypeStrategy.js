@@ -123,23 +123,11 @@ define([
         
         if (key !== 'panels' || !_.isString(val)) return;
 
-//// Refactor ////
-
         if (val === '') model.primarylabel = null;
-/*
-        // Add the Back To panel whenever results displayed for Parking
-        if (val === 'results' && (model.parking === true || theTruth.get('parking') === true)) val = val + ',back-to-parking';
 
-        if (val === 'results' && (model.commencement === true || theTruth.get('commencement') === true)) val = val + ',back-to';
-
-        if (val === 'results' && (model.accessibility === true || theTruth.get('accessibility') === true)) val = val + ',back-to-accessibility';
-*/
         attr[key] = PanelManager.getPanelsById( val );
 
         if (val === 'details' && _.isObject(model.details)) model.primarylabel = _.getAttr(model.details, 'name');
-
-        // When a panel change occurs, update the primary label if not explicitly set
-        //if (!model.primarylabel && attr[key][0]) model.primarylabel = attr[key][0].getTitle && attr[key][0].getTitle(model.mode);
 
         _.extend(model, attr);
 
@@ -198,10 +186,6 @@ define([
         var attr = {}, panel;
 
         if (key !== 'backto' || !_.isString(val)) return;
-
-        //attr[key] = { panels: theTruth.get('panels'), label: val };
-
-        //if (attr[key]) _.extend(model, attr);
         
         return  attr[key];
 
@@ -283,7 +267,7 @@ define([
 
         loc = _.find(locations, function(loc) { return _.getAttr(loc, 'locationid') === val; });
 
-        // only update if there's a found location
+        // Only update if there's a found location
         if (loc) _.extend(model, { 
 
             details: loc,
@@ -308,19 +292,18 @@ define([
 
         var navbar, navbarstate, nextItem;
 
-        if (key !== 'details' || _.isEmpty(val)) return;
+        if (key !== 'details') return; 
+
+        if (!theTruth) return;
+
+        if (theTruth.get && !theTruth.get('details') && val) return;
 
         // Only proceed if the location is the same - want to advance the navbar to next item
         if (theTruth.get('details') && theTruth.get('details').locationid !== val.locationid) return;
 
-        // No change in searchbox height width
-        //model.paneltransitiondone = null;
-
         navbar = theTruth.get('detailsnavbar') || Config.models.detailsnavbar;
 
         navbarstate = theTruth.get('detailsnavbarstate') || _.first(navbar).id;
-
-        //navitemCurrent = _.find( navbar , function(navitem) { return navitem.id === navbarstate; });
 
         // Set a default navbar state
         if (_.isEmpty(navbarstate)) model.detailsnavbarstate = _.first(navbar).id;
@@ -350,20 +333,14 @@ define([
                         var latlng = _.getAttr(loc, 'latlng');
 
                         if (_.isString(latlng)) {
+
                             loc.latlngObj = DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager);
-                            //_.setAttr(loc, { 
 
-                                // Pass in fake model so latlng is not automatically updated on model attr
-                                //latlng: DataTypeStrategy.prototype.stringToLatLng.call(this, {}, latlng, 'latlng', Datastore, PanelManager)
-
-                            //});
                         }
 
                      })
 
                      .value();
-
-        // Not needed _.extend(model, attr);
 
         return  val;
 
@@ -406,8 +383,6 @@ define([
         DataTypeStrategy.prototype.tilesloaded,
 
         DataTypeStrategy.prototype.panelTransitionDone
-
-        
 
     );
 

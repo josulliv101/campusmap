@@ -60,7 +60,6 @@ define([
         google.maps.event.addListenerOnce(this.map, 'tilesloaded', function() {
 
             // Workaround to make the default text appear in searchbox.
-            //$('.panel-search .search').trigger('click');
             EventDispatcher.trigger('truthupdate', { tilesloaded: true });
 
             google.maps.event.addListener(streetview, 'visible_changed', function() {
@@ -97,7 +96,7 @@ define([
         google.maps.event.addListener(this.map, 'dragend', function (ev) { 
 
             // Add mousemove listener back
-            google.maps.event.addListener(this, 'mousemove', function (ev) { // _.throttle()
+            google.maps.event.addListener(this, 'mousemove', function (ev) { 
 
                 var loc = view.underLatLng_(ev.latLng, this.getZoom());
 
@@ -108,7 +107,7 @@ define([
         });
 
         // Name the cb function for debug
-        google.maps.event.addListener(this.map, 'click', function mapClickHandler(ev) { // _.throttle()
+        google.maps.event.addListener(this.map, 'click', function mapClickHandler(ev) {
           
             var loc = view.underLatLng_(ev.latLng, this.getZoom()),
 
@@ -116,16 +115,13 @@ define([
 
             ev.stop();
 
-            if (_.isObject(loc)) EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, detailsnavbar: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
+            if (_.isObject(loc)) EventDispatcher.trigger('truthupdate', { details: loc, panels: panels, query: null, backto: null, primarylabel: _.isObject(loc) ? _.getAttr(loc, 'name'): null });
 
             else {
 
                 EventDispatcher.trigger('truthupdate', { detailsnavbar: null, details: '', panels: '', query: null, backto: null, primarylabel: null, searchboxdisable: false });
 
             }
-            // Comment for now. Causes flicker in IE
-            // Remove focus from searchbox so default text is displayed
-            //DomManager.unfocusAll();
 
         });
 
@@ -147,11 +143,6 @@ define([
         mouse = MapUtils.latLngToTileOffset_({ lat: latlng.lat(), lng: latlng.lng() }, zoom),
 
         mouseoffset = mouse.offset;
-
-        // The tile the mouse is currently over. When this changes, the <Array>locationscloseby Truth attr is updated.
-        //EventDispatcher.trigger('truthupdate', { maptilehover: _.omit(mouse, 'offset') });
-
-
 
         // Only target locations within 1 tile length in any direction
         location =   _.chain( MapUtils.getCloseByLocationsFromTileCache(mouse.tile, mouse.zoom) )
@@ -251,7 +242,9 @@ define([
 
         if (!latlng || !this.map.getBounds()) return;
 
-        var bounds = this.map.getBounds(), z = this.map.getZoom(),
+        //// Refactor ////
+
+        var ll1, ll2, y, bounds = this.map.getBounds(), z = this.map.getZoom(),
 
             center = this.map.getCenter(),
 
@@ -268,10 +261,10 @@ define([
             searchboxBounds = new google.maps.LatLngBounds(swAdjusted, neAdjusted),
 
             isCollision = searchboxBounds.contains(new google.maps.LatLng(latlng.lat, latlng.lng));
-// clean up here
-var ll1 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(swAdjusted), zoom);
-var ll2 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latlng.lat, latlng.lng)), zoom);
-var y = ll1.y - ll2.y;
+            // clean up here
+            ll1 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(swAdjusted), zoom);
+            ll2 =  MapUtils.worldPointToPixelCoordinate(this.map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latlng.lat, latlng.lng)), zoom);
+            y = ll1.y - ll2.y;
 
             if (isCollision === true) {
 
@@ -281,18 +274,6 @@ var y = ll1.y - ll2.y;
 
                 }, 400);
             }
-/*
-  var rectangle = new google.maps.Rectangle({
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35,
-    map: this.map,
-    bounds: searchboxBounds
-  });*/
- 
-        //debugger;
 
     };
 
@@ -340,24 +321,6 @@ var y = ll1.y - ll2.y;
 
         // Re-renders Labels Tile Overlay
         this.map.overlayMapTypes.insertAt(0, this.labelLayer);
-
-        //this.refreshLabelCss(locations);
-        // to be deleted - development only
-      /*  
-        _.each(this.labelLayer.locations, function(loc) { 
-
-          var marker = new google.maps.Marker({
-
-              position: _.getAttr(loc, 'latlng'),
-
-              map: this.map,
-
-              title: _.getAttr(loc, 'name')
-
-          });
-
-        }, this);
-        */
 
     };
 
